@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: concept-accounts-gcp.html 
+keywords: cloud provider accounts, gcp, gcp accounts, google cloud platform, google accounts, google cloud platform accounts, permissions, tiering, data tiering, account for data tiering, account for tiering, project, projects, add project, select new project, gcp project, google project, google cloud project 
+summary: サービスアカウントを使用すると、 Cloud Manager に対し、 Connector と同じプロジェクトまたは異なるプロジェクトにある Cloud Volumes ONTAP システムを導入および管理する権限が付与されます。 
+---
+= Google Cloud のプロジェクト、権限、アカウント
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+サービスアカウントを使用すると、 Cloud Manager に対し、 Connector と同じプロジェクトまたは異なるプロジェクトにある Cloud Volumes ONTAP システムを導入および管理する権限が付与されます。
+
+
+
+== Cloud Manager のプロジェクトと権限
+
+Google Cloud に Cloud Volumes ONTAP を導入する前に、まず Google Cloud プロジェクトに Connector を導入する必要があります。Connector は、オンプレミスでも別のクラウドプロバイダでも実行できません。
+
+Cloud Manager からコネクタを直接導入するには、次の 2 組の権限が必要です。
+
+. Cloud Manager から Connector VM インスタンスを起動する権限がある Google アカウントを使用して Connector を導入する必要があります。
+. コネクタを配置するときに、を選択するよう求められます https://cloud.google.com/iam/docs/service-accounts["サービスアカウント"^] VM インスタンスの場合です。Cloud Manager は、サービスアカウントから権限を取得して、 Cloud Volumes ONTAP システムを代わりに作成および管理します。権限は、サービスアカウントにカスタムロールを割り当てることによって提供されます。
+
+
+ユーザとサービスアカウントに必要な権限を含む YAML ファイルを 2 つ設定しました。 link:task-creating-connectors-gcp.html["YAML ファイルを使用して設定する方法を学習します 権限"]。
+
+次の図は、上記の番号 1 と 2 で説明した権限の要件を示しています。
+
+image:diagram_permissions_gcp.png["説明"]
+
+
+
+== Project for Cloud Volumes ONTAP の略
+
+Cloud Volumes ONTAP は、コネクタと同じプロジェクトに存在することも、別のプロジェクトに存在することもできます。Cloud Volumes ONTAP を別のプロジェクトに配置するには、まずコネクタサービスアカウントとその役割をそのプロジェクトに追加する必要があります。
+
+* link:task-creating-connectors-gcp.html#setting-up-gcp-permissions-to-create-a-connector["サービスアカウントの設定方法について説明します"]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["GCP とで Cloud Volumes ONTAP を導入する方法について説明します プロジェクトを選択します"^]
+

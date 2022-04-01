@@ -1,0 +1,237 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: 'what"s new, features, new, release notes, enhancements, fixes' 
+summary: Cloud Manager の管理機能に関する新機能について、ネットアップのアカウント、コネクタ、クラウドプロバイダのクレデンシャルなどを確認できます。 
+---
+= 新機能
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager の管理機能の新機能であるネットアップのアカウント、コネクタ、クラウドプロバイダのクレデンシャルなどについて説明します。
+
+
+
+== 2022 年 2 月 27 日
+
+
+
+=== Google Cloud の Connector 強化
+
+Google Cloud で新しいコネクタを作成すると、 Cloud Manager に既存のすべてのファイアウォールポリシーが表示されるようになります。以前は、 Cloud Manager にはターゲットタグがないポリシーは表示されませんでした。
+
+
+
+== 2022 年 1 月 30 日
+
+
+
+=== ネットアップサポートサイトのアカウントに関する注意事項
+
+現在、ネットアップでは、サポートとライセンスに固有の認証サービスを提供するアイデンティティプロバイダとして、 Microsoft Azure Active Directory を使用しています。この更新の結果、 Cloud Manager は、以前に追加した既存のアカウントのネットアップサポートサイト（ NSS ）のクレデンシャルの更新を求めます。
+
+NSS アカウントを IDaaS に移行していない場合は、まずアカウントを移行してから、 Cloud Manager でクレデンシャルを更新する必要があります。
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/FAQs_for_NetApp_adoption_of_MS_Azure_AD_B2C_for_login["ネットアップによるアイデンティティ管理での Microsoft Azure AD の使用方法の詳細については、こちらをご覧ください"^]
+* link:task-adding-nss-accounts.html#update-an-nss-account-for-the-new-authentication-method["NSS アカウントを新しい認証方法に更新する方法について説明します"]
+
+
+
+
+== 2022 年 1 月 2 日
+
+
+
+=== コネクタのエンドポイントが減少しました
+
+パブリッククラウド環境内でリソースやプロセスを管理するためにコネクタが接続する必要があるエンドポイントの数を削減しました。
+
+link:reference-networking-cloud-manager.html#outbound-internet-access["必要なエンドポイントのリストを表示します"]。
+
+
+
+=== コネクタの EBS ディスク暗号化
+
+Cloud Manager から AWS に新しいコネクタを導入する際に、デフォルトのマスターキーまたは管理対象キーを使用してコネクタの EBS ディスクを暗号化できるようになりました。
+
+image:screenshot-connector-disk-encryption.png["AWS でコネクタを作成する際のディスク暗号化オプションを示すスクリーンショット。"]
+
+
+
+=== NSS アカウントの E メールアドレス
+
+Cloud Manager に、ネットアップサポートサイトのアカウントに関連付けられている E メールアドレスが表示されるようになりました。
+
+image:screenshot-nss-display-email.png["ネットアップサポートサイトのアカウントの操作メニューを示すスクリーンショット。 E メールアドレスを表示できます。"]
+
+
+
+== 2021 年 11 月 28 日
+
+
+
+=== ネットアップサポートサイトのアカウントを更新する必要があります
+
+2021 年 12 月以降、ネットアップは、サポートとライセンスに固有の認証サービスのアイデンティティプロバイダとして Microsoft Azure Active Directory を使用するようになりました。この更新によって、 Cloud Manager は、以前に追加した既存のネットアップサポートサイトのアカウントのクレデンシャルの更新を求めます。
+
+* link:task-adding-nss-accounts.html#update-an-nss-account-for-the-new-authentication-method["NSS アカウントを新しい認証方法に更新する方法について説明します"]。
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/FAQs_for_NetApp_adoption_of_MS_Azure_AD_B2C_for_login["ネットアップによるアイデンティティ管理での Microsoft Azure AD の使用方法の詳細については、こちらをご覧ください"^]
+
+
+
+
+=== Cloud Volumes ONTAP の NSS アカウントを変更します
+
+組織内に複数のネットアップサポートサイトのアカウントがある場合、 Cloud Volumes ONTAP システムに関連付けられているアカウントを変更できるようになりました。
+
+link:task-adding-nss-accounts.html#attach-a-working-environment-to-a-different-nss-account["作業環境を別の NSS アカウントに接続する方法について説明します"]。
+
+
+
+== 2021 年 11 月 4 日
+
+
+
+=== SOC 2 Type 2 認定
+
+独立機関の公認会計士であり、サービス監査役は、 Cloud Manager 、 Cloud Sync 、 Cloud Tiering 、 Cloud Data Sense 、 Cloud Backup （ Cloud Manager プラットフォーム）を調査し、該当する信頼サービス基準に基づいて SOC 2 Type 2 のレポートを達成したことを確認しました。
+
+https://www.netapp.com/company/trust-center/compliance/soc-2/["ネットアップの SOC 2 レポートをご覧ください"^]。
+
+
+
+=== コネクタはプロキシとしてサポートされなくなりました
+
+AutoSupport から Cloud Volumes ONTAP メッセージを送信するためのプロキシサーバとして Cloud Manager Connector を使用することはできなくなりました。この機能は削除され、サポートも終了しています。AutoSupport 接続は、 NAT インスタンスまたは環境のプロキシサービスを介して提供する必要があります。
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-verify-autosupport.html["Cloud Volumes ONTAP による AutoSupport の検証の詳細については、こちらをご覧ください"^]
+
+
+
+== 2021 年 10 月 31 日
+
+
+
+=== サービスプリンシパルを使用した認証
+
+Microsoft Azure で新しいコネクタを作成する際、 Azure アカウントのクレデンシャルではなく Azure サービスプリンシパルで認証できるようになりました。
+
+link:task-creating-connectors-azure.html#create-a-connector-using-a-service-principal["Azure サービスプリンシパルでの認証方法について説明します"]。
+
+
+
+=== クレデンシャルの機能拡張
+
+クレデンシャルページのデザインを見直し、使いやすく、 Cloud Manager のインターフェイスの外観に合わせて刷新しました。
+
+
+
+== 2021 年 9 月 2 日
+
+
+
+=== 新しい通知サービスが追加されました
+
+通知サービスが導入され、現在のログインセッションで開始した Cloud Manager の処理のステータスを表示できるようになりました。処理が成功したかどうか、または失敗したかどうかを確認できます。 link:task-monitor-cm-operations.html["アカウントの操作を監視する方法については、を参照してください"]。
+
+
+
+== 2021 年 8 月 1 日
+
+
+
+=== RHEL 7.9 はコネクタでサポートされます
+
+Red Hat Enterprise Linux 7.9 を実行しているホストでは、コネクタがサポートされるようになりました。
+
+link:task-installing-linux.html["コネクタのシステム要件を確認します"]。
+
+
+
+== 2021 年 7 月 7 日
+
+
+
+=== コネクタの追加ウィザードの機能拡張
+
+新しいオプションを追加して使いやすくするために、 * コネクターの追加 * ウィザードを再設計しました。タグの追加、ロール（ AWS または Azure ）の指定、プロキシサーバのルート証明書のアップロード、 Terraform Automation のコードの表示、進捗状況の詳細の表示などが可能になりました。
+
+* link:task-creating-connectors-aws.html["AWS でコネクタを作成します"]
+* link:task-creating-connectors-azure.html["Azure でコネクタを作成します"]
+* link:task-creating-connectors-gcp.html["GCP でコネクターを作成します"]
+
+
+
+
+=== NSS アカウントの管理をサポートダッシュボードから行うこともできます
+
+ネットアップサポートサイト（ NSS ）アカウントは、設定メニューではなくサポートダッシュボードで管理できるようになりました。この変更により、すべてのサポート関連情報を 1 箇所から簡単に検索して管理できるようになります。
+
+link:task-adding-nss-accounts.html["NSS アカウントを管理する方法について説明します"]。
+
+image:screenshot_nss_management.png["NSS アカウントを追加できる Support Dashboard の NSS Management タブのスクリーンショット。"]
+
+
+
+== 2021 年 5 月 5 日
+
+
+
+=== タイムラインのアカウント
+
+Cloud Manager のタイムラインに、アカウント管理に関連する操作とイベントが表示されるようになりました。アクションには、ユーザーの関連付け、ワークスペースの作成、コネクタの作成などがあります。タイムラインのチェックは、特定のアクションを実行したユーザーを特定する必要がある場合や、アクションのステータスを特定する必要がある場合に役立ちます。
+
+link:task-managing-netapp-accounts.html["タイムラインをテナンシーサービスにフィルタリングする方法について説明します"]。
+
+
+
+== 2021 年 4 月 11 日
+
+
+
+=== Cloud Manager に直接 API で呼び出します
+
+プロキシサーバを設定している場合、プロキシを経由せずに Cloud Manager に API 呼び出しを直接送信するオプションを有効にできるようになりました。このオプションは、 AWS または Google Cloud で実行されているコネクタでサポートされます。
+
+link:task-configuring-proxy.html["この設定の詳細については、こちらをご覧ください"]。
+
+
+
+=== サービスアカウントユーザ
+
+サービスアカウントユーザを作成できるようになりました。
+
+サービスアカウントは「ユーザ」の役割を果たし、 Cloud Manager に対して自動化のための許可された API 呼び出しを実行できます。これにより、自動化スクリプトを作成する必要がなくなります。自動化スクリプトは、会社を離れることができる実際のユーザアカウントに基づいて作成する必要がなくなります。フェデレーションを使用している場合は、クラウドから更新トークンを生成することなくトークンを作成できます。
+
+link:task-managing-netapp-accounts.html#creating-and-managing-service-accounts["サービスアカウントの使用方法の詳細については、こちらをご覧ください"]。
+
+
+
+=== プライベートプレビュー
+
+アカウントのプライベートプレビューで、新しい NetApp クラウドサービスが Cloud Manager のプレビューとして利用できるようになりました。
+
+link:task-managing-netapp-accounts.html#allowing-private-previews["このオプションの詳細については、こちらをご覧ください"]。
+
+
+
+=== サードパーティのサービス
+
+また、アカウント内のサードパーティサービスが Cloud Manager で使用可能なサードパーティサービスにアクセスできるようにすることもできます。
+
+link:task-managing-netapp-accounts.html#allowing-third-party-services["このオプションの詳細については、こちらをご覧ください"]。
+
+
+
+== 2021 年 2 月 9 日
+
+
+
+=== サポートダッシュボードの強化
+
+サポートダッシュボードが更新され、ネットアップサポートサイトのクレデンシャルを追加できるようになりました。このクレデンシャルをサポートに登録してください。ネットアップサポートケースは、ダッシュボードから直接開始することもできます。[ ヘルプ ] アイコンをクリックして、 [*Support*] をクリックします。

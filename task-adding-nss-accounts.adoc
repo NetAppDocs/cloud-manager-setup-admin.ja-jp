@@ -1,0 +1,186 @@
+---
+sidebar: sidebar 
+permalink: task-adding-nss-accounts.html 
+keywords: adding, creating, netapp support site account, nss, update account, update nss account, update nss credentials, delete nss account, remove nss account, change working environment, working environment nss 
+summary: ネットアップサポートサイト（ NSS ）アカウントのクレデンシャルを入力して、 Cloud Volumes ONTAP の主要なワークフローを有効にし、 Active IQ による予測分析とプロアクティブなサポートを有効にします。 
+---
+= Cloud Manager でネットアップサポートサイトのアカウントを追加および管理します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ネットアップサポートサイト（ NSS ）アカウントのクレデンシャルを入力して、 Cloud Volumes ONTAP の主要なワークフローを有効にし、 Active IQ による予測分析とプロアクティブなサポートを有効にします。
+
+
+
+== 概要
+
+次のタスクを実行するには、 Cloud Manager にネットアップサポートサイトのアカウントを追加する必要があります。
+
+* お客様所有のライセンスを使用（ BYOL ）した場合に Cloud Volumes ONTAP を導入するには
++
+Cloud Manager でライセンスキーをアップロードし、購入した期間のサブスクリプションを有効にするには、 NSS アカウントを指定する必要があります。これには、期間の更新の自動更新も含まれます。
+
+* 従量課金制の Cloud Volumes ONTAP システムを登録できます
++
+お使いのシステムのサポートを有効にし、ネットアップのテクニカルサポートリソースにアクセスするには、 NSS アカウントを用意する必要があります。
+
+* をクリックして、 Cloud Volumes ONTAP ソフトウェアを最新リリースにアップグレードします
+* から Active IQ デジタルアドバイザを使用します
+
+
+
+
+== NSS アカウントを追加します
+
+サポートダッシュボードを使用すると、すべてのネットアップサポートサイトのアカウントを 1 箇所から追加および管理できます。
+
+.手順
+. ネットアップサポートサイトのアカウントがない場合は、 https://register.netapp.com/register/start["1 名で登録します"^]。
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
++
+image:screenshot-help-support.png["[ ヘルプ ] メニューのスクリーンショット。サポートは最初に表示されるオプションです"]
+
+. [*NSS Management] > [Add NSS Account*] をクリックします。
+. メッセージが表示されたら、 [* Continue （続行） ] をクリックして Microsoft ログインページにリダイレクトします。
++
+ネットアップは、サポートとライセンスに固有の認証サービスのアイデンティティプロバイダとして Microsoft Azure Active Directory を使用しています。
+
+. ログインページで、ネットアップサポートサイトの登録 E メールアドレスとパスワードを入力して認証プロセスを実行します。
++
+Cloud Manager で NSS アカウントを使用することができます。
+
++
+アカウントに関する次の要件に注意してください。
+
++
+** お客様レベルのアカウントである必要があります（ゲストや一時アカウントは使用できません）。
+** ノードベースの BYOL システムを導入する場合は、次の点に注意してください。
++
+*** BYOL システムのシリアル番号にアクセスする権限がアカウントに必要です。
+*** セキュアな BYOL サブスクリプションを購入した場合は、セキュアな NSS アカウントが必要です。
+
+
+
+
+
+
+新しい Cloud Volumes ONTAP システムの作成時、既存の Cloud Volumes ONTAP システムの登録時、および Active IQ でデータを表示するときに、アカウントを選択できるようになりました。
+
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html["AWS での Cloud Volumes ONTAP の起動"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["GCP での Cloud Volumes ONTAP の起動"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-registering.html["従量課金制システムの登録"^]
+
+
+
+
+== NSS アカウントを更新して新しい認証方法を適用します
+
+2021 年 11 月以降、ネットアップはサポートとライセンスに固有の認証サービスのアイデンティティプロバイダとして Microsoft Azure Active Directory を使用します。この更新によって、 Cloud Manager は、以前に追加した既存のアカウントのクレデンシャルの更新を求めます。
+
+.手順
+. まだ行っていない場合は、 https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/FAQs_for_NetApp_adoption_of_MS_Azure_AD_B2C_for_login["現在のネットアップアカウントにリンクする Microsoft Azure Active Directory B2C アカウントを作成します"^]。
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
+. [*NSS 管理 *] をクリックします。
+. アップデートする NSS アカウントの場合は、 * アカウントの更新 * をクリックします。
++
+image:screenshot-nss-update-account.png["［ アカウントの更新 ］ オプションを示すスクリーンショット"]
+
+. メッセージが表示されたら、 [* Continue （続行） ] をクリックして Microsoft ログインページにリダイレクトします。
++
+ネットアップは、サポートとライセンスに固有の認証サービスのアイデンティティプロバイダとして Microsoft Azure Active Directory を使用しています。
+
+. ログインページで、ネットアップサポートサイトの登録 E メールアドレスとパスワードを入力して認証プロセスを実行します。
++
+処理が完了したら、更新したアカウントが表に _new_account として表示されるようになります。古いバージョンのアカウントは ' 既存の作業環境の関連付けとともにテーブルに表示されます
+
+. 既存の Cloud Volumes ONTAP 作業環境が古いバージョンのアカウントに接続されている場合は、次の手順に従ってください <<Attach a working environment to a different NSS account,それらの作業環境を別の NSS アカウントに接続します>>。
+. 古いバージョンの NSS アカウントに移動し、をクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] 次に、 * Delete * を選択します。
+
+
+
+
+== NSS クレデンシャルを更新します
+
+NSS アカウントのクレデンシャルを変更するたびに、 Cloud Manager で更新する必要があります。
+
+.手順
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
+. [*NSS 管理 *] をクリックします。
+. アップデートする NSS アカウントのをクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] 次に、 [ 資格情報の更新 ] を選択します。
++
+image:screenshot-nss-update-credentials.png["ネットアップサポートサイトのアカウントの操作メニューを示すスクリーンショット。削除オプションを選択できます。"]
+
+. メッセージが表示されたら、 [* Continue （続行） ] をクリックして Microsoft ログインページにリダイレクトします。
++
+ネットアップは、サポートとライセンスに固有の認証サービスのアイデンティティプロバイダとして Microsoft Azure Active Directory を使用しています。
+
+. ログインページで、ネットアップサポートサイトの登録 E メールアドレスとパスワードを入力して認証プロセスを実行します。
+
+
+
+
+== 作業環境を別の NSS アカウントに接続します
+
+組織に複数のネットアップサポートサイトのアカウントがある場合、 Cloud Volumes ONTAP システムに関連付けられているアカウントを変更することができます。
+
+この機能は、ネットアップがアイデンティティ管理に導入した Microsoft Azure AD を使用するように設定された NSS アカウントでのみサポートされます。この機能を使用する前に、「 * NSS アカウントを追加 * 」または「 * アカウントを更新 * 」をクリックする必要があります。
+
+.手順
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
+. [*NSS 管理 *] をクリックします。
+. NSS アカウントを変更するには、次の手順を実行します。
++
+.. 作業環境が現在関連付けられているネットアップサポートサイトのアカウントの行を展開します。
+.. 関連付けを変更する作業環境で、をクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"]
+.. 別の NSS アカウントに変更 * を選択します。
++
+image:screenshot-nss-change-account.png["ネットアップサポートサイトのアカウントに関連付けられている作業環境の操作メニューを示すスクリーンショット。"]
+
+.. アカウントを選択し、 * 保存 * をクリックします。
+
+
+
+
+
+
+== NSS アカウントの E メールアドレスを表示します
+
+ネットアップサポートサイトのアカウントで認証サービスに Microsoft Azure Active Directory が使用されているため、 Cloud Manager に表示される NSS ユーザ名は通常、 Azure AD で生成された識別子です。そのため、そのアカウントに関連付けられている E メールアドレスがすぐにわからない場合があります。Cloud Manager には、関連付けられている E メールアドレスを表示するオプションがあります。
+
+
+TIP: NSS の管理ページに移動すると、 Cloud Manager のテーブル内のアカウントごとにトークンが生成されます。このトークンには、関連付けられた E メールアドレスに関する情報が含まれます。その後、ページから移動するとトークンが削除されます。この情報はキャッシュされないため、プライバシーを保護できます。
+
+.手順
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
+. [*NSS 管理 *] をクリックします。
+. アップデートする NSS アカウントのをクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] 次に、 [ 電子メールアドレスの表示 *] を選択します。
++
+image:screenshot-nss-display-email.png["ネットアップサポートサイトのアカウントの操作メニューを示すスクリーンショット。 E メールアドレスを表示できます。"]
+
+
+
+Cloud Manager に、ネットアップサポートサイトのユーザ名と関連付けられている E メールアドレスが表示されます。コピーボタンを使用して、電子メールアドレスをコピーできます。
+
+
+
+== NSS アカウントを削除します
+
+Cloud Manager で使用しない NSS アカウントを削除します。
+
+Cloud Volumes ONTAP 作業環境に現在関連付けられているアカウントは削除できません。最初にが必要です <<Attach a working environment to a different NSS account,それらの作業環境を別の NSS アカウントに接続します>>。
+
+.手順
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
+. [*NSS 管理 *] をクリックします。
+. 削除する NSS アカウントのをクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] 次に、 * Delete * を選択します。
++
+image:screenshot-nss-delete.png["ネットアップサポートサイトのアカウントの操作メニューを示すスクリーンショット。削除オプションを選択できます。"]
+
+. 削除を確定するには、 * 削除 * をクリックします。
+

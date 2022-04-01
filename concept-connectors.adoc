@@ -1,0 +1,228 @@
+---
+sidebar: sidebar 
+permalink: concept-connectors.html 
+keywords: 'concept, connectors, learn about connectors, service connectors, what are connectors, what is a connector, what"s a connector, days, 14 days' 
+summary: ほとんどの場合、クラウドまたはオンプレミスネットワークにコネクタを導入する必要があります。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。 
+---
+= コネクタについて説明します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ほとんどの場合、アカウント管理者は _ コネクタ _ をクラウドまたはオンプレミスネットワークに導入する必要があります。Connector は、 Cloud Manager を日常的に使用するための重要なコンポーネントです。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。
+
+
+
+== コネクタが必要な場合
+
+Cloud Manager の多くの機能やサービスを使用するには、コネクタが必要です。
+
+
+
+=== サービス
+
+* ONTAP 管理機能用の Amazon FSX
+* Amazon S3 バケットの検出
+* クラウドバックアップ
+* クラウドデータの意味
+* クラウド階層化
+* Cloud Volumes ONTAP
+* グローバルファイルキャッシュ
+* Kubernetes クラスタ
+* 監視
+* オンプレミスの ONTAP クラスタ
+
+
+次のサービスには、コネクタが * _ ではありません _ * 。
+
+* Active IQ デジタルアドバイザ
+* 作業環境の作成にはコネクタは必要ありませんが、 ONTAP FSX for ONTAP を作成して管理し、データをレプリケートし、データセンスや Cloud Sync などの クラウド サービス と FSX for を統合する必要があります。
+* Azure NetApp Files の特長
++
+Azure NetApp Files のセットアップと管理にコネクタは必要ありませんが、 Azure NetApp Files データのスキャンにクラウドデータセンスを使用する場合はコネクタが必要です。
+
+* Cloud Volumes Service for Google Cloud
+* Cloud Sync
+
+
+
+
+=== デジタルウォレット
+
+ほとんどの場合、コネクタなしでデジタルウォレットにライセンスを追加できます。
+
+デジタルウォレットにライセンスを追加するためにコネクタが必要なのは、 Cloud Volumes ONTAP ノードベースのライセンスのみです。この場合、 Cloud Volumes ONTAP システムにインストールされているライセンスのデータを使用するため、コネクタが必要です。
+
+
+
+== サポートされている場所
+
+コネクタは次の場所でサポートされています。
+
+* Amazon Web Services の
+* Microsoft Azure
+* Google Cloud
+* オンプレミス
+* インターネットに接続できない、オンプレミス
+
+
+
+
+=== Azure の導入についての注意
+
+Azure でコネクタを導入する場合は、コネクタを管理する Cloud Volumes ONTAP システムと同じ Azure リージョンまたはに導入する必要があります https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure リージョンペア"^] Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html["Cloud Volumes ONTAP での Azure プライベートリンクの使用方法をご確認ください"^]。
+
+
+
+=== Google Cloud の導入についての注意
+
+Google Cloud で Cloud Volumes ONTAP システムを作成する場合は、 Google Cloud でも実行されているコネクタが必要です。AWS 、 Azure 、オンプレミスで実行されているコネクタは使用できません。
+
+
+
+== 共有 Linux ホストはサポートされません
+
+コネクタは、他のアプリケーションと共有されている VM ではサポートされません。VM は、コネクタソフトウェア専用にする必要があります。
+
+
+
+== サードパーティのエージェントと内線番号
+
+Connector VM では、サードパーティのエージェントや VM 拡張機能はサポートされません。
+
+
+
+== コネクタは動作したままにしてください
+
+コネクタは常時稼働している必要があります。有効にするサービスの継続的な健常性と運用性にとって重要です。
+
+たとえば、 Cloud Volumes ONTAP PAYGO システムの正常性と運用においては、コネクタが重要な要素です。コネクタの電源がオフの場合、 Cloud Volumes ONTAP PAYGO システムは、コネクタとの通信を 14 日以上失った後にシャットダウンします。
+
+
+
+== コネクタを作成する方法
+
+Workspace 管理者が Cloud Volumes ONTAP 作業環境を作成し、上記の他の機能を使用するには、アカウント管理者がコネクタを作成する必要があります。
+
+アカウント管理者は、さまざまな方法でコネクタを作成できます。
+
+* Cloud Manager から直接（推奨）
++
+** link:task-creating-connectors-aws.html["AWS でを作成します"]
+** link:task-creating-connectors-azure.html["Azure で作成します"]
+** link:task-creating-connectors-gcp.html["GCP で作成します"]
+
+
+* ソフトウェアを手動で独自の Linux ホストにインストールする
++
+** link:task-installing-linux.html["インターネットにアクセスできるホスト"]
+** link:task-install-connector-onprem-no-internet.html["インターネットにアクセスできないオンプレミスのホスト"]
+
+
+* クラウドプロバイダのマーケットプレイスから
++
+** link:task-launching-aws-mktp.html["AWS Marketplace"]
+** link:task-launching-azure-mktp.html["Azure Marketplace で入手できます"]
+
+
+
+
+操作を完了するためにコネクタが必要な場合は、 Cloud Manager からコネクタの作成を求められます。
+
+
+
+== 権限
+
+コネクタを作成するには特定の権限が必要であり、コネクタインスタンス自体に別の権限セットが必要です。
+
+
+
+=== コネクタを作成する権限
+
+Cloud Manager からコネクタを作成するユーザには、任意のクラウドプロバイダにインスタンスを導入するための特定の権限が必要です。Connector を作成するときは、 Cloud Manager に権限の要件が通知されます。
+
+https://mysupport.netapp.com/site/info/cloud-manager-policies["各クラウドプロバイダのポリシーを表示します"^]。
+
+
+
+=== コネクタインスタンスの権限
+
+Connector で処理を実行するには、特定のクラウドプロバイダの権限が必要です。たとえば、 Cloud Volumes ONTAP を導入して管理するには、のように指定します。
+
+Cloud Manager から直接コネクタを作成すると、必要な権限を持つコネクタが Cloud Manager によって作成されます。必要なことは何もありません。
+
+コネクタを AWS Marketplace 、 Azure Marketplace 、またはソフトウェアを手動でインストールして作成する場合は、適切な権限が設定されていることを確認する必要があります。
+
+https://mysupport.netapp.com/site/info/cloud-manager-policies["各クラウドプロバイダのポリシーを表示します"^]
+
+
+
+== コネクタごとの作業環境数
+
+1 つのコネクタで複数の作業環境を Cloud Manager で管理できます。1 つのコネクタで管理できる作業環境の最大数は、環境によって異なります。管理対象は、作業環境の種類、ボリュームの数、管理対象の容量、ユーザの数によって異なります。
+
+大規模な導入の場合は、ネットアップの担当者にご相談のうえ、環境のサイジングを行ってください。途中で問題が発生した場合は、製品内のチャットでお問い合わせください。
+
+
+
+== 複数のコネクタを使用する場合
+
+コネクタが 1 つしか必要ない場合もありますが、 2 つ以上のコネクタが必要な場合もあります。
+
+次にいくつかの例を示します。
+
+* マルチクラウド環境（ AWS と Azure ）を使用しているため、 AWS と Azure のコネクタが 1 つずつ必要です。各で、それらの環境で実行される Cloud Volumes ONTAP システムを管理します。
+* サービスプロバイダは、 1 つのネットアップアカウントを使用してお客様にサービスを提供しながら、別のアカウントを使用してお客様のビジネスユニット 1 つにディザスタリカバリを提供することができます。アカウントごとに個別のコネクタがあります。
+
+
+
+
+== 同じ作業環境で複数のコネクタを使用する
+
+ディザスタリカバリ目的で、複数のコネクタを備えた作業環境を同時に管理できます。一方のコネクタが停止した場合は、もう一方のコネクタに切り替えて、作業環境をただちに管理できます。
+
+この構成をセットアップするには：
+
+. link:task-managing-connectors.html["別のコネクタに切り替えます"]
+. 既存の作業環境を検出
++
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-adding-systems.html["既存の Cloud Volumes ONTAP システムを Cloud Manager に追加"^]
+** https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["ONTAP クラスタを検出"^]
+
+
+. を設定します https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-storage-management.html["Capacity Management Mode （容量管理モード）"^]
++
+メインコネクターのみ * オートマチックモード * に設定する必要があります。DR 目的で別のコネクタに切り替える場合は、必要に応じて容量管理モードを変更できます。
+
+
+
+
+
+== コネクタを切り替えるタイミング
+
+最初のコネクタを作成すると、新しく作成する作業環境ごとに、そのコネクタが Cloud Manager によって自動的に使用されます。コネクタを追加で作成したら、コネクタを切り替えることで各コネクタに固有の作業環境を確認する必要があります。
+
+link:task-managing-connectors.html["コネクタを切り替える方法について説明します"]。
+
+
+
+== ローカルユーザインターフェイス
+
+ではほぼすべてのタスクを実行する必要がありますが https://cloudmanager.netapp.com["SaaS ユーザインターフェイス"^]では、ローカルユーザーインターフェースは引き続きコネクターで使用できます。このインターフェイスは、インターネットにアクセスできない環境に Connector をインストールする場合や、 SaaS インターフェイスではなくコネクタ自体から実行する必要があるいくつかのタスクの場合に必要になります。
+
+* link:task-configuring-proxy.html["プロキシサーバを設定しています"]
+* パッチをインストールしています （通常はネットアップの担当者と協力してパッチをインストールします）
+* AutoSupport メッセージをダウンロードしています （通常は問題が発生したときにネットアップの担当者が指示）
+
+
+link:task-managing-connectors.html["ローカル UI へのアクセス方法について説明します"^]。
+
+
+
+== コネクタのアップグレード
+
+Connector は、ソフトウェアが最新バージョンである限り、自動的にソフトウェアを更新します link:reference-networking-cloud-manager.html["アウトバウンドインターネットアクセス"] をクリックしてソフトウェアアップデートを入手します。

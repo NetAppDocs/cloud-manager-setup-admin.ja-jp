@@ -1,0 +1,265 @@
+---
+sidebar: sidebar 
+permalink: task-creating-connectors-gcp.html 
+keywords: create connector in gcp, launch connector in gcp, deploy connector in gcp, gcp connector, connector gcp, connector permissions 
+summary: Cloud Manager のほとんどの機能を使用するには、 Account Admin がコネクタを導入する必要があります。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。 
+---
+= Cloud Manager から Google Cloud でコネクタを作成します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager のほとんどの機能を使用するには、 Account Admin が _ Connector を導入する必要があります。 link:concept-connectors.html["コネクタが必要になるタイミングを学習します"]。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。
+
+このページでは、 Cloud Manager から GCP でコネクタを直接作成する方法について説明します。 link:concept-connectors.html#how-to-create-a-connector["コネクタを配置するその他の方法について説明します"]。
+
+これらの手順は、 Account Admin ロールを持つユーザが実行する必要があります。ワークスペース管理者はコネクタを作成できません。
+
+
+TIP: 最初の Cloud Volumes ONTAP 作業環境を作成する際、まだコネクタがない場合は、 Cloud Manager からコネクタの作成を求められます。
+
+
+
+== 権限を設定しています
+
+Connector を展開する前に、 GCP アカウントに正しい権限があること、および Connector VM のサービスアカウントが設定されていることを確認する必要があります。
+
+.手順
+. コネクタを展開する GCP ユーザーが、で権限を持っていることを確認します https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml["GCP の Connector 展開ポリシー"^]。
++
+https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["YAML ファイルを使用してカスタムロールを作成できます"^] ユーザーに添付します。gcloud コマンドラインを使用して、ロールを作成する必要があります。
+
+. プロジェクトで Cloud Volumes ONTAP システムを作成および管理するために Cloud Manager に必要な権限を持つサービスアカウントをセットアップします。
++
+このサービスアカウントは、作成時に Connector VM に関連付けます。
+
++
+.. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["GCP で役割を作成します"^] で定義した権限を含むポリシーを作成します https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml["GCP 向け Cloud Manager ポリシー"^]。ここでも gcloud コマンドラインを使用する必要があります。
++
+この YAML ファイルに含まれる権限は、手順 1 の権限とは異なります。
+
+.. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["GCP サービスアカウントを作成し、カスタムロールを適用します を作成しました"^]。
+.. Cloud Volumes ONTAP を他のプロジェクトに導入する場合は、 https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割"^]。プロジェクトごとにこの手順を繰り返す必要があります。
+
+
+
+
+これで、 GCP ユーザーはコネクタの作成に必要な権限を持ち、 Connector VM のサービスアカウントが設定されました。
+
+
+
+=== 共有 VPC の権限
+
+共有 VPC を使用してリソースをサービスプロジェクトに導入する場合は、次の権限が必要です。IAM の設定が完了したら、この表を参考にして権限の表を環境に反映させる必要があります。
+
+[cols="10,10,10,20,20,30"]
+|===
+| サービスアカウント | 作成者 | でホストされています | サービスプロジェクトの権限 | ホストプロジェクトの権限 | 目的 
+
+
+| Cloud Manager サービスアカウント | カスタム | サービスプロジェクト  a| 
+* https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml["この .yaml ファイルで見つかった権限"^]
+
+ a| 
+* compute.networkUser
+* deploymentmanager. editor
+
+| サービスプロジェクトへの Cloud Volumes ONTAP とサービスの導入と保守 
+
+
+| Cloud Volumes ONTAP サービスアカウント | カスタム | サービスプロジェクト  a| 
+* storagec.admin
+* メンバー： Cloud Manager サービスアカウント。 serviceAccount.user
+
+| 該当なし | （オプション）データ階層化と Cloud Backup に使用できます 
+
+
+| Google API サービスエージェント | GCP | サービスプロジェクト  a| 
+* （デフォルト） Editor
+
+ a| 
+* compute.networkUser
+
+| 導入に代わって GCP API とやり取りします。Cloud Manager で共有ネットワークを使用できるようにします。 
+
+
+| Google Compute Engine のデフォルトのサービスアカウント | GCP | サービスプロジェクト  a| 
+* （デフォルト） Editor
+
+ a| 
+* compute.networkUser
+
+| 導入に代わって GCP インスタンスとコンピューティングインフラを導入します。Cloud Manager で共有ネットワークを使用できるようにします。 
+|===
+注：
+
+. deploymentmanager. editor は、ファイアウォールルールを導入環境に渡しておらず、 Cloud Manager に作成を許可することを選択している場合にのみホストプロジェクトで必要です。ルールを指定しない場合、 Cloud Manager はホストプロジェクトに導入を作成し、 VPC0 ファイアウォールルールを適用します。
+. Firewall.create および firewall.delete が必要となるのは、ファイアウォールルールを導入環境に渡しず、 Cloud Manager で作成することを選択している場合だけです。これらの権限は、 Cloud Manager サービスアカウントの .yaml ファイルに格納されています。共有 VPC を使用して HA ペアを導入する場合は、これらの権限を使用して VPC1 、 2 、および 3 のファイアウォールルールが作成されます。他のすべての展開では、これらの権限は VPC0 のルールの作成にも使用されます。
+. データ階層化の場合、階層化サービスアカウントは、プロジェクトレベルだけでなく、サービスアカウントに対して serviceAccount.user ロールを持つ必要があります。現在、プロジェクトレベルで serviceAccount.user を割り当てている場合、 getIAMPolicy でサービスアカウントを照会しても権限は表示されません。
+
+
+
+
+== Google Cloud API の有効化
+
+Connector と Cloud Volumes ONTAP を導入するには、いくつかの API が必要です。
+
+.ステップ
+. https://cloud.google.com/apis/docs/getting-started#enabling_apis["プロジェクトで次の Google Cloud API を有効にします"^]。
++
+** Cloud Deployment Manager V2 API
+** クラウドロギング API
+** Cloud Resource Manager API の略
+** Compute Engine API
+** ID およびアクセス管理（ IAM ） API
+
+
+
+
+
+
+== GCP でコネクタを作成する
+
+Cloud Manager ユーザインターフェイスから直接、または gcloud を使用して、 Google Cloud でコネクタを作成する。
+
+.必要なもの
+* 。 https://mysupport.netapp.com/site/info/cloud-manager-policies["必要な権限"^] Google Cloud アカウントの場合は、このページの最初のセクションで説明します。
+* Google Cloud プロジェクト。
+* このページの最初のセクションで説明するように、 Cloud Volumes ONTAP の作成と管理に必要な権限を持つサービスアカウント。
+* Google Cloud リージョン内の VPC とサブネット。
+
+
+[role="tabbed-block"]
+====
+.クラウドマネージャ
+--
+. 最初の作業環境を作成する場合は、 * 作業環境の追加 * をクリックし、プロンプトに従います。それ以外の場合は、 [*connector*] ドロップダウンをクリックし、 [*Add connector*] を選択します。
++
+image:screenshot_connector_add.gif["ヘッダーのコネクターアイコンとコネクターの追加アクションを示すスクリーンショット。"]
+
+. クラウドプロバイダとして * Google Cloud Platform * を選択します。
++
+Connector は、作成する作業環境の種類や有効にするサービスへのネットワーク接続を確立する必要があることに注意してください。
+
++
+link:reference-networking-cloud-manager.html["Connector のネットワーク要件の詳細については、こちらをご覧ください"]。
+
+. ウィザードの手順に従って、コネクタを作成します。
++
+** * 準備をしてください * ：必要なものを確認してください。
+** プロンプトが表示されたら、 Google アカウントにログインします。このアカウントには、仮想マシンインスタンスを作成するために必要な権限が付与されている必要があります。
++
+このフォームは Google が所有およびホストしています。クレデンシャルがネットアップに提供されていません。
+
+** * 基本設定 * ：仮想マシンインスタンスの名前を入力し、タグを指定し、プロジェクトを選択してから、必要な権限を持つサービスアカウントを選択します（詳細については、上記のセクションを参照してください）。
+** * 場所 * ：インスタンスのリージョン、ゾーン、 VPC 、およびサブネットを指定します。
+** * ネットワーク * ：パブリック IP アドレスを有効にするかどうかを選択し、必要に応じてプロキシ設定を指定します。
+** * ファイアウォールポリシー * ：新しいファイアウォールポリシーを作成するか、インバウンド HTTP 、 HTTPS 、 SSH アクセスを許可する既存のファイアウォールポリシーを選択するかを選択します。
++
+
+NOTE: コネクタへの着信トラフィックは、開始しない限りありません。へのアクセスは、 HTTP および HTTPS を使用して提供されます link:concept-connectors.html#the-local-user-interface["ローカル UI"]は、まれな状況で使用します。SSH が必要になるのは、トラブルシューティングのためにホストに接続する必要がある場合のみです。
+
+** * 復習 * ：選択内容を確認して、設定が正しいことを確認してください。
+
+
+. [ 追加（ Add ） ] をクリックします。
++
+インスタンスの準備が完了するまでに約 7 分かかります。処理が完了するまで、ページには表示されたままにしておいてください。
+
+
+
+--
+.gcloud
+--
+. ご希望の方法で gcloud SDK にログインします。
++
+この例では、 gcloud SDK がインストールされたローカルシェルを使用しますが、 GCP コンソールで Google Cloud Shell を使用できます。
+
++
+Google Cloud SDK の詳細については、を参照してください link:https://cloud.google.com/sdk["Google Cloud SDK ドキュメントページ"^]。
+
+. 上のセクションで定義した必要な権限を持つユーザとしてログインしていることを確認します。
++
+[source, bash]
+----
+gcloud auth list
+----
++
+出力には次のように表示されます。ここで、 * user account はログインに使用するユーザアカウントです。
+
++
+[listing]
+----
+Credentialed Accounts
+ACTIVE  ACCOUNT
+     some_user_account@domain.com
+*    desired_user_account@domain.com
+To set the active account, run:
+ $ gcloud config set account `ACCOUNT`
+Updates are available for some Cloud SDK components. To install them,
+please run:
+$ gcloud components update
+----
+. gcloud compute instances create コマンドを実行します。
++
+[source, bash]
+----
+gcloud compute instances create <instance-name>
+  --machine-type=n1-standard-4
+  --image-project=netapp-cloudmanager
+  --image-family=cloudmanager
+  --scopes=cloud-platform
+  --project=<project>
+  --service-account=<<service-account>
+  --zone=<zone>
+  --no-address
+  --tags <network-tag>
+  --network <network-path>
+  --subnet <subnet-path>
+  --boot-disk-kms-key <kms-key-path>
+----
++
+インスタンス名:: VM インスタンスに必要なインスタンス名。
+プロジェクト:: （オプション） VM を導入するプロジェクト。
+service-account のことです:: 手順 2 の出力で指定したサービスアカウント。
+ゾーン:: VM を導入するゾーン
+no-address:: （オプション）外部 IP アドレスは使用されません（パブリックインターネットにトラフィックをルーティングするには、クラウド NAT またはプロキシが必要です）。
+ネットワークタグ:: （オプション）タグを使用してファイアウォールルールをコネクタインスタンスにリンクするには、ネットワークタグを追加します
+network-path:: （オプション）コネクタを配置するネットワークの名前を追加します（共有 VPC の場合は完全パスが必要です）。
+subnet-path 」を指定します:: （オプション）コネクタを導入するサブネットの名前を追加します（共有 VPC の場合は完全パスが必要です）。
+kms -key-path:: （オプション） KMS キーを追加してコネクタのディスクを暗号化する（ IAM 権限も適用する必要があります）
++
+--
+これらの旗についてのより多くの情報のために、訪問しなさい link:https://cloud.google.com/sdk/gcloud/reference/compute/instances/create["Google Cloud Compute SDK ドキュメント"^]。
+
+--
+
+
++
+コマンドを実行すると、ネットアップのゴールデンイメージを使用してコネクタが導入されます。コネクタインスタンスとソフトウェアは、約 5 分後に実行される必要があります。
+
+. コネクタインスタンスに接続されているホストから Web ブラウザを開き、次の URL を入力します。
++
+http://_ipaddress_:80[]
+
+. ログイン後、コネクタを設定します。
++
+.. コネクタに関連付けるネットアップアカウントを指定します。
++
+link:concept-netapp-accounts.html["ネットアップアカウントについて"]。
+
+.. システムの名前を入力します。
++
+image:screenshot_set_up_cloud_manager.gif["ネットアップアカウントを選択してシステムに名前を付けることができるコネクタのセットアップ画面のスクリーンショット。"]
+
+
+
+
+
+--
+====
+これで、 Connector のインストールとセットアップが完了しました。Cloud Manager は、新しい作業環境の作成時にこのコネクタを自動的に使用します。ただし、コネクタが複数ある場合は、が必要です link:task-managing-connectors.html["スイッチを切り替えます"]。

@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: task-signing-up.html 
+keywords: netapp cloud central, sign up, sign up to cloud central, create account, federated, federation, federated login, federation login 
+summary: NetApp Cloud Central に登録して、ネットアップのクラウドサービスにアクセスできます。 
+---
+= NetApp Cloud Central に登録する
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Cloud Central に登録して、ネットアップのクラウドサービスにアクセスできます。
+
+
+TIP: シングルサインオンを使用して、社内ディレクトリ（フェデレーション ID ）からのクレデンシャルを使用してログインできます。詳細については、を参照してください https://cloud.netapp.com/help-center["Cloud Central ヘルプセンター"^] 次に、 * Cloud Central サインインオプション * をクリックします。
+
+.手順
+. Web ブラウザを開き、に進みます https://cloud.netapp.com/["NetApp Cloud Central"^]。
+. [ サインアップ ] をクリックします。
+. フォームに入力して、「 * サインアップ * 」をクリックします。
++
+image:screenshot_cloud_central_signup.gif["Cloud Central のサインアップフォームのスクリーンショット。 E メールアドレス、パスワード、会社名、電話番号を入力します。"]
+
+. NetApp Cloud Central からの E メールを待ちます。
+. E メールのリンクをクリックして、 E メールアドレスを確認します。
+
+
+アクティブな Cloud Central ユーザログインが可能になりました。

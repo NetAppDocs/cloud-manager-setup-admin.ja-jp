@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: task-finding-system-id.html 
+keywords: system id, id, cloud manager system id, connector system id 
+summary: 作業を開始する際に、ネットアップの担当者からコネクタのシステム ID を尋ねられることがあります。この ID は通常、ライセンスの取得やトラブルシューティングの目的で使用されます。 
+---
+= コネクタのシステム ID の確認
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+作業を開始する際に、ネットアップの担当者からコネクタのシステム ID を尋ねられることがあります。この ID は通常、ライセンスの取得やトラブルシューティングの目的で使用されます。
+
+.手順
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックします。
+. [ サポート（ Support ） ] > [ コネクター（ Connector ） ] をクリック
++
+システム ID が一番上に表示されます。
+
++
+* 例 *
+
++
+image:screenshot_system_id.gif["サポートダッシュボードに表示される Cloud Manager のシステム ID を示すスクリーンショット。"]
+
+

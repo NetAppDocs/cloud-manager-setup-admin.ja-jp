@@ -1,0 +1,189 @@
+---
+sidebar: sidebar 
+permalink: reference-checklist-cm.html 
+keywords: networking overview, networking requirements, endpoints, urls, get started, getting started, deployment 
+summary: このチェックリストを使用して、 Connector からアウトバウンドのインターネットアクセスが設定されている一般的な環境で Cloud Manager を使用するために必要な作業を把握してください。 
+---
+= はじめにチェックリスト
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+このチェックリストを使用して、 Connector からアウトバウンドのインターネットアクセスが設定されている一般的な環境で Cloud Manager を使用するために必要な作業を把握してください。
+
+NetApp Cloud Central へのログイン:: にサインアップする必要があります https://cloud.netapp.com["NetApp Cloud Central"^] これで、 Cloud Manager などのクラウドサービスにアクセスできるようになります。
+Web ブラウザから複数のエンドポイントへのネットワークアクセス:: Cloud Manager のユーザインターフェイスに Web ブラウザからアクセスできます。Cloud Manager ユーザインターフェイスを使用する際に、複数のエンドポイントにアクセスしてデータ管理タスクを実行します。Web ブラウザを実行するマシンは、次のエンドポイントに接続する必要があります。
++
+--
+[cols="2*"]
+|===
+| エンドポイント | 目的 
+
+
+| \ http://cloudmanager.netapp.com | Web ブラウザは、 SaaS UI を使用するときにこの URL にアクセスします。 
+
+
+ a| 
+AWS サービス（ amazonaws.com ）：
+
+* クラウド形成
+* 認知人
+* 柔軟なコンピューティングクラウド（ EC2 ）
+* キー管理サービス（ KMS ）
+* セキュリティトークンサービス（ STS ）
+* シンプルなストレージサービス（ S3 ）
+
+| AWS の Cloud Manager からコネクタを導入する場合に必要です。正確なエンドポイントは、コネクタを配置するリージョンによって異なります。 https://docs.aws.amazon.com/general/latest/gr/rande.html["詳細については、 AWS のマニュアルを参照してください。"^] 
+
+
+| https://management.azure.com https://login.microsoftonline.com | ほとんどの Azure リージョンで Cloud Manager からコネクタを導入する場合に必要です。 
+
+
+| https://management.microSoftazure.de https://login.microsoftonline.de | Azure ドイツのリージョンで Cloud Manager から Connector を導入する場合は必須です。 
+
+
+| https://management.usgovcloudapi.net/ https://login.microsoftonline.com | Azure US Government リージョンの Cloud Manager からコネクタを導入するために必要です。 
+
+
+| \ https://www.googleapis.com | Google Cloud の Cloud Manager からコネクタを導入する場合に必要です。 
+
+
+| \ https://signin.b2c.netapp.com | ネットアップサポートサイト（ NSS ）のクレデンシャルを更新するか、 Cloud Manager に新しい NSS クレデンシャルを追加する必要があります。 
+
+
+| ¥ https://netapp-cloud-account.auth0.com ¥ https://cdn.auth0.com ¥ https://services.cloud.netapp.com | Web ブラウザはこれらのエンドポイントに接続し、 NetApp Cloud Central を介してユーザ認証を一元化します。 
+
+
+| \ https://widget.intercom.io | 製品内でのチャットにより、ネットアップのクラウドエキスパートと会話できます。 
+
+
+| コネクタの IP アドレス  a| 
+ほとんどの場合、 Cloud Manager は SaaS UI で処理しますが link:concept-connectors.html#using-multiple-connectors-with-the-same-working-environment["ローカル UI を使用する場合は"]Web ブラウザからホストの IP アドレスを入力する必要があります。
+
+クラウドプロバイダへの接続に応じて、ホストに割り当てられたプライベート IP またはパブリック IP を使用します。
+
+* プライベート IP は、 VPN があり、仮想ネットワークに直接アクセスできる場合に機能します
+* パブリック IP は、あらゆるネットワークシナリオで機能します
+
+
+いずれの場合も、セキュリティグループルールで許可された IP またはサブネットからのアクセスのみを許可することで、ネットワークアクセスを保護します。
+
+|===
+--
+コネクタのアウトバウンドネットワーク:: Cloud Manager にログインしたら、アカウント管理者がクラウドプロバイダまたはオンプレミスネットワークに _ Connector _ を導入する必要があります。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。Azure NetApp Files 、 Cloud Volumes Service 、 Cloud Sync のコネクタは必要ありませんが、 Cloud Manager のその他のすべてのサービスや機能に必要です。 link:concept-connectors.html["コネクターの詳細とその仕組みについては、こちらをご覧ください"]。
++
+--
+* コネクタを配置するネットワークの場所には、アウトバウンドのインターネット接続が必要です。
++
+Connector では、パブリッククラウド環境内のリソースとプロセスを管理するために、次のエンドポイントに接続するためにアウトバウンドインターネットアクセスが必要です。
+
++
+[cols="2*"]
+|===
+| エンドポイント | 目的 
+
+
+| \ https://support.netapp.com | ライセンス情報を取得し、ネットアップサポートに AutoSupport メッセージを送信するため。 
+
+
+| \ https://*.cloudmanager.cloud.netapp.com | Cloud Manager 内で SaaS の機能やサービスを提供できます。 
+
+
+| ¥ https://cloudmanagerinfraprod.azurecr.io ¥ https://*.blob.core.windows.net | をクリックして、 Connector と Docker コンポーネントをアップグレードします。 
+|===
+* Connector を手動でインストールする場合（ Cloud Manager インターフェイスから直接インストールしない場合）は、インストールプロセスで Connector のインストーラが次のエンドポイントにアクセスする必要があります。
++
+** https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+** https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+** ¥ https://*.blob.core.windows.net または ¥ https://hub.docker.com
++
+ホストは、インストール中にオペレーティングシステムパッケージの更新を試みる可能性があります。ホストは、これらの OS パッケージの別のミラーリングサイトにアクセスできます。
+
+
+
+* コネクタへの着信トラフィックは、開始しない限りありません。
++
+HTTP （ 80 ）と HTTPS （ 443 ）はローカル UI へのアクセスを提供しますが、これはまれに使用されます。SSH （ 22 ）は、トラブルシューティングのためにホストに接続する必要がある場合にのみ必要です。
+
+
+
+--
+クラウドプロバイダの権限:: Cloud Manager から直接クラウドプロバイダに Connector を導入するための権限を持つアカウントが必要です。
++
+--
+
+NOTE: コネクタを作成するには、別の方法があります。からコネクタを作成できます link:task-launching-aws-mktp.html["AWS Marketplace"]、 link:task-launching-azure-mktp.html["Azure Marketplace で入手できます"]または、次の操作を実行できます link:task-installing-linux.html["ソフトウェアを手動でインストールします"]。
+
+[cols="15,55,30"]
+|===
+| 場所 | 手順の概要 | 詳細な手順 
+
+
+| AWS  a| 
+. AWS で IAM ポリシーを作成するために必要な権限を含む JSON ファイルを使用します。
+. Cloud Manager からコネクタを作成する IAM ユーザにポリシーを関連付けます。
+. コネクタを作成するときに、必要な権限を持つ IAM ユーザの AWS アクセスキーとシークレットキーを Cloud Manager に渡します。
+
+| link:task-creating-connectors-aws.html["詳細な手順については、ここをクリックしてください"]。 
+
+
+| Azure  a| 
+. Azure でカスタムロールを作成するには、必要な権限が含まれた JSON ファイルを使用します。
+. Cloud Manager からコネクタを作成するユーザにロールを割り当てます。
+. Connector を作成するときは、必要な権限（ Microsoft が所有およびホストしているログインプロンプト）を持つ Microsoft アカウントでログインします。
+
+| link:task-creating-connectors-azure.html["詳細な手順については、ここをクリックしてください"]。 
+
+
+| Google Cloud  a| 
+. Google Cloud でカスタムロールを作成するために必要な権限を含む YAML ファイルを使用します。
+. Cloud Manager からコネクタを作成するユーザにそのロールを割り当てます。
+. Cloud Volumes ONTAP を使用する場合は、必要な権限を持つサービスアカウントを設定します。
+. Google Cloud API を有効にします
+. Connector を作成するときに、必要な権限を持つ Google アカウントでログインします（ログインプロンプトは Google が所有およびホストします）。
+
+| link:task-creating-connectors-gcp.html["詳細な手順については、ここをクリックしてください"]。 
+|===
+--
+個々のサービスのネットワーク:: セットアップが完了したら、 Cloud Manager から提供されるサービスを使い始めることができます。各サービスには独自のネットワーク要件があります。詳細については、次のページを参照してください。
++
+--
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-aws.html["Cloud Volumes ONTAP for AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-azure.html["Cloud Volumes ONTAP for Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-gcp.html["Cloud Volumes ONTAP for GCP の略"^]
+* https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html["ONTAP システム間のデータレプリケーション"^]
+* https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-cloud-compliance.html["Cloud Data Sense の導入"^]
++
+** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-getting-started-compliance.html["Cloud Volumes ONTAP とオンプレミス ONTAP に最適なクラウドデータ"^]
+** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-anf.html["Azure NetApp Files に最適なクラウドデータ"^]
+** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-fsx.html["Amazon FSX for ONTAP のクラウドデータセンス"^]
+** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-s3.html["Amazon S3 に最適なクラウドデータ"^]
+** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-file-shares.html["NetApp 以外の NFS または CIFS ファイル共有での Cloud Data Sense"^]
+
+
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["オンプレミスの ONTAP クラスタ"^]
+* https://docs.netapp.com/us-en/cloud-manager-tiering/concept-cloud-tiering.html["クラウド階層化"^]
++
+** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-aws.html["ONTAP クラスタから Amazon S3 へのデータ階層化"^]
+** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-azure.html["ONTAP クラスタから Azure BLOB ストレージへのデータ階層化"^]
+** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-gcp.html["ONTAP クラスタから Google Cloud Storage へのデータ階層化"^]
+** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-storagegrid.html["ONTAP クラスタから StorageGRID へのデータ階層化"^]
+** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-s3-compat.html["ONTAP クラスタから汎用の S3 オブジェクトストレージへのデータ階層化"^]
+
+
+* https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-backup-to-cloud.html["クラウドバックアップ"^]
++
+** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html["ONTAP クラスタから Amazon S3 へのデータバックアップ"^]
+** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html["ONTAP クラスタから Azure BLOB ストレージへのデータバックアップ"^]
+** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html["ONTAP クラスタから Google Cloud Storage へのデータバックアップ"^]
+** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["ONTAP クラスタから StorageGRID へのデータバックアップ"^]
+
+
+
+
+--
+

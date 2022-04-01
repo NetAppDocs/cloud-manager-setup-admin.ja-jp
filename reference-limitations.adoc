@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: reference-limitations.html 
+keywords: limitations, active directory, ad, iscsi, key managers, ip address, govcloud, cloud manager, Cloud Volumes ONTAP, days, 14 days, running, Connectors should remain running 
+summary: 既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください 
+---
+= 既知の制限
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください
+
+これらの制限事項は、 Cloud Manager のセットアップと管理に固有のもので、コネクタ、 SaaS プラットフォームなどが該当します。
+
+
+
+== コネクタの制限
+
+
+
+=== HTTP プロキシサーバのみがサポートされています
+
+社内ポリシーで、インターネットへのすべての HTTP 通信にプロキシサーバを使用する必要がある場合は、その HTTP プロキシサーバを使用するようにコネクタを設定する必要があります。プロキシサーバは、クラウドまたはネットワークに配置できます。
+
+Cloud Manager では、コネクタでの HTTPS プロキシの使用はサポートされていません。
+
+
+
+=== SSL 復号化はサポートされていません
+
+Cloud Manager では、 SSL 復号化が有効になっているファイアウォール設定はサポートされていません。SSL 復号化が有効になっている場合、 Cloud Manager にエラーメッセージが表示され、 Connector インスタンスが非アクティブと表示されます。
+
+セキュリティを強化するには、を選択します link:task-installing-https-cert.html["認証局（ CA ）が署名した HTTPS 証明書をインストールする"]。
+
+
+
+=== ローカル UI のロード時に空白ページが表示される
+
+コネクタのローカルユーザインターフェイスをロードすると、 UI が表示されない場合があり、空白のページが表示されるだけです。
+
+この問題は、キャッシュの問題に関連しています。回避策では、 incognito モードまたはプライベート Web ブラウザセッションを使用します。
+
+
+
+== SaaS の制限
+
+
+
+=== 政府機関では SaaS プラットフォームが無効になっています
+
+コネクタを AWS GovCloud リージョン、 Azure Government リージョン、または Azure DoD リージョンに導入した場合、 Cloud Manager へのアクセスはコネクタのホスト IP アドレスからのみ可能です。SaaS プラットフォームへのアクセスは、アカウント全体で無効になります。
+
+つまり、エンドユーザの内部 VPC / VNet にアクセスできる特権ユーザのみが Cloud Manager の UI または API を使用できます。
+
+また、次のサービスが Cloud Manager から利用できないことも意味します。
+
+* クラウドデータの意味
+* Kubernetes
+* クラウド階層化
+* グローバルファイルキャッシュ
+
+
+これらのサービスを使用するには、 SaaS プラットフォームが必要です。
+
+
+NOTE: Cloud Backup 、 Cloud Data Sense 、 Monitoring サービスは、政府機関でサポートされていて利用できます。
+
+
+
+== 市場の制約
+
+
+
+== 従量課金制の Azure と Google Cloud のパートナーは利用できません
+
+Microsoft Cloud 解決策 Provider （ CSP ）パートナー様または Google Cloud パートナー様は、従量課金制のサブスクリプションをご利用いただけません。ライセンスを購入し、 BYOL ライセンスを使用した NetApp クラウドソリューションを導入する必要があります。
+
+従量課金制のサブスクリプションは、次の NetApp クラウドサービスでは利用できません。
+
+* Cloud Volumes ONTAP
+* クラウド階層化
+* クラウドバックアップ
+* クラウドデータの意味
+

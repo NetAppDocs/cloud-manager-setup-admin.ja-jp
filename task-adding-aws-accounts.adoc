@@ -1,0 +1,269 @@
+---
+sidebar: sidebar 
+permalink: task-adding-aws-accounts.html 
+keywords: permissions, aws, policy, iam, iam role, role, granting, policy, iam policy, iam user, access keys, arn, cloud provider accounts, aws, cloud provider profile, json, iam, credentials, adding credentials, add credentials 
+summary: Cloud Volumes ONTAP を別々の AWS アカウントに導入する場合は、これらのアカウントに必要な権限を指定してから、 Cloud Manager に詳細を追加する必要があります。権限の指定方法は、 Cloud Manager に AWS キーを提供するか、信頼されたアカウントのロールの ARN を提供するかによって異なります。 
+---
+= Cloud Manager の AWS クレデンシャルとサブスクリプションを管理します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+AWS クレデンシャルを追加および管理して、 Cloud Manager が AWS アカウントでクラウドリソースを導入および管理するために必要な権限を付与されるようにします。複数の AWS サブスクリプションを管理する場合は、それぞれのサブスクリプションをのクレデンシャルページから別々の AWS クレデンシャルに割り当てることができます。
+
+
+
+== 概要
+
+AWS クレデンシャルは、既存のコネクタに追加するか、 Cloud Manager に直接追加できます。
+
+* AWS クレデンシャルを既存のコネクタに追加する
++
+既存のコネクタに新しい AWS クレデンシャルを追加すると、同じコネクタを使用して別の AWS アカウントに Cloud Volumes ONTAP を導入できるようになります。 <<Add credentials to a Connector,AWS クレデンシャルをコネクタに追加する方法について説明します>>。
+
+* AWS クレデンシャルを Cloud Manager に直接追加
++
+Cloud Manager に新しい AWS クレデンシャルを追加すると、 ONTAP 作業環境用の FSX を作成できます。 <<Add credentials to Cloud Manager,Cloud Manager に AWS クレデンシャルを追加する方法について説明します>>。
+
+
+
+
+
+== クレデンシャルのローテーション方法
+
+Cloud Manager では、いくつかの方法で AWS クレデンシャルを指定できます。信頼されたアカウントで IAM ロールを割り当てるか、 AWS アクセスキーを指定することで、コネクタインスタンスに関連付けられた IAM ロールを指定します。 link:concept-accounts-aws.html["AWS のクレデンシャルと権限に関する詳細情報"]。
+
+最初の 2 つのオプションでは、 Cloud Manager は AWS Security Token Service を使用して、継続的にローテーションする一時的なクレデンシャルを取得します。このプロセスは自動でセキュアであるため、ベストプラクティスです。
+
+Cloud Manager に AWS アクセスキーを指定する場合は、 Cloud Manager でキーを一定の間隔で更新して、キーをローテーションする必要があります。これは完全に手動で行います。
+
+
+
+== コネクタにクレデンシャルを追加します
+
+Connector で他の AWS アカウントに Cloud Volumes ONTAP を導入して管理できるようにするには、 AWS のクレデンシャルを追加します。別のアカウントの IAM ロールの ARN を指定するか、 AWS アクセスキーを指定できます。
+
+
+
+=== 権限を付与します
+
+Connector に AWS クレデンシャルを追加する前に、必要な権限を指定する必要があります。この権限を付与することで、 Cloud Manager からその AWS アカウント内のリソースやプロセスを管理できるようになります。権限の指定方法は、 Cloud Manager に信頼されたアカウントまたは AWS キーのロールの ARN を提供するかどうかによって異なります。
+
+
+NOTE: Cloud Manager からコネクタを導入すると、 Cloud Manager はコネクタを導入したアカウントの AWS クレデンシャルを自動的に追加しました。既存のシステムに Connector ソフトウェアを手動でインストールした場合、この初期アカウントは追加されません。 link:concept-accounts-aws.html["AWS のクレデンシャルと権限について説明します"]。
+
+* 選択肢 *
+
+* <<Grant permissions by assuming an IAM role in another account>>
+* <<Grant permissions by providing AWS keys>>
+
+
+
+
+==== 別のアカウントで IAM ロールを想定して権限を付与します
+
+IAM ロールを使用して、コネクタインスタンスを導入したソース AWS アカウントと他の AWS アカウントの間に信頼関係を設定できます。その後、 Cloud Manager に信頼されたアカウントの IAM ロールの ARN を提供します。
+
+.手順
+. Cloud Volumes ONTAP を導入するターゲットアカウントの IAM コンソールに移動します。
+. [ アクセス管理 ] で、 [ 役割 ] 、 [ 役割の作成 *] の順にクリックし、手順に従って役割を作成します。
++
+必ず次の手順を実行してください。
+
++
+** 信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。
+** 別の AWS アカウント * を選択し、コネクタインスタンスが存在するアカウントの ID を入力します。
+** から入手できる Cloud Manager IAM ポリシーを使用してポリシーを作成します https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
+
+
+. 後日 Cloud Manager に貼り付けることができるように、 IAM ロールの ARN をコピーします。
+
+
+これで、アカウントに必要な権限が付与されました。 <<add-the-credentials,これで、クレデンシャルをコネクタに追加できるようになりました>>。
+
+
+
+==== AWS キーを指定して権限を付与します
+
+Cloud Manager に IAM ユーザの AWS キーを提供する場合は、必要な権限をそのユーザに付与する必要があります。Cloud Manager IAM ポリシーは、 Cloud Manager が使用できる AWS アクションとリソースを定義します。
+
+.手順
+. から Cloud Manager IAM ポリシーをダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
+. IAM コンソールから、 Cloud Manager IAM ポリシーからテキストをコピーアンドペーストして、独自のポリシーを作成します。
++
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["AWS のドキュメント：「 Creating IAM Policies"^]
+
+. IAM ロールまたは IAM ユーザにポリシーを関連付けます。
++
+** https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html["AWS のドキュメント：「 Creating IAM Roles"^]
+** https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html["AWS のドキュメント：「 Adding and Removing IAM Policies"^]
+
+
+
+
+これで、アカウントに必要な権限が付与されました。 <<add-the-credentials,これで、クレデンシャルをコネクタに追加できるようになりました>>。
+
+
+
+=== クレデンシャルを追加します
+
+必要な権限を AWS アカウントに付与したら、そのアカウントのクレデンシャルを既存のコネクタに追加できます。これにより、同じコネクタを使用してアカウントの Cloud Volumes ONTAP システムを起動できます。
+
+作成したクレデンシャルをクラウドプロバイダで使用できるようになるまでに数分かかることがあります。Cloud Manager にクレデンシャルを追加するまで数分待ってから、
+
+.手順
+. Cloud Manager で正しいコネクタが選択されていることを確認します。
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * クレデンシャル * を選択します。
++
+image:screenshot_settings_icon.gif["Cloud Manager コンソールの右上にある設定アイコンを示すスクリーンショット。"]
+
+. [Add Credentials] をクリックし、ウィザードの手順に従います。
++
+.. * 資格情報の場所 * ：「 * Amazon Web Services > Connector * 」を選択します。
+.. * クレデンシャルの定義 * ：信頼された IAM ロールの ARN （ Amazon リソース名）を指定するか、 AWS アクセスキーとシークレットキーを入力します。
+.. * Marketplace サブスクリプション *: 今すぐ登録するか、既存のサブスクリプションを選択して、 Marketplace サブスクリプションをこれらの資格情報に関連付けます。
++
+Cloud Volumes ONTAP の料金を 1 時間単位で支払う（ PAYGO ）場合や 1 年単位で支払う場合は、 AWS のクレデンシャルを AWS Marketplace から Cloud Volumes ONTAP へのサブスクリプションに関連付ける必要があります。
+
+.. * 確認 * ：新しいクレデンシャルの詳細を確認し、 * 追加 * をクリックします。
+
+
+
+
+新しい作業環境を作成するときに、 [ 詳細と資格情報 ] ページから別の資格情報セットに切り替えることができるようになりました。
+
+image:screenshot_accounts_switch_aws.png["[ 詳細と資格情報 ] ページで [ アカウントの切り替え ] をクリックした後に、クラウドプロバイダアカウントを選択する方法を示すスクリーンショット。"]
+
+
+
+== Cloud Manager にクレデンシャルを追加します
+
+Cloud Manager に AWS クレデンシャルを追加するには、 Cloud Manager に ONTAP 作業環境用の FSX の作成に必要な権限を付与する IAM ロールの ARN を指定します。
+
+
+
+=== IAM ロールを設定します
+
+Cloud Manager SaaS で役割を引き受けることを可能にする IAM ロールを設定します。
+
+.手順
+. ターゲットアカウントの IAM コンソールに移動します。
+. [ アクセス管理 ] で、 [ 役割 ] 、 [ 役割の作成 *] の順にクリックし、手順に従って役割を作成します。
++
+必ず次の手順を実行してください。
+
++
+** 信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。
+** 別の AWS アカウント * を選択し、 Cloud Manager SaaS の ID として 952013314444 を入力してください
+** 次の権限を含むポリシーを作成します。
++
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "fsx:*",
+                "ec2:Describe*",
+                "ec2:CreateTags",
+                "kms:Describe*",
+                "kms:List*",
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+----
+
+
+. IAM ロールのロール ARN をコピーして、次の手順で Cloud Manager に貼り付けることができます。
+
+
+IAM ロールに必要な権限が割り当てられます。 <<add-the-credentials-2,これで、 Cloud Manager に追加できます>>。
+
+
+
+=== クレデンシャルを追加します
+
+IAM ロールに必要な権限を付与したら、 Cloud Manager に ARN ロールを追加します。
+
+IAM ロールを作成したばかりの場合は、使用できるようになるまで数分かかることがあります。Cloud Manager にクレデンシャルを追加するまで数分待ってから、
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * クレデンシャル * を選択します。
++
+image:screenshot_settings_icon.gif["Cloud Manager コンソールの右上にある設定アイコンを示すスクリーンショット。"]
+
+. [Add Credentials] をクリックし、ウィザードの手順に従います。
++
+.. * クレデンシャルの場所 * ：「 * Amazon Web Services > Cloud Manager * 」を選択します。
+.. * クレデンシャルの定義 * ： IAM ロールの ARN （ Amazon リソース名）を指定します。
+.. * 確認 * ：新しいクレデンシャルの詳細を確認し、 * 追加 * をクリックします。
+
+
+
+
+ONTAP 作業環境で FSX を作成するときに、資格情報を使用できるようになりました。
+
+
+
+== AWS サブスクリプションを関連付ける
+
+Cloud Manager に AWS のクレデンシャルを追加したら、 AWS Marketplace のサブスクリプションをそれらのクレデンシャルに関連付けることができます。サブスクリプションを使用すると、 Cloud Volumes ONTAP の料金を時間単位で支払う（ PAYGO ）と年単位の契約を使用する、および他の NetApp クラウドサービスを使用することができます。
+
+Cloud Manager にクレデンシャルを追加したあとに、 AWS Marketplace サブスクリプションを関連付けるシナリオは 2 つあります。
+
+* Cloud Manager にクレデンシャルを最初に追加したときに、サブスクリプションを関連付けていません。
+* 既存の AWS Marketplace サブスクリプションを新しいサブスクリプションに置き換える場合。
+
+
+Cloud Manager の設定を変更する前に、コネクタを作成する必要があります。 link:concept-connectors.html#how-to-create-a-connector["コネクタの作成方法を説明します"]。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * クレデンシャル * を選択します。
+. 一連の資格情報のアクションメニューをクリックし、 * 契約の関連付け * を選択します。
++
+image:screenshot_associate_subscription.png["一連の既存のクレデンシャルに対する操作メニューのスクリーンショット。"]
+
+. ダウンリストから既存のサブスクリプションを選択するか、 * サブスクリプションの追加 * をクリックして、新しいサブスクリプションを作成する手順を実行します。
++
+video::video_subscribing_aws.mp4[width=848,height=480]
+
+
+
+
+== クレデンシャルを編集する
+
+Cloud Manager で AWS クレデンシャルを編集するには、アカウントタイプ（ AWS キーまたは想定ロール）を変更するか、名前を編集するか、クレデンシャル自体（キーまたはロール ARN ）を更新します。
+
+
+TIP: コネクタインスタンスに関連付けられているインスタンスプロファイルのクレデンシャルは編集できません。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * クレデンシャル * を選択します。
+. 一連の資格情報のアクションメニューをクリックし、 * 資格情報の編集 * を選択します。
+. 必要な変更を行い、 * 適用 * をクリックします。
+
+
+
+
+== クレデンシャルを削除し
+
+クレデンシャルが不要になった場合は、 Cloud Manager から削除できます。削除できるのは、作業環境に関連付けられていないクレデンシャルのみです。
+
+
+TIP: コネクタインスタンスに関連付けられているインスタンスプロファイルのクレデンシャルは削除できません。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * クレデンシャル * を選択します。
+. 一連の資格情報のアクションメニューをクリックし、 * 資格情報の削除 * を選択します。
+. 削除を確定するには、 * 削除 * をクリックします。
+

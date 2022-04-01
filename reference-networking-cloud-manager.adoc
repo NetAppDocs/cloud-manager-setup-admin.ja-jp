@@ -1,0 +1,390 @@
+---
+sidebar: sidebar 
+permalink: reference-networking-cloud-manager.html 
+keywords: networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, proxy server, vpn, outbound, inbound, connections, jump host, URL, URLs, endpoints, endpoint, ports 
+summary: コネクタがパブリッククラウド環境内のリソースやプロセスを管理できるように、ネットワークを設定します。最も重要なステップは、さまざまなエンドポイントへのアウトバウンドインターネットアクセスを確保することです。 
+---
+= コネクタのネットワークを設定します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+コネクタがパブリッククラウド環境内のリソースやプロセスを管理できるように、ネットワークを設定します。最も重要なステップは、さまざまなエンドポイントへのアウトバウンドインターネットアクセスを確保することです。
+
+このページの情報は、コネクタがアウトバウンドインターネットアクセスを持つ一般的な配置用です。
+
+
+TIP: ネットワークでインターネットへのすべての通信にプロキシサーバを使用している場合は、 [ 設定 ] ページでプロキシサーバを指定できます。を参照してください link:task-configuring-proxy.html["プロキシサーバを使用するようにコネクタを設定します"]。
+
+
+
+== ターゲットネットワークへの接続
+
+コネクタには、作成する作業環境の種類と、有効にする予定のサービスへのネットワーク接続が必要です。
+
+たとえば、企業ネットワークにコネクタを設置する場合は、 Cloud Volumes ONTAP を起動する VPC または VNet への VPN 接続を設定する必要があります。
+
+
+
+== 172 の範囲の IP アドレスと競合する可能性があります
+
+Cloud Manager は、 172.17.0.0/16 と 172.18.0.0/16 の範囲に IP アドレスを持つ 2 つのインターフェイスを使用してコネクタを展開します。
+
+これらの範囲のいずれかでネットワークのサブネットが設定されている場合、 Cloud Manager から接続エラーが発生することがあります。たとえば、 Cloud Manager でオンプレミスの ONTAP クラスタを検出すると失敗することがあります。
+
+回避策は、コネクタのインターフェイスの IP アドレスを変更します。ネットアップサポートにお問い合わせください。
+
+
+
+== アウトバウンドインターネットアクセス
+
+コネクタからのアウトバウンドインターネットアクセスが必要です。
+
+
+
+=== パブリッククラウド環境内のリソースを管理するためのエンドポイント
+
+Connector では、パブリッククラウド環境内のリソースとプロセスを管理するためにアウトバウンドインターネットアクセスが必要です。
+
+[cols="2*"]
+|===
+| エンドポイント | 目的 
+
+
+| \ https://support.netapp.com | ライセンス情報を取得し、ネットアップサポートに AutoSupport メッセージを送信するため。 
+
+
+| \ https://*.cloudmanager.cloud.netapp.com | Cloud Manager 内で SaaS の機能やサービスを提供できます。 
+
+
+| ¥ https://cloudmanagerinfraprod.azurecr.io ¥ https://*.blob.core.windows.net | をクリックして、 Connector と Docker コンポーネントをアップグレードします。 
+|===
+
+
+=== Linux ホストにコネクタをインストールするエンドポイント
+
+Connector ソフトウェアは、手動でインストールすることもできます。その場合、 Connector のインストーラは、インストールプロセス中に次の URL にアクセスする必要があります。
+
+* https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+* https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+* ¥ https://*.blob.core.windows.net または ¥ https://hub.docker.com
+
+
+ホストは、インストール中にオペレーティングシステムパッケージの更新を試みる可能性があります。ホストは、これらの OS パッケージの別のミラーリングサイトにアクセスできます。
+
+
+
+== ポートおよびセキュリティグループ
+
+コネクタへの着信トラフィックは、開始しない限りありません。へのアクセスは、 HTTP および HTTPS を使用して提供されます link:concept-connectors.html#the-local-user-interface["ローカル UI"]は、まれな状況で使用します。SSH が必要になるのは、トラブルシューティングのためにホストに接続する必要がある場合のみです。
+
+
+
+=== AWS のコネクタのルール
+
+コネクタのセキュリティグループには、インバウンドとアウトバウンドの両方のルールが必要です。
+
+
+
+==== インバウンドルール
+
+[cols="10,10,80"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| SSH | 22 | コネクタホストへの SSH アクセスを提供します 
+
+
+| HTTP | 80 | クライアント Web ブラウザからローカルユーザインターフェイスへの HTTP アクセス、および Cloud Data Sense からの接続を提供します 
+
+
+| HTTPS | 443 | クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス 
+
+
+| TCP | 3128 | AWS ネットワークで NAT やプロキシを使用していない場合に、 Cloud Data Sense インスタンスにインターネットアクセスを提供します 
+
+
+| TCP | 9060 | Cloud Data Sense を有効にして使用できる（ GovCloud 環境の場合のみ必要） 
+|===
+
+
+==== アウトバウンドルール
+
+コネクタの事前定義されたセキュリティグループは、すべての発信トラフィックを開きます。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。
+
+
+
+===== 基本的なアウトバウンドルール
+
+コネクタの事前定義されたセキュリティグループには、次のアウトバウンドルールが含まれています。
+
+[cols="20,20,60"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| すべての TCP | すべて | すべての発信トラフィック 
+
+
+| すべての UDP | すべて | すべての発信トラフィック 
+|===
+
+
+===== 高度なアウトバウンドルール
+
+発信トラフィックに固定ルールが必要な場合は、次の情報を使用して、コネクタによる発信通信に必要なポートだけを開くことができます。
+
+
+NOTE: 送信元 IP アドレスは、コネクタホストです。
+
+[cols="5*"]
+|===
+| サービス | プロトコル | ポート | 宛先 | 目的 
+
+
+.9+| Active Directory | TCP | 88 | Active Directory フォレスト | Kerberos V 認証 
+
+
+| TCP | 139 | Active Directory フォレスト | NetBIOS サービスセッション 
+
+
+| TCP | 389 | Active Directory フォレスト | LDAP 
+
+
+| TCP | 445 | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
+
+
+| TCP | 464 | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
+
+
+| TCP | 749 | Active Directory フォレスト | Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ） 
+
+
+| UDP | 137 | Active Directory フォレスト | NetBIOS ネームサービス 
+
+
+| UDP | 138 | Active Directory フォレスト | NetBIOS データグラムサービス 
+
+
+| UDP | 464 | Active Directory フォレスト | Kerberos キー管理 
+
+
+| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | AWS および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信 
+
+
+.2+| API コール | TCP | 3000 | ONTAP HA メディエーター | ONTAP HA メディエーターとの通信 
+
+
+| TCP | 8088 | S3 へのバックアップ | S3 へのバックアップを API で呼び出します 
+
+
+| DNS | UDP | 53 | DNS | Cloud Manager による DNS 解決に使用されます 
+
+
+| クラウドデータの意味 | HTTP | 80 | Cloud Data Sense インスタンス | Cloud Volumes ONTAP に最適なクラウドデータ 
+|===
+
+
+=== Azure のコネクタのルール
+
+コネクタのセキュリティグループには、インバウンドとアウトバウンドの両方のルールが必要です。
+
+
+
+==== インバウンドルール
+
+[cols="3*"]
+|===
+| ポート | プロトコル | 目的 
+
+
+| 22 | SSH | コネクタホストへの SSH アクセスを提供します 
+
+
+| 80 | HTTP | クライアント Web ブラウザからローカルへの HTTP アクセスを提供します ユーザインターフェイス 
+
+
+| 443 | HTTPS | クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス 
+|===
+
+
+==== アウトバウンドルール
+
+コネクタの事前定義されたセキュリティグループは、すべての発信トラフィックを開きます。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。
+
+
+
+===== 基本的なアウトバウンドルール
+
+コネクタの事前定義されたセキュリティグループには、次のアウトバウンドルールが含まれています。
+
+[cols="3*"]
+|===
+| ポート | プロトコル | 目的 
+
+
+| すべて | すべての TCP | すべての発信トラフィック 
+
+
+| すべて | すべての UDP | すべての発信トラフィック 
+|===
+
+
+===== 高度なアウトバウンドルール
+
+発信トラフィックに固定ルールが必要な場合は、次の情報を使用して、コネクタによる発信通信に必要なポートだけを開くことができます。
+
+
+NOTE: 送信元 IP アドレスは、コネクタホストです。
+
+[cols="5*"]
+|===
+| サービス | ポート | プロトコル | 宛先 | 目的 
+
+
+.9+| Active Directory | 88 | TCP | Active Directory フォレスト | Kerberos V 認証 
+
+
+| 139 | TCP | Active Directory フォレスト | NetBIOS サービスセッション 
+
+
+| 389 | TCP | Active Directory フォレスト | LDAP 
+
+
+| 445 | TCP | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
+
+
+| 464 | TCP | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
+
+
+| 749 | TCP | Active Directory フォレスト | Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ） 
+
+
+| 137 | UDP | Active Directory フォレスト | NetBIOS ネームサービス 
+
+
+| 138 | UDP | Active Directory フォレスト | NetBIOS データグラムサービス 
+
+
+| 464 | UDP | Active Directory フォレスト | Kerberos キー管理 
+
+
+| API コールと AutoSupport | 443 | HTTPS | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | AWS および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信 
+
+
+| DNS | 53 | UDP | DNS | Cloud Manager による DNS 解決に使用されます 
+|===
+
+
+=== GCP のコネクターのルール
+
+コネクタのファイアウォールルールには、インバウンドとアウトバウンドの両方のルールが必要です。
+
+
+
+==== インバウンドルール
+
+[cols="10,10,80"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| SSH | 22 | コネクタホストへの SSH アクセスを提供します 
+
+
+| HTTP | 80 | クライアント Web ブラウザからローカルへの HTTP アクセスを提供します ユーザインターフェイス 
+
+
+| HTTPS | 443 | クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス 
+|===
+
+
+==== アウトバウンドルール
+
+コネクタの定義済みファイアウォールルールによって、すべてのアウトバウンドトラフィックが開かれます。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。
+
+
+
+===== 基本的なアウトバウンドルール
+
+コネクタの定義済みファイアウォールルールには、次のアウトバウンドルールが含まれています。
+
+[cols="20,20,60"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| すべての TCP | すべて | すべての発信トラフィック 
+
+
+| すべての UDP | すべて | すべての発信トラフィック 
+|===
+
+
+===== 高度なアウトバウンドルール
+
+発信トラフィックに固定ルールが必要な場合は、次の情報を使用して、コネクタによる発信通信に必要なポートだけを開くことができます。
+
+
+NOTE: 送信元 IP アドレスは、コネクタホストです。
+
+[cols="5*"]
+|===
+| サービス | プロトコル | ポート | 宛先 | 目的 
+
+
+.9+| Active Directory | TCP | 88 | Active Directory フォレスト | Kerberos V 認証 
+
+
+| TCP | 139 | Active Directory フォレスト | NetBIOS サービスセッション 
+
+
+| TCP | 389 | Active Directory フォレスト | LDAP 
+
+
+| TCP | 445 | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
+
+
+| TCP | 464 | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
+
+
+| TCP | 749 | Active Directory フォレスト | Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ） 
+
+
+| UDP | 137 | Active Directory フォレスト | NetBIOS ネームサービス 
+
+
+| UDP | 138 | Active Directory フォレスト | NetBIOS データグラムサービス 
+
+
+| UDP | 464 | Active Directory フォレスト | Kerberos キー管理 
+
+
+| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | GCP および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信 
+
+
+| DNS | UDP | 53 | DNS | Cloud Manager による DNS 解決に使用されます 
+|===
+
+
+=== オンプレミスコネクタ用のポート
+
+コネクタは、オンプレミスの Linux ホストに手動でインストールする場合、下記の _ インバウンド _ ポートを使用します。
+
+これらのインバウンドルールは、オンプレミスコネクタの両方の配置モデルに適用されます。つまり、インターネットアクセスがインストールされているか、インターネットアクセスがないかです。
+
+[cols="10,10,80"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| HTTP | 80 | クライアント Web ブラウザからローカルへの HTTP アクセスを提供します ユーザインターフェイス 
+
+
+| HTTPS | 443 | クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス 
+|===

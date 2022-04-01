@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: task-installing-linux.html 
+keywords: install connector, manually install connector, install connector software, installation, installing, linux, installer, software, on prem, on-prem, silent, configurations, ec2, vm, ports, ram, operating system, os, host, requirement, requirements, hypervisor, disk, space, mysql, centos, rhel, red hat, cpu, disk space 
+summary: コネクタを作成する最も一般的な方法は、 Cloud Manager から直接、またはクラウドプロバイダのマーケットプレイスから直接行う方法です。ただし、ネットワークまたはクラウドにある既存の Linux ホストに Connector ソフトウェアをダウンロードしてインストールすることもできます。 
+---
+= インターネットにアクセスできる既存の Linux ホストにコネクタをインストールします
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+コネクタを作成する最も一般的な方法は、 Cloud Manager から直接、またはクラウドプロバイダのマーケットプレイスから直接行う方法です。ただし、ネットワークまたはクラウドにある既存の Linux ホストに Connector ソフトウェアをダウンロードしてインストールすることもできます。以下の手順は、インターネットにアクセスできるホストに固有の手順です。
+
+link:concept-connectors.html["コネクタを配置するその他の方法について説明します"]。
+
+
+NOTE: Google Cloud で Cloud Volumes ONTAP システムを作成する場合は、 Google Cloud でも実行されているコネクタが必要です。AWS 、 Azure 、オンプレミスで実行されているコネクタは使用できません。
+
+
+
+== ホストの要件を確認
+
+コネクタソフトウェアは、特定のオペレーティングシステム要件、 RAM 要件、ポート要件などを満たすホストで実行する必要があります。
+
+専用のホストが必要です:: 他のアプリケーションと共有しているホストでは、このコネクタはサポートされていません。専用のホストである必要があります。
+CPU:: 4 コアまたは 4 個の vCPU
+RAM:: 16 GB
+AWS EC2 インスタンスタイプ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。コネクタを Cloud Manager から直接導入する場合は、 t3.xlarge を使用してインスタンスタイプを指定することを推奨します。
+Azure VM サイズ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。Cloud Manager からコネクタを直接導入する場合は、 DS3 v2 を推奨し、この VM サイズを使用します。
+GCP マシンタイプ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。Cloud Manager からコネクタを直接導入する場合は、 n1-standard-4 を使用することを推奨します。
+サポートされているオペレーティングシステム::
++
+--
+* CentOS 7.6
+* CentOS 7.7
+* CentOS 7.8
+* CentOS 7.9
+* Red Hat Enterprise Linux 7.6
+* Red Hat Enterprise Linux 7.7
+* Red Hat Enterprise Linux 7.8
+* Red Hat Enterprise Linux 7.9
++
+Red Hat Enterprise Linux システムは、 Red Hat サブスクリプション管理に登録する必要があります。登録されていない場合、 Connector のインストール中に必要なサードパーティ製ソフトウェアを更新するためのリポジトリにアクセスできません。
+
++
+Connector は、これらのオペレーティングシステムの英語版でサポートされています。
+
+
+
+--
+ハイパーバイザー:: 認定済みのベアメタルハイパーバイザーまたはホスト型ハイパーバイザー CentOS または Red Hat Enterprise Linux を実行しますhttps://access.redhat.com/certified-hypervisors["Red Hat ソリューション：「 Which hypervisors are certified to run Red Hat Enterprise Linux ？」"^]
+/opt のディスクスペース:: 100GiB のスペースが使用可能である必要があります
+/var のディスク領域:: 20GiB のスペースが必要です
+アウトバウンドインターネットアクセス:: コネクターをインストールし、パブリッククラウド環境内でリソースとプロセスを管理するには、アウトバウンドインターネットアクセスが必要です。エンドポイントのリストについては、を参照してください link:reference-networking-cloud-manager.html["コネクタのネットワーク要件"]。
+
+
+
+
+== コネクタを取り付ける
+
+サポートされている Linux ホストがあることを確認したら、コネクタソフトウェアを取得してインストールできます。
+
+コネクタをインストールするには root 権限が必要です。
+
+.このタスクについて
+* インストールを実行すると、ネットアップサポートからのリカバリ手順用に AWS コマンドラインツール（ awscli ）がインストールされます。
++
+AWSCLI のインストールに失敗したというメッセージが表示された場合は、このメッセージを無視しても問題ありません。コネクタは、工具なしで正常に作動する。
+
+* ネットアップサポートサイトで入手できるインストーラは、それよりも古いバージョンの場合があります。インストール後、新しいバージョンが利用可能になると、コネクタは自動的に更新されます。
+
+
+.手順
+. から Cloud Manager ソフトウェアをダウンロードします https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["ネットアップサポートサイト"^]をクリックし、 Linux ホストにコピーします。
++
+AWS の EC2 インスタンスに接続してファイルをコピーする方法については、を参照してください http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html["AWS ドキュメント：「 Connecting to Your Linux Instance Using SSH"^]。
+
+. スクリプトを実行する権限を割り当てます。
++
+[source, cli]
+----
+chmod +x OnCommandCloudManager-V3.9.14.sh
+----
+. インストールスクリプトを実行します。
++
+プロキシサーバを使用している場合は、次のようにコマンドパラメータを入力する必要があります。プロキシに関する情報の入力を求めるプロンプトは表示されません。
+
++
+[source, cli]
+----
+ ./OnCommandCloudManager-V3.9.14.sh [silent] [proxy=ipaddress] [proxyport=port] [proxyuser=user_name] [proxypwd=password]
+----
++
+_silent_ 情報の入力を求めずにインストールを実行します。
+
++
+プロキシサーバの背後にホストがある場合は、 _proxy_is が必要です。
+
++
+proxyport_ は、プロキシサーバのポートです。
+
++
+_proxyUser_ は、ベーシック認証が必要な場合に、プロキシサーバのユーザ名です。
+
++
+_proxypwd_は 、指定したユーザー名のパスワードです。
+
+. silent パラメータを指定しなかった場合は、「 * Y * 」と入力してインストールを続行します。
++
+Cloud Manager がインストールされました。プロキシサーバを指定した場合、インストールの最後に Cloud Manager Service （ OCCM ）が 2 回再起動します。
+
+. Web ブラウザを開き、次の URL を入力します。
++
+https://_ipaddress_[]
+
++
+_ipaddress _ には、ホストの設定に応じて、 localhost 、プライベート IP アドレス、またはパブリック IP アドレスを指定できます。たとえば、パブリック IP アドレスのないパブリッククラウドにコネクタがある場合は、コネクタホストに接続されているホストからプライベート IP アドレスを入力する必要があります。
+
+. NetApp Cloud Central に登録するか、ログインします。
+. Connector を Google Cloud にインストールした場合は、 Cloud Manager がプロジェクトで Cloud Volumes ONTAP システムを作成および管理するために必要な権限を持つサービスアカウントをセットアップします。
++
+.. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["GCP で役割を作成します"^] で定義した権限を含むポリシーを作成します https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml["GCP 向け Cloud Manager ポリシー"^]。
+.. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["GCP サービスアカウントを作成し、カスタムロールを適用します を作成しました"^]。
+.. https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes["このサービスアカウントを Connector VM に関連付けます"^]。
+.. Cloud Volumes ONTAP を他のプロジェクトに導入する場合は、 https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割"^]。プロジェクトごとにこの手順を繰り返す必要があります。
+
+
+. ログインしたら、 Cloud Manager をセットアップします。
++
+.. コネクタに関連付けるネットアップアカウントを指定します。
++
+link:concept-netapp-accounts.html["ネットアップアカウントについて"]。
+
+.. システムの名前を入力します。
++
+image:screenshot_set_up_cloud_manager.gif["セットアップ画面のスクリーンショット。ネットアップアカウントを選択してシステムに名前を付けることができます。"]
+
+
+
+
+
+これで、 Connector のインストールとセットアップが完了しました。Cloud Manager は、新しい作業環境の作成時にこのコネクタを自動的に使用します。
+
+Cloud Manager がパブリッククラウド環境内のリソースやプロセスを管理できるように、権限を設定します。
+
+* AWS link:task-adding-aws-accounts.html["AWS アカウントをセットアップして、に追加します Cloud Manager の略"]
+* Azure link:task-adding-azure-accounts.html["Azure アカウントをセットアップして、に追加します Cloud Manager の略"]
+* Google Cloud ：上記の手順 7 を参照してください
+

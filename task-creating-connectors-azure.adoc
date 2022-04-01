@@ -1,0 +1,410 @@
+---
+sidebar: sidebar 
+permalink: task-creating-connectors-azure.html 
+keywords: create connector in azure, launch connector in azure, deploy connector in azure, azure connector, connector azure, connector permissions, create custom role, create azure custom role, azure custom role 
+summary: Cloud Manager のほとんどの機能を使用するには、 Account Admin がコネクタを導入する必要があります。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。 
+---
+= Cloud Manager から Azure にコネクタを作成します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager のほとんどの機能を使用するには、 Account Admin が _ Connector を導入する必要があります。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。 link:concept-connectors.html["コネクタが必要になるタイミングを学習します"]。
+
+このページでは、 Cloud Manager から直接 Azure でコネクタを作成する方法について説明します。 link:concept-connectors.html#how-to-create-a-connector["コネクタを配置するその他の方法について説明します"]。
+
+これらの手順は、 Account Admin ロールを持つユーザが実行する必要があります。ワークスペース管理者はコネクタを作成できません。
+
+
+TIP: 最初の Cloud Volumes ONTAP 作業環境を作成する際、まだコネクタがない場合は、 Cloud Manager からコネクタの作成を求められます。
+
+
+
+== 概要
+
+Connector を導入するには、 Azure で Connector VM を作成するために必要な権限を持つログインを Cloud Manager に付与する必要があります。
+
+次の 2 つのオプションがあります。
+
+. プロンプトが表示されたら、 Microsoft アカウントでサインインします。このアカウントには Azure 固有の権限が必要です。これがデフォルトのオプションです。
++
+<<Create a Connector using your Azure account,次の手順に従って、作業を開始してください>>。
+
+. Azure AD サービスプリンシパルの詳細を指定します。このサービスプリンシパルには、特定の権限も必要です。
++
+<<Create a Connector using a service principal,次の手順に従って、作業を開始してください>>。
+
+
+
+
+
+== Azure のリージョンに関する注意
+
+コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure リージョンペア"^] Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html["Cloud Volumes ONTAP での Azure プライベートリンクの使用方法をご確認ください"^]。
+
+
+
+== Azure アカウントを使用してコネクタを作成します
+
+Azure でコネクタを作成するデフォルトの方法は、プロンプトが表示されたら Azure アカウントでログインすることです。ログインフォームは、 Microsoft が所有およびホストしています。クレデンシャルがネットアップに提供されていません。
+
+
+
+=== Azure アカウントの権限を設定します
+
+Cloud Manager からコネクタを導入する前に、 Azure アカウントが正しい権限を持っていることを確認する必要があります。
+
+.手順
+. をダウンロードします https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service_Azure.json["コネクタの Azure ポリシー"^]。
++
+
+TIP: リンクを右クリックし、 [ 名前を付けてリンクを保存 ...] をクリックしてファイルをダウンロードする。
+
+. JSON ファイルを変更して、割り当て可能な範囲に Azure サブスクリプション ID を追加します。
++
+* 例 *
+
++
+[source, json]
+----
+"AssignableScopes": [
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz"
+],
+----
+. JSON ファイルを使用して、 Azure でカスタムロールを作成します。
++
+次の手順は、 Azure Cloud Shell で Bash を使用してロールを作成する方法を示しています。
+
++
+.. 開始 https://docs.microsoft.com/en-us/azure/cloud-shell/overview["Azure Cloud Shell の略"^] Bash 環境を選択します。
+.. JSON ファイルをアップロードします。
++
+image:screenshot_azure_shell_upload.png["ファイルをアップロードするオプションを選択できる Azure Cloud Shell のスクリーンショット。"]
+
+.. Azure CLI で次のコマンドを入力します。
++
+[source, azurecli]
+----
+az role definition create --role-definition Policy_for_Setup_As_Service_Azure.json
+----
+
+
++
+これで、 _Azure SetupAsService_という カスタムロールが作成されました。
+
+. Cloud Manager からコネクタを導入するユーザにロールを割り当てます。
++
+.. [ サブスクリプション ] サービスを開き、ユーザーのサブスクリプションを選択します。
+.. 「 * アクセスコントロール（ IAM ） * 」をクリックします。
+.. [ * 追加 *>* 役割の割り当ての追加 * ] をクリックして、権限を追加します。
++
+*** Azure SetupAsService * ロールを選択し、 * 次へ * をクリックします。
++
+
+NOTE: Azure SetupAsService は、で指定されているデフォルトの名前です https://mysupport.netapp.com/site/info/cloud-manager-policies["Azure の Connector 導入ポリシー"^]。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
+
+*** [* ユーザー、グループ、またはサービスプリンシパル * ] を選択したままにします。
+*** [ * メンバーの選択 * ] をクリックし、ユーザーアカウントを選択して、 [ * 選択 * ] をクリックします。
+*** 「 * 次へ * 」をクリックします。
+*** [ レビュー + 割り当て（ Review + Assign ） ] をクリックします。
+
+
+
+
+
+
+Azure ユーザに、 Cloud Manager から Connector を導入するために必要な権限が付与されるようになりました。
+
+
+
+=== Azure アカウントでログインしてコネクタを作成します
+
+Cloud Manager では、ユーザインターフェイスから直接 Azure にコネクタを作成できます。
+
+.必要なもの
+* Azure サブスクリプション。
+* 選択した Azure リージョン内の VNet およびサブネット
+* Cloud Manager で Connector 用の Azure ロールが自動的に作成されないようにするには、独自のを作成する必要があります https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.9.12.json["使用するポリシー"^]。
++
+これらの権限はコネクタインスタンス自体に適用されます。これは、以前にコネクタを展開するように設定したアクセス権とは異なります。
+
+
+
+.手順
+. 最初の作業環境を作成する場合は、 * 作業環境の追加 * をクリックし、プロンプトに従います。それ以外の場合は、 [*connector*] ドロップダウンをクリックし、 [*Add connector*] を選択します。
++
+image:screenshot_connector_add.gif["ヘッダーのコネクターアイコンとコネクターの追加アクションを示すスクリーンショット。"]
+
+. クラウドプロバイダとして「 * Microsoft Azure * 」を選択します。
++
+Connector は、作成する作業環境の種類や有効にするサービスへのネットワーク接続を確立する必要があることに注意してください。
+
++
+link:reference-networking-cloud-manager.html["Connector のネットワーク要件の詳細については、こちらをご覧ください"]。
+
+. ウィザードの手順に従って、コネクタを作成します。
++
+** * 準備完了 * ：必要なものを確認して、 * 次へ * をクリックしてください。
+** プロンプトが表示されたら、 Microsoft アカウントにログインします。このアカウントには、仮想マシンの作成に必要な権限が付与されている必要があります。
++
+このフォームは、 Microsoft が所有およびホストしています。クレデンシャルがネットアップに提供されていません。
+
++
+
+TIP: すでに Azure アカウントにログインしている場合、そのアカウントは Cloud Manager によって自動的に使用されます。アカウントが複数ある場合は、適切なアカウントを使用するために、最初にログアウトする必要があります。
+
+** * VM 認証 * ： Azure サブスクリプション、場所、新しいリソースグループ、または既存のリソースグループを選択し、認証方法を選択します。
+** * 詳細 * ：インスタンスの名前を入力し、タグを指定し、必要な権限を持つ新しいロールを Cloud Manager で作成するか、で設定した既存のロールを選択するかを選択します https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.9.12.json["必要な権限"^]。
++
+このロールに関連付けられているサブスクリプションを選択できます。選択した各サブスクリプションには、 Cloud Volumes ONTAP をこれらのサブスクリプションに導入するための権限が Connector に付与されます。
+
+** * ネットワーク * ： VNet とサブネットを選択し、パブリック IP アドレスを有効にするかどうか、および必要に応じてプロキシ設定を指定します。
+** * セキュリティグループ * ：新しいセキュリティグループを作成するか、インバウンド HTTP 、 HTTPS 、 SSH アクセスを許可する既存のセキュリティグループを選択するかを選択します。
++
+
+NOTE: コネクタへの着信トラフィックは、開始しない限りありません。へのアクセスは、 HTTP および HTTPS を使用して提供されます link:concept-connectors.html#the-local-user-interface["ローカル UI"]は、まれな状況で使用します。SSH が必要になるのは、トラブルシューティングのためにホストに接続する必要がある場合のみです。
+
+** * 復習 * ：選択内容を確認して、設定が正しいことを確認してください。
+
+
+. [ 追加（ Add ） ] をクリックします。
++
+仮想マシンの準備が完了するまでに約 7 分かかります。処理が完了するまで、ページには表示されたままにしておいてください。
+
+
+
+ワークスペース管理者がコネクタを使用して Cloud Volumes ONTAP システムを作成できるように、コネクタをワークスペースに関連付ける必要があります。アカウント管理者のみがいる場合は、コネクタをワークスペースに関連付ける必要はありません。アカウント管理者は、デフォルトで Cloud Manager のすべてのワークスペースにアクセスできます。 link:task-setting-up-netapp-accounts.html#associating-connectors-with-workspaces["詳細はこちら。"]。
+
+
+
+== サービスプリンシパルを使用してコネクタを作成します
+
+Azure アカウントでログインする代わりに、必要な権限がある Azure サービスプリンシパルのクレデンシャルを Cloud Manager に入力することもできます。
+
+
+
+=== サービスプリンシパルを使用した Azure 権限の付与
+
+Azure Active Directory でサービスプリンシパルを作成およびセットアップし、 Cloud Manager で必要な Azure クレデンシャルを取得して、 Azure に Connector を導入するために必要な権限を付与します。
+
+.手順
+. <<Create an Azure Active Directory application>>。
+. <<Assign the application to a role>>。
+. <<Add Windows Azure Service Management API permissions>>。
+. <<Get the application ID and directory ID>>。
+. <<Create a client secret>>。
+
+
+
+
+==== Azure Active Directory アプリケーションを作成します
+
+Cloud Manager でコネクタの導入に使用する Azure Active Directory （ AD ）アプリケーションとサービスプリンシパルを作成します。
+
+Azure で Active Directory アプリケーションを作成してロールに割り当てるための適切な権限が必要です。詳細については、を参照してください https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions/["Microsoft Azure のドキュメント：「 Required permissions"^]。
+
+.手順
+. Azure ポータルで、 * Azure Active Directory * サービスを開きます。
++
+image:screenshot_azure_ad.gif["は、 Microsoft Azure の Active Directory サービスを示しています。"]
+
+. メニューで、 * アプリ登録 * をクリックします。
+. [ 新規登録 ] をクリックします。
+. アプリケーションの詳細を指定します。
++
+** * 名前 * ：アプリケーションの名前を入力します。
+** * アカウントタイプ * ：アカウントタイプを選択します（ Cloud Manager で使用できます）。
+** * リダイレクト URI *: このフィールドは空白のままにできます。
+
+
+. [*Register] をクリックします。
+
+
+AD アプリケーションとサービスプリンシパルを作成しておきます。
+
+
+
+==== アプリケーションをロールに割り当てます
+
+コネクタを導入する Azure サブスクリプションにサービスプリンシパルをバインドし、カスタムの「 Azure SetupAsService 」ロールを割り当てる必要があります。
+
+.手順
+. をダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Azure の Connector 導入ポリシー"^]。
++
+
+TIP: リンクを右クリックし、 [ 名前を付けてリンクを保存 ...] をクリックしてファイルをダウンロードする。
+
+. JSON ファイルを変更して、割り当て可能な範囲に Azure サブスクリプション ID を追加します。
++
+* 例 *
+
++
+[source, json]
+----
+"AssignableScopes": [
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"
+----
+. JSON ファイルを使用して、 Azure でカスタムロールを作成します。
++
+次の手順は、 Azure Cloud Shell で Bash を使用してロールを作成する方法を示しています。
+
++
+.. 開始 https://docs.microsoft.com/en-us/azure/cloud-shell/overview["Azure Cloud Shell の略"^] Bash 環境を選択します。
+.. JSON ファイルをアップロードします。
++
+image:screenshot_azure_shell_upload.png["ファイルをアップロードするオプションを選択できる Azure Cloud Shell のスクリーンショット。"]
+
+.. Azure CLI で次のコマンドを入力します。
++
+[source, azurecli]
+----
+az role definition create --role-definition Policy_for_Setup_As_Service_Azure.json
+----
+
+
++
+これで、 _Azure SetupAsService_という カスタムロールが作成されました。
+
+. ロールにアプリケーションを割り当てます。
++
+.. Azure ポータルで、 * Subscriptions * サービスを開きます。
+.. サブスクリプションを選択します。
+.. [* アクセス制御 (IAM)] 、 [ 追加 ] 、 [ 役割の割り当ての追加 *] の順にクリックします。
+.. [* 役割 ] タブで、 * Cloud Manager Operator * 役割を選択し、 * Next * をクリックします。
+.. [* Members* （メンバー * ） ] タブで、次の手順を実行します。
++
+*** [* ユーザー、グループ、またはサービスプリンシパル * ] を選択したままにします。
+*** [ メンバーの選択 ] をクリックします。
++
+image:screenshot-azure-service-principal-role.png["アプリケーションにロールを追加するときに Members タブを表示する Azure ポータルのスクリーンショット。"]
+
+*** アプリケーションの名前を検索します。
++
+次に例を示します。
+
++
+image:screenshot_azure_service_principal_role.png["Azure ポータルのスクリーンショットで、 Azure ポータルのロール割り当ての追加フォームが表示されています。"]
+
+*** アプリケーションを選択し、 * Select * をクリックします。
+*** 「 * 次へ * 」をクリックします。
+
+
+.. [ レビュー + 割り当て（ Review + Assign ） ] をクリックします。
++
+サービスプリンシパルに、 Connector の導入に必要な Azure 権限が付与されるようになりました。
+
+
+
+
+
+
+
+==== Windows Azure Service Management API 権限を追加します
+
+サービスプリンシパルに「 Windows Azure Service Management API 」の権限が必要です。
+
+.手順
+. Azure Active Directory * サービスで、 * アプリ登録 * をクリックしてアプリケーションを選択します。
+. [API アクセス許可 ] 、 [ アクセス許可の追加 ] の順にクリックします。
+. Microsoft API* で、 * Azure Service Management * を選択します。
++
+image:screenshot_azure_service_mgmt_apis.gif["Azure Service Management API 権限を示す Azure ポータルのスクリーンショット。"]
+
+. [* 組織ユーザーとして Azure サービス管理にアクセスする *] をクリックし、 [ * 権限の追加 * ] をクリックします。
++
+image:screenshot_azure_service_mgmt_apis_add.gif["Azure Service Management API の追加を示す Azure ポータルのスクリーンショット。"]
+
+
+
+
+
+==== アプリケーション ID とディレクトリ ID を取得します
+
+Cloud Manager でコネクタを作成するときは、アプリケーション（クライアント） ID とディレクトリ（テナント） ID を指定する必要があります。Cloud Manager は、この ID を使用してプログラムによってサインインします。
+
+.手順
+. Azure Active Directory * サービスで、 * アプリ登録 * をクリックしてアプリケーションを選択します。
+. アプリケーション（クライアント） ID * とディレクトリ（テナント） ID * をコピーします。
++
+image:screenshot_azure_app_ids.gif["Azure Active Directory 内のアプリケーション（クライアント）の ID とディレクトリ（テナント） ID を示すスクリーンショット。"]
+
+
+
+
+
+==== クライアントシークレットを作成します
+
+Cloud Manager がクライアントシークレットを使用して Azure AD で認証できるようにするには、クライアントシークレットを作成し、そのシークレットの値を Cloud Manager に指定する必要があります。
+
+.手順
+. Azure Active Directory * サービスを開きます。
+. [* アプリ登録 * ] をクリックして、アプリケーションを選択します。
+. ［ * 証明書とシークレット > 新しいクライアントシークレット * ］ をクリックします。
+. シークレットと期間の説明を入力します。
+. [ 追加（ Add ） ] をクリックします。
+. クライアントシークレットの値をコピーします。
++
+image:screenshot_azure_client_secret.gif["Azure AD サービスプリンシパルのクライアントシークレットを表示する Azure ポータルのスクリーンショット。"]
+
+
+
+これでサービスプリンシパルが設定され、アプリケーション（クライアント） ID 、ディレクトリ（テナント） ID 、およびクライアントシークレットの値をコピーしました。この情報は、コネクタを作成するときに Cloud Manager で入力する必要があります。
+
+
+
+=== サービスプリンシパルでログインしてコネクタを作成します
+
+Cloud Manager では、ユーザインターフェイスから直接 Azure にコネクタを作成できます。
+
+.必要なもの
+* Azure サブスクリプション。
+* 選択した Azure リージョン内の VNet およびサブネット
+* Cloud Manager で Connector 用の Azure ロールが自動的に作成されないようにするには、独自のを作成する必要があります https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.9.12.json["使用するポリシー"^]。
++
+これらの権限はコネクタインスタンス自体に適用されます。これは、以前にコネクタを展開するように設定したアクセス権とは異なります。
+
+
+
+.手順
+. 最初の作業環境を作成する場合は、 * 作業環境の追加 * をクリックし、プロンプトに従います。それ以外の場合は、 [*connector*] ドロップダウンをクリックし、 [*Add connector*] を選択します。
++
+image:screenshot_connector_add.gif["ヘッダーのコネクターアイコンとコネクターの追加アクションを示すスクリーンショット。"]
+
+. クラウドプロバイダとして「 * Microsoft Azure * 」を選択します。
++
+Connector は、作成する作業環境の種類や有効にするサービスへのネットワーク接続を確立する必要があることに注意してください。
+
++
+link:reference-networking-cloud-manager.html["Connector のネットワーク要件の詳細については、こちらをご覧ください"]。
+
+. ウィザードの手順に従って、コネクタを作成します。
++
+** * Get Ready * ： * Azure AD サービスプリンシパル * をクリックし、必要な権限を付与する Azure Active Directory サービスプリンシパルに関する情報を入力します。
+** アプリケーション（クライアント） ID ：を参照してください <<Get the application ID and directory ID>>。
+** ディレクトリ（テナント） ID ：を参照してください <<Get the application ID and directory ID>>。
+** クライアントシークレット：を参照してください <<Create a client secret>>。
+** * VM 認証 * ： Azure サブスクリプション、場所、新しいリソースグループ、または既存のリソースグループを選択し、認証方法を選択します。
+** * 詳細 * ：インスタンスの名前を入力し、タグを指定し、必要な権限を持つ新しいロールを Cloud Manager で作成するか、で設定した既存のロールを選択するかを選択します https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.9.12.json["必要な権限"^]。
++
+このロールに関連付けられているサブスクリプションを選択できます。選択した各サブスクリプションには、 Cloud Volumes ONTAP をこれらのサブスクリプションに導入するための権限が Connector に付与されます。
+
+** * ネットワーク * ： VNet とサブネットを選択し、パブリック IP アドレスを有効にするかどうか、および必要に応じてプロキシ設定を指定します。
+** * セキュリティグループ * ：新しいセキュリティグループを作成するか、インバウンド HTTP 、 HTTPS 、 SSH アクセスを許可する既存のセキュリティグループを選択するかを選択します。
++
+
+NOTE: コネクタへの着信トラフィックは、開始しない限りありません。へのアクセスは、 HTTP および HTTPS を使用して提供されます link:concept-connectors.html#the-local-user-interface["ローカル UI"]は、まれな状況で使用します。SSH が必要になるのは、トラブルシューティングのためにホストに接続する必要がある場合のみです。
+
+** * 復習 * ：選択内容を確認して、設定が正しいことを確認してください。
+
+
+. [ 追加（ Add ） ] をクリックします。
++
+仮想マシンの準備が完了するまでに約 7 分かかります。処理が完了するまで、ページには表示されたままにしておいてください。
+
+
+
+ワークスペース管理者がコネクタを使用して Cloud Volumes ONTAP システムを作成できるように、コネクタをワークスペースに関連付ける必要があります。アカウント管理者のみがいる場合は、コネクタをワークスペースに関連付ける必要はありません。アカウント管理者は、デフォルトで Cloud Manager のすべてのワークスペースにアクセスできます。 link:task-setting-up-netapp-accounts.html#associating-connectors-with-workspaces["詳細はこちら。"]。

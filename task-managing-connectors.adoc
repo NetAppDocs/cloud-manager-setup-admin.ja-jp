@@ -1,0 +1,260 @@
+---
+sidebar: sidebar 
+permalink: task-managing-connectors.html 
+keywords: managing connectors, uninstall connector, switch connectors, switch between connectors, go to local UI, local interface, local connector, local cloud manager 
+summary: 1 つ以上のコネクタを作成した後、コネクタを切り替えたり、コネクタで実行されているローカルユーザーインタフェースに接続したりすることで、コネクタを管理できます。 
+---
+= 既存のコネクタの管理
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+1 つ以上のコネクタを作成した後、コネクタを切り替えたり、コネクタで実行されているローカルユーザーインタフェースに接続したりすることで、コネクタを管理できます。
+
+
+
+== コネクタを切り替えます
+
+複数のコネクタがある場合は、コネクタを切り替えることで特定のコネクタに関連付けられている作業環境を確認できます。
+
+たとえば、マルチクラウド環境で作業しているとします。AWS にコネクタが 1 つ、 Google Cloud にコネクタが 1 つあるとします。これらのクラウドで実行されている Cloud Volumes ONTAP システムを管理するには、これらのコネクタを切り替える必要があります。
+
+.ステップ
+. [* コネクタ *] ドロップダウンをクリックし、別のコネクタを選択して、 [* スイッチ *] をクリックします。
++
+image:screenshot_connector_switch.gif["ヘッダーのコネクタアイコンとスイッチアクションを示すスクリーンショット。"]
+
++
+Cloud Manager が更新され、選択したコネクタに関連付けられている作業環境が表示されます。
+
+
+
+
+
+== ローカル UI にアクセスします
+
+SaaS ユーザインターフェイスからほとんどのタスクを実行する必要がありますが、ローカルユーザインターフェイスは引き続きコネクタで使用できます。このインターフェイスは、コネクタ自体から実行する必要があるいくつかのタスクに必要です。
+
+* link:task-configuring-proxy.html["プロキシサーバを設定しています"]
+* パッチをインストールしています （通常はネットアップの担当者と協力してパッチをインストールします）
+* AutoSupport メッセージをダウンロードしています （通常は問題が発生したときにネットアップの担当者が指示）
+
+
+.手順
+. link:task-logging-in.html["Cloud Manager SaaS インターフェイスにログインします"^] コネクターインスタンスへのネットワーク接続を持つマシンから。
++
+コネクタにパブリック IP アドレスがない場合は、 VPN 接続が必要です。そうでない場合は、コネクタと同じネットワークにあるジャンプホストから接続する必要があります。
+
+. [* Connector* （コネクタ * ） ] ドロップダウンをクリックし、 [* ローカル UI へ移動 * （ Go to Local UI * ） ] をクリックします。
++
+image:screenshot_connector_local_ui.gif["ヘッダーのコネクターアイコンとローカル UI へ移動アクションを示すスクリーンショット。"]
+
++
+コネクタで実行されている Cloud Manager インターフェイスが新しいブラウザタブに表示されます。
+
+
+
+
+
+== AutoSupport メッセージをダウンロードまたは送信します
+
+問題が発生した場合、ネットアップの担当者から、トラブルシューティングの目的で AutoSupport メッセージをネットアップサポートに送信するように依頼されることがあります。
+
+.手順
+. 上のセクションの説明に従って、コネクタローカル UI に接続します。
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
++
+image:screenshot-help-support.png["[ ヘルプ ] メニューのスクリーンショット。サポートは最初に表示されるオプションです"]
+
+. コネクター（ * Connector ）をクリックします。
+. ネットアップサポートへの情報の送信方法に応じて、次のいずれかを実行します。
++
+.. AutoSupport メッセージをローカルマシンにダウンロードするオプションを選択します。登録したら、任意の方法でネットアップサポートに送信できます。
+.. 「 * Send AutoSupport * 」をクリックして、メッセージをネットアップサポートに直接送信します。
+
+
++
+image:screenshot-connector-autosupport.png[""]
+
+
+
+
+
+== Linux VM に接続します
+
+コネクタが実行されている Linux VM に接続する必要がある場合は、クラウドプロバイダから提供されている接続オプションを使用できます。
+
+
+
+=== AWS
+
+AWS でコネクタインスタンスを作成する際に、 AWS のアクセスキーとシークレットキーを指定しました。このキーペアを使用して、 SSH でインスタンスに接続できます。
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html["AWS Docs ： Linux インスタンスに接続します"^]
+
+
+
+=== Azure
+
+Azure で Connector VM を作成する際に、パスワードまたは SSH 公開鍵を使用して認証するように選択します。選択した認証方式を使用して VM に接続します。
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm["Azure Docs ： SSH を使用して VM を接続します"^]
+
+
+
+=== Google Cloud
+
+Google Cloud でコネクタを作成するときに認証方法を指定することはできません。ただし、 Google Cloud Console または Google Cloud CLI （ gcloud ）を使用して Linux VM インスタンスに接続することができます。
+
+https://cloud.google.com/compute/docs/instances/connecting-to-instance["Google Cloud Docs ： Linux VM に接続します"^]
+
+
+
+== セキュリティ更新プログラムを適用する
+
+コネクタのオペレーティングシステムをアップデートして、最新のセキュリティアップデートでパッチが適用されていることを確認します。
+
+.手順
+. コネクタホストの CLI シェルにアクセスします。
+. 管理者権限で次のコマンドを実行します。
++
+[source, cli]
+----
+sudo -s
+service service-manager stop
+yum -y update –-security
+service service-manager start
+----
+
+
+
+
+== コネクタの URI を編集します
+
+コネクタの URI を追加および削除します。
+
+.手順
+. Cloud Manager ヘッダーの * Connector * ドロップダウンをクリックします。
+. [ * コネクターの管理 * ] をクリックします。
+. コネクターのアクションメニューをクリックし、 * URI を編集 * をクリックする。
+. URI を追加して削除し、 * 適用 * をクリックします。
+
+
+
+
+== Google Cloud NAT ゲートウェイを使用しているときのダウンロードエラーを修正します
+
+コネクタは、 Cloud Volumes ONTAP のソフトウェアアップデートを自動的にダウンロードします。設定で Google Cloud NAT ゲートウェイを使用している場合、ダウンロードが失敗することがあります。この問題を修正するには、ソフトウェアイメージを分割するパーツの数を制限します。この手順は、 Cloud Manager API を使用して実行する必要があります。
+
+.ステップ
+. 次の JSON を本文として /occm/config に PUT 要求を送信します。
+
+
+[source]
+----
+{
+  "maxDownloadSessions": 32
+}
+----
+_maxDownloadSessions_ の値は 1 または 1 より大きい任意の整数です。値が 1 の場合、ダウンロードされたイメージは分割されません。
+
+32 は値の例です。使用する値は、 NAT の設定と同時に使用できるセッションの数によって異なります。
+
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#occmconfig["/occm/config API 呼び出しの詳細を確認してください"^]。
+
+
+
+== インターネットにアクセスせずにオンプレミスのコネクタをアップグレードします
+
+あなたの場合 link:task-install-connector-onprem-no-internet.html["インターネットにアクセスできないオンプレミスホストにコネクタをインストール"]では、ネットアップサポートサイトで新しいバージョンを利用できる場合にコネクタをアップグレードできます。
+
+アップグレードプロセス中にコネクタを再起動する必要があるため、アップグレード中はユーザインターフェイスを使用できなくなります。
+
+.手順
+. から Cloud Manager ソフトウェアをダウンロードします https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["ネットアップサポートサイト"^]。
+. インストーラを Linux ホストにコピーします。
+. スクリプトを実行する権限を割り当てます。
++
+[source, cli]
+----
+chmod +x /path/cloud-manager-connector-offline-v3.9.14
+----
+. インストールスクリプトを実行します。
++
+[source, cli]
+----
+sudo /path/cloud-manager-connector-offline-v3.9.14
+----
+. アップグレードが完了したら、 * Help > Support > Connector * を選択してコネクタのバージョンを確認できます。
+
+
+.インターネットにアクセスできるホスト上のソフトウェアアップグレードについてはどうでしょうか。
+****
+Connector は、ソフトウェアが最新バージョンである限り、自動的にソフトウェアを更新します link:reference-networking-cloud-manager.html["アウトバウンドインターネットアクセス"] をクリックしてソフトウェアアップデートを入手します。
+
+****
+
+
+== Cloud Manager からコネクタを削除します
+
+非アクティブなコネクタは、 Cloud Manager のコネクタのリストから削除できます。この処理は、 Connector 仮想マシンを削除した場合や Connector ソフトウェアをアンインストールした場合に実行できます。
+
+コネクタの取り外しについては、次の点に注意してください。
+
+* この操作で仮想マシンが削除されることはありません。
+* この操作は元に戻せません -- Cloud Manager からコネクタを削除すると、再度 Cloud Manager に追加することはできません。
+
+
+.手順
+. Cloud Manager ヘッダーの * Connector * ドロップダウンをクリックします。
+. [ * コネクターの管理 * ] をクリックします。
+. 非アクティブなコネクターのアクションメニューをクリックし、 * コネクターを除去 * をクリックする。
++
+image:screenshot_connector_remove.gif["非アクティブなコネクタを削除できるコネクタウィジェットのスクリーンショット。"]
+
+. 確認するコネクタの名前を入力し、 [ 削除 ] をクリックします。
+
+
+Cloud Manager によってレコードからコネクタが削除されます。
+
+
+
+== Connector ソフトウェアをアンインストールします
+
+問題のトラブルシューティングを行う場合や、ソフトウェアをホストから完全に削除する場合は、コネクタソフトウェアをアンインストールします。使用する必要がある手順は、インターネットにアクセスできるホストにコネクタをインストールしたか、インターネットにアクセスできない制限されたネットワーク内のホストにインストールしたかによって異なります。
+
+
+
+=== インターネットにアクセスできるホストからをアンインストールします
+
+Online Connector には、ソフトウェアのアンインストールに使用できるアンインストールスクリプトが含まれています。
+
+.ステップ
+. Linux ホストからアンインストールスクリプトを実行します。
++
+* /opt/application/NetApp/cloudmanager/bin/uninstall.sh [ サイレント ] *
+
++
+silent_ 確認を求めずにスクリプトを実行します。
+
+
+
+
+
+=== インターネットにアクセスできないホストからをアンインストールします
+
+ネットアップサポートサイトからコネクタソフトウェアをダウンロードし、インターネットにアクセスできない制限されたネットワークにインストールした場合は、ここに示すコマンドを使用します。
+
+.ステップ
+. Linux ホストから、次のコマンドを実行します。
++
+[source, cli]
+----
+docker-compose -f /opt/application/netapp/ds/docker-compose.yml down -v
+rm -rf /opt/application/netapp/ds
+----
+

@@ -1,0 +1,100 @@
+---
+sidebar: sidebar 
+permalink: concept-overview.html 
+keywords: overview, concepts, features, use case, days, 14 days 
+summary: Cloud Manager を使用すると、 IT エキスパートやクラウドアーキテクトは、ネットアップのクラウドソリューションを使用してハイブリッドマルチクラウドインフラを一元管理できます。 
+---
+= Cloud Manager の詳細をご確認ください
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+Cloud Manager を使用すると、 IT エキスパートやクラウドアーキテクトは、ネットアップのクラウドソリューションを使用してハイブリッドマルチクラウドインフラを一元管理できます。
+
+
+
+== の機能
+
+Cloud Manager は、エンタープライズクラスの SaaS ベースの管理プラットフォームであり、格納場所に関係なくデータを管理できます。
+
+* をセットアップして使用します https://cloud.netapp.com/ontap-cloud["Cloud Volumes ONTAP"^] 複数のクラウドにわたって効率的なマルチプロトコルデータ管理を実現します。
+* ファイルストレージサービスをセットアップして使用
++
+** https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files の特長"^]
+** https://cloud.netapp.com/fsx-for-ontap["ONTAP 対応の Amazon FSX"^]
+** https://cloud.netapp.com/cloud-volumes-service-for-aws["Cloud Volumes Service for AWS"^]
+** https://cloud.netapp.com/cloud-volumes-service-for-gcp["Cloud Volumes Service for Google Cloud"^]
+
+
+* ボリュームの作成、クラウドへのバックアップ、ハイブリッドクラウド間でのデータのレプリケート、クラウドへのコールドデータの階層化を行うことで、オンプレミスの ONTAP クラスタを検出して管理できます。
+* 次のような統合 クラウド サービス を有効にします。
++
+** https://cloud.netapp.com/cloud-compliance["クラウドデータの意味"^]
+** https://cloud.netapp.com/cloud-insights["Cloud Insights の機能です"^]
+** https://cloud.netapp.com/cloud-backup-service["クラウドバックアップ"^]
+
+
+
+
+https://cloud.netapp.com/cloud-manager["Cloud Manager の詳細については、こちらをご覧ください"^]。
+
+
+
+== サポートされているオブジェクトストレージプロバイダ
+
+Cloud Manager を使用して、 Amazon Web Services 、 Microsoft Azure 、 Google Cloud でクラウドストレージを管理したりクラウドサービスを使用したりできます。
+
+
+
+== コスト
+
+Cloud Manager ソフトウェアはネットアップから無償で入手できます。
+
+ほとんどのタスクでは、 Cloud Manager からクラウドネットワークにコネクタを導入するよう求められます。その結果、コンピューティングインスタンスと関連ストレージについてクラウドプロバイダから料金が発生します。Connector ソフトウェアをオンプレミスで実行することもできます。
+
+
+
+== Cloud Manager の仕組み
+
+Cloud Manager には、 NetApp Cloud Central と統合される SaaS ベースのインターフェイスと、 Cloud Volumes ONTAP やその他のクラウドサービスを管理するコネクタがあります。
+
+
+
+=== ソフトウェアサービス
+
+Cloud Manager には、からアクセスできます https://cloudmanager.netapp.com["SaaS ベースのユーザインターフェイス"^] API を使用できます。この SaaS エクスペリエンスを利用すると、リリース時に最新機能に自動的にアクセスしたり、ネットアップのアカウントとコネクタを簡単に切り替えることができます。
+
+
+
+=== NetApp Cloud Central
+
+https://cloud.netapp.com["NetApp Cloud Central"^] 一元的な場所でアクセスと管理を行うことができます https://www.netapp.com/us/products/cloud-services/use-cases-for-netapp-cloud-services.aspx["ネットアップのクラウドサービス"^]。一元化されたユーザ認証を使用すると、同じクレデンシャルを使用して Cloud Manager と Cloud Insights などのその他のクラウドサービスにアクセスできます。
+
+
+
+=== ネットアップアカウント
+
+Cloud Manager に初めてログインするときは、 _netapp アカウント _ を作成するように求められます。このアカウントはマルチテナンシーを提供し、分離されたワークスペース内でユーザとリソースを整理することができます。
+
+
+
+=== コネクタ
+
+ほとんどの場合、アカウント管理者は _ コネクタ _ をクラウドまたはオンプレミスネットワークに導入する必要があります。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。
+
+コネクタは常時稼働している必要があります。有効にするサービスの継続的な健常性と運用性にとって重要です。
+
+たとえば、 Cloud Volumes ONTAP PAYGO システムの正常性と運用においては、コネクタが重要な要素です。コネクタの電源がオフの場合、 Cloud Volumes ONTAP PAYGO システムは、コネクタとの通信を 14 日以上失った後にシャットダウンします。
+
+link:concept-connectors.html["コネクタが必要になる状況とその方法については、こちらをご覧ください 仕事"]。
+
+
+
+== SOC 2 Type 2 認定
+
+独立機関の公認会計士であり、サービス監査役は、 Cloud Manager 、 Cloud Sync 、 Cloud Tiering 、 Cloud Data Sense 、 Cloud Backup （ Cloud Manager プラットフォーム）を調査し、該当する信頼サービス基準に基づいて SOC 2 Type 2 のレポートを達成したことを確認しました。
+
+https://www.netapp.com/company/trust-center/compliance/soc-2/["ネットアップの SOC 2 レポートをご覧ください"^]

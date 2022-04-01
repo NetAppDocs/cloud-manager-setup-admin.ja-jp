@@ -1,0 +1,106 @@
+---
+sidebar: sidebar 
+permalink: task-adding-gcp-accounts.html 
+keywords: permissions, gcp, marketplace, gcp subscription, subscription, gcp marketplace, subscribe, data tiering, tiering, setup, requirements, account for data tiering, account for tiering, interoperable, interoperability, interoperable storage access keys, access keys 
+summary: Connector VM インスタンスに関連付けられているクレデンシャルを管理できます。 
+---
+= Cloud Manager の GCP クレデンシャルとサブスクリプションの管理
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Connector VM インスタンスに関連付けられているクレデンシャルを管理できます。
+
+
+
+== Marketplace サブスクリプションと GCP クレデンシャルの関連付け
+
+GCP に Connector を導入すると、 Cloud Manager は Connector VM インスタンスに関連付けられたデフォルトのクレデンシャルセットを作成します。Cloud Manager で Cloud Volumes ONTAP の導入に使用するクレデンシャルを指定します。
+
+これらの資格情報に関連付けられている Marketplace サブスクリプションは、いつでも変更できます。サブスクリプションを使用すると、従量課金制の Cloud Volumes ONTAP システムを作成し、他のネットアップクラウドサービスを使用できます。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * クレデンシャル * を選択します。
+. 一連の資格情報のアクションメニューをクリックし、 * 契約の関連付け * を選択します。
++
+image:screenshot_gcp_add_subscription.png["一連の既存のクレデンシャルに対する操作メニューのスクリーンショット。"]
+
+. ダウンリストから Google Cloud プロジェクトとサブスクリプションを選択します。
++
+image:screenshot_gcp_associate.gif["Google Cloud の資格情報に対して選択された Google Cloud プロジェクトとサブスクリプションのスクリーンショット。"]
+
+. [ 関連付け（ Associate ） ] をクリックします。
+. サブスクリプションをまだお持ちでない場合は、 [ サブスクリプションの追加 ] をクリックし、以下の手順に従って新しいサブスクリプションを作成します。
++
+
+NOTE: 次の手順を実行する前に、 Google Cloud アカウントと NetApp Cloud Central へのログインの両方に課金管理者権限があることを確認してください。
+
+. サブスクリプションの手順をもう一度表示し、 [* Continue （続行） ] をクリックします。
++
+image:screenshot_gcp_sub_popup.png["サブスクリプションのポップアップのスクリーンショット。"]
+
+. にリダイレクトされたら https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Google Cloud Marketplace の NetApp Cloud Manager のページ"^]をクリックし、上部のナビゲーションメニューで正しいプロジェクトが選択されていることを確認します。
++
+image:screenshot_gcp_cvo_marketplace.png["GCP CVO Marketplace ページのスクリーンショット。"]
+
+. [*Subscribe*] をクリックします
+. 適切な請求先アカウントを選択し、条件に同意します。
++
+image:screenshot_gcp_terms_and_conditions.png["GCP の利用規約のスクリーンショット。"]
+
+. [*Subscribe*] をクリックします
++
+転送要求がネットアップに送信されます。
+
+. ポップアップダイアログボックスで、 NetApp Cloud Central にリダイレクトされる * Register with NetApp 、 Inc. * をクリックします。
++
+image:screenshot_gcp_marketplace_register.png["登録ポップアップのスクリーンショット。"]
+
++
+
+NOTE: GCP サブスクリプションをネットアップアカウントにリンクするには、この手順を完了する必要があります。このページからリダイレクトされて NetApp Cloud Central にサインインするまで、サブスクリプションをリンクするプロセスは完了していません。
+
+. Cloud Central にリダイレクトされたら、 NetApp Cloud Central にログインするか、サインアップして * Done * をクリックして続行します。
++
+GCP サブスクリプションは、ユーザログインが関連付けられているすべてのネットアップアカウントにリンクされます。
+
++
+image:screenshot_gcp_sub_mapping.png["GCP サブスクリプションをネットアップアカウントにマッピングするスクリーンショット。"]
+
++
+
+NOTE: 組織のユーザが請求用アカウントから NetApp Cloud Manager サブスクリプションにすでに登録している場合は、にリダイレクトされます https://cloud.netapp.com/ontap-cloud?x-gcp-marketplace-token=["NetApp Cloud Central の Cloud Volumes ONTAP ページ"^] 代わりに、予想外の場合は、ネットアップの営業チームにお問い合わせください。Google では、 1 つの Google 請求アカウントにつき 1 つのサブスクリプションのみが有効です。
+
+. このプロセスが完了したら、 Cloud Manager のクレデンシャルページに戻り、この新しいサブスクリプションを選択します。
++
+image:screenshot_gcp_associate.gif["サブスクリプションの割り当てページのスクリーンショット。"]
+
+
+
+
+
+== Marketplace サブスクリプションプロセスのトラブルシューティング
+
+Google Cloud Marketplace から Cloud Volumes ONTAP にサブスクライブすると、権限が正しくないために断片化されたり、 NetApp Cloud Central へのリダイレクトに誤って追随したりしない場合があります。この場合は、次の手順に従ってサブスクリプションプロセスを完了してください。
+
+.手順
+. に移動します https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Google Cloud Marketplace の NetApp Cloud Manager のページ"^] 注文の状態を確認します。ページに「 * プロバイダで管理」と表示されている場合は、下にスクロールして「 * 注文の管理 * 」をクリックします。
++
+image:screenshot_gcp_manage_orders.png["配信登録後のマーケットプレイスページのスクリーンショット"]
+
++
+.. 注文に緑のチェックマークが表示されていて、これが予期しない場合は、同じ請求アカウントを使用している組織の他の人がすでに登録されている可能性があります。想定外のサポートやサブスクリプションの詳細が必要な場合は、ネットアップの営業チームにお問い合わせください。
++
+image:screenshot_gcp_green_marketplace.png["承認されたエンタイトルメントのスクリーンショット。"]
+
+.. 注文に時計と * 保留中 * のステータスが表示されている場合は、マーケットプレイスのページに戻り、 * プロバイダで管理 * を選択して、上記の手順を完了します。
++
+image:screenshot_gcp_pending_marketplace.png["市場で保留中のエンタイトルメントのスクリーンショット。"]
+
+
+
+

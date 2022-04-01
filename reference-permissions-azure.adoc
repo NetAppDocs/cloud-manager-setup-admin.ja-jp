@@ -1,0 +1,95 @@
+---
+sidebar: sidebar 
+permalink: reference-permissions-azure.html 
+keywords: permissions, azure, azure permissions 
+summary: Cloud Manager からクラウドプロバイダの処理を実行するには権限が必要です。これらの権限は、ネットアップが提供するポリシーに含まれています。このような権限を持つ Cloud Manager の機能を理解しておく必要があるかもしれません。 
+---
+= Azure の Connector に必要な権限
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager からクラウドプロバイダの処理を実行するには権限が必要です。これらの権限はに含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["ネットアップが提供するポリシー"^]。このような権限を持つ Cloud Manager の機能を理解しておく必要があるかもしれません。
+
+Cloud Manager Azure ポリシーには、 Cloud Manager が Azure で Cloud Volumes ONTAP を導入および管理するために必要な権限が含まれています。
+
+[cols="50,50"]
+|===
+| アクション | 目的 
+
+
+| 「 Microsoft.Compute/locations/operations/read" 」、「 Microsoft.Compute/locations/vmSizes/read" 」、「 Microsoft.Compute/operations/read" 」、「 Microsoft.Compute/virtualMachines/instanceView/read" 」、「 Microsoft.Compute/virtualMachines/powerOff/action" 」、「 Microsoft.Compute/virtualMachines/read" 」、「 Microsoft.Compute/virtualMachines/restart/action" 」、「 Microsoft.Compute/virtualMachines/start/action" 」、「 Microsoft.Compute/virtualMachines/deallocate/action" 」、「 Microsoft.Compute/virtualMachines/vmSizes/read" 」、「 Microsoft.Compute/virtualMachines/write" 」、 | Cloud Volumes ONTAP を作成し、システムのステータスを停止、開始、削除、取得します。 
+
+
+| 「 microsoft.compute/images/write 」、「 microsoft.compute/images/read 」、 | VHD から Cloud Volumes ONTAP を導入できます。 
+
+
+| Microsoft.Compute/disks/delete" 、 Microsoft.Compute/disks/read" 、 Microsoft.Compute/disks/write" 、 "Microsoft.Storage/checknameavailability/read" 、 "Microsoft.Storage/operations/read" 、 "microsoft.StorageAccounts/listkeyss/action" 、 "microsoft.Storage/storageAccounts/read" 、 "microsoft.Storage/regenerateAccounts/action" 、 "Microsoft.Storage/storageAccounts/action" 、 "/writeStorageAccounts" 、 "/StorageAccounts/StorageAccounts/write/StorageAccounts" 、 ",","Microsoft 。 | Azure ストレージアカウントとディスクを管理し、ディスクを Cloud Volumes ONTAP に接続します。 
+
+
+| "microsoft.StorageAccounts/blobServices/containers/read" 、 "microsoft.KeyVault/vaults/read" 、 "microsoft.KeyVault/vaults/accessPolicies/write" | Azure BLOB ストレージへのバックアップとストレージアカウントの暗号化を有効にします 
+
+
+| 「 microsoft.network/networkinterfaces/read 」、「 microsoft.network/networkinterfaces/write 」、「 microsoft.network/networkinterfaces/join/action 」、 | ターゲットサブネット内の Cloud Volumes ONTAP のネットワークインターフェイスを作成および管理します。 
+
+
+| 「 microsoft.network/networksecuritygroups/read 」、「 microsoft.network/networksecuritygroups/write 」、「 microsoft.network/networksecuritygroups/join/action 」、 | Cloud Volumes ONTAP 用の定義済みネットワークセキュリティグループを作成します。 
+
+
+| 「 microsoft.Resources/Subscriptions /locations /read 」、「 Microsoft.Network/locations/operationResults/read" 」、「 Microsoft.Network/locations/operations/read" 」、「 Microsoft.Network/virtualNetworks/read" 」、「 Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read" 」、「 Microsoft.Network/virtualNetworks/subnets/read" 」、「 Microsoft.Network/virtualNetworks/subnets/virtualMachines/read" 」、「 Microsoft.Network/virtualNetworks/virtualMachines/read" 」、「 Microsoft.Network/virtualNetworks/subnets/join/action" 」、 | リージョン、ターゲット VNet 、およびサブネットに関するネットワーク情報を取得し、 vnet に Cloud Volumes ONTAP を追加します。 
+
+
+| 「 Microsoft.Network/virtualNetworks/subnets/write" 」、 Microsoft.Network/routeTables/join/action" 、 | データ階層化のための VNet サービスエンドポイントを有効にします。 
+
+
+| 「 Microsoft.Resources/Deployments/Operations/Read 」、「 Microsoft.Resources/Deployments/Read 」、「 Microsoft.Resources/Deployments/Write 」、 | テンプレートから Cloud Volumes ONTAP を導入します。 
+
+
+| "microsoft.Resources/Deployments/operations/read" 、 "microsoft.Resources/Deployments/read" 、 "microsoft.Resources/resources/read" 、 "microsoft.resources/resources/operationresults/read" 、 "microsoft.resources/Subscriptions /resourceGroups/delete" 、 "microsoft.resources/Subscriptions /resources/groups/resources/resources/reads/resources/resources/resources/resources/resources/resources/resources/reading" 、 ",",",","resources/resources/resources/resources/resources/resources/resources/resources/resources/resources/resources/resources/resources/resources/resources/resources/groups/ | Cloud Volumes ONTAP のリソースグループを作成および管理します。 
+
+
+| 「 Microsoft.Compute/snapshots/write" 」、「 Microsoft.Compute/snapshots/read" 」、「 Microsoft.Compute/snapshots/delete" 」、「 Microsoft.Compute/disks/beginGetAccess/action" 」、 | Azure マネージドスナップショットを作成および管理します。 
+
+
+| "microsoft.compute/availabilitySets/write", "microsoft.compute/availabilitySets/read", | Cloud Volumes ONTAP の可用性セットを作成および管理します。 
+
+
+| "Microsoft.MarketplaceOrdering/Offered Types/publishers/capers/plans/agreements/read" 、 "Microsoft.MarketplaceOrdering / offerTypes/publishers/capes/plans/agreements/write" | Azure Marketplace からのプログラムによる展開を可能にします。 
+
+
+| 「 Microsoft.Network/loadBalancers/read" 」、「 Microsoft.Network/loadBalancers/write" 」、「 Microsoft.Network/loadBalancers/delete" 」、「 Microsoft.Network/loadBalancers/backendAddressPools/read" 」、「 Microsoft.Network/loadBalancers/backendAddressPools/join/action" 」、「 Microsoft.Network/loadBalancers/frontendIPConfigurations/read" 」、「 Microsoft.Network/loadBalancers/loadBalancingRules/read" 」、「 Microsoft.Network/loadBalancers/probes/read" 」、「 Microsoft.Network/loadBalancers/probes/join/action" 」 | HA ペアの Azure ロードバランサを管理します。 
+
+
+| "Microsoft 許可 / ロック /*" | Azure ディスクのロックの管理を有効にします。 
+
+
+| "Microsoft.Authorization/roleDefinites/write" 、 "Microsoft.Authorization/rolrolわり あて /write" 、 "Microsoft.Web/sites/*" | HA ペアのフェイルオーバーを管理します。 
+
+
+| 「 Microsoft.Network/privateEndpoints/write" 」、「 Microsoft.StorageAccounts/PrivateEndpointConnectionsApproval/action 」、「 microsoft.Storage/storageAccounts/privateEndpointConnections/read 」、「 Microsoft.Network/privateEndpoints/read" 」、「 Microsoft.Network/privateDnsZones/write" 」、「 Microsoft.Network/privateDnsZones/virtualNetworkLinks/write" 」、「 Microsoft.Network/privateDnsZones/A/write" 」、「 Microsoft.Network/privateDnsZones/virtualNetworkLinks/read" 」、「 Microsoft.Network/privateDnsZones/read" 」、「 Microsoft.Network/virtualNetworks/join/action" 」、「 」、「 」、「 」 | プライベートエンドポイントの管理をイネーブルにします。プライベートエンドポイントは、サブネットの外部への接続が提供されない場合に使用されます。Cloud Manager は、サブネット内で内部接続のみを使用して HA 用のストレージアカウントを作成します。 
+
+
+| " Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete" 、 | Azure NetApp Files のボリュームを Cloud Manager で削除できます。 
+
+
+| "microsoft.Resources/Deployments/operationStatuses /read" | Azure では、一部の仮想マシン環境に対してこの権限が必要です（導入時に使用する基盤となる物理ハードウェアによって異なります）。 
+
+
+| "microsoft.Resources/Deployments/operationStatuses /read" 、 "microsoft.Insights / Metrics / Read" 、 "Microsoft.Compute/virtualMachines/extensions/write" 、 "Microsoft.Compute/virtualMachines/extensions/read" 、 "Microsoft.Compute/virtualMachines/extensions/delete" 、 "Microsoft.Compute/virtualMachines/delete" 、 "Microsoft.Network/networkInterfaces/delete" 、 "Microsoft.Network/networkSecurityGroups/delete" 、 "Microsoft.Resources/Deployments/delete" 、 | グローバルファイルキャッシュを使用できます。 
+
+
+| 「 Microsoft.Network/privateEndpoints/delete" 」、 Microsoft.Compute/availabilitySets/delete" 、 | 導入の失敗や削除が発生した場合に、 Cloud Manager が Cloud Volumes ONTAP に属するリソースグループからリソースを削除できるようにします。 
+
+
+| 「 Microsoft.Compute/diskEncryptionSets/read" 」 Microsoft.Compute/diskEncryptionSets/write" 、「 Microsoft.Compute/diskEncryptionSets/delete" 」「 microsoft.KeyVaults/vaults/deploy/action 」、「 microsoft.KeyVault/vaults/read 」、「 microsoft.KeyVaults/accessPolicies/write 」、 | Cloud Volumes ONTAP で、お客様が管理する暗号化キーの使用を有効にします。この機能は API を使用してサポートされます。 
+
+
+| "microsoft.Resources/tags/read" 、 "microsoft.Resources/tags/write" 、 "microsoft.Resources/tags/delete" | Cloud Manager Tagging サービスを使用して、 Azure リソースのタグを管理できます。 
+
+
+| 「 Microsoft.Network/applicationSecurityGroups/write" 」、「 Microsoft.Network/applicationSecurityGroups/read" 」、「 Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action" 」、「 Microsoft.Network/networkSecurityGroups/securityRules/write" 」、「 Microsoft.Network/applicationSecurityGroups/delete" 」、 「 Microsoft.Network/networkSecurityGroups/securityRules/delete" | Cloud Manager で HA ペアのアプリケーションセキュリティグループを設定できるため、 HA インターコネクトとクラスタネットワークの NIC が分離されます。 
+|===

@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: reference-whats-next.html 
+keywords: get started, create working environments, manage settings 
+summary: Cloud Manager にログインしてセットアップしたので、ユーザは作業環境の作成と検出を開始できます。 
+---
+= 次の手順
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager にログインしてセットアップしたので、ユーザは作業環境の作成と検出を開始できます。
+
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["Cloud Volumes ONTAP for AWS の利用を開始しましょう"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Cloud Volumes ONTAP for Azure の利用を開始しましょう"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP for Google Cloud の利用を開始しましょう"^]
+* https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-manage-anf.html["Azure NetApp Files をセットアップする"^]
+* https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/task-getting-started-fsx.html["ONTAP 用に Amazon FSX をセットアップします"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-service-aws/task-manage-cvs-aws.html["Cloud Volumes Service for AWS をセットアップする"^]
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["オンプレミスの ONTAP クラスタを検出"^]
+* link:task-viewing-amazon-s3.html["Amazon S3 バケットを検出します"]
+
+
+管理者は、最初のコネクタを作成したあとに Cloud Manager の設定を管理できます。
+
+* link:concept-connectors.html["コネクタについて説明します"]
+* link:task-installing-https-cert.html["セキュアなアクセスのための HTTPS 証明書を管理します"]
+* link:task-configuring-proxy.html["プロキシを設定します"]
+

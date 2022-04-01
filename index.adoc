@@ -1,0 +1,15 @@
+---
+layout: astra 
+sidebar: sidebar 
+permalink: index.html 
+lead: 'Get started with Cloud Manager so that you can start using NetApp"s cloud services to manage your data across a hybrid multicloud. After set up is complete, you can administer your NetApp accounts, Connectors, cloud provider accounts, and more.' 
+summary: ネットアップの クラウド サービス を使用してハイブリッドマルチクラウド全体のデータを管理できるように、 Cloud Manager を今すぐご利用ください。セットアップが完了したら、ネットアップアカウント、コネクタ、クラウドプロバイダアカウントなどを管理できます。 
+---
+= Cloud Manager をセットアップおよび管理する
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
