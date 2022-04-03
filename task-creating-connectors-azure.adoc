@@ -274,7 +274,7 @@ az role definition create --role-definition Policy_for_Setup_As_Service_Azure.js
 .. Azure ポータルで、 * Subscriptions * サービスを開きます。
 .. サブスクリプションを選択します。
 .. [* アクセス制御 (IAM)] 、 [ 追加 ] 、 [ 役割の割り当ての追加 *] の順にクリックします。
-.. [* 役割 ] タブで、 * Cloud Manager Operator * 役割を選択し、 * Next * をクリックします。
+.. [* 役割（ * Role ） ] タブで、 * Azure SetupAsService * 役割を選択し、 * 次へ * をクリックします。
 .. [* Members* （メンバー * ） ] タブで、次の手順を実行します。
 +
 *** [* ユーザー、グループ、またはサービスプリンシパル * ] を選択したままにします。

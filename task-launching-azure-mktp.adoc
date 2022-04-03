@@ -22,7 +22,7 @@ Cloud Manager からコネクタを直接作成することを推奨しますが
 Azure Marketplace のイメージを使用して Azure に Connector を導入し、コネクタにログインしてネットアップアカウントを指定します。
 
 .手順
-. https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-oncommand-cloud-manager["Cloud Manager の Azure Marketplace ページにアクセスします。"^]。
+. https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-oncommand-cloud-manager["Azure Marketplace の NetApp Connector VM のページに移動します"^]
 . [* Get it Now* ( 今すぐ取得 )] をクリックし、 [* Continue * ( 続行 )] をクリックします。
 . Azure ポータルで、 * Create * をクリックし、手順に従って仮想マシンを設定します。
 +
