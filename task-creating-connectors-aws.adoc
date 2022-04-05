@@ -24,37 +24,73 @@ TIP: 最初の Cloud Volumes ONTAP 作業環境を作成する際、まだコネ
 
 
 
-== コネクタを作成するための AWS 権限を設定する
+== AWS 認証をセットアップする
 
-Cloud Manager からコネクタを導入する前に、 AWS アカウントが正しい権限を持っていることを確認する必要があります。
+Cloud Manager で VPC にコネクタインスタンスを導入するには、 AWS で認証する必要があります。次のいずれかの認証方式を選択できます。
+
+* Cloud Manager に IAM ロールを割り当てます
+* IAM ユーザの AWS アクセスキーとシークレットキーを指定します
+
+
+使用する認証方式に、 Connector インスタンスを AWS に導入するための必要な権限がある必要があります。
+
+
+
+=== IAM ロールを設定する
+
+Cloud Manager で Connector を AWS に導入するために想定できる IAM ロールを設定します。
 
 .手順
-. 次の場所からコネクタ IAM ポリシーをダウンロードします。
+. からコネクタ IAM ポリシーをダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
 +
-https://mysupport.netapp.com/site/info/cloud-manager-policies["NetApp Cloud Manager ： AWS 、 Azure 、 GCP ポリシー"^]
+このポリシーには、 AWS でコネクタを作成するために必要な権限が含まれています。Cloud Manager は、作成時にコネクタインスタンスに新しい権限セットを適用します。
+
+. ターゲットアカウントの AWS IAM コンソールに移動します。
+. [ アクセス管理 ] で、 [ 役割 ] 、 [ 役割の作成 *] の順にクリックし、手順に従って役割を作成します。
++
+必ず次の手順を実行してください。
 
 +
+** 信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。
+** 別の AWS アカウント * を選択し、 Cloud Manager SaaS アカウントの ID として「 952013314444 」を入力してください
+** 以前にダウンロードしたコネクタ IAM ポリシーに表示されている権限を含むポリシーを作成します。
 
-TIP: Amazon FSX for ONTAP の IAM ユーザ権限については、を参照してください https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/task-creating-fsx-working-environment.html["ONTAP 作業環境用の FSX を作成します"^]。
+
+. IAM ロールのロール ARN をコピーして、コネクタの作成時に Cloud Manager に貼り付けることができるようにします。
+
+
+IAM ロールに必要な権限が割り当てられます。
+
+
+
+=== IAM ユーザの権限を設定します
+
+コネクタを作成するときに、 Connector インスタンスの導入に必要な権限を持つ IAM ユーザに AWS アクセスキーとシークレットキーを指定できます。
+
+.手順
+. から Connector 展開ポリシーをダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
++
+この IAM ポリシーには、 AWS でコネクタを作成するために必要な権限が含まれています。Cloud Manager は、作成時にコネクタインスタンスに新しい権限セットを適用します。
 
 . AWS IAM コンソールで、コネクタ IAM ポリシーからコピーしたテキストを貼り付けて独自のポリシーを作成します。
 . 前の手順で作成したポリシーを、 Cloud Manager からコネクタを作成する IAM ユーザに関連付けます。
+. IAM ユーザのアクセスキーとシークレットキーにアクセスできることを確認します。
 
 
 AWS ユーザに、 Cloud Manager からコネクタを作成するために必要な権限が付与されました。Cloud Manager からプロンプトが表示されたら、このユーザの AWS アクセスキーを指定する必要があります。
 
 
 
-== AWS でコネクタを作成する
+== コネクタを作成します
 
 Cloud Manager では、ユーザインターフェイスから AWS に直接コネクタを作成できます。
 
 .必要なもの
-* IAM 用の AWS アクセスキーとシークレットキー を持つユーザ https://mysupport.netapp.com/site/info/cloud-manager-policies["必要な権限"^] コネクタを作成します。
+* AWS 認証方式： Cloud Manager が権限を持つ IAM ロールの ARN 、または IAM ユーザの AWS アクセスキーとシークレットキーのいずれかです。
 * 選択した AWS リージョン内の VPC 、サブネット、キーペア。
 * Cloud Manager でコネクタ用の IAM ロールが自動的に作成されないようにするには、専用のを作成する必要があります https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.13.json["使用するポリシー"^]。
 +
-これらの権限はコネクタインスタンス用です。権限のセットは、前述の最初の項目とは異なります。
+これらは、 Connector がパブリッククラウド環境内のリソースを管理するために必要な権限です。これは、コネクタインスタンスの作成時に指定したアクセス許可とは異なります。
 
 
 
@@ -73,7 +109,11 @@ link:reference-networking-cloud-manager.html["Connector のネットワーク要
 . ウィザードの手順に従って、コネクタを作成します。
 +
 ** * 準備をしてください * ：必要なものを確認してください。
-** * AWS クレデンシャル * ：権限の要件を満たす AWS アクセスキーとシークレットキーを指定し、地域を選択します。
+** * AWS クレデンシャル * ： AWS リージョンを指定してから認証方式を選択します。認証方式は、 Cloud Manager が引き受けることができる IAM ロールか、 AWS のアクセスキーとシークレットキーのどちらかです。
++
+
+TIP: [*Assume Role] を選択した場合は、 Connector 展開ウィザードから最初の資格情報セットを作成できます。クレデンシャルの追加のセットは、 [Credentials] ページから作成する必要があります。ウィザードのドロップダウンリストから使用できるようになります。 link:task-adding-aws-accounts.html["クレデンシャルを追加する方法について説明します"]。
+
 ** * 詳細 * ：コネクタの詳細を入力します。
 +
 *** インスタンスの名前を入力します。

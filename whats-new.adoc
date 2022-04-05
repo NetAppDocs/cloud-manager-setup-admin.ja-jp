@@ -38,7 +38,7 @@ Google Cloud で新しいコネクタを作成すると、 Cloud Manager に既�
 NSS アカウントを IDaaS に移行していない場合は、まずアカウントを移行してから、 Cloud Manager でクレデンシャルを更新する必要があります。
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/FAQs_for_NetApp_adoption_of_MS_Azure_AD_B2C_for_login["ネットアップによるアイデンティティ管理での Microsoft Azure AD の使用方法の詳細については、こちらをご覧ください"^]
-* link:task-adding-nss-accounts.html#update-an-nss-account-for-the-new-authentication-method["NSS アカウントを新しい認証方法に更新する方法について説明します"]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-nss-accounts.html#update-an-nss-account-for-the-new-authentication-method["NSS アカウントを新しい認証方法に更新する方法について説明します"]
 
 
 
@@ -51,7 +51,7 @@ NSS アカウントを IDaaS に移行していない場合は、まずアカウ
 
 パブリッククラウド環境内でリソースやプロセスを管理するためにコネクタが接続する必要があるエンドポイントの数を削減しました。
 
-link:reference-networking-cloud-manager.html#outbound-internet-access["必要なエンドポイントのリストを表示します"]。
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-networking-cloud-manager.html#outbound-internet-access["必要なエンドポイントのリストを表示します"]。
 
 
 
@@ -59,7 +59,7 @@ link:reference-networking-cloud-manager.html#outbound-internet-access["必要な
 
 Cloud Manager から AWS に新しいコネクタを導入する際に、デフォルトのマスターキーまたは管理対象キーを使用してコネクタの EBS ディスクを暗号化できるようになりました。
 
-image:screenshot-connector-disk-encryption.png["AWS でコネクタを作成する際のディスク暗号化オプションを示すスクリーンショット。"]
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-setup-admin/main/media/screenshot-connector-disk-encryption.png["AWS でコネクタを作成する際のディスク暗号化オプションを示すスクリーンショット。"]
 
 
 
@@ -67,7 +67,7 @@ image:screenshot-connector-disk-encryption.png["AWS でコネクタを作成す�
 
 Cloud Manager に、ネットアップサポートサイトのアカウントに関連付けられている E メールアドレスが表示されるようになりました。
 
-image:screenshot-nss-display-email.png["ネットアップサポートサイトのアカウントの操作メニューを示すスクリーンショット。 E メールアドレスを表示できます。"]
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-setup-admin/main/media/screenshot-nss-display-email.png["ネットアップサポートサイトのアカウントの操作メニューを示すスクリーンショット。 E メールアドレスを表示できます。"]
 
 
 

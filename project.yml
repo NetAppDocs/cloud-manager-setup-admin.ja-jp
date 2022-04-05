@@ -126,18 +126,36 @@ homepage:
       url: concept-overview.html
     - title: はじめにチェックリスト
       url: reference-checklist-cm.html
-  - title: Cloud Manager の管理
+  - title: コネクタ
     links:
-    - title: ネットアップアカウントを管理します
-      url: task-managing-netapp-accounts.html
+    - title: コネクタについて説明します
+      url: concept-connectors.html
+    - title: ネットワークをセットアップします
+      url: reference-networking-cloud-manager.html
     - title: コネクタを管理します
       url: task-managing-connectors.html
+  - title: ネットアップアカウント
+    links:
+    - title: ネットアップアカウントについて
+      url: concept-netapp-accounts.html
+    - title: ワークスペースとユーザを設定します
+      url: task-setting-up-netapp-accounts.html
+    - title: ネットアップアカウントを管理します
+      url: task-managing-netapp-accounts.html
+  - title: クラウドプロバイダアカウント
+    links:
+    - title: AWS クレデンシャルを管理する
+      url: task-adding-aws-accounts.html
+    - title: Azure クレデンシャルを管理します
+      url: task-adding-azure-accounts.html
+    - title: Google Cloud クレデンシャルを管理します
+      url: task-adding-gcp-accounts.html
   - title: ブログコミュニティ
     links:
     - title: ネットアップコミュニティ
       url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
     - title: Cloud Central のブログです
-      url: https://cloud.netapp.com/blog
+      url: https://cloud.netapp.com/blog/topic/cloud-manager
     - title: クラウドに関する Web セミナー
       url: https://cloud.netapp.com/events
 product-family: {}
