@@ -219,7 +219,7 @@ link:task-managing-connectors.html["コネクタを切り替える方法につ�
 * AutoSupport メッセージをダウンロードしています （通常は問題が発生したときにネットアップの担当者が指示）
 
 
-link:task-managing-connectors.html["ローカル UI へのアクセス方法について説明します"^]。
+link:task-managing-connectors.html#access-the-local-ui["ローカル UI へのアクセス方法について説明します"]。
 
 
 

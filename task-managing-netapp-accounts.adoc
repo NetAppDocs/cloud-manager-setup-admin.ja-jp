@@ -251,7 +251,7 @@ link:concept-netapp-accounts.html#users-workspaces-and-service-connectors["ユ�
 
 たとえば、 2 つのアカウントがあり、それぞれが別々のサブスクリプションで課金されるとします。いずれかのアカウントとサブスクリプションの関連付けを解除することで、 Cloud Volume ONTAP 作業環境の作成時にそのアカウントのユーザが誤って誤ったサブスクリプションを選択しないようにすることができます。
 
-link:concept-netapp-accounts.html["サブスクリプションの詳細については、こちらをご覧ください"]。
+link:concept-netapp-accounts.html#subscriptions["サブスクリプションの詳細については、こちらをご覧ください"]。
 
 .手順
 . Cloud Manager の上部で、 * Account * ドロップダウンをクリックし、 * Manage Account * をクリックします。
@@ -316,7 +316,7 @@ SaaS プラットフォームを無効にすると、 Cloud Manager から次の
 * グローバルファイルキャッシュ
 
 
-SaaS プラットフォームを無効にする場合は、からすべてのタスクを実行する必要があります link:task-managing-connectors.html#accessing-the-local-ui["コネクタで使用可能なローカルユーザインターフェイス"]。
+SaaS プラットフォームを無効にする場合は、からすべてのタスクを実行する必要があります link:task-managing-connectors.html#access-the-local-ui["コネクタで使用可能なローカルユーザインターフェイス"]。
 
 
 CAUTION: これは元に戻すことができない操作であり、 Cloud Manager SaaS プラットフォームを使用できなくなります。ローカルコネクターからアクションを実行する必要があります。ネットアップの統合クラウドサービスの多くを利用することはできません。また、 SaaS プラットフォームを再度有効にするには、ネットアップのサポートが必要になります。

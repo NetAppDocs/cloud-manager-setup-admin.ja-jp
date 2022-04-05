@@ -104,7 +104,7 @@ link:concept-connectors.html["コネクタの詳細については、こちら�
 
 たとえば、 2 つのアカウントがあり、それぞれが別々のサブスクリプションで課金されるとします。いずれかのアカウントとサブスクリプションの関連付けを解除することで、 Cloud Volume ONTAP 作業環境の作成時にそのアカウントのユーザが誤って誤ったサブスクリプションを選択しないようにすることができます。
 
-link:task-managing-netapp-accounts.html["サブスクリプションの管理方法について説明します"]。
+link:task-managing-netapp-accounts.html#managing-subscriptions["サブスクリプションの管理方法について説明します"]。
 
 
 

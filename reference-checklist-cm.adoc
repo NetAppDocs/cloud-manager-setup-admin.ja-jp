@@ -62,7 +62,7 @@ AWS サービス（ amazonaws.com ）：
 
 
 | コネクタの IP アドレス  a| 
-ほとんどの場合、 Cloud Manager は SaaS UI で処理しますが link:concept-connectors.html#using-multiple-connectors-with-the-same-working-environment["ローカル UI を使用する場合は"]Web ブラウザからホストの IP アドレスを入力する必要があります。
+ほとんどの場合、 Cloud Manager は SaaS UI で処理しますが link:concept-connectors.html#the-local-user-interface["ローカル UI を使用する場合は"]Web ブラウザからホストの IP アドレスを入力する必要があります。
 
 クラウドプロバイダへの接続に応じて、ホストに割り当てられたプライベート IP またはパブリック IP を使用します。
 
@@ -156,33 +156,10 @@ NOTE: コネクタを作成するには、別の方法があります。から�
 * https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-azure.html["Cloud Volumes ONTAP for Azure"^]
 * https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-networking-gcp.html["Cloud Volumes ONTAP for GCP の略"^]
 * https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html["ONTAP システム間のデータレプリケーション"^]
-* https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-cloud-compliance.html["Cloud Data Sense の導入"^]
-+
-** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-getting-started-compliance.html["Cloud Volumes ONTAP とオンプレミス ONTAP に最適なクラウドデータ"^]
-** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-anf.html["Azure NetApp Files に最適なクラウドデータ"^]
-** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-fsx.html["Amazon FSX for ONTAP のクラウドデータセンス"^]
-** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-s3.html["Amazon S3 に最適なクラウドデータ"^]
-** https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-file-shares.html["NetApp 以外の NFS または CIFS ファイル共有での Cloud Data Sense"^]
-
-
+* https://docs.netapp.com/us-en/cloud-manager-data-sense/index.html["Cloud Data Sense の導入"^]
 * https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["オンプレミスの ONTAP クラスタ"^]
-* https://docs.netapp.com/us-en/cloud-manager-tiering/concept-cloud-tiering.html["クラウド階層化"^]
-+
-** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-aws.html["ONTAP クラスタから Amazon S3 へのデータ階層化"^]
-** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-azure.html["ONTAP クラスタから Azure BLOB ストレージへのデータ階層化"^]
-** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-gcp.html["ONTAP クラスタから Google Cloud Storage へのデータ階層化"^]
-** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-storagegrid.html["ONTAP クラスタから StorageGRID へのデータ階層化"^]
-** https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-s3-compat.html["ONTAP クラスタから汎用の S3 オブジェクトストレージへのデータ階層化"^]
-
-
-* https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-backup-to-cloud.html["クラウドバックアップ"^]
-+
-** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html["ONTAP クラスタから Amazon S3 へのデータバックアップ"^]
-** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html["ONTAP クラスタから Azure BLOB ストレージへのデータバックアップ"^]
-** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html["ONTAP クラスタから Google Cloud Storage へのデータバックアップ"^]
-** https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["ONTAP クラスタから StorageGRID へのデータバックアップ"^]
-
-
+* https://docs.netapp.com/us-en/cloud-manager-tiering/index.html["クラウド階層化"^]
+* https://docs.netapp.com/us-en/cloud-manager-backup-restore/index.html["クラウドバックアップ"^]
 
 
 --

@@ -74,13 +74,13 @@ sudo sysctl enable docker && sudo sysctl start docker
 +
 [source, cli]
 ----
-chmod +x /path/cloud-manager-connector-offline-v3.9.14
+chmod +x /path/cloud-manager-connector-offline-v3.9.16
 ----
 . インストールスクリプトを実行します。
 +
 [source, cli]
 ----
-sudo /path/cloud-manager-connector-offline-v3.9.14
+sudo /path/cloud-manager-connector-offline-v3.9.16
 ----
 . Web ブラウザを開き、と入力します https://_ipaddress_[] ここで、 _ipaddress_ は Linux ホストの IP アドレスです。
 +

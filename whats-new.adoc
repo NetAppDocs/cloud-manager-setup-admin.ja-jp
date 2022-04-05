@@ -186,7 +186,7 @@ image:screenshot_nss_management.png["NSS アカウントを追加できる Suppo
 
 Cloud Manager のタイムラインに、アカウント管理に関連する操作とイベントが表示されるようになりました。アクションには、ユーザーの関連付け、ワークスペースの作成、コネクタの作成などがあります。タイムラインのチェックは、特定のアクションを実行したユーザーを特定する必要がある場合や、アクションのステータスを特定する必要がある場合に役立ちます。
 
-link:task-managing-netapp-accounts.html["タイムラインをテナンシーサービスにフィルタリングする方法について説明します"]。
+link:task-monitor-cm-operations.html#auditing-user-activity-in-your-account["タイムラインをテナンシーサービスにフィルタリングする方法について説明します"]。
 
 
 
