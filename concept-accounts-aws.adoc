@@ -19,9 +19,9 @@ Cloud Manager では、 Cloud Volumes ONTAP の導入時に使用する AWS ク�
 
 == AWS の初期クレデンシャル
 
-Cloud Manager からコネクタを導入するときは、権限を持つ AWS アカウントを使用して Connector インスタンスを起動する必要があります。必要な権限は、に表示されます https://mysupport.netapp.com/site/info/cloud-manager-policies["AWS 用のコネクタ導入ポリシー"^]。
+Cloud Manager からコネクタを導入する場合は、 IAM ロールの ARN または IAM ユーザのアクセスキーを指定する必要があります。使用する認証方式に、 Connector インスタンスを AWS に導入するための必要な権限がある必要があります。必要な権限は、に表示されます https://mysupport.netapp.com/site/info/cloud-manager-policies["AWS 用のコネクタ導入ポリシー"^]。
 
-Cloud Manager が AWS でコネクタインスタンスを起動すると、インスタンス用の IAM ロールとインスタンスプロファイルが作成されます。また、 Cloud Manager にその AWS アカウント内のリソースやプロセスを管理する権限を付与するポリシーも適用されます。 link:reference-permissions-aws.html["Cloud Manager での権限の使用方法を確認します。"]。
+Cloud Manager が AWS でコネクタインスタンスを起動すると、インスタンス用の IAM ロールとインスタンスプロファイルが作成されます。また、ポリシーを適用して、指定した AWS アカウント内のリソースやプロセスを管理する権限を Connector に提供します。 link:reference-permissions-aws.html["Cloud Manager での権限の使用方法を確認します。"]。
 
 image:diagram_permissions_initial_aws.png["AWS アカウントに Cloud Central を導入していることを示す概念図。IAM ポリシーは、 Cloud Manager インスタンスに関連付けられている IAM ロールに割り当てられている。」"]
 
@@ -33,6 +33,12 @@ image:screenshot_accounts_select_aws.gif["Details & Credentials ページに Swi
 
 == 追加の AWS クレデンシャル
 
+AWS クレデンシャルを追加する方法は 2 種類あります。
+
+
+
+=== AWS クレデンシャルを既存のコネクタに追加する
+
 別々の AWS アカウントで Cloud Volumes ONTAP を起動する場合は、どちらかを実行します link:task-adding-aws-accounts.html["IAM ユーザまたは ARN に AWS キーを指定します 信頼できるアカウントのロール"]。次の図は、 2 つの追加アカウントを示しています。 1 つは、信頼されたアカウントの IAM ロールを介してアクセス許可を提供し、もう 1 つは IAM ユーザの AWS キーを使用してアクセス許可を提供します。
 
 image:diagram_permissions_multiple_aws.png["2 つの追加アカウントを示す概念図。各には IAM ポリシーが 1 つあり、 1 つは IAM ユーザに関連付けられ、もう 1 つは IAM ロールに関連付けられている。」"]
@@ -42,6 +48,12 @@ image:diagram_permissions_multiple_aws.png["2 つの追加アカウントを示�
 クレデンシャルを追加したら、新しい作業環境を作成するときにクレデンシャルに切り替えることができます。
 
 image:screenshot_accounts_switch_aws.png["[ 詳細と資格情報 ] ページで [ アカウントの切り替え ] をクリックした後に、クラウドプロバイダアカウントを選択する方法を示すスクリーンショット。"]
+
+
+
+=== AWS クレデンシャルを Cloud Manager に直接追加
+
+Cloud Manager に新しい AWS クレデンシャルを追加すると、 ONTAP 作業環境の FSX の作成と管理、またはコネクタの作成に必要な権限が Cloud Manager に付与されます。
 
 
 

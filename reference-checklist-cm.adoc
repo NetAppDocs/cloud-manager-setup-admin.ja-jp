@@ -125,8 +125,8 @@ NOTE: コネクタを作成するには、別の方法があります。から�
 
 | AWS  a| 
 . AWS で IAM ポリシーを作成するために必要な権限を含む JSON ファイルを使用します。
-. Cloud Manager からコネクタを作成する IAM ユーザにポリシーを関連付けます。
-. コネクタを作成するときに、必要な権限を持つ IAM ユーザの AWS アクセスキーとシークレットキーを Cloud Manager に渡します。
+. IAM ロールまたは IAM ユーザにポリシーを関連付けます。
+. コネクタを作成するときは、 Cloud Manager に IAM ロールの ARN 、または IAM ユーザの AWS アクセスキーとシークレットキーを提供します。
 
 | link:task-creating-connectors-aws.html["詳細な手順については、ここをクリックしてください"]。 
 
