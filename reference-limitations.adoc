@@ -76,7 +76,7 @@ NOTE: Cloud Backup 、 Cloud Data Sense 、 Monitoring サービスは、政府�
 
 
 
-== 従量課金制の Azure と Google Cloud のパートナーは利用できません
+=== 従量課金制の Azure と Google Cloud のパートナーは利用できません
 
 Microsoft Cloud 解決策 Provider （ CSP ）パートナー様または Google Cloud パートナー様は、従量課金制のサブスクリプションをご利用いただけません。ライセンスを購入し、 BYOL ライセンスを使用した NetApp クラウドソリューションを導入する必要があります。
 
