@@ -6,6 +6,7 @@ summary: Cloud Manager からクラウドプロバイダの処理を実行する
 ---
 = AWS でコネクタに必要な権限
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

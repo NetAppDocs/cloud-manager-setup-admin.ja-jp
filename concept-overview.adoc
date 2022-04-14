@@ -6,6 +6,7 @@ summary: Cloud Manager を使用すると、 IT エキスパートやクラウ�
 ---
 = Cloud Manager の詳細をご確認ください
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

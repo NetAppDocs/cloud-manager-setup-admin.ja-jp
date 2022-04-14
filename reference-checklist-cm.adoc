@@ -6,6 +6,7 @@ summary: このチェックリストを使用して、 Connector からアウト
 ---
 = はじめにチェックリスト
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

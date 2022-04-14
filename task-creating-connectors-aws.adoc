@@ -6,6 +6,7 @@ summary: Cloud Manager のほとんどの機能を使用するには、 Account 
 ---
 = Cloud Manager から AWS にコネクタを作成します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

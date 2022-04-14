@@ -6,6 +6,7 @@ summary: ネットアップサポートサイト（ NSS ）アカウントのク
 ---
 = Cloud Manager でネットアップサポートサイトのアカウントを追加および管理します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

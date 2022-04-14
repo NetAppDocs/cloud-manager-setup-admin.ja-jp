@@ -6,6 +6,7 @@ summary: サービスアカウントを使用すると、 Cloud Manager に対�
 ---
 = Google Cloud のプロジェクト、権限、アカウント
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

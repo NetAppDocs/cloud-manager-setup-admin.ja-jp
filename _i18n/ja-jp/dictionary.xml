@@ -279,7 +279,6 @@
   <block id="e66ca765497b1a570afc1443e2e6de1b" category="list-text">削除を確定するには、 * 削除 * をクリックします。</block>
   <block id="3c10116b37b407ac79092a38ffb292e4" category="summary">ネットアップテクニカルサポートでサポートケースをオープンするには、事前に Cloud Manager にネットアップサポートサイトのアカウントを追加し、サポートに登録しておく必要があります。</block>
   <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="doc">サポートに登録します</block>
-  <block id="d53e2559d6ace0e907fc57192bf286b6" category="paragraph"><block ref="d53e2559d6ace0e907fc57192bf286b6" category="inline-link-macro-rx"></block></block>
   <block id="55a16520d9c426fd88ba06b9313cc1a0" category="summary">初期セットアップを実行した後、ユーザー、サービスアカウント、ワークスペース、コネクタ、およびサブスクリプションを管理することで、アカウント設定を後から管理できます。</block>
   <block id="e97f2d246afe934ce73e145389529b37" category="doc">ネットアップアカウントの管理</block>
   <block id="d4b56cbbe5ee118eb18ad55bfaaef1f5" category="inline-link-macro">初期セットアップを実行したあと</block>
@@ -874,7 +873,6 @@
   <block id="e93366502d593964f54fa78a54256cef" category="paragraph">アカウントの設定が完了したので、ユーザーの削除、ワークスペース、コネクタ、およびサブスクリプションの管理によって、いつでもアカウントを管理できます。 <block ref="4b4f4de61b1c0103e06c096d3b330838" category="inline-link-macro-rx"></block>。</block>
   <block id="ce21e7ae4271271294ccbf54c8fd6864" category="summary">ネットアップでは、 Cloud Manager をさまざまな方法でサポートしています。ナレッジベース（ KB ）記事やコミュニティフォーラムなど、 24 時間 365 日利用可能な幅広いセルフサポートオプションをご用意しています。サポート登録には、 Web チケット処理によるリモートテクニカルサポートが含まれます。</block>
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">ヘルプを表示します</block>
-  <block id="7ccaf84febc0ed633fbdbadb8d488a7e" category="paragraph"><block ref="7ccaf84febc0ed633fbdbadb8d488a7e" category="inline-link-macro-rx"></block></block>
   <block id="d7e90f350e428587b096549117aa6b60" category="summary">Cloud Manager からコネクタを直接作成することを推奨します。 AWS アクセスキーを指定しない場合は、 AWS Marketplace からコネクタを起動できます。Connector の作成とセットアップが完了すると、新しい作業環境を作成するときに、 Cloud Manager によって自動的に Connector が使用されます。</block>
   <block id="e96bc5b1e40abf07ff070b96c65057db" category="doc">AWS Marketplace からコネクタを作成します</block>
   <block id="5669d6d88226e478d2b4da9cd43b96b5" category="list-text">EC2 インスタンス用の IAM ポリシーとロールを作成します。</block>
@@ -1370,8 +1368,6 @@
   <block id="5becfd4bbec3e5daaed9dbc85669ff84" category="paragraph"><block ref="850c1601f372329538aba5fe3f86430c" category="inline-link-macro-rx"></block>。</block>
   <block id="958c315a8c40765f65895091ecc83488" category="paragraph"><block ref="958c315a8c40765f65895091ecc83488" category="inline-link-rx"></block></block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法的通知</block>
-  <block id="c59ae8d7beeb519a23478ab048af482c" category="paragraph"><block ref="c59ae8d7beeb519a23478ab048af482c" category="inline-link-macro-rx"></block></block>
-  <block id="6f2ac1cf1da8ec34232c651d4bba0149" category="paragraph"><block ref="6f2ac1cf1da8ec34232c651d4bba0149" category="inline-link-macro-rx"></block></block>
   <block id="4940124e8487cb4ea36f1511a195cf66" category="inline-link-macro">Cloud Manager 3.9 に関する注意事項</block>
   <block id="c069fcc68c5dfa73ccc99924c836cae9" category="list-text"><block ref="c069fcc68c5dfa73ccc99924c836cae9" category="inline-link-macro-rx"></block></block>
   <block id="93fd4230b4afd5ccd3311e78e4c88ac9" category="summary">コネクタがパブリッククラウド環境内のリソースやプロセスを管理できるように、ネットワークを設定します。最も重要なステップは、さまざまなエンドポイントへのアウトバウンドインターネットアクセスを確保することです。</block>
@@ -1426,29 +1422,9 @@
   <block id="a94c44d83136ca0aa23c397adb28b116" category="admonition">送信元 IP アドレスは、コネクタホストです。</block>
   <block id="c2ba7e785c49050f48da9aacc45c2b85" category="cell">サービス</block>
   <block id="12007e1d59f4d09c87dbe2c438256244" category="cell">宛先</block>
-  <block id="4fbbbcdfcdfad5270a20167c67509f0b" category="cell">Active Directory</block>
-  <block id="2a38a4a9316c49e5a833517c45d31070" category="cell">88</block>
-  <block id="b81acdd12d819432acb7f548eb3359be" category="cell">Active Directory フォレスト</block>
-  <block id="fa0b1696f093aa6d80fa11d7607fcf3d" category="cell">Kerberos V 認証</block>
-  <block id="e00da03b685a0dd18fb6a08af0923de0" category="cell">139</block>
-  <block id="2aa976707cd5d2da05a9dae859536870" category="cell">NetBIOS サービスセッション</block>
-  <block id="c86a7ee3d8ef0b551ed58e354a836f2b" category="cell">389</block>
-  <block id="2363dee608bcd9f6ce7f980bfdad5789" category="cell">LDAP</block>
-  <block id="67f7fb873eaf29526a11a9b7ac33bfac" category="cell">445</block>
-  <block id="100c97ce556d60c86e5d8b424c3ed3ad" category="cell">NetBIOS フレーム同期を使用した Microsoft SMB over TCP</block>
-  <block id="f1b6f2857fb6d44dd73c7041e0aa0f19" category="cell">464</block>
-  <block id="18eb444b6b771bcc91c4997659263d7d" category="cell">Kerberos V パスワードの変更と設定（ SET_CHANGE ）</block>
-  <block id="b056eb1587586b71e2da9acfe4fbd19e" category="cell">749</block>
-  <block id="03b9930526cd7e3fa4aafa64244d7957" category="cell">Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ）</block>
   <block id="f5ef036b4d8b630721e51fe23489fbc9" category="cell">UDP</block>
-  <block id="3988c7f88ebcb58c6ce932b957b6f332" category="cell">137</block>
-  <block id="a5284329103adcae2bd4f84ad4e5c162" category="cell">NetBIOS ネームサービス</block>
-  <block id="013d407166ec4fa56eb1e1f8cbe183b9" category="cell">138</block>
-  <block id="f50f261c93b1d23352fa830e183dc6ad" category="cell">NetBIOS データグラムサービス</block>
-  <block id="7f54d18f39188eef294de01d335410b6" category="cell">Kerberos キー管理</block>
   <block id="241b5fab8e737eaa79c543efe7307059" category="cell">API コールと AutoSupport</block>
   <block id="096a28c32a85d3d48462b468a3700d9a" category="cell">アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF</block>
-  <block id="756da060e5d58870fc2d28d4b7bc9a45" category="cell">AWS および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信</block>
   <block id="22043367a89ddcf3eb99eec509a967ba" category="cell">API コール</block>
   <block id="e93028bdc1aacdfb3687181f2031765d" category="cell">3000</block>
   <block id="e9ed822bdea417e9dfd79a2c81634ba4" category="cell">ONTAP HA メディエーター</block>
@@ -1467,7 +1443,6 @@
   <block id="5ea521a799e1cf043cd101ec326044f6" category="paragraph">コネクタのファイアウォールルールには、インバウンドとアウトバウンドの両方のルールが必要です。</block>
   <block id="aa414a57d6f1347fc5212beb06655a8e" category="paragraph">コネクタの定義済みファイアウォールルールによって、すべてのアウトバウンドトラフィックが開かれます。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。</block>
   <block id="bd83f7d2350eb6b777b2622dfd275ab6" category="paragraph">コネクタの定義済みファイアウォールルールには、次のアウトバウンドルールが含まれています。</block>
-  <block id="6bd5daa8c1323951490934f949fd7f78" category="cell">GCP および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信</block>
   <block id="e3d41d6e94475edc27ad068b42448e0e" category="section-title">オンプレミスコネクタ用のポート</block>
   <block id="b5c1dbf300be5c998c2da388a4bae39b" category="paragraph">コネクタは、オンプレミスの Linux ホストに手動でインストールする場合、下記の _ インバウンド _ ポートを使用します。</block>
   <block id="9fd4da59ae98e0088d69c210beb651b2" category="paragraph">これらのインバウンドルールは、オンプレミスコネクタの両方の配置モデルに適用されます。つまり、インターネットアクセスがインストールされているか、インターネットアクセスがないかです。</block>
@@ -2067,4 +2042,45 @@
   <block id="9a512cb6f8c6b3e4e3ee11942b6c1ca9" category="paragraph">Cloud Manager に新しい AWS クレデンシャルを追加すると、 ONTAP 作業環境の FSX の作成と管理、またはコネクタの作成に必要な権限が Cloud Manager に付与されます。</block>
   <block id="1e0ffea311b606e155cd79847cc310dd" category="list-text">IAM ロールまたは IAM ユーザにポリシーを関連付けます。</block>
   <block id="4522caea722d5e7e4eedf46bebdf92b1" category="list-text">コネクタを作成するときは、 Cloud Manager に IAM ロールの ARN 、または IAM ユーザの AWS アクセスキーとシークレットキーを提供します。</block>
+  <block id="868d9aa88f16ea923af1d15eac5d2647" category="paragraph"><block ref="868d9aa88f16ea923af1d15eac5d2647" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b4c6a2f33e7b2a38495546b8d5cd8e84" category="paragraph">注：お客様レベルのアカウントである必要があります（ゲストや一時アカウントは使用できません）。</block>
+  <block id="fc65ebd4739f2f8ca46062a8280faea9" category="section-title">アカウントを登録してサポートを受けてください</block>
+  <block id="3e080914efe0d0ca025439fbb68d437f" category="paragraph">サポートの登録は、 Cloud Manager のサポートダッシュボードで実行できます。</block>
+  <block id="fb07bf6b7698dbe934b8b2164d915484" category="list-text">[* リソース ] タブで、 [* サポートに登録 * ] をクリックします。</block>
+  <block id="392fb0270d0d84dbc3fdf8c67da1e5ad" category="list-text">登録する NSS 資格情報を選択し、 * 登録 * をクリックします。</block>
+  <block id="a6a8d3a613b6b7ece18f688d168e5cda" category="cell">API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します</block>
+  <block id="6dabf2a1195c84bdf3b7bf30e5ddf080" category="cell">API が GCP と ONTAP にコールし、クラウドデータを検知してランサムウェア対策サービスに送信し、 AutoSupport メッセージをネットアップに送信します</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">著作権に関する声明、商標、特許などにアクセスできます。</block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">著作権</block>
+  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">商標</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp 、 NetApp のロゴ、および NetApp の商標ページに記載されているマークは、 NetApp, Inc. の商標です。その他の会社名および製品名は、それぞれの所有者の商標である場合があります。</block>
+  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">特許</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">ネットアップが所有する特許の最新リストは、次のサイトで入手できます。</block>
+  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">プライバシーポリシー</block>
+  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">オープンソース</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知ファイルには、ネットアップソフトウェアで使用されるサードパーティの著作権およびライセンスに関する情報が記載されています。</block>
+  <block id="51719eefc68685ac0e2a11057a44b8be" category="paragraph">ネットアップでは、 Cloud Manager とその クラウド サービス をさまざまな方法でサポートしています。ナレッジベース（ KB ）記事やコミュニティフォーラムなど、 24 時間 365 日利用可能な幅広いセルフサポートオプションをご用意しています。サポート登録には、 Web チケット処理によるリモートテクニカルサポートが含まれます。</block>
+  <block id="07d41912a6ab6b97216f8cf89e93205c" category="section-title">セルフサポート</block>
+  <block id="5e4b821a1a82558dead1ef6961e90666" category="paragraph">次のオプションは、 1 日 24 時間、週 7 日間無料でご利用いただけます。</block>
+  <block id="19111351b69b6b15668130b38b7f6038" category="inline-link">ナレッジベース</block>
+  <block id="fd6bb4fa1ad0caeedd6782d92cc54ea3" category="list-text"><block ref="fd6bb4fa1ad0caeedd6782d92cc54ea3" category="inline-link-rx"></block></block>
+  <block id="76b571fb5edea1c1994fa0ff01f7b1e2" category="paragraph">Cloud Manager のナレッジベースで問題のトラブルシューティングに役立つ記事を検索してください。</block>
+  <block id="14526abd8bda5af347775025cd5342cf" category="inline-link">コミュニティ</block>
+  <block id="410fdb9caa9c64da2ff3f88f4836960d" category="list-text"><block ref="410fdb9caa9c64da2ff3f88f4836960d" category="inline-link-rx"></block></block>
+  <block id="7f3490343cad8dc3bfdb72dd5d957e8d" category="paragraph">Cloud Manager コミュニティに参加して、進行中のディスカッションに参加したり、新しいコミュニティを作成したりできます。</block>
+  <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">ドキュメント</block>
+  <block id="3c313458d6e15dd2c4336e47118d0a8f" category="paragraph">現在表示している Cloud Manager のドキュメント。</block>
+  <block id="80b1b0d2b1ebf2b3cba2d25759801afd" category="list-text">mailto ： ng-cloudmanager-feedback@netapp.com [ フィードバックメール ]</block>
+  <block id="bff60abbc46aceed0f73a3a4f6cfb123" category="paragraph">お客様のご意見をお考えください。Cloud Manager の改善に役立つフィードバックを送信します。</block>
+  <block id="0659d428df833a806e29e65e632d380a" category="section-title">ネットアップサポート</block>
+  <block id="c91b5a63849b8d2db01014ed33192735" category="paragraph">上記のセルフサポートオプションに加え、サポートを有効にしたあとに問題が発生した場合は、ネットアップサポートエンジニアと協力して解決できます。</block>
+  <block id="6c08c57e382a25a778455184cd9b1a4a" category="list-text">Cloud Manager で、 * Help &gt; Support * の順にクリックします。</block>
+  <block id="f5052c65917d7341726235d4d4941461" category="list-text">テクニカルサポートで利用可能なオプションのいずれかを選択します。</block>
+  <block id="bece28b158ab337d9ed24b00d7d02cc7" category="list-text">[ * お問い合わせ * ] をクリックして、ネットアップ・テクニカル・サポートの電話番号を検索してください。</block>
+  <block id="efe81cff8e6f47ec59ef94167b76bf5a" category="list-text">[ * 問題 を開く * ] をクリックし、いずれかのオプションを選択して、 [ * 送信 * ] をクリックします。</block>
+  <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">ネットアップの担当者がケースを確認し、すぐに対応を開始します。</block>
 </blocks>

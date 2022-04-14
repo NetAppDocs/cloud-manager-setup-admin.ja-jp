@@ -6,6 +6,7 @@ summary: 作業を開始する際に、ネットアップの担当者からコ�
 ---
 = コネクタのシステム ID の確認
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

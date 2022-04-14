@@ -6,6 +6,7 @@ summary: アカウント管理者、ワークスペース管理者、コンプ�
 ---
 = ロール
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: コネクタを作成する最も一般的な方法は、 Cloud Manager
 ---
 = インターネットにアクセスできる既存の Linux ホストにコネクタをインストールします
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -118,9 +118,6 @@ sidebar:
       url: "/task-get-help.html"
   - title: 法的通知
     url: "/legal-notices.html"
-product-family:
-  name: Cloud Manager
-  repo: cloud-manager-family
 homepage:
   tiles:
   - title: はじめに
@@ -161,3 +158,4 @@ homepage:
       url: https://cloud.netapp.com/blog/topic/cloud-manager
     - title: クラウドに関する Web セミナー
       url: https://cloud.netapp.com/events
+product-family: {}

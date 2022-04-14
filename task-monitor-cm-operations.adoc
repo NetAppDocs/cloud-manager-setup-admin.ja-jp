@@ -6,6 +6,7 @@ summary: Cloud Manager で実行されている処理のステータスを監視
 ---
 = アカウントでの操作の監視
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

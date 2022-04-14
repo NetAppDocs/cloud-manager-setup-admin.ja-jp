@@ -6,6 +6,7 @@ summary: Cloud Manager からクラウドプロバイダの処理を実行する
 ---
 = Google Cloud の Connector に必要な権限です
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

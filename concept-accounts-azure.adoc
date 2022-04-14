@@ -6,6 +6,7 @@ summary: Cloud Manager では、 Cloud Volumes ONTAP の導入時に使用する
 ---
 = Azure のクレデンシャルと権限
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

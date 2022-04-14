@@ -6,6 +6,7 @@ summary: インターネットにアクセスできないオンプレミスの L
 ---
 = インターネットにアクセスせずにオンプレミスにコネクタをインストールします
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

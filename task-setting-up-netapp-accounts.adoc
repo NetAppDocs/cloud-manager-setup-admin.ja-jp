@@ -6,6 +6,7 @@ summary: Cloud Manager への初回ログイン時に、ネットアップアカ
 ---
 = ネットアップアカウントでワークスペースとユーザをセットアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 社内ポリシーで、インターネットへのすべての HTTP �
 ---
 = HTTP プロキシサーバを使用するためのコネクタの設定
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

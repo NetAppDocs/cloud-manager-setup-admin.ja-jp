@@ -6,6 +6,7 @@ summary: コネクタがパブリッククラウド環境内のリソースや�
 ---
 = コネクタのネットワークを設定します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -147,34 +148,7 @@ NOTE: 送信元 IP アドレスは、コネクタホストです。
 | サービス | プロトコル | ポート | 宛先 | 目的 
 
 
-.9+| Active Directory | TCP | 88 | Active Directory フォレスト | Kerberos V 認証 
-
-
-| TCP | 139 | Active Directory フォレスト | NetBIOS サービスセッション 
-
-
-| TCP | 389 | Active Directory フォレスト | LDAP 
-
-
-| TCP | 445 | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
-
-
-| TCP | 464 | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
-
-
-| TCP | 749 | Active Directory フォレスト | Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ） 
-
-
-| UDP | 137 | Active Directory フォレスト | NetBIOS ネームサービス 
-
-
-| UDP | 138 | Active Directory フォレスト | NetBIOS データグラムサービス 
-
-
-| UDP | 464 | Active Directory フォレスト | Kerberos キー管理 
-
-
-| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | AWS および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信 
+| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します 
 
 
 .2+| API コール | TCP | 3000 | ONTAP HA メディエーター | ONTAP HA メディエーターとの通信 
@@ -247,34 +221,7 @@ NOTE: 送信元 IP アドレスは、コネクタホストです。
 | サービス | ポート | プロトコル | 宛先 | 目的 
 
 
-.9+| Active Directory | 88 | TCP | Active Directory フォレスト | Kerberos V 認証 
-
-
-| 139 | TCP | Active Directory フォレスト | NetBIOS サービスセッション 
-
-
-| 389 | TCP | Active Directory フォレスト | LDAP 
-
-
-| 445 | TCP | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
-
-
-| 464 | TCP | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
-
-
-| 749 | TCP | Active Directory フォレスト | Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ） 
-
-
-| 137 | UDP | Active Directory フォレスト | NetBIOS ネームサービス 
-
-
-| 138 | UDP | Active Directory フォレスト | NetBIOS データグラムサービス 
-
-
-| 464 | UDP | Active Directory フォレスト | Kerberos キー管理 
-
-
-| API コールと AutoSupport | 443 | HTTPS | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | AWS および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信 
+| API コールと AutoSupport | 443 | HTTPS | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します 
 
 
 | DNS | 53 | UDP | DNS | Cloud Manager による DNS 解決に使用されます 
@@ -338,34 +285,7 @@ NOTE: 送信元 IP アドレスは、コネクタホストです。
 | サービス | プロトコル | ポート | 宛先 | 目的 
 
 
-.9+| Active Directory | TCP | 88 | Active Directory フォレスト | Kerberos V 認証 
-
-
-| TCP | 139 | Active Directory フォレスト | NetBIOS サービスセッション 
-
-
-| TCP | 389 | Active Directory フォレスト | LDAP 
-
-
-| TCP | 445 | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
-
-
-| TCP | 464 | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
-
-
-| TCP | 749 | Active Directory フォレスト | Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ） 
-
-
-| UDP | 137 | Active Directory フォレスト | NetBIOS ネームサービス 
-
-
-| UDP | 138 | Active Directory フォレスト | NetBIOS データグラムサービス 
-
-
-| UDP | 464 | Active Directory フォレスト | Kerberos キー管理 
-
-
-| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | GCP および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信 
+| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | API が GCP と ONTAP にコールし、クラウドデータを検知してランサムウェア対策サービスに送信し、 AutoSupport メッセージをネットアップに送信します 
 
 
 | DNS | UDP | 53 | DNS | Cloud Manager による DNS 解決に使用されます 

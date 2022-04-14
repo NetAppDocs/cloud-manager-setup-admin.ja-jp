@@ -6,6 +6,7 @@ summary: AWS クレデンシャルを追加および管理して、 Cloud Manage
 ---
 = Cloud Manager の AWS クレデンシャルとサブスクリプションを管理します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
