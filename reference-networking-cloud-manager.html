@@ -997,7 +997,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:25:30 +0000">04/14/2022</time>
+    <time datetime="2022-04-18 14:41:39 +0000">04/18/2022</time>
     
   
 
@@ -1148,12 +1148,12 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTP アクセス、および Cloud Data Sense からの接続を提供します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルへの HTTP アクセスを提供します ユーザインターフェイス</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTPS アクセス、および Cloud Data Sense インスタンスからの接続を提供します</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
@@ -1267,13 +1267,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager による DNS 解決に使用されます</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラウドデータの意味</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Data Sense インスタンス</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP に最適なクラウドデータ</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1294,26 +1287,31 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">ポート</th>
 <th class="tableblock halign-left valign-top">プロトコル</th>
+<th class="tableblock halign-left valign-top">ポート</th>
 <th class="tableblock halign-left valign-top">目的</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SSH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">コネクタホストへの SSH アクセスを提供します</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルへの HTTP アクセスを提供します ユーザインターフェイス</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTPS アクセス、および Cloud Data Sense インスタンスからの接続を提供します</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9060</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">クラウドデータセンスの有効化と使用が可能（政府機関のクラウド環境にのみ必要）</p></td>
 </tr>
 </tbody>
 </table>
@@ -1336,20 +1334,20 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">ポート</th>
 <th class="tableblock halign-left valign-top">プロトコル</th>
+<th class="tableblock halign-left valign-top">ポート</th>
 <th class="tableblock halign-left valign-top">目的</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">すべての TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">すべての UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
 </tr>
 </tbody>
@@ -1383,8 +1381,8 @@
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">サービス</th>
-<th class="tableblock halign-left valign-top">ポート</th>
 <th class="tableblock halign-left valign-top">プロトコル</th>
+<th class="tableblock halign-left valign-top">ポート</th>
 <th class="tableblock halign-left valign-top">宛先</th>
 <th class="tableblock halign-left valign-top">目的</th>
 </tr>
@@ -1392,15 +1390,15 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">API コールと AutoSupport</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager による DNS 解決に使用されます</p></td>
 </tr>
