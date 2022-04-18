@@ -1400,7 +1400,6 @@
   <block id="7dca630291dc35d5447daa0c9abf8da4" category="cell">コネクタホストへの SSH アクセスを提供します</block>
   <block id="293c9ea246ff9985dc6f62a650f78986" category="cell">HTTP</block>
   <block id="f033ab37c30201f73f142449d037028d" category="cell">80</block>
-  <block id="e41468f89241b53dc9a8cebeff010b25" category="cell">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTP アクセス、および Cloud Data Sense からの接続を提供します</block>
   <block id="0e8433f9a404f1f3ba601c14b026d321" category="cell">HTTPS</block>
   <block id="13f3cf8c531952d72e5847c4183e6910" category="cell">443</block>
   <block id="2f0c197eb73a7c6da10b03384f241025" category="cell">クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス</block>
@@ -1435,8 +1434,6 @@
   <block id="ed5f2bdecbd4bd349d09412d1ff6a6fb" category="cell">DNS</block>
   <block id="d82c8d1619ad8176d665453cfb2e55f0" category="cell">53</block>
   <block id="dd8679112f038315d04028c46da1fef7" category="cell">Cloud Manager による DNS 解決に使用されます</block>
-  <block id="6cf25d0dcbf586ed6aff3b930e4d8019" category="cell">Cloud Data Sense インスタンス</block>
-  <block id="059ace13ef3980df592dafb754ef8883" category="cell">Cloud Volumes ONTAP に最適なクラウドデータ</block>
   <block id="b445de53411a165e9c56da6430c38d59" category="section-title">Azure のコネクタのルール</block>
   <block id="63b34d7f22329c0eb7915fca7a346007" category="cell">クライアント Web ブラウザからローカルへの HTTP アクセスを提供します ユーザインターフェイス</block>
   <block id="b52a434afaffee3d1646df3eb9acc853" category="section-title">GCP のコネクターのルール</block>
@@ -2083,4 +2080,6 @@
   <block id="efe81cff8e6f47ec59ef94167b76bf5a" category="list-text">[ * 問題 を開く * ] をクリックし、いずれかのオプションを選択して、 [ * 送信 * ] をクリックします。</block>
   <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">ネットアップの担当者がケースを確認し、すぐに対応を開始します。</block>
   <block id="8f8ddac26068fbb5a6761635f0559bf3" category="paragraph">これらのサービスを使用するには、 SaaS プラットフォームが必要です。</block>
+  <block id="0c01b3b7191c43507ad9ca43d6443731" category="cell">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTPS アクセス、および Cloud Data Sense インスタンスからの接続を提供します</block>
+  <block id="b774573fe7b53358246a054f6d44ca83" category="cell">クラウドデータセンスの有効化と使用が可能（政府機関のクラウド環境にのみ必要）</block>
 </blocks>
