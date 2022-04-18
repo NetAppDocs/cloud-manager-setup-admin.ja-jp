@@ -2082,4 +2082,13 @@
   <block id="8f8ddac26068fbb5a6761635f0559bf3" category="paragraph">これらのサービスを使用するには、 SaaS プラットフォームが必要です。</block>
   <block id="0c01b3b7191c43507ad9ca43d6443731" category="cell">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTPS アクセス、および Cloud Data Sense インスタンスからの接続を提供します</block>
   <block id="b774573fe7b53358246a054f6d44ca83" category="cell">クラウドデータセンスの有効化と使用が可能（政府機関のクラウド環境にのみ必要）</block>
+  <block id="5c6b09600cdfc594130f9f3c053efecb" category="section-title">コネクタの IP アドレスを変更します</block>
+  <block id="a0dc112a414c5a75d4f2454974efc323" category="paragraph">ビジネスに必要な場合は、クラウドプロバイダによって自動的に割り当てられたコネクタインスタンスの内部 IP アドレスとパブリック IP アドレスを変更できます。</block>
+  <block id="bfe6d8b96fb30d923a8089019f265d6b" category="list-text">クラウドプロバイダからの指示に従って、 Connector インスタンスのローカル IP アドレスまたはパブリック IP アドレス（またはその両方）を変更します。</block>
+  <block id="8c0635d246e617ea8806fe6beb1557c2" category="list-text">パブリック IP アドレスを変更した場合、コネクタで実行されているローカルユーザインターフェイスに接続する必要があります。新しい IP アドレスを Cloud Manager に登録するには、コネクタインスタンスを再起動してください。</block>
+  <block id="c2b41de08c51bfb56dcd23e174ea8788" category="list-text">プライベート IP アドレスを変更した場合は、 Cloud Volumes ONTAP 構成ファイルのバックアップ先を更新して、コネクタ上の新しいプライベート IP アドレスにバックアップが送信されるようにします。</block>
+  <block id="a6a2880e12afb78f4820f1aaf905127c" category="list-text">Cloud Volumes ONTAP CLI から次のコマンドを実行して、現在のバックアップターゲットを削除します。</block>
+  <block id="c3386ad05590d977aa139a8aac605f20" category="list-text">Cloud Manager に移動して、作業環境を開きます。</block>
+  <block id="1962304593497a2b02537345ac7be337" category="list-text">メニューをクリックして、 * Advanced &gt; Configuration Backups * を選択します。</block>
+  <block id="b30f3d123c465c70e2c71150136ed92d" category="list-text">[ * バックアップターゲットの設定 * ] をクリックします。</block>
 </blocks>
