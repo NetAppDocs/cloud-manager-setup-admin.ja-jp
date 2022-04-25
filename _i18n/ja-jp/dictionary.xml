@@ -1144,7 +1144,6 @@
   <block id="e3b183b81588a53a9977e2f408f637ca" category="paragraph">コネクタは常時稼働している必要があります。有効にするサービスの継続的な健常性と運用性にとって重要です。</block>
   <block id="6eee50fc3992cd30620eeeea86d66be2" category="paragraph">たとえば、 Cloud Volumes ONTAP PAYGO システムの正常性と運用においては、コネクタが重要な要素です。コネクタの電源がオフの場合、 Cloud Volumes ONTAP PAYGO システムは、コネクタとの通信を 14 日以上失った後にシャットダウンします。</block>
   <block id="fa1f9e92f4f0aa51cba859b2dbc37a02" category="section-title">コネクタを作成する方法</block>
-  <block id="f6c61aa88880378ad453485b248634e5" category="paragraph">Workspace 管理者が Cloud Volumes ONTAP 作業環境を作成し、上記の他の機能を使用するには、アカウント管理者がコネクタを作成する必要があります。</block>
   <block id="71e28ecafe43c8df318f195746ba6a2f" category="paragraph">アカウント管理者は、さまざまな方法でコネクタを作成できます。</block>
   <block id="3e889e02d7a02cbc9daaa364c56aa381" category="list-text">Cloud Manager から直接（推奨）</block>
   <block id="2a6d41af9b09f97725c64e2705d629b2" category="inline-link-macro">AWS でを作成します</block>
@@ -2091,4 +2090,6 @@
   <block id="c3386ad05590d977aa139a8aac605f20" category="list-text">Cloud Manager に移動して、作業環境を開きます。</block>
   <block id="1962304593497a2b02537345ac7be337" category="list-text">メニューをクリックして、 * Advanced &gt; Configuration Backups * を選択します。</block>
   <block id="b30f3d123c465c70e2c71150136ed92d" category="list-text">[ * バックアップターゲットの設定 * ] をクリックします。</block>
+  <block id="cc5581f22ce63f7556f4354dd88e93e0" category="paragraph">Workspace 管理者が Cloud Volumes ONTAP 作業環境を作成し、上記のサービスのいずれかを使用するには、アカウント管理者がコネクタを作成する必要があります。</block>
+  <block id="75af5b4615967c5f4c52ae9be3a8526c" category="paragraph">私たちは通常、コネクタソフトウェアを毎月更新して新機能を導入し、安定性を向上させています。Cloud Manager プラットフォームのサービスと機能のほとんどは SaaS ベースのソフトウェアで提供されますが、いくつかの機能はコネクタのバージョンによって異なります。Cloud Volumes ONTAP 管理、オンプレミスの ONTAP クラスタ管理、設定、ヘルプが含まれます。</block>
 </blocks>
