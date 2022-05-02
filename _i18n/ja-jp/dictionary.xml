@@ -571,10 +571,7 @@
   <block id="84a965b235dbf71095fa90c6e442a58e" category="summary">Cloud Manager の管理機能に関する新機能について、ネットアップのアカウント、コネクタ、クラウドプロバイダのクレデンシャルなどを確認できます。</block>
   <block id="490414e0366b091220802d406e52c076" category="doc">新機能</block>
   <block id="f6197c5e32978fc6ef2a0a4b4ae9403a" category="paragraph">Cloud Manager の管理機能の新機能であるネットアップのアカウント、コネクタ、クラウドプロバイダのクレデンシャルなどについて説明します。</block>
-  <block id="0fc27381f6df0f20af584e656aa215b9" category="section-title">Google Cloud の Connector 強化</block>
   <block id="23ea931bf11f885e1a49e6970b0aa60a" category="paragraph">Google Cloud で新しいコネクタを作成すると、 Cloud Manager に既存のすべてのファイアウォールポリシーが表示されるようになります。以前は、 Cloud Manager にはターゲットタグがないポリシーは表示されませんでした。</block>
-  <block id="4c192c0d77af6017716138a0c469c687" category="section-title">ネットアップサポートサイトのアカウントに関する注意事項</block>
-  <block id="553da3d1de1480b23203668d02c692f5" category="paragraph">現在、ネットアップでは、サポートとライセンスに固有の認証サービスを提供するアイデンティティプロバイダとして、 Microsoft Azure Active Directory を使用しています。この更新の結果、 Cloud Manager は、以前に追加した既存のアカウントのネットアップサポートサイト（ NSS ）のクレデンシャルの更新を求めます。</block>
   <block id="a47acc65b2885cddfc6096e5aa5324f7" category="paragraph">NSS アカウントを IDaaS に移行していない場合は、まずアカウントを移行してから、 Cloud Manager でクレデンシャルを更新する必要があります。</block>
   <block id="b48762bb68eb4f8c518d5be6f1c76d16" category="inline-link">ネットアップによるアイデンティティ管理での Microsoft Azure AD の使用方法の詳細については、こちらをご覧ください</block>
   <block id="d9031e6782c3419c7b81c9c83572daf7" category="list-text"><block ref="d9031e6782c3419c7b81c9c83572daf7" category="inline-link-rx"></block></block>
@@ -956,7 +953,6 @@
   <block id="ca11f864d1d24298bcf7e821561507f3" category="cell">Cloud Manager Tagging サービスを使用して、 AWS リソースのタグを管理できます。</block>
   <block id="9257ea230a460909e07d0bfe81207794" category="cell">「 s3 ： DeleteBucket 」、「 s3 ： GetLifecycleConfiguration 」、「 s3 ： PutBucketLifeConfiguration 」、「 s3 ： PutBucketTagging 」、「 s3 ： ListBucketVersions 」、「 s3 ： ListBucket 」、「 s3 ： ListAllMyBuckets 」、「 s3 ： GetBucketAccessBuckets3 ： GetBucketAccessBuckets3 、 GetBucketAccessBuckets3 ： GetBucketAccessBlock</block>
   <block id="2445d6dfa41a1dd564df073cc12fb413" category="cell">Cloud Manager では、 S3 へのバックアップサービスを有効にする際にこれらの権限を使用します。</block>
-  <block id="9492f1b92768f2baaad9549670647478" category="cell">"EKS ： ListClusters" 、 "EKS ： DescribeCluster" 、 "IAM ： GetInstanceProfile"</block>
   <block id="716a2c38419203ac88bbd14e10539866" category="cell">Amazon EKS クラスタの検出を有効にします。</block>
   <block id="63f6e1958614b96c8fd95bf42f5748fd" category="summary">NetApp Cloud Central に登録して、ネットアップのクラウドサービスにアクセスできます。</block>
   <block id="fb74c4ef62549ee8dd9207310052bd9c" category="doc">NetApp Cloud Central に登録する</block>
@@ -1817,11 +1813,8 @@
   <block id="198fe9ebcb781bf0ef99cc9c20067692" category="paragraph">コネクタを作成する最も一般的な方法は、 Cloud Manager から直接、またはクラウドプロバイダのマーケットプレイスから直接行う方法です。ただし、ネットワークまたはクラウドにある既存の Linux ホストに Connector ソフトウェアをダウンロードしてインストールすることもできます。以下の手順は、インターネットにアクセスできるホストに固有の手順です。</block>
   <block id="dc68b79f0ef7708bb6b593e10e6a0631" category="paragraph"><block ref="4c54a8bb31cbafd8cd337aae920ff024" category="inline-link-macro-rx"></block>。</block>
   <block id="38522fbf43585538a7a55ea25460e779" category="list-text">AWS EC2 インスタンスタイプ</block>
-  <block id="b16b01fe868a2b46f872d190b6d9b912" category="list-text">上記の CPU と RAM の要件を満たすインスタンスタイプ。コネクタを Cloud Manager から直接導入する場合は、 t3.xlarge を使用してインスタンスタイプを指定することを推奨します。</block>
   <block id="893ba5865a015de9dc77765cdf7184e3" category="list-text">Azure VM サイズ</block>
-  <block id="a70a1c03a508e9db0b89842d54d18080" category="list-text">上記の CPU と RAM の要件を満たすインスタンスタイプ。Cloud Manager からコネクタを直接導入する場合は、 DS3 v2 を推奨し、この VM サイズを使用します。</block>
   <block id="0779e9296a32341a31830e6c4e36d7f5" category="list-text">GCP マシンタイプ</block>
-  <block id="ef445d60087b65b2686e2d8256ef4f1e" category="list-text">上記の CPU と RAM の要件を満たすインスタンスタイプ。Cloud Manager からコネクタを直接導入する場合は、 n1-standard-4 を使用することを推奨します。</block>
   <block id="7ebcb503cdda50b6cfafe4b188689a5c" category="inline-link-macro">コネクタのネットワーク要件</block>
   <block id="8f13fe03e92b3df99e4fdab3f70b8bd0" category="list-text">コネクターをインストールし、パブリッククラウド環境内でリソースとプロセスを管理するには、アウトバウンドインターネットアクセスが必要です。エンドポイントのリストについては、を参照してください <block ref="4ec3519046179fc5881484cb894283f9" category="inline-link-macro-rx"></block>。</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="list-title">このタスクについて</block>
@@ -1966,8 +1959,6 @@
   <block id="ff6c37cbc252e306a6b4e390ec13cbc1" category="sidebar">Cloud Central のブログです</block>
   <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">クラウドに関する Web セミナー</block>
   <block id="f350efde95c992c9fb3c75c0e8aefcf0" category="list-text">[* 役割（ * Role ） ] タブで、 * Azure SetupAsService * 役割を選択し、 * 次へ * をクリックします。</block>
-  <block id="61436c30fe3edb3aff76fa203adba8c5" category="inline-link">Azure Marketplace の NetApp Connector VM のページに移動します</block>
-  <block id="cabf039014b588edb6021204b108f503" category="list-text"><block ref="cabf039014b588edb6021204b108f503" category="inline-link-rx"></block></block>
   <block id="e8303b3c359355a29e343d1741791f05" category="paragraph">Cloud Manager に新しい AWS クレデンシャルを追加すると、 ONTAP 作業環境の FSX の作成と管理、またはコネクタの作成に必要な権限が Cloud Manager に付与されます。 <block ref="2b759c7fb1c1b2ce728a7fb1e8e64b6d" category="inline-xref-macro-rx"></block>。</block>
   <block id="448746f589ceea8f1b3191a05fe6c57c" category="paragraph">他の AWS アカウントで Cloud Volumes ONTAP を導入して管理できるように、 AWS クレデンシャルをコネクタに追加します。別のアカウントの IAM ロールの ARN を指定するか、 AWS アクセスキーを指定できます。</block>
   <block id="86a80f2c5791260c43446585966588d0" category="paragraph">Cloud Manager に AWS クレデンシャルを追加するには、 IAM ロールの ARN を指定します。このロールにより、 ONTAP 作業環境で FSX を作成したり、コネクタを作成したりするために必要な権限が Cloud Manager に付与されます。</block>
@@ -1979,7 +1970,6 @@
   <block id="174c30e12e5caabc3d6093c8f5d239eb" category="paragraph">FSX for ONTAP 作業環境を作成するとき、または新しいコネクタを作成するときに、資格情報を使用できるようになりました。</block>
   <block id="ba26e4556a0f160834687982b0479336" category="section-title">2022 年 2 月 27 日</block>
   <block id="3ac47455b10c6fb4061a70a91fdbfde2" category="section-title">2022 年 1 月 30 日</block>
-  <block id="56e138c1cde783765ac6d2c9d4217fad" category="list-text"><block ref="56e138c1cde783765ac6d2c9d4217fad" category="inline-link-rx"></block></block>
   <block id="586301717819197e24001cac47efdaaa" category="section-title">2022 年 1 月 2 日</block>
   <block id="3f9908dd0d34e73be621e521e51cd6a8" category="paragraph"><block ref="5f52a012a929ebfb0b0a901a58e91a4c" category="inline-link-rx"></block>。</block>
   <block id="1a3140f260afcdb189bbb444b89966c4" category="paragraph"><block ref="1a3140f260afcdb189bbb444b89966c4" category="inline-image-macro-rx" type="image"></block></block>
@@ -2092,4 +2082,47 @@
   <block id="b30f3d123c465c70e2c71150136ed92d" category="list-text">[ * バックアップターゲットの設定 * ] をクリックします。</block>
   <block id="cc5581f22ce63f7556f4354dd88e93e0" category="paragraph">Workspace 管理者が Cloud Volumes ONTAP 作業環境を作成し、上記のサービスのいずれかを使用するには、アカウント管理者がコネクタを作成する必要があります。</block>
   <block id="75af5b4615967c5f4c52ae9be3a8526c" category="paragraph">私たちは通常、コネクタソフトウェアを毎月更新して新機能を導入し、安定性を向上させています。Cloud Manager プラットフォームのサービスと機能のほとんどは SaaS ベースのソフトウェアで提供されますが、いくつかの機能はコネクタのバージョンによって異なります。Cloud Volumes ONTAP 管理、オンプレミスの ONTAP クラスタ管理、設定、ヘルプが含まれます。</block>
+  <block id="3cdc0b8cb855b1fb9c206c3d696b6c9e" category="list-text">上記の CPU と RAM の要件を満たすインスタンスタイプ。t3.xlarge をお勧めします。</block>
+  <block id="a6daae7da601d04e5cdb89d612a8d9b1" category="list-text">上記の CPU と RAM の要件を満たすインスタンスタイプ。DS3 v2 を推奨します。</block>
+  <block id="a364c69650d36423667264592b72c7ce" category="list-text">上記の CPU と RAM の要件を満たすインスタンスタイプ。n1-standard-4を推奨します。</block>
+  <block id="984ca77a9a51746d3dd5a855a71d3493" category="inline-link">シールドVM機能</block>
+  <block id="5e59673ea4dc0650f587413c4848c02c" category="paragraph">このコネクタは、OSがサポートされているVMインスタンス上のGoogle Cloudでサポートされます<block ref="bd10301ee2e8f0cb38112a71d2b6920c" category="inline-link-rx"></block></block>
+  <block id="49644953fd4e9612a9842d17bef5e79b" category="section-title">2022年5月2日</block>
+  <block id="def752908b0fa662bfb5de654a533140" category="section-title">コネクタ3.9.18</block>
+  <block id="0a6b76c04095167ad3b2e08901195ca3" category="list-text">Connectorは、次のGoogle Cloudリージョンでサポートされるようになりました。</block>
+  <block id="b11df59ba05c25c3a8734d54b7501ae7" category="list-text">デリー（アジア-サウス2）</block>
+  <block id="68fb6cfeb81e52feef062b88d7037b7e" category="list-text">メルボルン（オーストラリア-スモアカス2）</block>
+  <block id="4b14bbd178377e932c7e97664c276be7" category="list-text">ミラノ（ヨーロッパ-西8）</block>
+  <block id="dcbe8ad0293bd53296a9d2ec0f030d10" category="list-text">サンティアゴ（サウスメリカ-西1）</block>
+  <block id="3b61cbbfa7452cc07df9dbea0756d650" category="inline-link">サポートされているリージョンの完全なリストを表示します</block>
+  <block id="0ec2b2e4840acfd3f21b50b176ec45f1" category="paragraph"><block ref="0ec2b2e4840acfd3f21b50b176ec45f1" category="inline-link-rx"></block></block>
+  <block id="5750adecdd8602aee9e0d7052b8cd392" category="list-text">Connectorで使用するGoogle Cloudサービスアカウントを選択すると、Cloud Managerに各サービスアカウントに関連付けられているEメールアドレスが表示されるようになりました。メールアドレスを表示すると、同じ名前を共有するサービスアカウントを区別しやすくなります。</block>
+  <block id="898d465c80c6b6783418f6fa71db0946" category="inline-image-macro">サービスアカウントフィールドのスクリーンショット</block>
+  <block id="506e06ca3e996f21913a49d1f4920902" category="paragraph"><block ref="506e06ca3e996f21913a49d1f4920902" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2e0bddfca809f95cf3d5d7adfccca0e2" category="list-text">をサポートするOSでVMインスタンス上のGoogle CloudのConnectorを認定しました<block ref="bd10301ee2e8f0cb38112a71d2b6920c" category="inline-link-rx"></block></block>
+  <block id="561748ecfe4fd0bd9f15c851d5de4d29" category="inline-link">これらの拡張機能について説明します</block>
+  <block id="d2b88fcff484dc7cae448a7e8c287a1f" category="list-text">このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張も含まれています。<block ref="60a968f5f71ebaff72f2727ce31f8e5b" category="inline-link-rx"></block></block>
+  <block id="5e9d36e4528c82da2b7294c252e52427" category="list-text">ConnectorでCloud Volumes ONTAP を導入するには、新しいAWS権限が必要です。</block>
+  <block id="bfd761a70b5f9cd277ef7c878344df38" category="paragraph">単一のAvailability Zone（AZ；アベイラビリティゾーン）にHAペアを導入する際にAWS分散配置グループを作成するためには、次の権限が必要です。</block>
+  <block id="0080f4096e51a12d4256890c125c5c46" category="paragraph">これらの権限は、Cloud Managerによる配置グループの作成方法を最適化するために必要になります。</block>
+  <block id="eaf263597aafb24c99ce4e16af420ae8" category="inline-link">Cloud Manager のポリシーのページです</block>
+  <block id="26dd25d183752a9f37249174f3d3ff89" category="paragraph">Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます<block ref="0e92ab1ca454f31f07a6e5fba6519a3a" category="inline-link-rx"></block>。</block>
+  <block id="5e16db4c47abe8cb1c5bd746df2fd94a" category="section-title">2022 年 4 月 3 日</block>
+  <block id="5dc3495f29e6f1332d6d809ba30cbf83" category="section-title">コネクタ3.9.17</block>
+  <block id="dc45cdfe41bbcfa7f2d8bf1ed54a89ed" category="list-text">Cloud Manager に、環境で設定した IAM ロールを割り当てることでコネクタを作成できるようになりました。この認証方式は、 AWS のアクセスキーとシークレットキーを共有する場合よりも安全です。</block>
+  <block id="c1ef500163b033b0cacf87c830339c6e" category="inline-link">IAM ロールを使用してコネクタを作成する方法について説明します</block>
+  <block id="1d74a995b1a421dcb50976efb8094b21" category="paragraph"><block ref="f92b2fbbcca658498705715523d67bd6" category="inline-link-rx"></block>。</block>
+  <block id="1d99a1c8fadd3f9a537fec830e9791e0" category="list-text">このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張も含まれています。<block ref="66c4cd7232189d67ede2231e4ccd26ce" category="inline-link-rx"></block></block>
+  <block id="8c4a1103eeca70528bc946c2246ec6f1" category="section-title">コネクタ3.9.16</block>
+  <block id="8452efafcd305c048b35a9ac1eaa0a58" category="list-text">このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張も含まれています。<block ref="f53661746a388d6e170677167c0cb4ac" category="inline-link-rx"></block></block>
+  <block id="1bb66afbb0f9c20ad9ce021a7051d622" category="section-title">コネクタ3.9.15</block>
+  <block id="3934da05a8696f0f2771f6794b16d0fe" category="paragraph">このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張が含まれています。<block ref="56b0b409fd26975ec3a06e3bfbb1d0c5" category="inline-link-rx"></block></block>
+  <block id="54e507c4461f09157653db1c97f633b3" category="cell">"EKS：ListClusters"、"EKS：DescribeCluster"、"IAM：GetInstanceProfile"、</block>
+  <block id="e0399b3db0c9216059d2e42a30b09612" category="cell">"EC2:DescribePlacementGroups"、"iAM:GetRolePolicy、</block>
+  <block id="4811a96d917e86f9cc499d8404bd91c9" category="cell">単一のアベイラビリティゾーン（AZ）に導入されたHAペア用にAWS分散配置グループを作成します。</block>
+  <block id="40ca3108b6381f9eda9574daf00c3b01" category="list-text">Azure MarketplaceのNetApp Connector VMのページに移動します。</block>
+  <block id="0c5f74a83e5cbc5c6c230dd0caf096f7" category="inline-link">Azure Marketplaceの一般企業向けページ</block>
+  <block id="5fb9ace1b2fee444b848b1ad1c5d886c" category="list-text"><block ref="5fb9ace1b2fee444b848b1ad1c5d886c" category="inline-link-rx"></block></block>
+  <block id="8ac340f924d72696326df51a32dbdee5" category="inline-link">Azure GovernmentリージョンのAzure Marketplaceのページ</block>
+  <block id="d60d2a63a86471881f173bb3041b00f7" category="list-text"><block ref="d60d2a63a86471881f173bb3041b00f7" category="inline-link-rx"></block></block>
 </blocks>

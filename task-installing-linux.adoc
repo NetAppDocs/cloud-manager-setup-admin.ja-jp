@@ -30,9 +30,14 @@ NOTE: Google Cloud で Cloud Volumes ONTAP システムを作成する場合は�
 専用のホストが必要です:: 他のアプリケーションと共有しているホストでは、このコネクタはサポートされていません。専用のホストである必要があります。
 CPU:: 4 コアまたは 4 個の vCPU
 RAM:: 16 GB
-AWS EC2 インスタンスタイプ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。コネクタを Cloud Manager から直接導入する場合は、 t3.xlarge を使用してインスタンスタイプを指定することを推奨します。
-Azure VM サイズ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。Cloud Manager からコネクタを直接導入する場合は、 DS3 v2 を推奨し、この VM サイズを使用します。
-GCP マシンタイプ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。Cloud Manager からコネクタを直接導入する場合は、 n1-standard-4 を使用することを推奨します。
+AWS EC2 インスタンスタイプ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。t3.xlarge をお勧めします。
+Azure VM サイズ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。DS3 v2 を推奨します。
+GCP マシンタイプ:: 上記の CPU と RAM の要件を満たすインスタンスタイプ。n1-standard-4を推奨します。
++
+--
+このコネクタは、OSがサポートされているVMインスタンス上のGoogle Cloudでサポートされます https://cloud.google.com/compute/shielded-vm/docs/shielded-vm["シールドVM機能"^]
+
+--
 サポートされているオペレーティングシステム::
 +
 --

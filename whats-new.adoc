@@ -18,13 +18,73 @@ Cloud Manager の管理機能の新機能であるネットアップのアカウ
 
 
 
+== 2022年5月2日
+
+
+
+=== コネクタ3.9.18
+
+* Connectorは、次のGoogle Cloudリージョンでサポートされるようになりました。
++
+** デリー（アジア-サウス2）
+** メルボルン（オーストラリア-スモアカス2）
+** ミラノ（ヨーロッパ-西8）
+** サンティアゴ（サウスメリカ-西1）
+
+
++
+https://cloud.netapp.com/cloud-volumes-global-regions["サポートされているリージョンの完全なリストを表示します"^]
+
+* Connectorで使用するGoogle Cloudサービスアカウントを選択すると、Cloud Managerに各サービスアカウントに関連付けられているEメールアドレスが表示されるようになりました。メールアドレスを表示すると、同じ名前を共有するサービスアカウントを区別しやすくなります。
++
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-setup-admin/main/media/screenshot-google-cloud-service-account.png["サービスアカウントフィールドのスクリーンショット"]
+
+* をサポートするOSでVMインスタンス上のGoogle CloudのConnectorを認定しました https://cloud.google.com/compute/shielded-vm/docs/shielded-vm["シールドVM機能"^]
+* このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張も含まれています。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#2-may-2022["これらの拡張機能について説明します"^]
+* ConnectorでCloud Volumes ONTAP を導入するには、新しいAWS権限が必要です。
++
+単一のAvailability Zone（AZ；アベイラビリティゾーン）にHAペアを導入する際にAWS分散配置グループを作成するためには、次の権限が必要です。
+
++
+[source, json]
+----
+"ec2:DescribePlacementGroups",
+"iam:GetRolePolicy",
+----
++
+これらの権限は、Cloud Managerによる配置グループの作成方法を最適化するために必要になります。
+
++
+Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
+
+
+
+
+
+== 2022 年 4 月 3 日
+
+
+
+=== コネクタ3.9.17
+
+* Cloud Manager に、環境で設定した IAM ロールを割り当てることでコネクタを作成できるようになりました。この認証方式は、 AWS のアクセスキーとシークレットキーを共有する場合よりも安全です。
++
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["IAM ロールを使用してコネクタを作成する方法について説明します"]。
+
+* このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張も含まれています。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#3-april-2022["これらの拡張機能について説明します"^]
+
+
+
+
 == 2022 年 2 月 27 日
 
 
 
-=== Google Cloud の Connector 強化
+=== コネクタ3.9.16
 
-Google Cloud で新しいコネクタを作成すると、 Cloud Manager に既存のすべてのファイアウォールポリシーが表示されるようになります。以前は、 Cloud Manager にはターゲットタグがないポリシーは表示されませんでした。
+* Google Cloud で新しいコネクタを作成すると、 Cloud Manager に既存のすべてのファイアウォールポリシーが表示されるようになります。以前は、 Cloud Manager にはターゲットタグがないポリシーは表示されませんでした。
+* このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張も含まれています。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#27-february-2022["これらの拡張機能について説明します"^]
+
 
 
 
@@ -32,15 +92,9 @@ Google Cloud で新しいコネクタを作成すると、 Cloud Manager に既�
 
 
 
-=== ネットアップサポートサイトのアカウントに関する注意事項
+=== コネクタ3.9.15
 
-現在、ネットアップでは、サポートとライセンスに固有の認証サービスを提供するアイデンティティプロバイダとして、 Microsoft Azure Active Directory を使用しています。この更新の結果、 Cloud Manager は、以前に追加した既存のアカウントのネットアップサポートサイト（ NSS ）のクレデンシャルの更新を求めます。
-
-NSS アカウントを IDaaS に移行していない場合は、まずアカウントを移行してから、 Cloud Manager でクレデンシャルを更新する必要があります。
-
-* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/FAQs_for_NetApp_adoption_of_MS_Azure_AD_B2C_for_login["ネットアップによるアイデンティティ管理での Microsoft Azure AD の使用方法の詳細については、こちらをご覧ください"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-nss-accounts.html#update-an-nss-account-for-the-new-authentication-method["NSS アカウントを新しい認証方法に更新する方法について説明します"]
-
+このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張が含まれています。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#30-january-2022["これらの拡張機能について説明します"^]
 
 
 
@@ -79,6 +133,8 @@ image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-setup-admin/mai
 === ネットアップサポートサイトのアカウントを更新する必要があります
 
 2021 年 12 月以降、ネットアップは、サポートとライセンスに固有の認証サービスのアイデンティティプロバイダとして Microsoft Azure Active Directory を使用するようになりました。この更新によって、 Cloud Manager は、以前に追加した既存のネットアップサポートサイトのアカウントのクレデンシャルの更新を求めます。
+
+NSS アカウントを IDaaS に移行していない場合は、まずアカウントを移行してから、 Cloud Manager でクレデンシャルを更新する必要があります。
 
 * link:task-adding-nss-accounts.html#update-an-nss-account-for-the-new-authentication-method["NSS アカウントを新しい認証方法に更新する方法について説明します"]。
 * https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/FAQs_for_NetApp_adoption_of_MS_Azure_AD_B2C_for_login["ネットアップによるアイデンティティ管理での Microsoft Azure AD の使用方法の詳細については、こちらをご覧ください"^]
