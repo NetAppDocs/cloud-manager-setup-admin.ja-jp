@@ -14,78 +14,121 @@ summary: コネクタのトラブルシューティングが必要な場合は�
 
 
 [role="lead"]
-コネクタのトラブルシューティングが必要な場合は、コネクタの設定を理解すると役立つことがあります。
+導入前にコネクタの詳細を確認したり、問題のトラブルシューティングが必要な場合に利用できます。
 
 
 
 == インターネットアクセスを使用するデフォルト設定
 
-* Cloud Manager から（またはクラウドプロバイダのマーケットプレイスから直接） Connector を導入した場合は、次の点に注意してください。
-+
-** AWS では、 EC2 Linux インスタンスのユーザ名は EC2-user です。
-** イメージのオペレーティングシステムは次のとおりです。
-+
-*** AWS ： Red Hat Enterprise Linux 7.6 （ HVM ）
-*** Azure ： CentOS 7.6
-*** GCP ： CentOS 7.9
+以下の構成の詳細は、Cloud Managerからコネクタを導入した場合、クラウドプロバイダのマーケットプレイスから導入した場合、またはインターネットにアクセスできるオンプレミスのLinuxホストにコネクタを手動でインストールした場合に適用されます。
+
+
+
+=== AWSの詳細
+
+Cloud Managerまたはクラウドプロバイダのマーケットプレイスからコネクタを導入している場合は、次の点に注意してください。
+
+* EC2インスタンスタイプはt3.xlargeです。
+* イメージのオペレーティングシステムはRed Hat Enterprise Linux 7.6（HVM）です。
 +
 オペレーティングシステムには GUI は含まれていません。システムにアクセスするには、端末を使用する必要があります。
 
+* EC2 Linuxインスタンスのユーザ名はec2-userです。
+* デフォルトのシステムディスクは50GiBのgp2ディスクです。
 
 
 
 
-* Cloud Manager から導入した場合、デフォルトのシステムディスクは次のようになります。
+=== Azureの詳細
+
+Cloud Managerまたはクラウドプロバイダのマーケットプレイスからコネクタを導入している場合は、次の点に注意してください。
+
+* VMタイプはDS3 v2です。
+* イメージのオペレーティングシステムはCentOS 7.6です。
 +
-** AWS ： 50GiB の gp2 ディスクです
-** Azure ： 100GiB の Premium SSD ディスク
-** Google Cloud ： 100GiB の SSD 永続ディスク
+オペレーティングシステムには GUI は含まれていません。システムにアクセスするには、端末を使用する必要があります。
+
+* デフォルトのシステムディスクは100GiBのPremium SSDディスクです。
 
 
-* Connector インストールフォルダは、次の場所にあります。
+
+
+=== Google Cloudの詳細
+
+Cloud Managerまたはクラウドプロバイダのマーケットプレイスからコネクタを導入している場合は、次の点に注意してください。
+
+* VMインスタンスはn1-standard-4です。
+* イメージのオペレーティングシステムはCentOS 7.9です。
 +
+オペレーティングシステムには GUI は含まれていません。システムにアクセスするには、端末を使用する必要があります。
+
+* デフォルトのシステムディスクは100GiBのSSD永続ディスクです。
+
+
+
+
+=== インストールフォルダ
+
+Connector インストールフォルダは、次の場所にあります。
+
 /opt/application/netapp/cloudmanager です
 
-* ログファイルは次のフォルダに格納されます。
-+
-** /opt/application/netapp/cloudmanager/log を選択します
+
+
+=== ログファイル
+
+ログファイルは次のフォルダに格納されます。
+
+* /opt/application/netapp/cloudmanager/log を選択します
 +
 このフォルダのログには、 Connector イメージと Docker イメージの詳細が記録されます。
 
-** /opt/application/NetApp/cloudmanager/docx_occm/data/log
+* /opt/application/NetApp/cloudmanager/docx_occm/data/log
 +
 このフォルダには、コネクタで実行されているクラウドサービスと Cloud Manager サービスの詳細が記録されます。
 
 
+
+
+
+=== コネクタサービス
 
 * Cloud Manager サービスの名前は occm です。
 * OCCM サービスは MySQL サービスに依存します。
 +
 MySQL サービスがダウンしている場合は、 OCCM サービスもダウンしています。
 
-* 次のパッケージがまだインストールされていない場合は、 Cloud Manager によって Linux ホストにインストールされます。
-+
-** 7 郵便番号
-** AWSCLI
-** Docker です
-** Java
-** Kubectl のように入力する
-** MySQL
-** Tridentctl
-** プル
-** 取得
 
 
-* このコネクタは Linux ホストで次のポートを使用します。
-+
-** HTTP アクセスの場合は 80
-** 443 ： HTTPS アクセス用
-** 3306 （ Cloud Manager データベース用
-** クラウドマネージャ API プロキシの場合は 8080
-** Service Manager API の場合は 8666
-** 8777 （ Health-Checker コンテナサービス API の場合）
 
 
+=== パッケージ
+
+次のパッケージがまだインストールされていない場合は、 Cloud Manager によって Linux ホストにインストールされます。
+
+* 7 郵便番号
+* AWSCLI
+* Docker です
+* Java
+* Kubectl のように入力する
+* MySQL
+* Tridentctl
+* プル
+* 取得
+
+
+
+
+=== ポート
+
+このコネクタは Linux ホストで次のポートを使用します。
+
+* HTTP アクセスの場合は 80
+* 443 ： HTTPS アクセス用
+* 3306 （ Cloud Manager データベース用
+* クラウドマネージャ API プロキシの場合は 8080
+* Service Manager API の場合は 8666
+* 8777 （ Health-Checker コンテナサービス API の場合）
 
 
 
