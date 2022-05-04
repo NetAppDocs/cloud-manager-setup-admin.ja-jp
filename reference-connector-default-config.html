@@ -999,7 +999,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:25:30 +0000">04/14/2022</time>
+    <time datetime="2022-05-04 14:37:05 +0000">05/04/2022</time>
     
   
 
@@ -1009,68 +1009,99 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>コネクタのトラブルシューティングが必要な場合は、コネクタの設定を理解すると役立つことがあります。</p>
+<p>導入前にコネクタの詳細を確認したり、問題のトラブルシューティングが必要な場合に利用できます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="インターネットアクセスを使用するデフォルト設定">インターネットアクセスを使用するデフォルト設定</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>以下の構成の詳細は、Cloud Managerからコネクタを導入した場合、クラウドプロバイダのマーケットプレイスから導入した場合、またはインターネットにアクセスできるオンプレミスのLinuxホストにコネクタを手動でインストールした場合に適用されます。</p>
+</div>
+<div class="sect2">
+<h3 id="awsの詳細">AWSの詳細</h3>
+<div class="paragraph">
+<p>Cloud Managerまたはクラウドプロバイダのマーケットプレイスからコネクタを導入している場合は、次の点に注意してください。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Manager から（またはクラウドプロバイダのマーケットプレイスから直接） Connector を導入した場合は、次の点に注意してください。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>AWS では、 EC2 Linux インスタンスのユーザ名は EC2-user です。</p>
+<p>EC2インスタンスタイプはt3.xlargeです。</p>
 </li>
 <li>
-<p>イメージのオペレーティングシステムは次のとおりです。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>AWS ： Red Hat Enterprise Linux 7.6 （ HVM ）</p>
-</li>
-<li>
-<p>Azure ： CentOS 7.6</p>
-</li>
-<li>
-<p>GCP ： CentOS 7.9</p>
+<p>イメージのオペレーティングシステムはRed Hat Enterprise Linux 7.6（HVM）です。</p>
 <div class="paragraph">
 <p>オペレーティングシステムには GUI は含まれていません。システムにアクセスするには、端末を使用する必要があります。</p>
 </div>
 </li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<li>
+<p>EC2 Linuxインスタンスのユーザ名はec2-userです。</p>
 </li>
 <li>
-<p>Cloud Manager から導入した場合、デフォルトのシステムディスクは次のようになります。</p>
+<p>デフォルトのシステムディスクは50GiBのgp2ディスクです。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="azureの詳細">Azureの詳細</h3>
+<div class="paragraph">
+<p>Cloud Managerまたはクラウドプロバイダのマーケットプレイスからコネクタを導入している場合は、次の点に注意してください。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>AWS ： 50GiB の gp2 ディスクです</p>
+<p>VMタイプはDS3 v2です。</p>
 </li>
 <li>
-<p>Azure ： 100GiB の Premium SSD ディスク</p>
+<p>イメージのオペレーティングシステムはCentOS 7.6です。</p>
+<div class="paragraph">
+<p>オペレーティングシステムには GUI は含まれていません。システムにアクセスするには、端末を使用する必要があります。</p>
+</div>
 </li>
 <li>
-<p>Google Cloud ： 100GiB の SSD 永続ディスク</p>
+<p>デフォルトのシステムディスクは100GiBのPremium SSDディスクです。</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="google-cloudの詳細">Google Cloudの詳細</h3>
+<div class="paragraph">
+<p>Cloud Managerまたはクラウドプロバイダのマーケットプレイスからコネクタを導入している場合は、次の点に注意してください。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>VMインスタンスはn1-standard-4です。</p>
 </li>
 <li>
-<p>Connector インストールフォルダは、次の場所にあります。</p>
+<p>イメージのオペレーティングシステムはCentOS 7.9です。</p>
 <div class="paragraph">
-<p>/opt/application/netapp/cloudmanager です</p>
+<p>オペレーティングシステムには GUI は含まれていません。システムにアクセスするには、端末を使用する必要があります。</p>
 </div>
 </li>
 <li>
+<p>デフォルトのシステムディスクは100GiBのSSD永続ディスクです。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="インストールフォルダ">インストールフォルダ</h3>
+<div class="paragraph">
+<p>Connector インストールフォルダは、次の場所にあります。</p>
+</div>
+<div class="paragraph">
+<p>/opt/application/netapp/cloudmanager です</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ログファイル">ログファイル</h3>
+<div class="paragraph">
 <p>ログファイルは次のフォルダに格納されます。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1087,7 +1118,11 @@
 </li>
 </ul>
 </div>
-</li>
+</div>
+<div class="sect2">
+<h3 id="コネクタサービス">コネクタサービス</h3>
+<div class="ulist">
+<ul>
 <li>
 <p>Cloud Manager サービスの名前は occm です。</p>
 </li>
@@ -1097,8 +1132,14 @@
 <p>MySQL サービスがダウンしている場合は、 OCCM サービスもダウンしています。</p>
 </div>
 </li>
-<li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="パッケージ">パッケージ</h3>
+<div class="paragraph">
 <p>次のパッケージがまだインストールされていない場合は、 Cloud Manager によって Linux ホストにインストールされます。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1130,9 +1171,12 @@
 </li>
 </ul>
 </div>
-</li>
-<li>
+</div>
+<div class="sect2">
+<h3 id="ポート">ポート</h3>
+<div class="paragraph">
 <p>このコネクタは Linux ホストで次のポートを使用します。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1155,8 +1199,6 @@
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
 </div>
 </div>
