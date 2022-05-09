@@ -728,33 +728,25 @@
   <block id="8429d024ccbeae43501123bceabf2dec" category="paragraph">Azure サービスクレデンシャルの詳細を変更して、 Cloud Manager で Azure クレデンシャルを編集します。たとえば、サービスプリンシパルアプリケーション用に新しいシークレットが作成された場合は、クライアントシークレットの更新が必要になることがあります。</block>
   <block id="ace843a9a86d3677aa70c0e5dd1d64b5" category="doc">Cloud Manager から Google Cloud でコネクタを作成します</block>
   <block id="49dc29bc56279a820af0d347c1b82bb9" category="paragraph">Cloud Manager のほとんどの機能を使用するには、 Account Admin が _ Connector を導入する必要があります。 <block ref="39840e1bb98f6582f1bf4e505d666ea1" category="inline-link-macro-rx"></block>。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。</block>
-  <block id="7c18071a544e575d10f8edb95130f9f8" category="paragraph">このページでは、 Cloud Manager から GCP でコネクタを直接作成する方法について説明します。 <block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block>。</block>
   <block id="5d6324823833716e10f3e57d934ecd8a" category="section-title">権限を設定しています</block>
-  <block id="0fd2c530f900e25466c67241a360e1a8" category="paragraph">Connector を展開する前に、 GCP アカウントに正しい権限があること、および Connector VM のサービスアカウントが設定されていることを確認する必要があります。</block>
-  <block id="ffbc0a333b58a4301b9886ca74d7bc9b" category="inline-link">GCP の Connector 展開ポリシー</block>
-  <block id="75ea13002fdfc33d802148a3a98e50f4" category="list-text">コネクタを展開する GCP ユーザーが、で権限を持っていることを確認します<block ref="4c3863d6122739f4791db15211aa44fb" category="inline-link-rx"></block>。</block>
   <block id="937e4aacfb1148c32f2cc162ab0584ad" category="inline-link">YAML ファイルを使用してカスタムロールを作成できます</block>
   <block id="1d51205234c08b687882a95b353982c7" category="paragraph"><block ref="70ef2814a9ccb32291159ef5c5ae86a7" category="inline-link-rx"></block> ユーザーに添付します。gcloud コマンドラインを使用して、ロールを作成する必要があります。</block>
   <block id="a5e7f9aeb24d1d27868194bf1021f6bc" category="list-text">プロジェクトで Cloud Volumes ONTAP システムを作成および管理するために Cloud Manager に必要な権限を持つサービスアカウントをセットアップします。</block>
   <block id="b7f5517a2500bccfce6377826f6bed54" category="paragraph">このサービスアカウントは、作成時に Connector VM に関連付けます。</block>
   <block id="65a39e4477ac1c2ee4e6f7ab03f80f8b" category="inline-link">GCP で役割を作成します</block>
   <block id="b5202e3c2a4fb621516045f4d6bc3d60" category="inline-link">GCP 向け Cloud Manager ポリシー</block>
-  <block id="929581b32e817fc83fc94db05b5959cf" category="list-text"><block ref="b3e2dfdb02c4ef9473e0b3fb573ce75f" category="inline-link-rx"></block> で定義した権限を含むポリシーを作成します<block ref="e91a62d6158aa053a2e619736c05b1a6" category="inline-link-rx"></block>。ここでも gcloud コマンドラインを使用する必要があります。</block>
   <block id="1ec6f779fe5a9d8e3450d32017a21e22" category="paragraph">この YAML ファイルに含まれる権限は、手順 1 の権限とは異なります。</block>
   <block id="270b7569730a90507cf88195b5a8a7ee" category="inline-link">GCP サービスアカウントを作成し、カスタムロールを適用します を作成しました</block>
   <block id="c30c9ad6a6f620b9a2a07c6f14399a1e" category="list-text"><block ref="63a6eacd526447284dd7555861e56994" category="inline-link-rx"></block>。</block>
   <block id="37a4b78df3288cf5c1bd086a6d1d5f9f" category="inline-link">クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割</block>
   <block id="24e3dee161bfcb834ffc481206a123e7" category="list-text">Cloud Volumes ONTAP を他のプロジェクトに導入する場合は、<block ref="7fd81496d9765541412df8e9d20889a5" category="inline-link-rx"></block>。プロジェクトごとにこの手順を繰り返す必要があります。</block>
-  <block id="6b369d4fc86497786b15b7689e64001b" category="paragraph">これで、 GCP ユーザーはコネクタの作成に必要な権限を持ち、 Connector VM のサービスアカウントが設定されました。</block>
   <block id="436551d909ff1add0114d9105eddf95f" category="section-title">共有 VPC の権限</block>
   <block id="15660d75ef0f69d0acd64487e9544b7a" category="paragraph">共有 VPC を使用してリソースをサービスプロジェクトに導入する場合は、次の権限が必要です。IAM の設定が完了したら、この表を参考にして権限の表を環境に反映させる必要があります。</block>
-  <block id="8009300c174dfc14a2da3e25ccd6deea" category="cell">サービスアカウント</block>
   <block id="ef1d00d8a237a1bbe431e1091f5715fb" category="cell">作成者</block>
   <block id="b3b70561d21898703c46811dcb865200" category="cell">でホストされています</block>
   <block id="2b50514b464068d6b60775a6b2e8df9b" category="cell">サービスプロジェクトの権限</block>
   <block id="85a0d28132b3045832b7e4472ac166e5" category="cell">ホストプロジェクトの権限</block>
   <block id="261addf78c7b2c961032b3dd08ba0b1f" category="cell">目的</block>
-  <block id="56b9092cae65c5d15fa17f9be7d62d6e" category="cell">Cloud Manager サービスアカウント</block>
   <block id="90589c47f06eb971d548591f23c285af" category="cell">カスタム</block>
   <block id="6021eec4920c52f3a4df07a5381d9fb0" category="cell">サービスプロジェクト</block>
   <block id="396139b8280c186c5b4e76556ee3ca75" category="inline-link">この .yaml ファイルで見つかった権限</block>
@@ -768,11 +760,8 @@
   <block id="382b0f5185773fa0f67a8ed8056c7759" category="cell">該当なし</block>
   <block id="9da64c05f602835b1e7e3c537166bbc1" category="cell">（オプション）データ階層化と Cloud Backup に使用できます</block>
   <block id="386abe7036c62f0f27d3787e317b4aff" category="cell">Google API サービスエージェント</block>
-  <block id="c731f72e1d22a7c5e01a7cb789a8885e" category="cell">GCP</block>
   <block id="f295764441aac0df9246f1a621487073" category="list-text">（デフォルト） Editor</block>
-  <block id="3f2721954e657c817803830fa0789abb" category="cell">導入に代わって GCP API とやり取りします。Cloud Manager で共有ネットワークを使用できるようにします。</block>
   <block id="786c13b749589e9a2a94540f24f240c3" category="cell">Google Compute Engine のデフォルトのサービスアカウント</block>
-  <block id="98b051f4226382303219e5e317fde66f" category="cell">導入に代わって GCP インスタンスとコンピューティングインフラを導入します。Cloud Manager で共有ネットワークを使用できるようにします。</block>
   <block id="2a01d572b1447155c310cabafac3fae9" category="paragraph">注：</block>
   <block id="a143e53bf3d41d3d4dd612ba13200112" category="list-text">deploymentmanager. editor は、ファイアウォールルールを導入環境に渡しておらず、 Cloud Manager に作成を許可することを選択している場合にのみホストプロジェクトで必要です。ルールを指定しない場合、 Cloud Manager はホストプロジェクトに導入を作成し、 VPC0 ファイアウォールルールを適用します。</block>
   <block id="8e7c4c2e8dfd2e81f9feb42ddfb2e9a8" category="list-text">Firewall.create および firewall.delete が必要となるのは、ファイアウォールルールを導入環境に渡しず、 Cloud Manager で作成することを選択している場合だけです。これらの権限は、 Cloud Manager サービスアカウントの .yaml ファイルに格納されています。共有 VPC を使用して HA ペアを導入する場合は、これらの権限を使用して VPC1 、 2 、および 3 のファイアウォールルールが作成されます。他のすべての展開では、これらの権限は VPC0 のルールの作成にも使用されます。</block>
@@ -787,7 +776,6 @@
   <block id="9e636409b20980fb5089c87705851b4d" category="list-text">Cloud Resource Manager API の略</block>
   <block id="1101b09020ade12e90a562489e315c8d" category="list-text">Compute Engine API</block>
   <block id="71660685d00034957db3f9a31c160978" category="list-text">ID およびアクセス管理（ IAM ） API</block>
-  <block id="1b9afce7f2077ff3630469557123d5c5" category="section-title">GCP でコネクタを作成する</block>
   <block id="4642830f208507b4a2a5ff5bed0d9b97" category="paragraph">Cloud Manager ユーザインターフェイスから直接、または gcloud を使用して、 Google Cloud でコネクタを作成する。</block>
   <block id="21c199e82e474a9a5607a2b9ccb8e66f" category="inline-link">必要な権限</block>
   <block id="f4a16580e0572ca5e418a9435dc09de4" category="list-text">。<block ref="a18b1518901620e43c44c260945ff7cb" category="inline-link-rx"></block> Google Cloud アカウントの場合は、このページの最初のセクションで説明します。</block>
@@ -806,7 +794,6 @@
   <block id="43da6e9199aecb615e775a9a6d77b458" category="paragraph">インスタンスの準備が完了するまでに約 7 分かかります。処理が完了するまで、ページには表示されたままにしておいてください。</block>
   <block id="7f22bf39aaf5ce5980111c3587bef5b5" category="open-title">gcloud</block>
   <block id="7e5741f3894a13d9d98fbc97bbd73942" category="list-text">ご希望の方法で gcloud SDK にログインします。</block>
-  <block id="d96e80f8ed30ec9dd1848342c4bedc26" category="paragraph">この例では、 gcloud SDK がインストールされたローカルシェルを使用しますが、 GCP コンソールで Google Cloud Shell を使用できます。</block>
   <block id="f05aa4ef12b89074e9217f86e7189979" category="inline-link-macro">Google Cloud SDK ドキュメントページ</block>
   <block id="5e9620d5e6d58444e08927ced1242490" category="paragraph">Google Cloud SDK の詳細については、を参照してください <block ref="92b2bbdf9ac5c3468751e6db384e0670" category="inline-link-macro-rx"></block>。</block>
   <block id="39a7d4615e67a2eb620f4c75bfd35de1" category="list-text">上のセクションで定義した必要な権限を持つユーザとしてログインしていることを確認します。</block>
@@ -2138,4 +2125,23 @@
   <block id="7ab07ea46199c644dddf2520b843394b" category="section-title">コネクタサービス</block>
   <block id="27fe4eb3edbaff8f250e2d51f7462681" category="section-title">パッケージ</block>
   <block id="407c4e9fac86b98147da49acd4fa0d01" category="section-title">ポート</block>
+  <block id="3c29f8c71add9d192508a1409906b5cf" category="paragraph">このページでは、Cloud ManagerからGoogle Cloudで直接コネクタを作成する方法について説明します。 <block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block>。</block>
+  <block id="265157c47da67d7829e580d4e498814c" category="paragraph">Connectorを導入する前に、Google Cloudアカウントに正しい権限があること、およびConnector VMのサービスアカウントが設定されていることを確認する必要があります。</block>
+  <block id="e32a11bfee0ac384bf304116edad5b72" category="inline-link">Google CloudのConnector展開ポリシー</block>
+  <block id="e31760fac1a7adfa41132adaff0abf52" category="list-text">Connectorを展開するGoogle Cloudユーザーがに権限を持っていることを確認します<block ref="e51fdc439ac794ccecf0832f25d2c22b" category="inline-link-rx"></block>。</block>
+  <block id="b42f82c4ad27a30bff1121f55882a07c" category="inline-link">Google Cloud用のCloud Managerポリシー</block>
+  <block id="c0dbffc55b00e76faab42aaa6e7e035b" category="list-text"><block ref="b3e2dfdb02c4ef9473e0b3fb573ce75f" category="inline-link-rx"></block> で定義した権限を含むポリシーを作成します<block ref="b2da2d8566bd2cf4941d85fc39037563" category="inline-link-rx"></block>。ここでも gcloud コマンドラインを使用する必要があります。</block>
+  <block id="bffde7130bcbd48dc4d26900909a6ec0" category="inline-link">Google Cloudサービスアカウントを作成し、作成したカスタムロールを適用します</block>
+  <block id="8ffe57ff2d6f0334349512874d9ed89d" category="list-text"><block ref="e91ca9f63029ef70f3223d4f72fac132" category="inline-link-rx"></block>。</block>
+  <block id="4d146cf655f47126afe85429c3491d43" category="paragraph">Google Cloudユーザに、Connector VMのサービスアカウントの作成に必要な権限が付与されるようになりました。</block>
+  <block id="c9c5c65fb4af9cf90eb99b3b84424189" category="cell">ID</block>
+  <block id="229ac9492e379cef84bf38f29f6941cd" category="cell">Connectorの展開に使用されるGoogleアカウント</block>
+  <block id="a546c9049428d60032b181f2f82657b4" category="cell">サービスプロジェクト</block>
+  <block id="7687e23e0eab2e92a5ee0cfc67ebab98" category="list-text"><block ref="7687e23e0eab2e92a5ee0cfc67ebab98" category="inline-link-rx"></block></block>
+  <block id="0739a8d84cae34de0d2732632c0d3e8e" category="cell">サービスプロジェクトへのコネクタの配置</block>
+  <block id="483a6486004960ab28236293d3cf2bce" category="cell">Connectorサービスアカウント</block>
+  <block id="9165bdf7bcd983e5b9eeeea3649fe93d" category="cell">導入に代わってGoogle Cloud APIと対話します。Cloud Manager で共有ネットワークを使用できるようにします。</block>
+  <block id="abb8f06c60f79c0d26aa84ecd4b682a9" category="cell">導入に代わってGoogle Cloudインスタンスとコンピューティングインフラストラクチャを導入します。Cloud Manager で共有ネットワークを使用できるようにします。</block>
+  <block id="c251b4e4495910558d988ba699a63a67" category="section-title">Google Cloudでコネクタを作成する</block>
+  <block id="70d434e2bfd18a27962842edd06609f7" category="paragraph">この例では、gcloud SDKがインストールされたローカルシェルを使用しますが、Google CloudコンソールでネイティブのGoogle Cloud Shellを使用できます。</block>
 </blocks>

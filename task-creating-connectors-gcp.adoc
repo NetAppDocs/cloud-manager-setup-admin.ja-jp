@@ -16,7 +16,7 @@ summary: Cloud Manager のほとんどの機能を使用するには、 Account 
 [role="lead"]
 Cloud Manager のほとんどの機能を使用するには、 Account Admin が _ Connector を導入する必要があります。 link:concept-connectors.html["コネクタが必要になるタイミングを学習します"]。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。
 
-このページでは、 Cloud Manager から GCP でコネクタを直接作成する方法について説明します。 link:concept-connectors.html#how-to-create-a-connector["コネクタを配置するその他の方法について説明します"]。
+このページでは、Cloud ManagerからGoogle Cloudで直接コネクタを作成する方法について説明します。 link:concept-connectors.html#how-to-create-a-connector["コネクタを配置するその他の方法について説明します"]。
 
 これらの手順は、 Account Admin ロールを持つユーザが実行する必要があります。ワークスペース管理者はコネクタを作成できません。
 
@@ -27,10 +27,10 @@ TIP: 最初の Cloud Volumes ONTAP 作業環境を作成する際、まだコネ
 
 == 権限を設定しています
 
-Connector を展開する前に、 GCP アカウントに正しい権限があること、および Connector VM のサービスアカウントが設定されていることを確認する必要があります。
+Connectorを導入する前に、Google Cloudアカウントに正しい権限があること、およびConnector VMのサービスアカウントが設定されていることを確認する必要があります。
 
 .手順
-. コネクタを展開する GCP ユーザーが、で権限を持っていることを確認します https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml["GCP の Connector 展開ポリシー"^]。
+. Connectorを展開するGoogle Cloudユーザーがに権限を持っていることを確認します https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml["Google CloudのConnector展開ポリシー"^]。
 +
 https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["YAML ファイルを使用してカスタムロールを作成できます"^] ユーザーに添付します。gcloud コマンドラインを使用して、ロールを作成する必要があります。
 
@@ -39,17 +39,17 @@ https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-
 このサービスアカウントは、作成時に Connector VM に関連付けます。
 
 +
-.. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["GCP で役割を作成します"^] で定義した権限を含むポリシーを作成します https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml["GCP 向け Cloud Manager ポリシー"^]。ここでも gcloud コマンドラインを使用する必要があります。
+.. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["GCP で役割を作成します"^] で定義した権限を含むポリシーを作成します https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml["Google Cloud用のCloud Managerポリシー"^]。ここでも gcloud コマンドラインを使用する必要があります。
 +
 この YAML ファイルに含まれる権限は、手順 1 の権限とは異なります。
 
-.. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["GCP サービスアカウントを作成し、カスタムロールを適用します を作成しました"^]。
+.. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["Google Cloudサービスアカウントを作成し、作成したカスタムロールを適用します"^]。
 .. Cloud Volumes ONTAP を他のプロジェクトに導入する場合は、 https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割"^]。プロジェクトごとにこの手順を繰り返す必要があります。
 
 
 
 
-これで、 GCP ユーザーはコネクタの作成に必要な権限を持ち、 Connector VM のサービスアカウントが設定されました。
+Google Cloudユーザに、Connector VMのサービスアカウントの作成に必要な権限が付与されるようになりました。
 
 
 
@@ -59,10 +59,19 @@ https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-
 
 [cols="10,10,10,20,20,30"]
 |===
-| サービスアカウント | 作成者 | でホストされています | サービスプロジェクトの権限 | ホストプロジェクトの権限 | 目的 
+| ID | 作成者 | でホストされています | サービスプロジェクトの権限 | ホストプロジェクトの権限 | 目的 
 
 
-| Cloud Manager サービスアカウント | カスタム | サービスプロジェクト  a| 
+| Connectorの展開に使用されるGoogleアカウント | カスタム | サービスプロジェクト  a| 
+* https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml["この .yaml ファイルで見つかった権限"^]
+
+ a| 
+* compute.networkUser
+
+| サービスプロジェクトへのコネクタの配置 
+
+
+| Connectorサービスアカウント | カスタム | サービスプロジェクト  a| 
 * https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml["この .yaml ファイルで見つかった権限"^]
 
  a| 
@@ -79,22 +88,22 @@ https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-
 | 該当なし | （オプション）データ階層化と Cloud Backup に使用できます 
 
 
-| Google API サービスエージェント | GCP | サービスプロジェクト  a| 
+| Google API サービスエージェント | Google Cloud | サービスプロジェクト  a| 
 * （デフォルト） Editor
 
  a| 
 * compute.networkUser
 
-| 導入に代わって GCP API とやり取りします。Cloud Manager で共有ネットワークを使用できるようにします。 
+| 導入に代わってGoogle Cloud APIと対話します。Cloud Manager で共有ネットワークを使用できるようにします。 
 
 
-| Google Compute Engine のデフォルトのサービスアカウント | GCP | サービスプロジェクト  a| 
+| Google Compute Engine のデフォルトのサービスアカウント | Google Cloud | サービスプロジェクト  a| 
 * （デフォルト） Editor
 
  a| 
 * compute.networkUser
 
-| 導入に代わって GCP インスタンスとコンピューティングインフラを導入します。Cloud Manager で共有ネットワークを使用できるようにします。 
+| 導入に代わってGoogle Cloudインスタンスとコンピューティングインフラストラクチャを導入します。Cloud Manager で共有ネットワークを使用できるようにします。 
 |===
 注：
 
@@ -123,7 +132,7 @@ Connector と Cloud Volumes ONTAP を導入するには、いくつかの API �
 
 
 
-== GCP でコネクタを作成する
+== Google Cloudでコネクタを作成する
 
 Cloud Manager ユーザインターフェイスから直接、または gcloud を使用して、 Google Cloud でコネクタを作成する。
 
@@ -178,7 +187,7 @@ NOTE: コネクタへの着信トラフィックは、開始しない限りあ�
 --
 . ご希望の方法で gcloud SDK にログインします。
 +
-この例では、 gcloud SDK がインストールされたローカルシェルを使用しますが、 GCP コンソールで Google Cloud Shell を使用できます。
+この例では、gcloud SDKがインストールされたローカルシェルを使用しますが、Google CloudコンソールでネイティブのGoogle Cloud Shellを使用できます。
 
 +
 Google Cloud SDK の詳細については、を参照してください link:https://cloud.google.com/sdk["Google Cloud SDK ドキュメントページ"^]。
