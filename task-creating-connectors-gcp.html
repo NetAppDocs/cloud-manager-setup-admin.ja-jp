@@ -999,7 +999,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:25:30 +0000">04/14/2022</time>
+    <time datetime="2022-05-09 14:20:14 +0000">05/09/2022</time>
     
   
 
@@ -1012,7 +1012,7 @@
 <p>Cloud Manager のほとんどの機能を使用するには、 Account Admin が _ Connector を導入する必要があります。 <a href="concept-connectors.html">"コネクタが必要になるタイミングを学習します"</a>。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。</p>
 </div>
 <div class="paragraph">
-<p>このページでは、 Cloud Manager から GCP でコネクタを直接作成する方法について説明します。 <a href="concept-connectors.html#how-to-create-a-connector">"コネクタを配置するその他の方法について説明します"</a>。</p>
+<p>このページでは、Cloud ManagerからGoogle Cloudで直接コネクタを作成する方法について説明します。 <a href="concept-connectors.html#how-to-create-a-connector">"コネクタを配置するその他の方法について説明します"</a>。</p>
 </div>
 <div class="paragraph">
 <p>これらの手順は、 Account Admin ロールを持つユーザが実行する必要があります。ワークスペース管理者はコネクタを作成できません。</p>
@@ -1035,13 +1035,13 @@
 <h2 id="権限を設定しています">権限を設定しています</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Connector を展開する前に、 GCP アカウントに正しい権限があること、および Connector VM のサービスアカウントが設定されていることを確認する必要があります。</p>
+<p>Connectorを導入する前に、Google Cloudアカウントに正しい権限があること、およびConnector VMのサービスアカウントが設定されていることを確認する必要があります。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>コネクタを展開する GCP ユーザーが、で権限を持っていることを確認します <a href="https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml" target="_blank" rel="noopener">"GCP の Connector 展開ポリシー"</a>。</p>
+<p>Connectorを展開するGoogle Cloudユーザーがに権限を持っていることを確認します <a href="https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml" target="_blank" rel="noopener">"Google CloudのConnector展開ポリシー"</a>。</p>
 <div class="paragraph">
 <p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud" target="_blank" rel="noopener">"YAML ファイルを使用してカスタムロールを作成できます"</a> ユーザーに添付します。gcloud コマンドラインを使用して、ロールを作成する必要があります。</p>
 </div>
@@ -1054,13 +1054,13 @@
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud" target="_blank" rel="noopener">"GCP で役割を作成します"</a> で定義した権限を含むポリシーを作成します <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml" target="_blank" rel="noopener">"GCP 向け Cloud Manager ポリシー"</a>。ここでも gcloud コマンドラインを使用する必要があります。</p>
+<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud" target="_blank" rel="noopener">"GCP で役割を作成します"</a> で定義した権限を含むポリシーを作成します <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml" target="_blank" rel="noopener">"Google Cloud用のCloud Managerポリシー"</a>。ここでも gcloud コマンドラインを使用する必要があります。</p>
 <div class="paragraph">
 <p>この YAML ファイルに含まれる権限は、手順 1 の権限とは異なります。</p>
 </div>
 </li>
 <li>
-<p><a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account" target="_blank" rel="noopener">"GCP サービスアカウントを作成し、カスタムロールを適用します を作成しました"</a>。</p>
+<p><a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account" target="_blank" rel="noopener">"Google Cloudサービスアカウントを作成し、作成したカスタムロールを適用します"</a>。</p>
 </li>
 <li>
 <p>Cloud Volumes ONTAP を他のプロジェクトに導入する場合は、 <a href="https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console" target="_blank" rel="noopener">"クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割"</a>。プロジェクトごとにこの手順を繰り返す必要があります。</p>
@@ -1071,7 +1071,7 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>これで、 GCP ユーザーはコネクタの作成に必要な権限を持ち、 Connector VM のサービスアカウントが設定されました。</p>
+<p>Google Cloudユーザに、Connector VMのサービスアカウントの作成に必要な権限が付与されるようになりました。</p>
 </div>
 <div class="sect2">
 <h3 id="共有-vpc-の権限">共有 VPC の権限</h3>
@@ -1089,7 +1089,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">サービスアカウント</th>
+<th class="tableblock halign-left valign-top">ID</th>
 <th class="tableblock halign-left valign-top">作成者</th>
 <th class="tableblock halign-left valign-top">でホストされています</th>
 <th class="tableblock halign-left valign-top">サービスプロジェクトの権限</th>
@@ -1099,7 +1099,27 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager サービスアカウント</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connectorの展開に使用されるGoogleアカウント</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">カスタム</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">サービスプロジェクト</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><a href="https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml" target="_blank" rel="noopener">"この .yaml ファイルで見つかった権限"</a></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>compute.networkUser</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">サービスプロジェクトへのコネクタの配置</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connectorサービスアカウント</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">カスタム</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">サービスプロジェクト</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
@@ -1140,7 +1160,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google API サービスエージェント</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google Cloud</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">サービスプロジェクト</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1156,11 +1176,11 @@
 </li>
 </ul>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">導入に代わって GCP API とやり取りします。Cloud Manager で共有ネットワークを使用できるようにします。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">導入に代わってGoogle Cloud APIと対話します。Cloud Manager で共有ネットワークを使用できるようにします。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google Compute Engine のデフォルトのサービスアカウント</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google Cloud</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">サービスプロジェクト</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1176,7 +1196,7 @@
 </li>
 </ul>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">導入に代わって GCP インスタンスとコンピューティングインフラを導入します。Cloud Manager で共有ネットワークを使用できるようにします。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">導入に代わってGoogle Cloudインスタンスとコンピューティングインフラストラクチャを導入します。Cloud Manager で共有ネットワークを使用できるようにします。</p></td>
 </tr>
 </tbody>
 </table>
@@ -1235,7 +1255,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="gcp-でコネクタを作成する">GCP でコネクタを作成する</h2>
+<h2 id="google-cloudでコネクタを作成する">Google Cloudでコネクタを作成する</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Cloud Manager ユーザインターフェイスから直接、または gcloud を使用して、 Google Cloud でコネクタを作成する。</p>
@@ -1340,7 +1360,7 @@
 <li>
 <p>ご希望の方法で gcloud SDK にログインします。</p>
 <div class="paragraph">
-<p>この例では、 gcloud SDK がインストールされたローカルシェルを使用しますが、 GCP コンソールで Google Cloud Shell を使用できます。</p>
+<p>この例では、gcloud SDKがインストールされたローカルシェルを使用しますが、Google CloudコンソールでネイティブのGoogle Cloud Shellを使用できます。</p>
 </div>
 <div class="paragraph">
 <p>Google Cloud SDK の詳細については、を参照してください <a href="https://cloud.google.com/sdk" target="_blank" rel="noopener">"Google Cloud SDK ドキュメントページ"</a>。</p>
