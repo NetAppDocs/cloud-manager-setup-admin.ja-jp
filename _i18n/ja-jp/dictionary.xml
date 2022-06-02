@@ -1364,7 +1364,6 @@
   <block id="911d15b7ac55478d2b567e8488658687" category="section-title">172 の範囲の IP アドレスと競合する可能性があります</block>
   <block id="3853b1ba353b50f09828dc0d39b3ed95" category="paragraph">Cloud Manager は、 172.17.0.0/16 と 172.18.0.0/16 の範囲に IP アドレスを持つ 2 つのインターフェイスを使用してコネクタを展開します。</block>
   <block id="9f608f9c1c8b1ff5590819babfd8d682" category="paragraph">これらの範囲のいずれかでネットワークのサブネットが設定されている場合、 Cloud Manager から接続エラーが発生することがあります。たとえば、 Cloud Manager でオンプレミスの ONTAP クラスタを検出すると失敗することがあります。</block>
-  <block id="9bf0231c4a9bbfcd51ea4f7ad43e1483" category="paragraph">回避策は、コネクタのインターフェイスの IP アドレスを変更します。ネットアップサポートにお問い合わせください。</block>
   <block id="c8f224037ea295aeec347c94779d9932" category="section-title">アウトバウンドインターネットアクセス</block>
   <block id="d7a9479796563c8f42a47db3973f774c" category="paragraph">コネクタからのアウトバウンドインターネットアクセスが必要です。</block>
   <block id="5137b25e1ad14548ebb74e1d06668375" category="section-title">パブリッククラウド環境内のリソースを管理するためのエンドポイント</block>
@@ -2147,4 +2146,6 @@
   <block id="390e66de0b25a9d9b226d4ede6fa20b5" category="section-title">2022年5月12日</block>
   <block id="e2632c3a4c1aff50543e98b03420fd3c" category="section-title">コネクタ3.9.18パッチ</block>
   <block id="8156333613ef46e2aeaf70650af07b00" category="paragraph">コネクタを更新し、バグ修正を実施しました。最も注目すべき解決策は、問題 が共有VPC内にある場合にGoogle CloudでのCloud Volumes ONTAP の導入に影響するというものです。</block>
+  <block id="9d629a9ec3f84748aec778918407cebb" category="inline-link-macro">Cloud Manager ConnectorのIPが既存のネットワークと競合します</block>
+  <block id="a1fd2cb29c69b5f22a015cf8e9b56775" category="paragraph">技術情報アーティクルを参照してください <block ref="a91fb084431280c2dea29b2cdbf32954" category="inline-link-macro-rx"></block> コネクタのインターフェイスのIPアドレスを変更する方法については、を参照してください。</block>
 </blocks>

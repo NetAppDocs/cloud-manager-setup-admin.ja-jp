@@ -30,7 +30,7 @@ Cloud Manager は、 172.17.0.0/16 と 172.18.0.0/16 の範囲に IP アドレ�
 
 これらの範囲のいずれかでネットワークのサブネットが設定されている場合、 Cloud Manager から接続エラーが発生することがあります。たとえば、 Cloud Manager でオンプレミスの ONTAP クラスタを検出すると失敗することがあります。
 
-回避策は、コネクタのインターフェイスの IP アドレスを変更します。ネットアップサポートにお問い合わせください。
+技術情報アーティクルを参照してください link:https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/Cloud_Manager_shows_inactive_as_Connector_IP_range_in_172.x.x.x_conflict_with_docker_network["Cloud Manager ConnectorのIPが既存のネットワークと競合します"] コネクタのインターフェイスのIPアドレスを変更する方法については、を参照してください。
 
 
 
