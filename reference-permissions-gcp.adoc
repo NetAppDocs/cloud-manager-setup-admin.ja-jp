@@ -105,4 +105,7 @@ GCP の Cloud Manager ポリシーには、 Cloud Volumes ONTAP の導入と管�
 
 
 | -container-type コンテナクラスタリスト | Google Kubernetes Engine で実行されている Kubernetes クラスタを検出する。 
+
+
+| - compute.instanceGroups.get - compute .address.get | HAペアでStorage VMを作成および管理する。 
 |===

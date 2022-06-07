@@ -18,6 +18,27 @@ Cloud Manager の管理機能の新機能であるネットアップのアカウ
 
 
 
+== 2022年6月7日
+
+
+
+=== コネクタ3.9.19
+
+* このコネクタは、AWSジャカルタリージョン（AP-Southee-3）でサポートされるようになりました。
+* このコネクタは、Azureブラジル南東部でサポートされるようになりました。
++
+https://cloud.netapp.com/cloud-volumes-global-regions["サポートされているリージョンの完全なリストを表示します"^]
+
+* このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張とオンプレミスONTAP クラスタの機能拡張も含まれています。
++
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#7-june-2022["Cloud Volumes ONTAP の機能拡張について説明します"^]
+** https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/whats-new.html#7-june-2022["ONTAP オンプレミスクラスタの機能拡張について説明します"^]
+
+
+
+
+
+
 == 2022年5月12日
 
 

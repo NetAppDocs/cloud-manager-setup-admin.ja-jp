@@ -102,4 +102,7 @@ Cloud Manager は AWS アカウントを使用して、 EC2 、 S3 、 CloudForm
 
 
 | "EC2:DescribePlacementGroups"、"iAM:GetRolePolicy、 | 単一のアベイラビリティゾーン（AZ）に導入されたHAペア用にAWS分散配置グループを作成します。 
+
+
+| "EC2:DescribeVolumesModifications"、"EC2:ModifyVolume"、 | Amazon EBS Elastic Volumes機能をサポートするCloud Volumes ONTAP アグリゲートをセットアップおよび管理できる。 
 |===

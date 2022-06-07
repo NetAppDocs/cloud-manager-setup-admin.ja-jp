@@ -1892,7 +1892,6 @@
   <block id="a15b1a7954f2d926c5ee7f261a97b4d2" category="paragraph">/var/lib/docker /volumes /DS_occmdata/_data/log</block>
   <block id="590b2ea5933ad8ead3c9a15a914f1a9c" category="list-text">すべてのサービスが Docker コンテナ内で実行されています</block>
   <block id="f76b4c57c56377745199382d59cdeed3" category="paragraph">サービスは、実行されている Docker ランタイムサービスに依存します</block>
-  <block id="7ff191df90fac0fa94ab5c2b5101a5e9" category="sidebar">Cloud Manager のすべてのドキュメント</block>
   <block id="b7117438679aa668508b75822322c225" category="sidebar">管理ドキュメントをセットアップします</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">リリースノート</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新機能</block>
@@ -2148,4 +2147,17 @@
   <block id="8156333613ef46e2aeaf70650af07b00" category="paragraph">コネクタを更新し、バグ修正を実施しました。最も注目すべき解決策は、問題 が共有VPC内にある場合にGoogle CloudでのCloud Volumes ONTAP の導入に影響するというものです。</block>
   <block id="9d629a9ec3f84748aec778918407cebb" category="inline-link-macro">Cloud Manager ConnectorのIPが既存のネットワークと競合します</block>
   <block id="a1fd2cb29c69b5f22a015cf8e9b56775" category="paragraph">技術情報アーティクルを参照してください <block ref="a91fb084431280c2dea29b2cdbf32954" category="inline-link-macro-rx"></block> コネクタのインターフェイスのIPアドレスを変更する方法については、を参照してください。</block>
+  <block id="f8b475a3fefebada77a30229238d0a1a" category="section-title">2022年6月7日</block>
+  <block id="40beea3ec23a7affa39b1a1cbd52f21d" category="section-title">コネクタ3.9.19</block>
+  <block id="fb9fefdc512037af8c4c1f84c436bd8e" category="list-text">このコネクタは、AWSジャカルタリージョン（AP-Southee-3）でサポートされるようになりました。</block>
+  <block id="49ed7ab586a5135eae3ee7b3aea2ae20" category="list-text">このコネクタは、Azureブラジル南東部でサポートされるようになりました。</block>
+  <block id="1765dff10197df4bf080f41e5537f2a5" category="list-text">このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張とオンプレミスONTAP クラスタの機能拡張も含まれています。</block>
+  <block id="03e6ae21f561049c3e8010740c63aab3" category="inline-link">Cloud Volumes ONTAP の機能拡張について説明します</block>
+  <block id="2027473f3ca71543274163d3bb9dd8e1" category="list-text"><block ref="2027473f3ca71543274163d3bb9dd8e1" category="inline-link-rx"></block></block>
+  <block id="6ff2a7981cc8a7efd758e8ffec4cc69e" category="inline-link">ONTAP オンプレミスクラスタの機能拡張について説明します</block>
+  <block id="f0aff813a70ef2591adfbb6a1a06b553" category="list-text"><block ref="f0aff813a70ef2591adfbb6a1a06b553" category="inline-link-rx"></block></block>
+  <block id="d91c9747b757db55982f71a386bfd0d6" category="cell">- compute.instanceGroups.get - compute .address.get</block>
+  <block id="e6896223c5f9bd9bbdd1b0c9eac6686f" category="cell">HAペアでStorage VMを作成および管理する。</block>
+  <block id="4a95dbd25f9c78f9b32c636955913f0c" category="cell">"EC2:DescribeVolumesModifications"、"EC2:ModifyVolume"、</block>
+  <block id="2ab6f4b7f1eda4096fbe91764dbb5eb6" category="cell">Amazon EBS Elastic Volumes機能をサポートするCloud Volumes ONTAP アグリゲートをセットアップおよび管理できる。</block>
 </blocks>
