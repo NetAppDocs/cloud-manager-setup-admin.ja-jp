@@ -1749,8 +1749,6 @@
   <block id="3fc84828d29031ccb044fc851a791dd5" category="inline-link-macro">ネットアップアカウントをセットアップする</block>
   <block id="72c3eeaa29779a60f2efe95a1c173302" category="paragraph">手順については、を参照してください <block ref="2e63be6a139b9c6424fb3c44b74add23" category="inline-link-macro-rx"></block>。</block>
   <block id="6b9aff54334b24c64be5688e6f9c12cc" category="section-title">MAX Cloud Volumes ONTAP システム</block>
-  <block id="3ac6338087c4180b5cbb359584abab3a" category="paragraph">Cloud Volumes ONTAP システムの最大数は、使用しているライセンスモデルに関係なく、ネットアップアカウントあたり 20 に制限されます。</block>
-  <block id="5908d4e5a438659ba844464125f51abe" category="paragraph">a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、 2 つの Cloud Volumes ONTAP HA ペアと 2 つのシングルノードシステムがある場合、合計 4 つのシステムがあり、アカウントに 16 のシステムを追加で配置できます。</block>
   <block id="a259bb127cd2a1cd02edf6a3a2484f33" category="paragraph">ご質問がある場合は、アカウント担当者または営業チームにお問い合わせください。</block>
   <block id="ff73074ccafb0bcfc1c49a09ceb6532f" category="section-title">Account Settings （アカウント設定）</block>
   <block id="6f42c9f4b429467eb11ea5ae99b87c9d" category="paragraph">Cloud Manager のアカウント管理ウィジェットでは、アカウント管理者がネットアップアカウントを管理できます。アカウントを作成したばかりの場合は、最初から作成します。アカウントをすでに設定している場合は、アカウントに関連付けられているユーザ、ワークスペース、コネクタ、およびサブスクリプションが _all_ と表示されます。</block>
@@ -2160,4 +2158,6 @@
   <block id="e6896223c5f9bd9bbdd1b0c9eac6686f" category="cell">HAペアでStorage VMを作成および管理する。</block>
   <block id="4a95dbd25f9c78f9b32c636955913f0c" category="cell">"EC2:DescribeVolumesModifications"、"EC2:ModifyVolume"、</block>
   <block id="2ab6f4b7f1eda4096fbe91764dbb5eb6" category="cell">Amazon EBS Elastic Volumes機能をサポートするCloud Volumes ONTAP アグリゲートをセットアップおよび管理できる。</block>
+  <block id="fe133d1f6db8d046e4b328c0d9a967a1" category="paragraph">Cloud Volumes ONTAP システムの最大数は、使用しているライセンスモデルに関係なく、ネットアップアカウントあたり50に制限されます。</block>
+  <block id="ae5034ae6657395ba1fc2a16d2c55db3" category="paragraph">a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、8つのCloud Volumes ONTAP HAペアと4つのシングルノードシステムがある場合、合計で12個のシステムがあり、アカウントに38個のシステムを追加で割り当てることができます。</block>
 </blocks>
