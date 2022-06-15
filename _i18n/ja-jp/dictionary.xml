@@ -1471,7 +1471,6 @@
   <block id="342df35452bbec008148c714d47038f6" category="list-text">注文に時計と * 保留中 * のステータスが表示されている場合は、マーケットプレイスのページに戻り、 * プロバイダで管理 * を選択して、上記の手順を完了します。</block>
   <block id="9547217bb6aa822040056cba67310321" category="inline-image-macro">市場で保留中のエンタイトルメントのスクリーンショット。</block>
   <block id="e6ec8d6dff39d45a9056311495699cef" category="paragraph"><block ref="e6ec8d6dff39d45a9056311495699cef" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4c7da566c048accbd9ccb27c9b060bde" category="summary">インターネットにアクセスできないオンプレミスの Linux ホストにコネクタをインストールできます。オンプレミスの ONTAP クラスタを検出し、クラスタ間でデータをレプリケートして、クラウドデータを検出してデータをスキャンできます。</block>
   <block id="424a4bbc5d90882baf6dfd31a70caf62" category="doc">インターネットにアクセスせずにオンプレミスにコネクタをインストールします</block>
   <block id="92241232df0720bddf843b8b16c8be1a" category="paragraph">ここで説明するインストール手順は、前述の使用事例を対象としています。 <block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block>。</block>
   <block id="93144470251168b3e5488b736447f48f" category="section-title">ホストの要件を確認</block>
@@ -1527,8 +1526,6 @@
   <block id="533c556705825be9a1a97d191373f80f" category="list-text"><block ref="533c556705825be9a1a97d191373f80f" category="inline-link-rx"></block></block>
   <block id="8160a46a5d4541efd7702f3fa8a2ecad" category="inline-link">オンプレミスの ONTAP クラスタ間でデータをレプリケート</block>
   <block id="1b8412d43fb2448299621a31132c8729" category="list-text"><block ref="1b8412d43fb2448299621a31132c8729" category="inline-link-rx"></block></block>
-  <block id="44260f7555e9d7359b83f5d558c95bf0" category="inline-link">Cloud Data Sense を使用してボリュームデータをスキャンする</block>
-  <block id="19ffc38fbe7641c4f1c1b5bba95bd159" category="list-text"><block ref="19ffc38fbe7641c4f1c1b5bba95bd159" category="inline-link-rx"></block></block>
   <block id="c4d9d6c8e652595e9d46970f56499783" category="inline-link-macro">コネクタをアップグレードする方法について説明します</block>
   <block id="873c98dded4257d9b65fdcad74460e91" category="paragraph">新しいバージョンの Connector ソフトウェアが利用可能になると、ソフトウェアはネットアップサポートサイトにアップロードされます。 <block ref="c7624839f14a2e41667804d3cbb29094" category="inline-link-macro-rx"></block>。</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="summary">既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください</block>
@@ -2160,4 +2157,9 @@
   <block id="2ab6f4b7f1eda4096fbe91764dbb5eb6" category="cell">Amazon EBS Elastic Volumes機能をサポートするCloud Volumes ONTAP アグリゲートをセットアップおよび管理できる。</block>
   <block id="fe133d1f6db8d046e4b328c0d9a967a1" category="paragraph">Cloud Volumes ONTAP システムの最大数は、使用しているライセンスモデルに関係なく、ネットアップアカウントあたり50に制限されます。</block>
   <block id="ae5034ae6657395ba1fc2a16d2c55db3" category="paragraph">a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、8つのCloud Volumes ONTAP HAペアと4つのシングルノードシステムがある場合、合計で12個のシステムがあり、アカウントに38個のシステムを追加で割り当てることができます。</block>
+  <block id="bea9d9e1b3f9260b5dafbfee794aead7" category="summary">インターネットにアクセスできないオンプレミスの Linux ホストにコネクタをインストールできます。オンプレミスのONTAP クラスタを検出し、クラスタ間でデータをレプリケートし、Cloud Backupを使用してボリュームをバックアップし、Cloud Data Senseでスキャンできます。</block>
+  <block id="89b945901df4999cfbb07b91df7f3e83" category="inline-link">クラウドバックアップを使用して、オンプレミスのONTAP ボリュームのデータをStorageGRID にバックアップします</block>
+  <block id="0ef5e09df96e6b4d97470a69c3a5bb03" category="list-text"><block ref="0ef5e09df96e6b4d97470a69c3a5bb03" category="inline-link-rx"></block></block>
+  <block id="c6e51205c48cc37a7cc66b973d442adf" category="inline-link">クラウドデータセンスを使用してオンプレミスのONTAP ボリュームデータをスキャン</block>
+  <block id="a2946220130b0d51ecc66e35f8a65cbe" category="list-text"><block ref="a2946220130b0d51ecc66e35f8a65cbe" category="inline-link-rx"></block></block>
 </blocks>

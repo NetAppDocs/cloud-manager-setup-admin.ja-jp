@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-install-connector-onprem-no-internet.html 
 keywords: connector, dark site, install dark site, install connector no internet, install connector on prem 
-summary: インターネットにアクセスできないオンプレミスの Linux ホストにコネクタをインストールできます。オンプレミスの ONTAP クラスタを検出し、クラスタ間でデータをレプリケートして、クラウドデータを検出してデータをスキャンできます。 
+summary: インターネットにアクセスできないオンプレミスの Linux ホストにコネクタをインストールできます。オンプレミスのONTAP クラスタを検出し、クラスタ間でデータをレプリケートし、Cloud Backupを使用してボリュームをバックアップし、Cloud Data Senseでスキャンできます。 
 ---
 = インターネットにアクセスせずにオンプレミスにコネクタをインストールします
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: インターネットにアクセスできないオンプレミスの L
 
 
 [role="lead"]
-インターネットにアクセスできないオンプレミスの Linux ホストにコネクタをインストールできます。オンプレミスの ONTAP クラスタを検出し、クラスタ間でデータをレプリケートして、クラウドデータを検出してデータをスキャンできます。
+インターネットにアクセスできないオンプレミスの Linux ホストにコネクタをインストールできます。オンプレミスのONTAP クラスタを検出し、クラスタ間でデータをレプリケートし、Cloud Backupを使用してボリュームをバックアップし、Cloud Data Senseでスキャンできます。
 
 ここで説明するインストール手順は、前述の使用事例を対象としています。 link:concept-connectors.html#how-to-create-a-connector["コネクタを配置するその他の方法について説明します"]。
 
@@ -111,7 +111,8 @@ image:screenshot-onprem-darksite-details.png["System Details ページのスク�
 .次の内容
 * https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["オンプレミスの ONTAP クラスタを検出"^]
 * https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html["オンプレミスの ONTAP クラスタ間でデータをレプリケート"^]
-* https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-dark-site.html["Cloud Data Sense を使用してボリュームデータをスキャンする"^]
+* https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["クラウドバックアップを使用して、オンプレミスのONTAP ボリュームのデータをStorageGRID にバックアップします"^]
+* https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-dark-site.html["クラウドデータセンスを使用してオンプレミスのONTAP ボリュームデータをスキャン"^]
 
 
 新しいバージョンの Connector ソフトウェアが利用可能になると、ソフトウェアはネットアップサポートサイトにアップロードされます。 link:task-managing-connectors.html["コネクタをアップグレードする方法について説明します"]。
