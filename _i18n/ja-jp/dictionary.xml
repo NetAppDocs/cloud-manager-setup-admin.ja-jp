@@ -970,7 +970,6 @@
   <block id="4b8bff03335e3b9e10cd47a213ff79e2" category="paragraph"><block ref="4b8bff03335e3b9e10cd47a213ff79e2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a9512880dd99d7a0ea8a44aae7aaf9aa" category="paragraph">Cloud Manager が更新され、選択したコネクタに関連付けられている作業環境が表示されます。</block>
   <block id="61fb0edb10f3698f23f558d3a9ffae84" category="section-title">ローカル UI にアクセスします</block>
-  <block id="13f82657bcb08b6808b377b42bb36b38" category="paragraph">SaaS ユーザインターフェイスからほとんどのタスクを実行する必要がありますが、ローカルユーザインターフェイスは引き続きコネクタで使用できます。このインターフェイスは、コネクタ自体から実行する必要があるいくつかのタスクに必要です。</block>
   <block id="8f1f697128124fa5f7ac3ca04e2076b2" category="inline-link-macro">プロキシサーバを設定しています</block>
   <block id="e18fe7db665c72786571535a9d181827" category="list-text"><block ref="e18fe7db665c72786571535a9d181827" category="inline-link-macro-rx"></block></block>
   <block id="5534b7b22bef2cb909c67010ed56403f" category="list-text">パッチをインストールしています （通常はネットアップの担当者と協力してパッチをインストールします）</block>
@@ -978,7 +977,6 @@
   <block id="049e58b9154b9217b877a3ecc16fc5cf" category="inline-link-macro">Cloud Manager SaaS インターフェイスにログインします</block>
   <block id="c372128408c839bd88cba5d74f93343f" category="list-text"><block ref="6dc57c9a66b985810d1730868aac7fd2" category="inline-link-macro-rx"></block> コネクターインスタンスへのネットワーク接続を持つマシンから。</block>
   <block id="9d277575663069d52e56d4f8641722bb" category="paragraph">コネクタにパブリック IP アドレスがない場合は、 VPN 接続が必要です。そうでない場合は、コネクタと同じネットワークにあるジャンプホストから接続する必要があります。</block>
-  <block id="fe21300b1f75f7d8f3a770f3424dd83c" category="list-text">[* Connector* （コネクタ * ） ] ドロップダウンをクリックし、 [* ローカル UI へ移動 * （ Go to Local UI * ） ] をクリックします。</block>
   <block id="aa5200385a837d314289fa0e1a6076d8" category="inline-image-macro">ヘッダーのコネクターアイコンとローカル UI へ移動アクションを示すスクリーンショット。</block>
   <block id="1830014a8a628750265ffacd0aadfae4" category="paragraph"><block ref="1830014a8a628750265ffacd0aadfae4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e39eb53ef1cb43062749c69a86d41297" category="paragraph">コネクタで実行されている Cloud Manager インターフェイスが新しいブラウザタブに表示されます。</block>
@@ -1543,8 +1541,6 @@
   <block id="3197827325be6e413fb43c8aa3862608" category="section-title">政府機関では SaaS プラットフォームが無効になっています</block>
   <block id="6aef346cd7f1d02d8a385ef5501430b5" category="paragraph">コネクタを AWS GovCloud リージョン、 Azure Government リージョン、または Azure DoD リージョンに導入した場合、 Cloud Manager へのアクセスはコネクタのホスト IP アドレスからのみ可能です。SaaS プラットフォームへのアクセスは、アカウント全体で無効になります。</block>
   <block id="01b185b57976f8db5702424954f912de" category="paragraph">つまり、エンドユーザの内部 VPC / VNet にアクセスできる特権ユーザのみが Cloud Manager の UI または API を使用できます。</block>
-  <block id="b1ba27dfecc5d2afa7479b0e66831cb2" category="paragraph">また、次のサービスが Cloud Manager から利用できないことも意味します。</block>
-  <block id="7719c1d7366788cfbb45dc7ab4e61716" category="admonition">Cloud Backup 、 Cloud Data Sense 、 Monitoring サービスは、政府機関でサポートされていて利用できます。</block>
   <block id="4c8bad6756ca0d84a9a56e8303428c9c" category="section-title">市場の制約</block>
   <block id="09b41782e7d4a148f9a7da9ba9dd8aab" category="section-title">従量課金制の Azure と Google Cloud のパートナーは利用できません</block>
   <block id="3bb34cc4b91242a4a34cd43a6fe0fd46" category="paragraph">Microsoft Cloud 解決策 Provider （ CSP ）パートナー様または Google Cloud パートナー様は、従量課金制のサブスクリプションをご利用いただけません。ライセンスを購入し、 BYOL ライセンスを使用した NetApp クラウドソリューションを導入する必要があります。</block>
@@ -2037,7 +2033,6 @@
   <block id="bece28b158ab337d9ed24b00d7d02cc7" category="list-text">[ * お問い合わせ * ] をクリックして、ネットアップ・テクニカル・サポートの電話番号を検索してください。</block>
   <block id="efe81cff8e6f47ec59ef94167b76bf5a" category="list-text">[ * 問題 を開く * ] をクリックし、いずれかのオプションを選択して、 [ * 送信 * ] をクリックします。</block>
   <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">ネットアップの担当者がケースを確認し、すぐに対応を開始します。</block>
-  <block id="8f8ddac26068fbb5a6761635f0559bf3" category="paragraph">これらのサービスを使用するには、 SaaS プラットフォームが必要です。</block>
   <block id="0c01b3b7191c43507ad9ca43d6443731" category="cell">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTPS アクセス、および Cloud Data Sense インスタンスからの接続を提供します</block>
   <block id="b774573fe7b53358246a054f6d44ca83" category="cell">クラウドデータセンスの有効化と使用が可能（政府機関のクラウド環境にのみ必要）</block>
   <block id="5c6b09600cdfc594130f9f3c053efecb" category="section-title">コネクタの IP アドレスを変更します</block>
@@ -2162,4 +2157,10 @@
   <block id="c6e51205c48cc37a7cc66b973d442adf" category="inline-link">クラウドデータセンスを使用してオンプレミスのONTAP ボリュームデータをスキャン</block>
   <block id="a2946220130b0d51ecc66e35f8a65cbe" category="list-text"><block ref="a2946220130b0d51ecc66e35f8a65cbe" category="inline-link-rx"></block></block>
   <block id="fe287ea744fed512490d3282fcd528aa" category="paragraph">たとえば、コネクタは、Cloud Volumes ONTAP の健常性と運用の鍵となるコンポーネントです。コネクタの電源がオフになっている場合は、Cloud Volumes ONTAP PAYGOシステムがノードベースのライセンスを使用している場合は、コネクタとの通信が14日以上切断されたあとでシャットダウンします。</block>
+  <block id="f959d763eb10941db3ab7db04cdccc7d" category="paragraph">SaaS ユーザインターフェイスからほとんどのタスクを実行する必要がありますが、ローカルユーザインターフェイスは引き続きコネクタで使用できます。政府機関のリージョンまたはアウトバウンドのインターネットアクセスがないサイトからCloud Managerにアクセスする場合は、コネクタで実行されているローカルユーザインターフェイスを使用する必要があります。</block>
+  <block id="bf16d7909c891a5a760cab0ad77d53bc" category="list-text">ログインするためのユーザ名とパスワードを入力します。</block>
+  <block id="bb88bf03aaf2d1b8891c8b85df8bd28f" category="paragraph">これらの地域でサポートされているサービスは、Cloud Volumes ONTAP 、クラウドバックアップ、クラウドデータセンス、レプリケーションだけです。その他のネットアップサービスは、政府機関の地域ではサポートされていません。</block>
+  <block id="4141e80854c65807682dd0ff767b4228" category="inline-link-macro">ConnectorでローカルUIにアクセスする方法について説明します</block>
+  <block id="b5d309d79224e6f55d1d4c6b68090c82" category="paragraph"><block ref="2061c033ff26af000ddf0a91359fc3b2" category="inline-link-macro-rx"></block>。</block>
+  <block id="60eb2845b0a0e58270dc0f4a47eeb2b9" category="paragraph">政府機関のリージョンまたはアウトバウンドのインターネットアクセスがないサイトからCloud Managerにアクセスする場合は、コネクタで実行されているローカルユーザインターフェイスにログインする必要があります。 <block ref="2061c033ff26af000ddf0a91359fc3b2" category="inline-link-macro-rx"></block>。</block>
 </blocks>

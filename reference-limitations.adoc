@@ -80,17 +80,9 @@ Connector VM では、サードパーティのエージェントや VM 拡張機
 
 つまり、エンドユーザの内部 VPC / VNet にアクセスできる特権ユーザのみが Cloud Manager の UI または API を使用できます。
 
-また、次のサービスが Cloud Manager から利用できないことも意味します。
+これらの地域でサポートされているサービスは、Cloud Volumes ONTAP 、クラウドバックアップ、クラウドデータセンス、レプリケーションだけです。その他のネットアップサービスは、政府機関の地域ではサポートされていません。
 
-* Kubernetes
-* クラウド階層化
-* グローバルファイルキャッシュ
-
-
-これらのサービスを使用するには、 SaaS プラットフォームが必要です。
-
-
-NOTE: Cloud Backup 、 Cloud Data Sense 、 Monitoring サービスは、政府機関でサポートされていて利用できます。
+link:task-managing-connectors.html#access-the-local-ui["ConnectorでローカルUIにアクセスする方法について説明します"]。
 
 
 

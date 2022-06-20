@@ -16,6 +16,8 @@ summary: 'Cloud Manager のインターフェイスには、 SaaS ベースの�
 [role="lead"]
 Cloud Manager のインターフェイスには、 SaaS ベースのユーザがアクセスできます にアクセスしてインターフェイスを設定します https://cloudmanager.netapp.com[]。
 
+政府機関のリージョンまたはアウトバウンドのインターネットアクセスがないサイトからCloud Managerにアクセスする場合は、コネクタで実行されているローカルユーザインターフェイスにログインする必要があります。 link:task-managing-connectors.html#access-the-local-ui["ConnectorでローカルUIにアクセスする方法について説明します"]。
+
 
 TIP: シングルサインオンを使用して、社内ディレクトリ（フェデレーション ID ）からのクレデンシャルを使用してログインできます。詳細については、を参照してください https://cloud.netapp.com/help-center["Cloud Central ヘルプセンター"^] 次に、 * Cloud Central サインインオプション * をクリックします。
 
