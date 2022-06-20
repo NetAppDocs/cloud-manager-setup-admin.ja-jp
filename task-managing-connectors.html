@@ -993,7 +993,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 19:04:40 +0000">04/18/2022</time>
+    <time datetime="2022-06-20 19:52:05 +0000">06/20/2022</time>
     
   
 
@@ -1036,38 +1036,22 @@
 <h2 id="ローカル-ui-にアクセスします">ローカル UI にアクセスします</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>SaaS ユーザインターフェイスからほとんどのタスクを実行する必要がありますが、ローカルユーザインターフェイスは引き続きコネクタで使用できます。このインターフェイスは、コネクタ自体から実行する必要があるいくつかのタスクに必要です。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="task-configuring-proxy.html">"プロキシサーバを設定しています"</a></p>
-</li>
-<li>
-<p>パッチをインストールしています （通常はネットアップの担当者と協力してパッチをインストールします）</p>
-</li>
-<li>
-<p>AutoSupport メッセージをダウンロードしています （通常は問題が発生したときにネットアップの担当者が指示）</p>
-</li>
-</ul>
+<p>SaaS ユーザインターフェイスからほとんどのタスクを実行する必要がありますが、ローカルユーザインターフェイスは引き続きコネクタで使用できます。政府機関のリージョンまたはアウトバウンドのインターネットアクセスがないサイトからCloud Managerにアクセスする場合は、コネクタで実行されているローカルユーザインターフェイスを使用する必要があります。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p><a href="task-logging-in.html" target="_blank" rel="noopener">"Cloud Manager SaaS インターフェイスにログインします"</a> コネクターインスタンスへのネットワーク接続を持つマシンから。</p>
+<p>Web ブラウザを開き、次の URL を入力します。</p>
 <div class="paragraph">
-<p>コネクタにパブリック IP アドレスがない場合は、 VPN 接続が必要です。そうでない場合は、コネクタと同じネットワークにあるジャンプホストから接続する必要があります。</p>
+<p>https://<em>ipaddress</em>[]</p>
+</div>
+<div class="paragraph">
+<p>_ipaddress _ には、ホストの設定に応じて、 localhost 、プライベート IP アドレス、またはパブリック IP アドレスを指定できます。たとえば、パブリック IP アドレスのないパブリッククラウドにコネクタがある場合は、コネクタホストに接続されているホストからプライベート IP アドレスを入力する必要があります。</p>
 </div>
 </li>
 <li>
-<p>[* Connector* （コネクタ * ） ] ドロップダウンをクリックし、 [* ローカル UI へ移動 * （ Go to Local UI * ） ] をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_connector_local_ui.gif" alt="ヘッダーのコネクターアイコンとローカル UI へ移動アクションを示すスクリーンショット。"></span></p>
-</div>
-<div class="paragraph">
-<p>コネクタで実行されている Cloud Manager インターフェイスが新しいブラウザタブに表示されます。</p>
-</div>
+<p>ログインするためのユーザ名とパスワードを入力します。</p>
 </li>
 </ol>
 </div>
