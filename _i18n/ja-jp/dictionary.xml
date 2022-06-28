@@ -956,9 +956,7 @@
   <block id="eefda50da2224ff311614c053cf3f8f6" category="summary">Cloud Manager のインターフェイスには、 SaaS ベースのユーザがアクセスできます にアクセスしてインターフェイスを設定します<block ref="ed21e31bd71ab546f26978ff562b5c5d" category="inline-link-rx"></block>。</block>
   <block id="ae9e8c2e99c4eb5ab4d5d43ef6eb0e5e" category="doc">Cloud Manager にログインしています</block>
   <block id="89e460c9a52ba6b696ff1bf3de604ff8" category="list-text">Web ブラウザを開き、に進みます<block ref="ed21e31bd71ab546f26978ff562b5c5d" category="inline-link-rx"></block>。</block>
-  <block id="465b9d23562359c56377ba35bfcf5c48" category="list-text">NetApp Cloud Central のクレデンシャルを使用してログインします。</block>
   <block id="7e3c9594a3f6833ecddbf1cbe150528c" category="inline-image-macro">Cloud Central のログイン画面。</block>
-  <block id="33ec64420d3361f9794053a9add38468" category="paragraph"><block ref="33ec64420d3361f9794053a9add38468" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1c6b5d54a9051a8a77fa6a66f0a8cc9b" category="paragraph">ログインすると、 Cloud Manager を使用してハイブリッドマルチクラウドインフラを管理できるようになります。</block>
   <block id="660bef525617f48933744ba42660cbd7" category="summary">1 つ以上のコネクタを作成した後、コネクタを切り替えたり、コネクタで実行されているローカルユーザーインタフェースに接続したりすることで、コネクタを管理できます。</block>
   <block id="25f39581bcecd91d6c252b00ea32b305" category="doc">既存のコネクタの管理</block>
@@ -2163,4 +2161,16 @@
   <block id="60eb2845b0a0e58270dc0f4a47eeb2b9" category="paragraph">政府機関のリージョンまたはアウトバウンドのインターネットアクセスがないサイトからCloud Managerにアクセスする場合は、コネクタで実行されているローカルユーザインターフェイスにログインする必要があります。 <block ref="2061c033ff26af000ddf0a91359fc3b2" category="inline-link-macro-rx"></block>。</block>
   <block id="3ac6338087c4180b5cbb359584abab3a" category="paragraph">Cloud Volumes ONTAP システムの最大数は、使用しているライセンスモデルに関係なく、ネットアップアカウントあたり 20 に制限されます。</block>
   <block id="b730a5e05a41eebeb51f5aee7c746386" category="paragraph">a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、2つのCloud Volumes ONTAP HAペアと2つのシングルノードシステムがある場合、合計4つのシステムがあり、アカウントに16のシステムを追加することができます。</block>
+  <block id="38ce4e90f119b89b2fdf1f274431e262" category="section-title">2022年6月28日</block>
+  <block id="47d69a1f17128c359904338c3502fe31" category="section-title">ネットアップのクレデンシャルでログインします</block>
+  <block id="f646305c890b8deec88379aeecbe56a5" category="paragraph">新規ユーザがCloud Centralに登録する際に、「ネットアップでログイン」オプションを選択して、ネットアップサポートサイトのクレデンシャルを使用してログインできるようになりました。Eメールアドレスとパスワードを入力する代わりに使用できます。</block>
+  <block id="f27b2370dfece83354cbb560bf251abc" category="admonition">Eメールアドレスとパスワードを使用する既存のログインでは、このログイン方法を使用し続ける必要があります。ネットアップでログインするオプションは、新規ユーザがサインアップする際に使用できます。</block>
+  <block id="38f56a558a4d21cafea24d2843b0d77d" category="list-text">NetApp Cloud Centralのクレデンシャルを入力するか、* Log in with NetApp *をクリックして、ネットアップサポートサイトのクレデンシャルを入力してログインします。</block>
+  <block id="7fd998996aeaec7fba56157b137fee51" category="paragraph">Cloud Centralに登録するときに使用したオプションを選択する必要があります。</block>
+  <block id="decc333898509c715afbf4242e91a6fc" category="list-text">Eメールアドレスとパスワードを入力してサインアップした場合は、ログインするたびにクレデンシャルを入力する必要があります。</block>
+  <block id="13a0adeb2b159ac19c415adb2a302ac7" category="list-text">ネットアップサポートサイトのクレデンシャルでログインして登録した場合は、毎回ログインオプションを使用する必要があります。</block>
+  <block id="e7330d051a059d074bb6d948d1b195a1" category="paragraph"><block ref="e7330d051a059d074bb6d948d1b195a1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0a3af967406da233deb44a3e3518540a" category="list-text">ネットアップサポートサイトのアカウントを登録している場合は、「* NetAppにログイン」をクリックし、ネットアップサポートサイトのクレデンシャルを入力します。</block>
+  <block id="0eac24292d137662727eddfcb308122d" category="paragraph">ログインするたびに、このサインアッププロセスで選択したオプションを使用する必要があります。</block>
+  <block id="5bcda5b087049d72bac31d0484792c9e" category="admonition">ネットアップでログインした場合、ネットアップサポートサイトのクレデンシャルはサポートダッシュボードにCloud Managerに追加されません。</block>
 </blocks>
