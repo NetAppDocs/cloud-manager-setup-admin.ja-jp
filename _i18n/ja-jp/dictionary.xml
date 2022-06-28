@@ -949,7 +949,6 @@
   <block id="cb95642e206c980191590d63445b26a7" category="list-text">[ サインアップ ] をクリックします。</block>
   <block id="2ca0e0597feba3b9ab097009f96b443c" category="list-text">フォームに入力して、「 * サインアップ * 」をクリックします。</block>
   <block id="8ed42493503a731371f86e4d62e09eb3" category="inline-image-macro">Cloud Central のサインアップフォームのスクリーンショット。 E メールアドレス、パスワード、会社名、電話番号を入力します。</block>
-  <block id="9b0c385c128d0aaabafd6fbaa770073f" category="paragraph"><block ref="9b0c385c128d0aaabafd6fbaa770073f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5009d2196c166295505299d3ccfa44a4" category="list-text">NetApp Cloud Central からの E メールを待ちます。</block>
   <block id="47e1be43e59b17b4231ddf8bb9c249db" category="list-text">E メールのリンクをクリックして、 E メールアドレスを確認します。</block>
   <block id="079c633ad298feda51d946a3bb2ffee8" category="paragraph">アクティブな Cloud Central ユーザログインが可能になりました。</block>
@@ -2173,4 +2172,5 @@
   <block id="0eac24292d137662727eddfcb308122d" category="paragraph">ログインするたびに、このサインアッププロセスで選択したオプションを使用する必要があります。</block>
   <block id="5bcda5b087049d72bac31d0484792c9e" category="admonition">ネットアップでログインした場合、ネットアップサポートサイトのクレデンシャルはサポートダッシュボードにCloud Managerに追加されません。</block>
   <block id="bb3811f4fe37370092ea428b21cf1249" category="list-text">ネットアップサポートサイトのアカウントを登録している場合は、「* NetAppにログイン」をクリックし、ネットアップサポートサイトのクレデンシャルを入力します。</block>
+  <block id="fa4e197c715b6a6e61487c84fa10bc13" category="paragraph"><block ref="fa4e197c715b6a6e61487c84fa10bc13" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
