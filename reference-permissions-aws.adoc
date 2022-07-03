@@ -16,93 +16,457 @@ summary: Cloud Manager からクラウドプロバイダの処理を実行する
 [role="lead"]
 Cloud Manager からクラウドプロバイダの処理を実行するには権限が必要です。これらの権限はに含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["ネットアップが提供するポリシー"^]。このような権限を持つ Cloud Manager の機能を理解しておく必要があるかもしれません。
 
-Cloud Manager は AWS アカウントを使用して、 EC2 、 S3 、 CloudFormation 、 IAM 、 Security Token Service （ STS ）、 Key Management Service （ KMS ）などの複数の AWS サービスへの API コールを行います。
+以降のセクションでは、各ネットアップクラウドサービスに対する権限の使用方法について説明します。この情報は、企業のポリシーによって、必要な場合にのみアクセス許可が指定されるように指定されている場合に役立ちます。
 
-[cols="50,50"]
+
+
+== AppTemplateタグ
+
+AppTemplate Taggingサービスを使用する場合、Connectorは次のAPI要求を実行してAWSリソースのタグを管理します。
+
+* ec2：CreateTags
+* EC2:タグを削除します
+* EC2: DescribeTags (説明タグ)
+* Tag:getResources
+* tag:getTagKeys
+* tag:getTagValues
+* Tag:タグリソース
+* タグ: UntagResources
+
+
+
+
+== クラウドバックアップ
+
+コネクタは、Cloud Backupのリストアインスタンスを導入するために次のAPI要求を実行します。
+
+* EC2：StartInstances（EC2：開始インスタンス
+* EC2：StopInstances
+* EC2: DescribeInstances
+* EC2: DescribeInstanceStatus
+* EC2：RunInstances
+* EC2：TerminateInstances
+* EC2: DescribeInstanceAttributeのこと
+* EC2: DescribeImages
+* ec2：CreateTags
+* EC2：CreateVolume
+* EC2：CreateSecurityGroup
+* EC2: DescribeSubnets
+* EC2: DescribeVpcs
+* EC2: DescribeRegions (説明領域
+* CloudFormation：CreateStack
+* CloudFormation：DeleteStack
+* CloudFormation：DescribeStack
+
+
+Connectorは、Amazon S3でバックアップを管理するために次のAPI要求を実行します。
+
+* S3 ： GetBucketLocation
+* S3 ： ListAllMyBuckets
+* S3 ： ListBucket
+* S3 ： CreateBucket を指定します
+* S3 ： GetLifecycleConfiguration
+* S3 ： PutLifecycleConfiguration
+* S3 ： PutBucketTagging
+* S3 ： ListBucketVersions
+* S3 ： GetBucketAcl
+* S3：PutBucketPublicAccessBlock
+* KMS：リスト*
+* KMS：説明*
+* S3 ： GetObject
+* ec2c:ディスクエンドポイントの説明
+* KMS：エイリアスを確認する
+* S3 ： PutEncryptionConfiguration
+
+
+コネクタは、Search & Restoreメソッドを使用してボリュームとファイルをリストアする場合に次のAPI要求を実行します。
+
+* S3 ： CreateBucket を指定します
+* S3 ： DeleteObject
+* S3 ： DeleteObjectVersion
+* S3 ： GetBucketAcl
+* S3 ： ListBucket
+* S3 ： ListBucketVersions
+* S3 ： ListBucketMultipartUploads
+* S3 ： PutObject
+* S3：PutBucketAcl
+* S3 ： PutLifecycleConfiguration
+* S3：PutBucketPublicAccessBlock
+* S3 ： AbortMultipartUpload
+* S3 ： ListMultipartUploadParts
+* Athena：StartQueryExecutionc
+* Athena: GetQueryResults.
+* Athena: GetQueryExecution
+* Athena：StopQueryExecution
+* グルー：データベースを作成します
+* グルー: CreateTable
+* グルー: BatchDeletePartition
+
+
+
+
+== クラウドデータの意味
+
+Connectorは、Cloud Data Senseインスタンスを導入するために次のAPI要求を実行します。
+
+* EC2: DescribeInstances
+* EC2: DescribeInstanceStatus
+* EC2：RunInstances
+* EC2：TerminateInstances
+* ec2：CreateTags
+* EC2：CreateVolume
+* EC2：AttachVolume
+* EC2：CreateSecurityGroup
+* EC2: DeleteSecurityGroup
+* EC2: DescribeSecurityGroups
+* EC2：CreateNetworkInterface
+* EC2: DescribeNetworkInterfaces
+* EC2：DeleteNetworkInterface
+* EC2: DescribeSubnets
+* EC2: DescribeVpcs
+* EC2: CreateSnapshotの作成
+* EC2: DescribeRegions (説明領域
+* CloudFormation：CreateStack
+* CloudFormation：DeleteStack
+* CloudFormation：DescribeStack
+* CloudFormation：DescribeStackEvents
+* IAM：AddRoleToInstanceProfile
+* EC2: AssociateIamInstanceProfile
+* EC2: DescribeIamInstanceProfileAssociations
+
+
+Cloud Data Senseを使用している場合、コネクタはS3バケットのスキャンを行うために次のAPI要求を実行します。
+
+* IAM：AddRoleToInstanceProfile
+* EC2: AssociateIamInstanceProfile
+* EC2: DescribeIamInstanceProfileAssociations
+* S3 ： GetBucketTagging
+* S3 ： GetBucketLocation
+* S3 ： ListAllMyBuckets
+* S3 ： ListBucket
+* S3：GetBucketPolicyStatus
+* S3 ： GetBucketPolicy
+* S3 ： GetBucketAcl
+* S3 ： GetObject
+* IAM：GetRole
+* S3 ： DeleteObject
+* S3 ： DeleteObjectVersion
+* S3 ： PutObject
+* STS: AssumeRole
+
+
+
+
+== クラウド階層化
+
+Cloud Tieringを使用すると、ConnectorはAmazon S3へのデータの階層化を求める次のAPI要求を実行します。
+
+[cols="3*"]
 |===
-| アクション | 目的 
+| アクション | セットアップに使用？ | 日々の業務に使用されるか？ 
 
 
-| "EC2:StartInstances" 、 "EC2:StopInstances" 、 "EC2:DescribeInstances" 、 "EC2:DescribeInstanceStatus" 、 "EC2:RunInstances" 、 "EC2:TerminateInstances" 、 "EC2:ModifyInstanceAttribute" 、 | Cloud Volumes ONTAP インスタンスを起動し、インスタンスを停止、開始、監視します。 
+| S3 ： CreateBucket を指定します | はい。 | いいえ 
 
 
-| "EC2: DescribeInstanceAttribute" 、 | サポートされているインスタンスタイプで Enhanced Networking が有効になっていることを確認します。 
+| S3 ： PutLifecycleConfiguration | はい。 | いいえ 
 
 
-| 「 EC2 ：説明文」、「 EC2 ：説明文」、 | Cloud Volumes ONTAP HA 構成を起動します。 
+| S3 ： GetLifecycleConfiguration | はい。 | はい。 
 
 
-| EC2 ： createTags 、 | Cloud Manager が作成するすべてのリソースに「 workingEnvironment 」タグと「 workingEnvironmId 」タグを付けます。Cloud Manager では、これらのタグを使用してメンテナンスとコスト割り当てを行います。 
-
-
-| "EC2:CreateVolume" 、 "EC2:DescribeVolumes" 、 "EC2:ModifyVolumeAttribute" 、 "EC2:AttachVolume" 、 "EC2:DeleteVolume" 、 "EC2:DetachVolume" 、 | Cloud Volumes ONTAP がバックエンドストレージとして使用する EBS ボリュームを管理します。 
-
-
-| "EC2:CreateSecurityGroup" 、 "EC2:DeleteSecurityGroup" 、 "EC2:RevokeSecurityGroupEgress " 、 "EC2:AuthorizeSecurityGroupEgress " 、 "EC2:RevokeSecurityGroupIngress " 、 "EC2:RevokeSecurityGroupIngress " 、 | Cloud Volumes ONTAP 用の定義済みセキュリティグループを作成します。 
-
-
-| "EC2:CreateNetworkInterface", "EC2:DescribeNetworkInterfaces ", "EC2:DeleteNetworkInterface", "EC2:ModifyNetworkInterfaceAttribute", | ターゲットサブネット内の Cloud Volumes ONTAP のネットワークインターフェイスを作成および管理します。 
-
-
-| 「 EC2 ：説明サブネット」、「 EC2 ：説明 VPC 」、 | Cloud Volumes ONTAP 用の新しい作業環境を作成するときに必要な、デスティネーションサブネットとセキュリティグループのリストを取得します。 
-
-
-| EC2 ： DescribeDHCPOptions | Cloud Volumes ONTAP インスタンスの起動時に DNS サーバとデフォルトのドメイン名を決定します。 
-
-
-| 「 EC2 ： CreateSnapshot 」、「 EC2 ： DeleteSnapshot 」、「 EC2 ： DescribeSnapshot 」、 | 初期セットアップ時、および Cloud Volumes ONTAP インスタンスが停止したときに、 EBS ボリュームのスナップショットを作成します。 
-
-
-| "EC2:GetConsoleOutput" 、 | AutoSupport メッセージに添付された Cloud Volumes ONTAP コンソールをキャプチャします。 
-
-
-| 「 EC2 ：説明キーペア」、 | インスタンスの起動時に使用可能なキーペアのリストを取得します。 
-
-
-| 「 EC2 ：説明論」、 | 使用可能な AWS リージョンのリストを取得します。 
-
-
-| EC2 ： DeleteTags 、 EC2 ： DescribeTags 、 | Cloud Volumes ONTAP インスタンスに関連付けられたリソースのタグを管理します。 
-
-
-| CloudFormation ： CreateStack 」、「 CloudFormation ： DeleteStack 」、「 CloudFormation ： DescribeStack 」、「 CloudFormation ： DescribeStackEvents 」、「 CloudFormation ： ValidateTemplate 」、 | Cloud Volumes ONTAP インスタンスを起動します。 
-
-
-| "iam ： PassRole" 、 "iam ： CREATEROLE" 、 "iam ： PutRolePolicy " 、 "iam ： CreateInstanceProfile" 、 "iam ： DeleteRolePolicy " 、 "iam ： AddRoleToInstanceProfile" 、 "IAM ： RemoveRoleInstanceFromProfile" 、 "iam ： DeleteInstanceProfile" 、 "iam ： DeleteInstanceProfile | Cloud Volumes ONTAP HA 構成を起動します。 
-
-
-| "IAM:ListInstanceProfiles" 、 "STS: DecodeAuthorizationMessage" 、 "EC2:AssociateIamInstanceProfile" 、 "EC2:DescribeIamInstanceProfileAssociations" 、 "EC2:DisassociateIamInstanceProfileProfile" 、 | Cloud Volumes ONTAP インスタンスのインスタンスプロファイルを管理します。 
-
-
-| 「 s3 ： GetBucketTagging 」、「 s3 ： GetBucketLocation 」、「 s3 ： ListAllMyBuckets 」、「 s3 ： ListBucket 」 | AWS S3 バケットに関する情報を取得して、 Cloud Manager を NetApp Data Fabric Cloud Sync サービスと統合できるようにします。 
-
-
-| s3 ： CreateBucket 、 s3 ： DeleteBucket 、 s3 ： GetLifecycleConfiguration 、 s3 ： PutBucketTagging 、 s3 ： ListBucketVersions 、 s3 ： GetBucketPolicyStatus 、 s3 ： GetBucketPublicAccessBlock 、 s3 ： GetBucketAccessBlock 、 GetBucketAccessBlock | Cloud Volumes ONTAP システムでデータ階層として使用する S3 バケットを管理します。 
-
-
-| "kms ：リスト * " 、 "kms ：再暗号化 * " 、 "kms ： DESCRIBE * " 、 "kms ： CreateGrant" 、 | AWS Key Management Service （ KMS ；キー管理サービス）を使用した Cloud Volumes ONTAP のデータ暗号化を有効にします。 
-
-
-| "CE:GetReservationUtilization" 、 "CE:GetDimensionValues" 、 "CE:GetCostAndUsage", "CE:GetTags" | Cloud Volumes ONTAP の AWS コストデータを取得します。 
-
-
-| "EC2:CreatePlacementGroup" 、 "EC2:DeletePlacementGroup" | 単一の AWS アベイラビリティゾーンに HA 構成を導入すると、 Cloud Manager は 2 つの HA ノードと AWS 分散配置グループ内のメディエーターを起動します。 
-
-
-| EC2: DescribeReservedInstancesOffers ( 英語 ) | Cloud Manager は、 Cloud Data Sense の導入の一環としてこの権限を使用して、使用するインスタンスタイプを選択します。 
-
-
-| "EC2:CreateTags" 、 "EC2:DeleteTags" 、 "EC2:DescribeTags" 、 "tag:getResources" 、 "tag:getTagKeys" 、 "tag:getTagValues", "tag:TagResources", "tag:UntagResources" | Cloud Manager Tagging サービスを使用して、 AWS リソースのタグを管理できます。 
-
-
-| 「 s3 ： DeleteBucket 」、「 s3 ： GetLifecycleConfiguration 」、「 s3 ： PutBucketLifeConfiguration 」、「 s3 ： PutBucketTagging 」、「 s3 ： ListBucketVersions 」、「 s3 ： ListBucket 」、「 s3 ： ListAllMyBuckets 」、「 s3 ： GetBucketAccessBuckets3 ： GetBucketAccessBuckets3 、 GetBucketAccessBuckets3 ： GetBucketAccessBlock | Cloud Manager では、 S3 へのバックアップサービスを有効にする際にこれらの権限を使用します。 
-
-
-| "EKS：ListClusters"、"EKS：DescribeCluster"、"IAM：GetInstanceProfile"、 | Amazon EKS クラスタの検出を有効にします。 
-
-
-| "EC2:DescribePlacementGroups"、"iAM:GetRolePolicy、 | 単一のアベイラビリティゾーン（AZ）に導入されたHAペア用にAWS分散配置グループを作成します。 
-
-
-| "EC2:DescribeVolumesModifications"、"EC2:ModifyVolume"、 | Amazon EBS Elastic Volumes機能をサポートするCloud Volumes ONTAP アグリゲートをセットアップおよび管理できる。 
+| EC2: DescribeRegions (説明領域 | はい。 | はい。 
 |===
+
+
+== Cloud Volumes ONTAP
+
+Connectorは、AWSでのCloud Volumes ONTAP の導入と管理に対して次のAPI要求を実行します。
+
+[cols="5*"]
+|===
+| 目的 | アクション | 導入に使用 | 日々の業務に使用されるか？ | 削除しますか？ 
+
+
+.13+| Cloud Volumes ONTAP インスタンスのIAMロールとインスタンスプロファイルを作成および管理します | IAM：ListInstanceProfiles | はい。 | はい。 | いいえ 
+
+
+| IAM：CREATEROLE | はい。 | いいえ | いいえ 
+
+
+| IAM：DeleteRole | いいえ | はい。 | はい。 
+
+
+| IAM：PutRolePolicy | はい。 | いいえ | いいえ 
+
+
+| IAM：CreateInstanceProfile | はい。 | いいえ | いいえ 
+
+
+| IAM：DeleteRolePolicy | いいえ | はい。 | はい。 
+
+
+| IAM：AddRoleToInstanceProfile | はい。 | いいえ | いいえ 
+
+
+| IAM：RemoveRoleFromInstanceProfile | いいえ | はい。 | はい。 
+
+
+| IAM：DeleteInstanceProfile | いいえ | はい。 | はい。 
+
+
+| IAM：PassRole | はい。 | いいえ | いいえ 
+
+
+| EC2: AssociateIamInstanceProfile | はい。 | はい。 | いいえ 
+
+
+| EC2: DescribeIamInstanceProfileAssociations | はい。 | はい。 | いいえ 
+
+
+| EC2: DisassociateIamInstanceProfile | いいえ | はい。 | いいえ 
+
+
+| 読み取り許可ステータスメッセージ | STS: DecodeAuthorizationMessage | はい。 | はい。 | いいえ 
+
+
+| アカウントで使用可能な指定イメージ（AMIS）について説明します | EC2: DescribeImages | はい。 | はい。 | いいえ 
+
+
+| VPC内のルーティングテーブルの説明（HAペアの場合のみ必要） | EC2: DescribeRouteTables | はい。 | いいえ | いいえ 
+
+
+.7+| インスタンスの停止、開始、監視 | EC2：StartInstances（EC2：開始インスタンス | はい。 | はい。 | いいえ 
+
+
+| EC2：StopInstances | はい。 | はい。 | いいえ 
+
+
+| EC2: DescribeInstances | はい。 | はい。 | いいえ 
+
+
+| EC2: DescribeInstanceStatus | はい。 | はい。 | いいえ 
+
+
+| EC2：RunInstances | はい。 | いいえ | いいえ 
+
+
+| EC2：TerminateInstances | いいえ | いいえ | はい。 
+
+
+| EC2：ModifyInstanceAttribute | いいえ | はい。 | いいえ 
+
+
+| サポートされるインスタンスタイプに対して拡張ネットワークが有効になっていることを確認します | EC2: DescribeInstanceAttributeのこと | いいえ | はい。 | いいえ 
+
+
+| メンテナンスとコストの割り当てに使用する「WorkingEnvironment」タグと「WorkingEnvironmentId」タグを使用してリソースにタグを付けます | ec2：CreateTags | はい。 | はい。 | いいえ 
+
+
+.6+| Cloud Volumes ONTAP がバックエンドストレージとして使用するEBSボリュームを管理します | EC2：CreateVolume | はい。 | はい。 | いいえ 
+
+
+| EC2: DescribeVolumesの場合 | はい。 | はい。 | はい。 
+
+
+| EC2：ModifyVolumeAttributeのことです | いいえ | はい。 | はい。 
+
+
+| EC2：AttachVolume | はい。 | はい。 | いいえ 
+
+
+| EC2：DeleteVolume | いいえ | はい。 | はい。 
+
+
+| EC2：DetachVolumeの場合 | いいえ | はい。 | はい。 
+
+
+.7+| Cloud Volumes ONTAP のセキュリティグループを作成および管理します | EC2：CreateSecurityGroup | はい。 | いいえ | いいえ 
+
+
+| EC2: DeleteSecurityGroup | いいえ | はい。 | はい。 
+
+
+| EC2: DescribeSecurityGroups | はい。 | はい。 | はい。 
+
+
+| EC2: RevokeSecurityGroupEgress | はい。 | いいえ | いいえ 
+
+
+| ec2：AuthorizeSecurityGroupEgress | はい。 | いいえ | いいえ 
+
+
+| ec2：AuthorizeSecurityGroupIngress | はい。 | いいえ | いいえ 
+
+
+| EC2: RevokeSecurityGroupIngress | はい。 | はい。 | いいえ 
+
+
+.4+| ターゲットサブネットのCloud Volumes ONTAP のネットワークインターフェイスを作成および管理します | EC2：CreateNetworkInterface | はい。 | いいえ | いいえ 
+
+
+| EC2: DescribeNetworkInterfaces | はい。 | はい。 | いいえ 
+
+
+| EC2：DeleteNetworkInterface | いいえ | はい。 | はい。 
+
+
+| EC2:ModifyNetworkInterfaceAttributeのいずれかです | いいえ | はい。 | いいえ 
+
+
+.2+| デスティネーションのサブネットとセキュリティグループの一覧を取得します | EC2: DescribeSubnets | はい。 | はい。 | いいえ 
+
+
+| EC2: DescribeVpcs | はい。 | はい。 | いいえ 
+
+
+| Cloud Volumes ONTAP インスタンスのDNSサーバおよびデフォルトのドメイン名を取得します | EC2: DescribeDhcpOptions | はい。 | いいえ | いいえ 
+
+
+.3+| Cloud Volumes ONTAP 用のEBSボリュームのSnapshotを作成します | EC2: CreateSnapshotの作成 | はい。 | はい。 | いいえ 
+
+
+| EC2：DeleteSnapshot | いいえ | はい。 | はい。 
+
+
+| ec2: DescribeSnapshots | いいえ | はい。 | いいえ 
+
+
+| AutoSupport メッセージに添付されているCloud Volumes ONTAP コンソールをキャプチャします | EC2: GetConsoleOutput | はい。 | はい。 | いいえ 
+
+
+| 使用可能なキーペアのリストを取得します | EC2：DescribeKeyPairs | はい。 | いいえ | いいえ 
+
+
+| 使用可能なAWSリージョンのリストを取得します | EC2: DescribeRegions (説明領域 | はい。 | はい。 | いいえ 
+
+
+.2+| Cloud Volumes ONTAP インスタンスに関連付けられたリソースのタグを管理します | EC2:タグを削除します | いいえ | はい。 | はい。 
+
+
+| EC2: DescribeTags (説明タグ) | いいえ | はい。 | いいえ 
+
+
+.5+| AWS CloudFormationテンプレートのスタックの作成と管理 | CloudFormation：CreateStack | はい。 | いいえ | いいえ 
+
+
+| CloudFormation：DeleteStack | はい。 | いいえ | いいえ 
+
+
+| CloudFormation：DescribeStack | はい。 | はい。 | いいえ 
+
+
+| CloudFormation：DescribeStackEvents | はい。 | いいえ | いいえ 
+
+
+| CloudFormation：ValidateTemplate | はい。 | いいえ | いいえ 
+
+
+.15+| Cloud Volumes ONTAP システムでデータ階層として使用するS3バケットを作成および管理します | S3 ： CreateBucket を指定します | はい。 | はい。 | いいえ 
+
+
+| S3 ： DeleteBucket | いいえ | はい。 | はい。 
+
+
+| S3 ： GetLifecycleConfiguration | いいえ | はい。 | いいえ 
+
+
+| S3 ： PutLifecycleConfiguration | いいえ | はい。 | いいえ 
+
+
+| S3 ： PutBucketTagging | いいえ | はい。 | いいえ 
+
+
+| S3 ： ListBucketVersions | いいえ | はい。 | いいえ 
+
+
+| S3：GetBucketPolicyStatus | いいえ | はい。 | いいえ 
+
+
+| S3：GetBucketPublicAccessBlock | いいえ | はい。 | いいえ 
+
+
+| S3 ： GetBucketAcl | いいえ | はい。 | いいえ 
+
+
+| S3 ： GetBucketPolicy | いいえ | はい。 | いいえ 
+
+
+| S3：PutBucketPublicAccessBlock | いいえ | はい。 | いいえ 
+
+
+| S3 ： GetBucketTagging | いいえ | はい。 | いいえ 
+
+
+| S3 ： GetBucketLocation | いいえ | はい。 | いいえ 
+
+
+| S3 ： ListAllMyBuckets | いいえ | いいえ | いいえ 
+
+
+| S3 ： ListBucket | いいえ | はい。 | いいえ 
+
+
+.4+| AWS Key Management Service（KMS；キー管理サービス）を使用してCloud Volumes ONTAP のデータ暗号化を有効にする | KMS：リスト* | はい。 | はい。 | いいえ 
+
+
+| KMS：再暗号化* | はい。 | いいえ | いいえ 
+
+
+| KMS：説明* | はい。 | はい。 | いいえ 
+
+
+| KMS：CreateGrant | はい。 | はい。 | いいえ 
+
+
+.4+| AWSからCloud Volumes ONTAP のコストデータを取得 | CE：GetReservationUtilization | いいえ | はい。 | いいえ 
+
+
+| CE：GetDimensionValues | いいえ | はい。 | いいえ 
+
+
+| CE：GetCostAndUsage | いいえ | はい。 | いいえ 
+
+
+| CE: GetTags. | いいえ | はい。 | いいえ 
+
+
+.2+| 2つのHAノードとメディエーター用のAWS分散配置グループを1つのAWSアベイラビリティゾーンに作成して管理します | EC2：CreatePlacementGroup | はい。 | いいえ | いいえ 
+
+
+| EC2: DeletePlacementGroup | いいえ | はい。 | はい。 
+
+
+.2+| レポートを作成します | FSx：説明* | いいえ | はい。 | いいえ 
+
+
+| FSx：リスト* | いいえ | はい。 | いいえ 
+
+
+.2+| Amazon EBS Elastic Volumes機能をサポートするアグリゲートを作成して管理します | EC2: DescribeVolumesModifications ( EC2 : DescribeVolumesMod | いいえ | はい。 | いいえ 
+
+
+| EC2：ModifyVolume | いいえ | はい。 | いいえ 
+|===
+
+
+== グローバルファイルキャッシュ
+
+このコネクタは、導入時にグローバルファイルキャッシュインスタンスを導入するために次のAPI要求を行います。
+
+* CloudFormation：DescribeStack
+* CloudWatch：GetMetricStatistics
+* CloudFormation：リストスタック
+
+
+
+
+== Kubernetes
+
+コネクタは、次のAPI要求を実行してAmazon EKSクラスタを検出および管理します。
+
+* EC2: DescribeRegions (説明領域
+* EKS：リストクラスタ
+* EKS：DescribeCluster
+* IAM：GetInstanceProfile
+

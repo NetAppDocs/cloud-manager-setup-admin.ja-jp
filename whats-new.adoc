@@ -18,6 +18,50 @@ Cloud Manager の管理機能の新機能であるネットアップのアカウ
 
 
 
+== 2022年7月3日
+
+
+
+=== コネクタ3.9.20
+
+* 拡大する機能のリストへの新しいナビゲート方法が導入されました。左側のパネルにカーソルを合わせると、使い慣れたCloud Managerの機能を簡単に確認できます。
++
+image:screenshot-navigation.png["Cloud Managerの新しい左側のナビゲーションメニューを示すスクリーンショット。"]
+
+* Cloud ManagerからEメールで通知を送信するように設定できるようになりました。これにより、システムにログインしていないときでも重要なシステムアクティビティを通知できます。
++
+link:task-monitor-cm-operations.html["アカウントでの操作の監視の詳細については、こちらをご覧ください"]。
+
+* Cloud Managerでは、Amazon S3のサポートと同様に、Azure Blob StorageとGoogle Cloud Storageが作業環境としてサポートされるようになりました。
++
+AzureまたはGoogle Cloudにコネクタをインストールすると、Connectorがインストールされているプロジェクトで、AzureサブスクリプションまたはGoogle Cloud StorageのAzure Blob Storageに関する情報がCloud Managerで自動的に検出されるようになりました。Cloud Managerにはオブジェクトストレージが作業環境として表示され、この環境を開いて詳細情報を確認することができます。
+
++
+Azure Blob作業環境の例は次のとおりです。
+
++
+image:screenshot-azure-blob.png["ストレージアカウントの概要と詳細情報を表示できるAzure Blob作業環境のスクリーンショット"]
+
+* 容量や暗号化の詳細など、S3バケットに関する詳細情報を提供することで、Amazon S3作業環境用のリソースページが再設計されました。
+* Connectorは、次のGoogle Cloudリージョンでサポートされるようになりました。
++
+** マドリード（ヨーロッパ-南西部1）
+** パリ（ヨーロッパ-西9区）
+** ワルシャワ（ヨーロッパ中央部2）
+
+
+* Azure West US 3リージョンでコネクタがサポートされるようになりました。
++
+https://cloud.netapp.com/cloud-volumes-global-regions["サポートされているリージョンの完全なリストを表示します"^]
+
+* このリリースのコネクタには、Cloud Volumes ONTAP の機能拡張も含まれています。
++
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#2-july-2022["Cloud Volumes ONTAP の機能拡張について説明します"^]
+
+
+
+
+
 == 2022年6月28日
 
 

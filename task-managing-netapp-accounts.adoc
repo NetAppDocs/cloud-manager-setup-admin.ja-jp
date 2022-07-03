@@ -42,11 +42,11 @@ Cloud Central ユーザをネットアップアカウントに関連付けて、
 . ユーザーがまだ行っていない場合は、にアクセスするようにユーザーに依頼します https://cloud.netapp.com["NetApp Cloud Central"^] 登録してください。
 . Cloud Manager の上部で、 * Account * ドロップダウンをクリックします。
 +
-image:screenshot_account_settings_menu.gif["Cloud Manager の上部のバナーにあるアカウント設定オプションを示すスクリーンショット。"]
+image:screenshot-account-settings-menu.png["Cloud Manager の上部のバナーにあるアカウント設定オプションを示すスクリーンショット。"]
 
 . 現在選択されているアカウントの横にある ［ * アカウントの管理 * ］ をクリックします。
 +
-image:screenshot_manage_account_settings.gif["「アカウント」ドロップダウンから利用できる「アカウント設定の管理」オプションを示すスクリーンショット。"]
+image:screenshot-manage-account-settings.png["「アカウント」ドロップダウンから利用できる「アカウント設定の管理」オプションを示すスクリーンショット。"]
 
 . メンバータブで、 * ユーザーを関連付け * をクリックします。
 . ユーザの E メールアドレスを入力し、ユーザのロールを選択します。
@@ -75,7 +75,7 @@ image:screenshot_associate_user.gif["ロールと関連するワークスペー�
 .手順
 . Cloud Manager の上部で、 * Account * ドロップダウンをクリックし、 * Manage Account * をクリックします。
 +
-image:screenshot_manage_account_settings.gif["「アカウント」ドロップダウンから利用できる「アカウント設定の管理」オプションを示すスクリーンショット。"]
+image:screenshot-manage-account-settings.png["「アカウント」ドロップダウンから利用できる「アカウント設定の管理」オプションを示すスクリーンショット。"]
 
 . メンバー (Members) タブで ' ユーザーに対応する行のアクションメニューをクリックします
 +
@@ -95,7 +95,7 @@ image:screenshot_associate_user_workspace.png["ユーザテーブルでユーザ
 .手順
 . Cloud Manager の上部で、 * Account * ドロップダウンをクリックし、 * Manage Account * をクリックします。
 +
-image:screenshot_manage_account_settings.gif["「アカウント」ドロップダウンから利用できる「アカウント設定の管理」オプションを示すスクリーンショット。"]
+image:screenshot-manage-account-settings.png["「アカウント」ドロップダウンから利用できる「アカウント設定の管理」オプションを示すスクリーンショット。"]
 
 . メンバー (Members) タブで ' ユーザーに対応する行のアクションメニューをクリックします
 +
@@ -126,11 +126,11 @@ image:screenshot_associate_user_workspace.png["ユーザテーブルでユーザ
 .手順
 . Cloud Manager の上部で、 * Account * ドロップダウンをクリックします。
 +
-image:screenshot_account_settings_menu.gif["Cloud Manager の上部のバナーにあるアカウント設定オプションを示すスクリーンショット。"]
+image:screenshot-account-settings-menu.png["Cloud Manager の上部のバナーにあるアカウント設定オプションを示すスクリーンショット。"]
 
 . 現在選択されているアカウントの横にある ［ * アカウントの管理 * ］ をクリックします。
 +
-image:screenshot_manage_account_settings.gif["「アカウント」ドロップダウンから利用できる「アカウント設定の管理」オプションを示すスクリーンショット。"]
+image:screenshot-manage-account-settings.png["「アカウント」ドロップダウンから利用できる「アカウント設定の管理」オプションを示すスクリーンショット。"]
 
 . メンバータブで、 * サービスアカウントの作成 * をクリックします。
 . 名前を入力し、ロールを選択します。Account Admin 以外のロールを選択した場合は、このサービスアカウントに関連付けるワークスペースを選択します。

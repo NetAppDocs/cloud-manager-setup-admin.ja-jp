@@ -27,12 +27,14 @@ Cloud Manager の多くの機能やサービスを使用するには、コネク
 === サービス
 
 * ONTAP 管理機能用の Amazon FSX
-* Amazon S3 バケットの検出
+* Amazon S3検出
+* Azure Blob検出
 * クラウドバックアップ
 * クラウドデータの意味
 * クラウド階層化
 * Cloud Volumes ONTAP
 * グローバルファイルキャッシュ
+* Google Cloud Storageの検出
 * Kubernetes クラスタ
 * 監視
 * オンプレミスの ONTAP クラスタ
@@ -95,9 +97,7 @@ Google Cloud で Cloud Volumes ONTAP システムを作成する場合は、 Goo
 
 == コネクタを作成する方法
 
-Workspace 管理者が Cloud Volumes ONTAP 作業環境を作成し、上記のサービスのいずれかを使用するには、アカウント管理者がコネクタを作成する必要があります。
-
-アカウント管理者は、さまざまな方法でコネクタを作成できます。
+Workspace 管理者が Cloud Volumes ONTAP 作業環境を作成し、上記のサービスのいずれかを使用するには、アカウント管理者がコネクタを作成する必要があります。管理者は、さまざまな方法でコネクタを作成できます。
 
 * Cloud Manager から直接（推奨）
 +
