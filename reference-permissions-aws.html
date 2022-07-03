@@ -959,145 +959,1046 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:50:48 +0000">06/07/2022</time>
+    <time datetime="2022-07-03 15:52:18 +0000">07/03/2022</time>
     
   
 
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
 <p>Cloud Manager からクラウドプロバイダの処理を実行するには権限が必要です。これらの権限はに含まれています <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"ネットアップが提供するポリシー"</a>。このような権限を持つ Cloud Manager の機能を理解しておく必要があるかもしれません。</p>
 </div>
 <div class="paragraph">
-<p>Cloud Manager は AWS アカウントを使用して、 EC2 、 S3 、 CloudFormation 、 IAM 、 Security Token Service （ STS ）、 Key Management Service （ KMS ）などの複数の AWS サービスへの API コールを行います。</p>
+<p>以降のセクションでは、各ネットアップクラウドサービスに対する権限の使用方法について説明します。この情報は、企業のポリシーによって、必要な場合にのみアクセス許可が指定されるように指定されている場合に役立ちます。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="apptemplateタグ">AppTemplateタグ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>AppTemplate Taggingサービスを使用する場合、Connectorは次のAPI要求を実行してAWSリソースのタグを管理します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ec2：CreateTags</p>
+</li>
+<li>
+<p>EC2:タグを削除します</p>
+</li>
+<li>
+<p>EC2: DescribeTags (説明タグ)</p>
+</li>
+<li>
+<p>Tag:getResources</p>
+</li>
+<li>
+<p>tag:getTagKeys</p>
+</li>
+<li>
+<p>tag:getTagValues</p>
+</li>
+<li>
+<p>Tag:タグリソース</p>
+</li>
+<li>
+<p>タグ: UntagResources</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="クラウドバックアップ">クラウドバックアップ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>コネクタは、Cloud Backupのリストアインスタンスを導入するために次のAPI要求を実行します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>EC2：StartInstances（EC2：開始インスタンス</p>
+</li>
+<li>
+<p>EC2：StopInstances</p>
+</li>
+<li>
+<p>EC2: DescribeInstances</p>
+</li>
+<li>
+<p>EC2: DescribeInstanceStatus</p>
+</li>
+<li>
+<p>EC2：RunInstances</p>
+</li>
+<li>
+<p>EC2：TerminateInstances</p>
+</li>
+<li>
+<p>EC2: DescribeInstanceAttributeのこと</p>
+</li>
+<li>
+<p>EC2: DescribeImages</p>
+</li>
+<li>
+<p>ec2：CreateTags</p>
+</li>
+<li>
+<p>EC2：CreateVolume</p>
+</li>
+<li>
+<p>EC2：CreateSecurityGroup</p>
+</li>
+<li>
+<p>EC2: DescribeSubnets</p>
+</li>
+<li>
+<p>EC2: DescribeVpcs</p>
+</li>
+<li>
+<p>EC2: DescribeRegions (説明領域</p>
+</li>
+<li>
+<p>CloudFormation：CreateStack</p>
+</li>
+<li>
+<p>CloudFormation：DeleteStack</p>
+</li>
+<li>
+<p>CloudFormation：DescribeStack</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Connectorは、Amazon S3でバックアップを管理するために次のAPI要求を実行します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>S3 ： GetBucketLocation</p>
+</li>
+<li>
+<p>S3 ： ListAllMyBuckets</p>
+</li>
+<li>
+<p>S3 ： ListBucket</p>
+</li>
+<li>
+<p>S3 ： CreateBucket を指定します</p>
+</li>
+<li>
+<p>S3 ： GetLifecycleConfiguration</p>
+</li>
+<li>
+<p>S3 ： PutLifecycleConfiguration</p>
+</li>
+<li>
+<p>S3 ： PutBucketTagging</p>
+</li>
+<li>
+<p>S3 ： ListBucketVersions</p>
+</li>
+<li>
+<p>S3 ： GetBucketAcl</p>
+</li>
+<li>
+<p>S3：PutBucketPublicAccessBlock</p>
+</li>
+<li>
+<p>KMS：リスト*</p>
+</li>
+<li>
+<p>KMS：説明*</p>
+</li>
+<li>
+<p>S3 ： GetObject</p>
+</li>
+<li>
+<p>ec2c:ディスクエンドポイントの説明</p>
+</li>
+<li>
+<p>KMS：エイリアスを確認する</p>
+</li>
+<li>
+<p>S3 ： PutEncryptionConfiguration</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>コネクタは、Search &amp; Restoreメソッドを使用してボリュームとファイルをリストアする場合に次のAPI要求を実行します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>S3 ： CreateBucket を指定します</p>
+</li>
+<li>
+<p>S3 ： DeleteObject</p>
+</li>
+<li>
+<p>S3 ： DeleteObjectVersion</p>
+</li>
+<li>
+<p>S3 ： GetBucketAcl</p>
+</li>
+<li>
+<p>S3 ： ListBucket</p>
+</li>
+<li>
+<p>S3 ： ListBucketVersions</p>
+</li>
+<li>
+<p>S3 ： ListBucketMultipartUploads</p>
+</li>
+<li>
+<p>S3 ： PutObject</p>
+</li>
+<li>
+<p>S3：PutBucketAcl</p>
+</li>
+<li>
+<p>S3 ： PutLifecycleConfiguration</p>
+</li>
+<li>
+<p>S3：PutBucketPublicAccessBlock</p>
+</li>
+<li>
+<p>S3 ： AbortMultipartUpload</p>
+</li>
+<li>
+<p>S3 ： ListMultipartUploadParts</p>
+</li>
+<li>
+<p>Athena：StartQueryExecutionc</p>
+</li>
+<li>
+<p>Athena: GetQueryResults.</p>
+</li>
+<li>
+<p>Athena: GetQueryExecution</p>
+</li>
+<li>
+<p>Athena：StopQueryExecution</p>
+</li>
+<li>
+<p>グルー：データベースを作成します</p>
+</li>
+<li>
+<p>グルー: CreateTable</p>
+</li>
+<li>
+<p>グルー: BatchDeletePartition</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="クラウドデータの意味">クラウドデータの意味</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Connectorは、Cloud Data Senseインスタンスを導入するために次のAPI要求を実行します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>EC2: DescribeInstances</p>
+</li>
+<li>
+<p>EC2: DescribeInstanceStatus</p>
+</li>
+<li>
+<p>EC2：RunInstances</p>
+</li>
+<li>
+<p>EC2：TerminateInstances</p>
+</li>
+<li>
+<p>ec2：CreateTags</p>
+</li>
+<li>
+<p>EC2：CreateVolume</p>
+</li>
+<li>
+<p>EC2：AttachVolume</p>
+</li>
+<li>
+<p>EC2：CreateSecurityGroup</p>
+</li>
+<li>
+<p>EC2: DeleteSecurityGroup</p>
+</li>
+<li>
+<p>EC2: DescribeSecurityGroups</p>
+</li>
+<li>
+<p>EC2：CreateNetworkInterface</p>
+</li>
+<li>
+<p>EC2: DescribeNetworkInterfaces</p>
+</li>
+<li>
+<p>EC2：DeleteNetworkInterface</p>
+</li>
+<li>
+<p>EC2: DescribeSubnets</p>
+</li>
+<li>
+<p>EC2: DescribeVpcs</p>
+</li>
+<li>
+<p>EC2: CreateSnapshotの作成</p>
+</li>
+<li>
+<p>EC2: DescribeRegions (説明領域</p>
+</li>
+<li>
+<p>CloudFormation：CreateStack</p>
+</li>
+<li>
+<p>CloudFormation：DeleteStack</p>
+</li>
+<li>
+<p>CloudFormation：DescribeStack</p>
+</li>
+<li>
+<p>CloudFormation：DescribeStackEvents</p>
+</li>
+<li>
+<p>IAM：AddRoleToInstanceProfile</p>
+</li>
+<li>
+<p>EC2: AssociateIamInstanceProfile</p>
+</li>
+<li>
+<p>EC2: DescribeIamInstanceProfileAssociations</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cloud Data Senseを使用している場合、コネクタはS3バケットのスキャンを行うために次のAPI要求を実行します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IAM：AddRoleToInstanceProfile</p>
+</li>
+<li>
+<p>EC2: AssociateIamInstanceProfile</p>
+</li>
+<li>
+<p>EC2: DescribeIamInstanceProfileAssociations</p>
+</li>
+<li>
+<p>S3 ： GetBucketTagging</p>
+</li>
+<li>
+<p>S3 ： GetBucketLocation</p>
+</li>
+<li>
+<p>S3 ： ListAllMyBuckets</p>
+</li>
+<li>
+<p>S3 ： ListBucket</p>
+</li>
+<li>
+<p>S3：GetBucketPolicyStatus</p>
+</li>
+<li>
+<p>S3 ： GetBucketPolicy</p>
+</li>
+<li>
+<p>S3 ： GetBucketAcl</p>
+</li>
+<li>
+<p>S3 ： GetObject</p>
+</li>
+<li>
+<p>IAM：GetRole</p>
+</li>
+<li>
+<p>S3 ： DeleteObject</p>
+</li>
+<li>
+<p>S3 ： DeleteObjectVersion</p>
+</li>
+<li>
+<p>S3 ： PutObject</p>
+</li>
+<li>
+<p>STS: AssumeRole</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="クラウド階層化">クラウド階層化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Tieringを使用すると、ConnectorはAmazon S3へのデータの階層化を求める次のAPI要求を実行します。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">アクション</th>
-<th class="tableblock halign-left valign-top">目的</th>
+<th class="tableblock halign-left valign-top">セットアップに使用？</th>
+<th class="tableblock halign-left valign-top">日々の業務に使用されるか？</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:StartInstances" 、 "EC2:StopInstances" 、 "EC2:DescribeInstances" 、 "EC2:DescribeInstanceStatus" 、 "EC2:RunInstances" 、 "EC2:TerminateInstances" 、 "EC2:ModifyInstanceAttribute" 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP インスタンスを起動し、インスタンスを停止、開始、監視します。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： CreateBucket を指定します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2: DescribeInstanceAttribute" 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">サポートされているインスタンスタイプで Enhanced Networking が有効になっていることを確認します。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： PutLifecycleConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">「 EC2 ：説明文」、「 EC2 ：説明文」、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP HA 構成を起動します。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： GetLifecycleConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 ： createTags 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager が作成するすべてのリソースに「 workingEnvironment 」タグと「 workingEnvironmId 」タグを付けます。Cloud Manager では、これらのタグを使用してメンテナンスとコスト割り当てを行います。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:CreateVolume" 、 "EC2:DescribeVolumes" 、 "EC2:ModifyVolumeAttribute" 、 "EC2:AttachVolume" 、 "EC2:DeleteVolume" 、 "EC2:DetachVolume" 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP がバックエンドストレージとして使用する EBS ボリュームを管理します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:CreateSecurityGroup" 、 "EC2:DeleteSecurityGroup" 、 "EC2:RevokeSecurityGroupEgress " 、 "EC2:AuthorizeSecurityGroupEgress " 、 "EC2:RevokeSecurityGroupIngress " 、 "EC2:RevokeSecurityGroupIngress " 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP 用の定義済みセキュリティグループを作成します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:CreateNetworkInterface", "EC2:DescribeNetworkInterfaces ", "EC2:DeleteNetworkInterface", "EC2:ModifyNetworkInterfaceAttribute",</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ターゲットサブネット内の Cloud Volumes ONTAP のネットワークインターフェイスを作成および管理します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">「 EC2 ：説明サブネット」、「 EC2 ：説明 VPC 」、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP 用の新しい作業環境を作成するときに必要な、デスティネーションサブネットとセキュリティグループのリストを取得します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 ： DescribeDHCPOptions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP インスタンスの起動時に DNS サーバとデフォルトのドメイン名を決定します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">「 EC2 ： CreateSnapshot 」、「 EC2 ： DeleteSnapshot 」、「 EC2 ： DescribeSnapshot 」、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">初期セットアップ時、および Cloud Volumes ONTAP インスタンスが停止したときに、 EBS ボリュームのスナップショットを作成します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:GetConsoleOutput" 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AutoSupport メッセージに添付された Cloud Volumes ONTAP コンソールをキャプチャします。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">「 EC2 ：説明キーペア」、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">インスタンスの起動時に使用可能なキーペアのリストを取得します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">「 EC2 ：説明論」、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">使用可能な AWS リージョンのリストを取得します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 ： DeleteTags 、 EC2 ： DescribeTags 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP インスタンスに関連付けられたリソースのタグを管理します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CloudFormation ： CreateStack 」、「 CloudFormation ： DeleteStack 」、「 CloudFormation ： DescribeStack 」、「 CloudFormation ： DescribeStackEvents 」、「 CloudFormation ： ValidateTemplate 」、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP インスタンスを起動します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"iam ： PassRole" 、 "iam ： CREATEROLE" 、 "iam ： PutRolePolicy " 、 "iam ： CreateInstanceProfile" 、 "iam ： DeleteRolePolicy " 、 "iam ： AddRoleToInstanceProfile" 、 "IAM ： RemoveRoleInstanceFromProfile" 、 "iam ： DeleteInstanceProfile" 、 "iam ： DeleteInstanceProfile</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP HA 構成を起動します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"IAM:ListInstanceProfiles" 、 "STS: DecodeAuthorizationMessage" 、 "EC2:AssociateIamInstanceProfile" 、 "EC2:DescribeIamInstanceProfileAssociations" 、 "EC2:DisassociateIamInstanceProfileProfile" 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP インスタンスのインスタンスプロファイルを管理します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">「 s3 ： GetBucketTagging 」、「 s3 ： GetBucketLocation 」、「 s3 ： ListAllMyBuckets 」、「 s3 ： ListBucket 」</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS S3 バケットに関する情報を取得して、 Cloud Manager を NetApp Data Fabric Cloud Sync サービスと統合できるようにします。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">s3 ： CreateBucket 、 s3 ： DeleteBucket 、 s3 ： GetLifecycleConfiguration 、 s3 ： PutBucketTagging 、 s3 ： ListBucketVersions 、 s3 ： GetBucketPolicyStatus 、 s3 ： GetBucketPublicAccessBlock 、 s3 ： GetBucketAccessBlock 、 GetBucketAccessBlock</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP システムでデータ階層として使用する S3 バケットを管理します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"kms ：リスト * " 、 "kms ：再暗号化 * " 、 "kms ： DESCRIBE * " 、 "kms ： CreateGrant" 、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Key Management Service （ KMS ；キー管理サービス）を使用した Cloud Volumes ONTAP のデータ暗号化を有効にします。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"CE:GetReservationUtilization" 、 "CE:GetDimensionValues" 、 "CE:GetCostAndUsage", "CE:GetTags"</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP の AWS コストデータを取得します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:CreatePlacementGroup" 、 "EC2:DeletePlacementGroup"</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">単一の AWS アベイラビリティゾーンに HA 構成を導入すると、 Cloud Manager は 2 つの HA ノードと AWS 分散配置グループ内のメディエーターを起動します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeReservedInstancesOffers ( 英語 )</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager は、 Cloud Data Sense の導入の一環としてこの権限を使用して、使用するインスタンスタイプを選択します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:CreateTags" 、 "EC2:DeleteTags" 、 "EC2:DescribeTags" 、 "tag:getResources" 、 "tag:getTagKeys" 、 "tag:getTagValues", "tag:TagResources", "tag:UntagResources"</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager Tagging サービスを使用して、 AWS リソースのタグを管理できます。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">「 s3 ： DeleteBucket 」、「 s3 ： GetLifecycleConfiguration 」、「 s3 ： PutBucketLifeConfiguration 」、「 s3 ： PutBucketTagging 」、「 s3 ： ListBucketVersions 」、「 s3 ： ListBucket 」、「 s3 ： ListAllMyBuckets 」、「 s3 ： GetBucketAccessBuckets3 ： GetBucketAccessBuckets3 、 GetBucketAccessBuckets3 ： GetBucketAccessBlock</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager では、 S3 へのバックアップサービスを有効にする際にこれらの権限を使用します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EKS：ListClusters"、"EKS：DescribeCluster"、"IAM：GetInstanceProfile"、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EKS クラスタの検出を有効にします。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:DescribePlacementGroups"、"iAM:GetRolePolicy、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">単一のアベイラビリティゾーン（AZ）に導入されたHAペア用にAWS分散配置グループを作成します。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"EC2:DescribeVolumesModifications"、"EC2:ModifyVolume"、</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon EBS Elastic Volumes機能をサポートするCloud Volumes ONTAP アグリゲートをセットアップおよび管理できる。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeRegions (説明領域</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-volumes-ontap">Cloud Volumes ONTAP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Connectorは、AWSでのCloud Volumes ONTAP の導入と管理に対して次のAPI要求を実行します。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">目的</th>
+<th class="tableblock halign-left valign-top">アクション</th>
+<th class="tableblock halign-left valign-top">導入に使用</th>
+<th class="tableblock halign-left valign-top">日々の業務に使用されるか？</th>
+<th class="tableblock halign-left valign-top">削除しますか？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="13"><p class="tableblock">Cloud Volumes ONTAP インスタンスのIAMロールとインスタンスプロファイルを作成および管理します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：ListInstanceProfiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：CREATEROLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：DeleteRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：PutRolePolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：CreateInstanceProfile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：DeleteRolePolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：AddRoleToInstanceProfile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：RemoveRoleFromInstanceProfile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：DeleteInstanceProfile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IAM：PassRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: AssociateIamInstanceProfile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeIamInstanceProfileAssociations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DisassociateIamInstanceProfile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">読み取り許可ステータスメッセージ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STS: DecodeAuthorizationMessage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">アカウントで使用可能な指定イメージ（AMIS）について説明します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeImages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC内のルーティングテーブルの説明（HAペアの場合のみ必要）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeRouteTables</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="7"><p class="tableblock">インスタンスの停止、開始、監視</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：StartInstances（EC2：開始インスタンス</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：StopInstances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeInstances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeInstanceStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：RunInstances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：TerminateInstances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：ModifyInstanceAttribute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">サポートされるインスタンスタイプに対して拡張ネットワークが有効になっていることを確認します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeInstanceAttributeのこと</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">メンテナンスとコストの割り当てに使用する「WorkingEnvironment」タグと「WorkingEnvironmentId」タグを使用してリソースにタグを付けます</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2：CreateTags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">Cloud Volumes ONTAP がバックエンドストレージとして使用するEBSボリュームを管理します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：CreateVolume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeVolumesの場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：ModifyVolumeAttributeのことです</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：AttachVolume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：DeleteVolume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：DetachVolumeの場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="7"><p class="tableblock">Cloud Volumes ONTAP のセキュリティグループを作成および管理します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：CreateSecurityGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DeleteSecurityGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeSecurityGroups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: RevokeSecurityGroupEgress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2：AuthorizeSecurityGroupEgress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2：AuthorizeSecurityGroupIngress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: RevokeSecurityGroupIngress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">ターゲットサブネットのCloud Volumes ONTAP のネットワークインターフェイスを作成および管理します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：CreateNetworkInterface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeNetworkInterfaces</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：DeleteNetworkInterface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2:ModifyNetworkInterfaceAttributeのいずれかです</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">デスティネーションのサブネットとセキュリティグループの一覧を取得します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeSubnets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeVpcs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP インスタンスのDNSサーバおよびデフォルトのドメイン名を取得します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeDhcpOptions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Cloud Volumes ONTAP 用のEBSボリュームのSnapshotを作成します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: CreateSnapshotの作成</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：DeleteSnapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2: DescribeSnapshots</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AutoSupport メッセージに添付されているCloud Volumes ONTAP コンソールをキャプチャします</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: GetConsoleOutput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">使用可能なキーペアのリストを取得します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：DescribeKeyPairs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">使用可能なAWSリージョンのリストを取得します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeRegions (説明領域</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Cloud Volumes ONTAP インスタンスに関連付けられたリソースのタグを管理します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2:タグを削除します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeTags (説明タグ)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="5"><p class="tableblock">AWS CloudFormationテンプレートのスタックの作成と管理</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CloudFormation：CreateStack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CloudFormation：DeleteStack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CloudFormation：DescribeStack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CloudFormation：DescribeStackEvents</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CloudFormation：ValidateTemplate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="15"><p class="tableblock">Cloud Volumes ONTAP システムでデータ階層として使用するS3バケットを作成および管理します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： CreateBucket を指定します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： DeleteBucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： GetLifecycleConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： PutLifecycleConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： PutBucketTagging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： ListBucketVersions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3：GetBucketPolicyStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3：GetBucketPublicAccessBlock</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： GetBucketAcl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： GetBucketPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3：PutBucketPublicAccessBlock</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： GetBucketTagging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： GetBucketLocation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： ListAllMyBuckets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 ： ListBucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">AWS Key Management Service（KMS；キー管理サービス）を使用してCloud Volumes ONTAP のデータ暗号化を有効にする</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KMS：リスト*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KMS：再暗号化*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KMS：説明*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KMS：CreateGrant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">AWSからCloud Volumes ONTAP のコストデータを取得</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CE：GetReservationUtilization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CE：GetDimensionValues</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CE：GetCostAndUsage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CE: GetTags.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">2つのHAノードとメディエーター用のAWS分散配置グループを1つのAWSアベイラビリティゾーンに作成して管理します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：CreatePlacementGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DeletePlacementGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">レポートを作成します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FSx：説明*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FSx：リスト*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Amazon EBS Elastic Volumes機能をサポートするアグリゲートを作成して管理します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2: DescribeVolumesModifications ( EC2 : DescribeVolumesMod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2：ModifyVolume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">はい。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">いいえ</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="グローバルファイルキャッシュ">グローバルファイルキャッシュ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>このコネクタは、導入時にグローバルファイルキャッシュインスタンスを導入するために次のAPI要求を行います。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CloudFormation：DescribeStack</p>
+</li>
+<li>
+<p>CloudWatch：GetMetricStatistics</p>
+</li>
+<li>
+<p>CloudFormation：リストスタック</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="kubernetes">Kubernetes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>コネクタは、次のAPI要求を実行してAmazon EKSクラスタを検出および管理します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>EC2: DescribeRegions (説明領域</p>
+</li>
+<li>
+<p>EKS：リストクラスタ</p>
+</li>
+<li>
+<p>EKS：DescribeCluster</p>
+</li>
+<li>
+<p>IAM：GetInstanceProfile</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 
     </article>
     <!-- Page Container -->

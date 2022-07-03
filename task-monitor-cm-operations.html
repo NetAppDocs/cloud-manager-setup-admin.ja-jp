@@ -9,15 +9,15 @@
   <meta property="og:title" content="アカウントでの操作の監視 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-setup-admin/task-monitor-cm-operations.html" />
-	<meta property="og:description" content="Cloud Manager で実行されている処理のステータスを監視して、対処が必要な問題がないかどうかを確認できます。ステータスは、通知センターまたはタイムラインで表示できます。" />
+	<meta property="og:description" content="Cloud Manager で実行されている処理のステータスを監視して、対処が必要な問題がないかどうかを確認できます。通知センター、タイムラインでステータスを表示したり、メールに通知を送信したりすることができます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-setup-admin/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Manager で実行されている処理のステータスを監視して、対処が必要な問題がないかどうかを確認できます。ステータスは、通知センターまたはタイムラインで表示できます。">
-  <meta name="keywords" content=" administer, monitor, account, timeline, notifications, alerts, events, notification center"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Manager で実行されている処理のステータスを監視して、対処が必要な問題がないかどうかを確認できます。通知センター、タイムラインでステータスを表示したり、メールに通知を送信したりすることができます。">
+  <meta name="keywords" content=" administer, monitor, account, timeline, notifications, alerts, events, notification center, email"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-setup-admin/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-setup-admin/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -959,7 +959,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:25:30 +0000">04/14/2022</time>
+    <time datetime="2022-07-03 15:52:18 +0000">07/03/2022</time>
     
   
 
@@ -969,7 +969,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Manager で実行されている処理のステータスを監視して、対処が必要な問題がないかどうかを確認できます。ステータスは、通知センターまたはタイムラインで表示できます。</p>
+<p>Cloud Manager で実行されている処理のステータスを監視して、対処が必要な問題がないかどうかを確認できます。通知センター、タイムラインでステータスを表示したり、メールに通知を送信したりすることができます。</p>
 </div>
 <div class="paragraph">
 <p>次の表は、通知センターとタイムラインの比較を示しています。これにより、それぞれの機能を理解することができます。</p>
@@ -992,7 +992,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">現在のログインセッションのステータスを表示します。ログオフすると、通知センターに情報が表示されなくなります</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">過去 1 カ月までステータスを保持します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">過去1カ月間のステータスを保持します</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ユーザインターフェイスで開始されたアクションのみを表示します</p></td>
@@ -1006,37 +1006,72 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">結果を重要度でフィルタリングします</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">サービス、アクション、ユーザー、ステータスなどでフィルタリングします</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">アカウントユーザーおよび他のユーザーに通知を電子メールで送信する機能を提供します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eメール機能はありません</p></td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="通知センターを使用した動作ステータスの監視">通知センターを使用した動作ステータスの監視</h2>
+<h2 id="通知センターを使用したアクティビティの監視">通知センターを使用したアクティビティの監視</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>通知は、 Cloud Manager で開始した処理の進捗状況を追跡するイベントのようなもので、処理が成功したかどうか、失敗したかどうかを確認できます。現在のログインセッションで開始した Cloud Manager の処理（および今後のクラウドサービス処理）のステータスを表示できます。</p>
-</div>
-<div class="paragraph">
-<p>現時点では、次の Cloud Volumes ONTAP オブジェクトの作成および削除に関する通知のみがサポートされています。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>作業環境</p>
-</li>
-<li>
-<p>アグリゲート</p>
-</li>
-<li>
-<p>個のボリューム</p>
-</li>
-</ul>
+<p>通知には、Cloud Managerで開始した処理の進捗状況が追跡されるため、処理が成功したかどうかを確認できます。現在のログインセッションで開始した多くのCloud Manager処理のステータスを表示できます。</p>
 </div>
 <div class="paragraph">
 <p>通知を表示するには、通知ベル（<span class="image"><img src="./media/icon_bell.png" alt="通知ベル"></span>）をクリックします。ベルの小さなバブルの色は、アクティブな最上位レベルの重大度通知を示します。赤いバブルが表示されている場合は、重要な通知があることを意味します。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_notification_full.png" alt="通知センターの現在の通知のリストを示すスクリーンショット。"></span></p>
+</div>
+<div class="paragraph">
+<p>また、Cloud ManagerからEメールで通知を送信するように設定することで、システムにログインしていないときでも重要なシステムアクティビティを通知することができます。Eメールは、NetApp Cloud Accountの一部であるCloud Centralユーザ、または特定のタイプのシステムアクティビティを認識する必要のあるその他の受信者に送信できます。を参照してください <a href="#Setting email notification settings">Eメール通知を設定しています</a> 下。</p>
+</div>
+<div class="sect2">
+<h3 id="通知タイプ">通知タイプ</h3>
+<div class="paragraph">
+<p>通知は次のカテゴリに分類されます。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 31.25%;">
+<col style="width: 68.75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">通知のタイプ</th>
+<th class="tableblock halign-left valign-top">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">重要</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">問題が発生しており、すぐに対処しないとサービスが停止する可能性があります。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">エラー</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">処理またはプロセスが失敗したために終了したか、修正措置を取らなかった場合にエラーになる可能性があります。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">警告</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">重大度に達しないことを確認するために注意が必要な問題 。この重大度の通知では原因 サービスは停止しません。早急な対処も不要です。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">推奨事項</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">システムまたは特定のサービスを改善するためのアクションを実行することを推奨します。たとえば、コストの節約、新しいサービスの提案、推奨されるセキュリティ設定などです</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">情報</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">アクションまたはプロセスに関する追加情報 を提供するメッセージ。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">成功</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">アクションまたはプロセスが正常に完了しました。</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="通知のフィルタリング">通知のフィルタリング</h3>
@@ -1048,6 +1083,65 @@
 </div>
 <div class="paragraph">
 <p>たとえば、 Cloud Manager の処理に対する「エラー」通知と「警告」通知のみを表示する場合は、それらのエントリを選択します。表示される通知のタイプはでのみです。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="eメール通知を設定しています">Eメール通知を設定しています</h3>
+<div class="paragraph">
+<p>特定のタイプの通知をEメールで送信することで、Cloud Managerにログインしていない場合でも重要なシステムアクティビティを通知できます。Eメールは、ネットアップアカウントの一部であるユーザや、特定のタイプのシステムアクティビティについて認識しておく必要のあるその他の受信者に送信することができます。</p>
+</div>
+<div class="paragraph">
+<p>デフォルトでは、アカウント管理者はすべての「重大」通知と「推奨事項」通知のEメールを受信します。他のすべてのユーザと受信者は、通知メールを受信しないようにデフォルトで設定されています。</p>
+</div>
+<div class="paragraph">
+<p>通知設定をカスタマイズするには、アカウント管理者である必要があります。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Cloud Managerのメニューバーで、* Settings &gt; Alerts and Notifications Settings *の順にクリックします。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot-settings-notifications.png" alt="アラートと通知の設定ページの表示方法を示すスクリーンショット。"></span></p>
+</div>
+</li>
+<li>
+<p>_Account Users_タブまたは_Additional Recipients_tabのいずれかからユーザーまたは複数のユーザーを選択し、送信する通知のタイプを選択します。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1人のユーザーに変更を加えるには、そのユーザーの通知列のメニューをクリックし、送信する通知の種類を確認して、*適用*をクリックします。</p>
+</li>
+<li>
+<p>複数のユーザーに変更を加えるには、各ユーザーのチェックボックスをオンにし、*電子メール通知の管理*をクリックして、送信する通知の種類を選択し、*適用*をクリックします。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot-change-notifications.png" alt="複数のユーザの通知を変更する方法を示すスクリーンショット。"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="eメール受信者を追加しています">Eメール受信者を追加しています</h3>
+<div class="paragraph">
+<p>_Account Users_タブに表示されるユーザには、ネットアップアカウントのユーザの情報が自動的に入力されます（から） <a href="task-managing-netapp-accounts.html#creating-and-managing-users">"［アカウントの管理］ページ"</a>）。Cloud Managerにアクセスできないものの、特定の種類のアラートと通知に関する通知を受け取る必要がある他のユーザまたはグループの場合は、_Additional Recipients_tabにEメールアドレスを追加できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>[Alerts and Notifications Settings]ページで、[Add New Recipients]をクリックします。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot-add-email-recipient.png" alt="アラートと通知用に新しいEメール受信者を追加する方法を示すスクリーンショット。"></span></p>
+</div>
+</li>
+<li>
+<p>名前、電子メールアドレスを入力し、受信者が受け取る通知の種類を選択して、*新しい受信者の追加*をクリックします。</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -1077,7 +1171,7 @@
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>[ * すべてのサービス &gt; タイムライン * ] をクリックします。</p>
+<p>左側のナビゲーションメニューから、*タイムライン*を選択します。</p>
 </li>
 <li>
 <p>[ フィルタ ] で、 [ サービス *] 、 [ テナント *] の順にクリックし、 [ 適用 *] をクリックします。</p>
