@@ -2094,7 +2094,6 @@
   <block id="dbb3531fc9f461de7f3beb2624712465" category="section-title">コネクタ3.9.20</block>
   <block id="d62eba143e9a6b4f6e0d6902d78ea096" category="list-text">拡大する機能のリストへの新しいナビゲート方法が導入されました。左側のパネルにカーソルを合わせると、使い慣れたCloud Managerの機能を簡単に確認できます。</block>
   <block id="fb8e25a66c3a27139d3ea3e1474c7db3" category="inline-image-macro">Cloud Managerの新しい左側のナビゲーションメニューを示すスクリーンショット。</block>
-  <block id="f0b1755d1a809617265e005b6e1a8124" category="paragraph"><block ref="f0b1755d1a809617265e005b6e1a8124" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e37234425776295f1624526d17572b8e" category="list-text">Cloud ManagerからEメールで通知を送信するように設定できるようになりました。これにより、システムにログインしていないときでも重要なシステムアクティビティを通知できます。</block>
   <block id="2f439d7fd2d68628b2c40e59bc7ec352" category="inline-link-macro">アカウントでの操作の監視の詳細については、こちらをご覧ください</block>
   <block id="8fe400bbcf74fee5f6ca96b5d06fd8a8" category="paragraph"><block ref="6207ce0a1413f0c60f2c0a13a1fde26f" category="inline-link-macro-rx"></block>。</block>
@@ -2102,7 +2101,6 @@
   <block id="5134e5a3a5a026f57f4938b2eaa07031" category="paragraph">AzureまたはGoogle Cloudにコネクタをインストールすると、Connectorがインストールされているプロジェクトで、AzureサブスクリプションまたはGoogle Cloud StorageのAzure Blob Storageに関する情報がCloud Managerで自動的に検出されるようになりました。Cloud Managerにはオブジェクトストレージが作業環境として表示され、この環境を開いて詳細情報を確認することができます。</block>
   <block id="a2f44a550843ebb8ee7fe06e85e5d378" category="paragraph">Azure Blob作業環境の例は次のとおりです。</block>
   <block id="c5a0af9953d83a32751880ddded4d5ec" category="inline-image-macro">ストレージアカウントの概要と詳細情報を表示できるAzure Blob作業環境のスクリーンショット</block>
-  <block id="69ea64e8072e702aaf3256d7a40211ee" category="paragraph"><block ref="69ea64e8072e702aaf3256d7a40211ee" category="inline-image-macro-rx" type="image"></block></block>
   <block id="402ca8386bc10e708c8fa4cd43e8856e" category="list-text">容量や暗号化の詳細など、S3バケットに関する詳細情報を提供することで、Amazon S3作業環境用のリソースページが再設計されました。</block>
   <block id="82e8338c73d6540f48f2e0cc8d035511" category="list-text">マドリード（ヨーロッパ-南西部1）</block>
   <block id="1a1145c860165dcd96b82eb7d32cd59f" category="list-text">パリ（ヨーロッパ-西9区）</block>
@@ -2331,4 +2329,6 @@
   <block id="53ac904630fdbb4d62f208e001934c7c" category="list-text">IAM：GetInstanceProfile</block>
   <block id="7acc5c4a78b2f3e43bbeb07b9c5f8108" category="inline-link">この制限の詳細については、こちらをご覧ください</block>
   <block id="b6eb1b17db480470497e94d3911d9e12" category="paragraph">ネットアップアカウント1つにつきCloud Volumes ONTAP システムの最大数に制限されます。<block ref="ed7500cfb54e6cf775da8a8506d96f75" category="inline-link-rx"></block></block>
+  <block id="1da5b30af8a0c5d1ce771dde6d9be98e" category="paragraph"><block ref="1da5b30af8a0c5d1ce771dde6d9be98e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0ce7c9606b5f3d67c288c6ffe90a846e" category="paragraph"><block ref="0ce7c9606b5f3d67c288c6ffe90a846e" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
