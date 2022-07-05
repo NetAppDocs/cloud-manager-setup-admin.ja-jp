@@ -2096,7 +2096,6 @@
   <block id="fb8e25a66c3a27139d3ea3e1474c7db3" category="inline-image-macro">Cloud Managerの新しい左側のナビゲーションメニューを示すスクリーンショット。</block>
   <block id="e37234425776295f1624526d17572b8e" category="list-text">Cloud ManagerからEメールで通知を送信するように設定できるようになりました。これにより、システムにログインしていないときでも重要なシステムアクティビティを通知できます。</block>
   <block id="2f439d7fd2d68628b2c40e59bc7ec352" category="inline-link-macro">アカウントでの操作の監視の詳細については、こちらをご覧ください</block>
-  <block id="8fe400bbcf74fee5f6ca96b5d06fd8a8" category="paragraph"><block ref="6207ce0a1413f0c60f2c0a13a1fde26f" category="inline-link-macro-rx"></block>。</block>
   <block id="0f9a1f2b52f5c8456ca5d25ab69eea52" category="list-text">Cloud Managerでは、Amazon S3のサポートと同様に、Azure Blob StorageとGoogle Cloud Storageが作業環境としてサポートされるようになりました。</block>
   <block id="5134e5a3a5a026f57f4938b2eaa07031" category="paragraph">AzureまたはGoogle Cloudにコネクタをインストールすると、Connectorがインストールされているプロジェクトで、AzureサブスクリプションまたはGoogle Cloud StorageのAzure Blob Storageに関する情報がCloud Managerで自動的に検出されるようになりました。Cloud Managerにはオブジェクトストレージが作業環境として表示され、この環境を開いて詳細情報を確認することができます。</block>
   <block id="a2f44a550843ebb8ee7fe06e85e5d378" category="paragraph">Azure Blob作業環境の例は次のとおりです。</block>
@@ -2331,4 +2330,5 @@
   <block id="b6eb1b17db480470497e94d3911d9e12" category="paragraph">ネットアップアカウント1つにつきCloud Volumes ONTAP システムの最大数に制限されます。<block ref="ed7500cfb54e6cf775da8a8506d96f75" category="inline-link-rx"></block></block>
   <block id="1da5b30af8a0c5d1ce771dde6d9be98e" category="paragraph"><block ref="1da5b30af8a0c5d1ce771dde6d9be98e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0ce7c9606b5f3d67c288c6ffe90a846e" category="paragraph"><block ref="0ce7c9606b5f3d67c288c6ffe90a846e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="991b7c6e5c5e3b71cf64a28ea679cff0" category="paragraph"><block ref="8b6b603d70c42ac6b5c1db56412efc72" category="inline-link-rx"></block>。</block>
 </blocks>
