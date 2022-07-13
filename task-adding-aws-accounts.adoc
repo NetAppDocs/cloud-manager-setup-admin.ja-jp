@@ -82,7 +82,7 @@ IAM ロールを使用して、コネクタインスタンスを導入したソ�
 +
 ** 信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。
 ** 別の AWS アカウント * を選択し、コネクタインスタンスが存在するアカウントの ID を入力します。
-** から入手できる Cloud Manager IAM ポリシーを使用してポリシーを作成します https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
+** の内容をコピーして貼り付け、ポリシーを作成します link:reference-permissions-aws.html["コネクタのIAMポリシー"]。
 
 
 . 後日 Cloud Manager に貼り付けることができるように、 IAM ロールの ARN をコピーします。
@@ -97,8 +97,7 @@ IAM ロールを使用して、コネクタインスタンスを導入したソ�
 Cloud Manager に IAM ユーザの AWS キーを提供する場合は、必要な権限をそのユーザに付与する必要があります。Cloud Manager IAM ポリシーは、 Cloud Manager が使用できる AWS アクションとリソースを定義します。
 
 .手順
-. から Cloud Manager IAM ポリシーをダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
-. IAM コンソールから、 Cloud Manager IAM ポリシーからテキストをコピーアンドペーストして、独自のポリシーを作成します。
+. IAMコンソールで、の内容をコピーして貼り付け、ポリシーを作成します link:reference-permissions-aws.html["コネクタのIAMポリシー"]。
 +
 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["AWS のドキュメント：「 Creating IAM Policies"^]
 
@@ -166,7 +165,9 @@ Cloud Manager SaaS で役割を引き受けることを可能にする IAM ロ�
 ** 別の AWS アカウント * を選択し、 Cloud Manager SaaS の ID として 952013314444 を入力してください
 ** コネクタの作成に必要な権限を含むポリシーを作成します。
 +
-から Connector 展開ポリシーを表示します https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]
+*** https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/requirements/task-setting-up-permissions-fsx.html["ONTAP の FSX に必要な権限を表示します"^]
+*** link:task-creating-connectors-aws.html#create-an-iam-policy["Connector展開ポリシーを表示します"]
+
 
 
 

@@ -14,14 +14,11 @@ summary: Cloud Manager のほとんどの機能を使用するには、 Account 
 
 
 [role="lead"]
-Cloud Manager のほとんどの機能を使用するには、 Account Admin が _ Connector を導入する必要があります。 link:concept-connectors.html["コネクタが必要になるタイミングを学習します"]。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。
+Cloud Manager のほとんどの機能を使用するには、 Account Admin が _ Connector を導入する必要があります。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。 link:concept-connectors.html["コネクタが必要になるタイミングを学習します"]。
 
 このページでは、 Cloud Manager から AWS でコネクタを直接作成する方法について説明します。 link:concept-connectors.html#how-to-create-a-connector["コネクタを配置するその他の方法について説明します"]。
 
 これらの手順は、 Account Admin ロールを持つユーザが実行する必要があります。ワークスペース管理者はコネクタを作成できません。
-
-
-TIP: 最初の Cloud Volumes ONTAP 作業環境を作成する際、まだコネクタがない場合は、 Cloud Manager からコネクタの作成を求められます。
 
 
 
@@ -29,11 +26,102 @@ TIP: 最初の Cloud Volumes ONTAP 作業環境を作成する際、まだコネ
 
 Cloud Manager で VPC にコネクタインスタンスを導入するには、 AWS で認証する必要があります。次のいずれかの認証方式を選択できます。
 
-* Cloud Manager に IAM ロールを割り当てます
-* IAM ユーザの AWS アクセスキーとシークレットキーを指定します
+* 必要な権限を持つIAMロールをCloud Managerで想定します
+* 必要な権限を持つIAMユーザにAWSアクセスキーとシークレットキーを指定します
 
 
-使用する認証方式に、 Connector インスタンスを AWS に導入するための必要な権限がある必要があります。
+どちらの方法でも、最初に、必要な権限を含むIAMポリシーを作成する必要があります。
+
+
+
+=== IAMポリシーを作成します
+
+このポリシーには、Cloud ManagerからAWSでコネクタインスタンスを起動するために必要な権限のみが含まれています。このポリシーは、他の状況では使用しないでください。
+
+Cloud Managerがコネクタを作成すると、新しい権限セットがコネクタインスタンスに適用され、コネクタがパブリッククラウド環境内のリソースを管理できるようになります。
+
+.手順
+. AWS IAMコンソールに移動します。
+. [*Policies]>[Create policy*]をクリックします。
+. [*JSON]をクリックします。
+. 次のポリシーをコピーして貼り付けます。
++
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:PutRolePolicy",
+                "iam:CreateInstanceProfile",
+                "iam:DeleteRolePolicy",
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "iam:PassRole",
+                "ec2:DescribeInstanceStatus",
+                "ec2:RunInstances",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:CreateSecurityGroup",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DescribeSecurityGroups",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:CreateNetworkInterface",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DeleteNetworkInterface",
+                "ec2:ModifyNetworkInterfaceAttribute",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeDhcpOptions",
+                "ec2:DescribeKeyPairs",
+                "ec2:DescribeRegions",
+                "ec2:DescribeInstances",
+                "ec2:CreateTags",
+                "ec2:DescribeImages",
+                "cloudformation:CreateStack",
+                "cloudformation:DeleteStack",
+                "cloudformation:DescribeStacks",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:ValidateTemplate",
+                "ec2:AssociateIamInstanceProfile",
+                "ec2:DescribeIamInstanceProfileAssociations",
+                "ec2:DisassociateIamInstanceProfile",
+                "iam:GetRole",
+                "iam:TagRole",
+                "iam:ListRoles",
+                "kms:ListAliases"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:TerminateInstances"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "ec2:ResourceTag/OCCMInstance": "*"
+                }
+            },
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/*"
+            ]
+        }
+    ]
+}
+----
+. 必要に応じて、[次へ]をクリックしてタグを追加します。
+. 「*次へ*」をクリックし、名前と概要 を入力します。
+. ［*ポリシーの作成*］をクリックします。
+
+
+Cloud Managerが権限を持つIAMロールにポリシーを関連付けるか、IAMユーザにポリシーを割り当てます。
 
 
 
@@ -42,10 +130,6 @@ Cloud Manager で VPC にコネクタインスタンスを導入するには、 
 Cloud Manager で Connector を AWS に導入するために想定できる IAM ロールを設定します。
 
 .手順
-. からコネクタ IAM ポリシーをダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
-+
-このポリシーには、 AWS でコネクタを作成するために必要な権限が含まれています。Cloud Manager は、作成時にコネクタインスタンスに新しい権限セットを適用します。
-
 . ターゲットアカウントの AWS IAM コンソールに移動します。
 . [ アクセス管理 ] で、 [ 役割 ] 、 [ 役割の作成 *] の順にクリックし、手順に従って役割を作成します。
 +
@@ -54,10 +138,10 @@ Cloud Manager で Connector を AWS に導入するために想定できる IAM 
 +
 ** 信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。
 ** 別の AWS アカウント * を選択し、 Cloud Manager SaaS アカウントの ID として「 952013314444 」を入力してください
-** 以前にダウンロードしたコネクタ IAM ポリシーに表示されている権限を含むポリシーを作成します。
+** 前のセクションで作成したポリシーを選択します。
 
 
-. IAM ロールのロール ARN をコピーして、コネクタの作成時に Cloud Manager に貼り付けることができるようにします。
+. ロールを作成したら、コネクタの作成時にCloud Managerに貼り付けることができるように、ロールのARNをコピーします。
 
 
 IAM ロールに必要な権限が割り当てられます。
@@ -69,12 +153,10 @@ IAM ロールに必要な権限が割り当てられます。
 コネクタを作成するときに、 Connector インスタンスの導入に必要な権限を持つ IAM ユーザに AWS アクセスキーとシークレットキーを指定できます。
 
 .手順
-. から Connector 展開ポリシーをダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
-+
-この IAM ポリシーには、 AWS でコネクタを作成するために必要な権限が含まれています。Cloud Manager は、作成時にコネクタインスタンスに新しい権限セットを適用します。
-
-. AWS IAM コンソールで、コネクタ IAM ポリシーからコピーしたテキストを貼り付けて独自のポリシーを作成します。
-. 前の手順で作成したポリシーを、 Cloud Manager からコネクタを作成する IAM ユーザに関連付けます。
+. AWS IAMコンソールで、* Users *をクリックしてユーザ名を選択します。
+. [権限の追加]>[既存のポリシーを直接適用する*]をクリックします。
+. 作成したポリシーを選択します。
+. [*次へ*]をクリックし、[*権限の追加*]をクリックします。
 . IAM ユーザのアクセスキーとシークレットキーにアクセスできることを確認します。
 
 
@@ -89,7 +171,7 @@ Cloud Manager では、ユーザインターフェイスから AWS に直接コ�
 .必要なもの
 * AWS 認証方式： Cloud Manager が権限を持つ IAM ロールの ARN 、または IAM ユーザの AWS アクセスキーとシークレットキーのいずれかです。
 * 選択した AWS リージョン内の VPC 、サブネット、キーペア。
-* Cloud Manager でコネクタ用の IAM ロールが自動的に作成されないようにするには、専用のを作成する必要があります https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.13.json["使用するポリシー"^]。
+* Cloud Manager でコネクタ用の IAM ロールが自動的に作成されないようにするには、専用のを作成する必要があります link:reference-permissions-aws.html["このページのポリシーを使用する"]。
 +
 これらは、 Connector がパブリッククラウド環境内のリソースを管理するために必要な権限です。これは、コネクタインスタンスの作成時に指定したアクセス許可とは異なります。
 
@@ -119,7 +201,7 @@ TIP: [*Assume Role] を選択した場合は、 Connector 展開ウィザード�
 +
 *** インスタンスの名前を入力します。
 *** カスタムタグ（メタデータ）をインスタンスに追加します。
-*** 必要な権限を含む新しいロールを Cloud Manager で作成するか、またはを使用して設定した既存のロールを選択するかを選択します https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.13.json["必要な権限"^]。
+*** 必要な権限を含む新しいロールを Cloud Manager で作成するか、またはを使用して設定した既存のロールを選択するかを選択します link:reference-permissions-aws.html["必要な権限"]。
 *** コネクタの EBS ディスクを暗号化するかどうかを選択します。デフォルトの暗号化キーを使用することも、カスタムキーを使用することもできます。
 
 

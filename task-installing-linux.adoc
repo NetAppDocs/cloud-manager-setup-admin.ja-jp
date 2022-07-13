@@ -129,7 +129,7 @@ _ipaddress _ には、ホストの設定に応じて、 localhost 、プライ�
 . NetApp Cloud Central に登録するか、ログインします。
 . Connector を Google Cloud にインストールした場合は、 Cloud Manager がプロジェクトで Cloud Volumes ONTAP システムを作成および管理するために必要な権限を持つサービスアカウントをセットアップします。
 +
-.. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["GCP で役割を作成します"^] で定義した権限を含むポリシーを作成します https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.9.10_GCP.yaml["GCP 向け Cloud Manager ポリシー"^]。
+.. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["GCP で役割を作成します"^] で定義した権限を含むポリシーを作成します link:reference-permissions-gcp.html["GCPのコネクターポリシー"]。
 .. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["GCP サービスアカウントを作成し、カスタムロールを適用します を作成しました"^]。
 .. https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes["このサービスアカウントを Connector VM に関連付けます"^]。
 .. Cloud Volumes ONTAP を他のプロジェクトに導入する場合は、 https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割"^]。プロジェクトごとにこの手順を繰り返す必要があります。

@@ -20,7 +20,7 @@ Cloud Manager では、 Cloud Volumes ONTAP の導入時に使用する Azure �
 
 == Azure の初期クレデンシャル
 
-Cloud Manager から Connector を導入する場合は、 Connector 仮想マシンを導入する権限を持つ Azure アカウントまたはサービスプリンシパルを使用する必要があります。必要な権限は、に表示されます https://mysupport.netapp.com/site/info/cloud-manager-policies["Azure の Connector 導入ポリシー"^]。
+Cloud Manager から Connector を導入する場合は、 Connector 仮想マシンを導入する権限を持つ Azure アカウントまたはサービスプリンシパルを使用する必要があります。必要な権限は、に表示されます link:task-creating-connectors-azure.html["Azure の Connector 導入ポリシー"]。
 
 Cloud Manager が Azure に Connector 仮想マシンを導入すると、が有効になります https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["システムによって割り当てられた管理 ID"^] 仮想マシンで、カスタムロールを作成して仮想マシンに割り当てます。Cloud Manager に、その Azure サブスクリプション内のリソースとプロセスを管理する権限が付与されます。 link:reference-permissions-azure.html["Cloud Manager での権限の使用方法を確認します。"]。
 

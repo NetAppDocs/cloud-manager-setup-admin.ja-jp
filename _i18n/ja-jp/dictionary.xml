@@ -46,7 +46,6 @@
   <block id="28593cc8bcd7f02af87999270a737f43" category="paragraph"><block ref="70914cf64b30f894c82eb432d6410289" category="inline-xref-macro-rx"></block>。</block>
   <block id="e3e02b70df514c22082124328763d018" category="list-text">Azure AD サービスプリンシパルの詳細を指定します。このサービスプリンシパルには、特定の権限も必要です。</block>
   <block id="3436333152b4e50a69b25e424a5d0873" category="paragraph"><block ref="1b633d2a7bc357dbd77dec7eba8d64c7" category="inline-xref-macro-rx"></block>。</block>
-  <block id="798b7f6ab4fe287d95d3324c86ca3a51" category="section-title">Azure のリージョンに関する注意</block>
   <block id="573514d5de621ecfe56c91e7c665d73d" category="inline-link">Azure リージョンペア</block>
   <block id="6882deeb4b60915fc6b7a36d03f329e3" category="inline-link">Cloud Volumes ONTAP での Azure プライベートリンクの使用方法をご確認ください</block>
   <block id="3390be7199c4e1acf84371ce3c4ae2a4" category="paragraph">コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります<block ref="71e0e9a7366955554f0600c5ea8cfc7f" category="inline-link-rx"></block> Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。<block ref="8fd2062cae8df3766c9ddefca48991a5" category="inline-link-rx"></block>。</block>
@@ -55,9 +54,6 @@
   <block id="4feea8fb07471b49da12ae6ce993e00f" category="section-title">Azure アカウントの権限を設定します</block>
   <block id="f832e35d89df1b2ebc46772eb73d40a5" category="paragraph">Cloud Manager からコネクタを導入する前に、 Azure アカウントが正しい権限を持っていることを確認する必要があります。</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">手順</block>
-  <block id="f77bfbcd12728e6d28c201e9b5b77681" category="inline-link">コネクタの Azure ポリシー</block>
-  <block id="17b3083c14747c49acf12e5dca172fed" category="list-text">をダウンロードします<block ref="b9d6bafa5b8d921ebba5bb8e1ac8d1eb" category="inline-link-rx"></block>。</block>
-  <block id="ac5599fbf028bd057932418b2b3fad78" category="admonition">リンクを右クリックし、 [ 名前を付けてリンクを保存 ...] をクリックしてファイルをダウンロードする。</block>
   <block id="7bbde741a2c304e2ecf076f2318ce3ce" category="list-text">JSON ファイルを変更して、割り当て可能な範囲に Azure サブスクリプション ID を追加します。</block>
   <block id="938f1047c15f00fdd0cbfc8e4cfa15e1" category="paragraph">* 例 *</block>
   <block id="fd8ab92694783ee668986d87ece652dd" category="list-text">JSON ファイルを使用して、 Azure でカスタムロールを作成します。</block>
@@ -75,7 +71,6 @@
   <block id="761218505548d0e5a2977bd7c31de50a" category="list-text">[ * 追加 *&gt;* 役割の割り当ての追加 * ] をクリックして、権限を追加します。</block>
   <block id="407df91196b1a54a89a9911a8ac6a332" category="list-text">Azure SetupAsService * ロールを選択し、 * 次へ * をクリックします。</block>
   <block id="25b6fc1a8ebb7aa3a82a611b3dc7cc8d" category="inline-link">Azure の Connector 導入ポリシー</block>
-  <block id="038e515f1984b1499d6de9d68fbffd90" category="admonition">Azure SetupAsService は、で指定されているデフォルトの名前です<block ref="b213beea5dcffbdb5285c373f56890d9" category="inline-link-rx"></block>。ロールに別の名前を選択した場合は、代わりにその名前を選択します。</block>
   <block id="8663f7025266bcb72c4429db8da6c602" category="list-text">[* ユーザー、グループ、またはサービスプリンシパル * ] を選択したままにします。</block>
   <block id="42cffe053a918fe3b27cd3bef2758b91" category="list-text">[ * メンバーの選択 * ] をクリックし、ユーザーアカウントを選択して、 [ * 選択 * ] をクリックします。</block>
   <block id="5a378b18f7bf0c4cabc6c655cd2f535e" category="list-text">「 * 次へ * 」をクリックします。</block>
@@ -86,8 +81,6 @@
   <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">必要なもの</block>
   <block id="cec61994be2c9633fc4acb202e4b9c41" category="list-text">Azure サブスクリプション。</block>
   <block id="3c8e2502b00949bb2ead22830ddfa05d" category="list-text">選択した Azure リージョン内の VNet およびサブネット</block>
-  <block id="ca2375d4e16ca14e8df2fd7b55942f62" category="inline-link">使用するポリシー</block>
-  <block id="c8df33e70f41b01e0dfda183bdbeedc2" category="list-text">Cloud Manager で Connector 用の Azure ロールが自動的に作成されないようにするには、独自のを作成する必要があります<block ref="8d464d7765bebe391c6baca51b3ee73f" category="inline-link-rx"></block>。</block>
   <block id="bb0af45d6e9045bc2046c5f245006f7c" category="paragraph">これらの権限はコネクタインスタンス自体に適用されます。これは、以前にコネクタを展開するように設定したアクセス権とは異なります。</block>
   <block id="d2b74161d054c69894469355bb22cb63" category="list-text">最初の作業環境を作成する場合は、 * 作業環境の追加 * をクリックし、プロンプトに従います。それ以外の場合は、 [*connector*] ドロップダウンをクリックし、 [*Add connector*] を選択します。</block>
   <block id="df5b4e7d7b6a4648ec54c1e80de11594" category="inline-image-macro">ヘッダーのコネクターアイコンとコネクターの追加アクションを示すスクリーンショット。</block>
@@ -103,7 +96,6 @@
   <block id="5d149ff1e8243862b942bfa90d45a31b" category="admonition">すでに Azure アカウントにログインしている場合、そのアカウントは Cloud Manager によって自動的に使用されます。アカウントが複数ある場合は、適切なアカウントを使用するために、最初にログアウトする必要があります。</block>
   <block id="ec444652764a4ae69cee1fdb97fdab30" category="list-text">* VM 認証 * ： Azure サブスクリプション、場所、新しいリソースグループ、または既存のリソースグループを選択し、認証方法を選択します。</block>
   <block id="a6100ac4fa5cb7bbb1c49e95165b96b2" category="inline-link">必要な権限</block>
-  <block id="2eaf8914a8b445117f14bfb36ce037d4" category="list-text">* 詳細 * ：インスタンスの名前を入力し、タグを指定し、必要な権限を持つ新しいロールを Cloud Manager で作成するか、で設定した既存のロールを選択するかを選択します<block ref="16441962512c331410f2b1943d634de1" category="inline-link-rx"></block>。</block>
   <block id="e1ca9b0274808b9c445718fa4b9a5d26" category="paragraph">このロールに関連付けられているサブスクリプションを選択できます。選択した各サブスクリプションには、 Cloud Volumes ONTAP をこれらのサブスクリプションに導入するための権限が Connector に付与されます。</block>
   <block id="316cce18546001b2f1149ed17a4d3900" category="list-text">* ネットワーク * ： VNet とサブネットを選択し、パブリック IP アドレスを有効にするかどうか、および必要に応じてプロキシ設定を指定します。</block>
   <block id="39c1f44dc3cf3d61f829ba697b33eaac" category="list-text">* セキュリティグループ * ：新しいセキュリティグループを作成するか、インバウンド HTTP 、 HTTPS 、 SSH アクセスを許可する既存のセキュリティグループを選択するかを選択します。</block>
@@ -141,7 +133,6 @@
   <block id="07429b136ade673e85f1a27e25a0239c" category="paragraph">AD アプリケーションとサービスプリンシパルを作成しておきます。</block>
   <block id="705ea5b8b9077bcdc0aedb01e5cc4c58" category="section-title">アプリケーションをロールに割り当てます</block>
   <block id="dc68a3c4f100c3e513fc370143459b4d" category="paragraph">コネクタを導入する Azure サブスクリプションにサービスプリンシパルをバインドし、カスタムの「 Azure SetupAsService 」ロールを割り当てる必要があります。</block>
-  <block id="61c26d2a982d7e6a07fc686669e8b239" category="list-text">をダウンロードします<block ref="b213beea5dcffbdb5285c373f56890d9" category="inline-link-rx"></block>。</block>
   <block id="1efe3dd87fa14ed122c5ea4f702755d8" category="list-text">ロールにアプリケーションを割り当てます。</block>
   <block id="973ddd4ad0d28fecb4f9f0a53ca5ab21" category="list-text">Azure ポータルで、 * Subscriptions * サービスを開きます。</block>
   <block id="9d13605979e591928497f3c94aa907c2" category="list-text">サブスクリプションを選択します。</block>
@@ -212,15 +203,11 @@
   <block id="e1a3d580d5cb42904b96dc05c0e0903d" category="paragraph">必ず次の手順を実行してください。</block>
   <block id="e506de832b98c2693eb3f400ef0722c0" category="list-text">信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。</block>
   <block id="c8797509010c3097dda2b0cd6f8eb8ba" category="list-text">別の AWS アカウント * を選択し、コネクタインスタンスが存在するアカウントの ID を入力します。</block>
-  <block id="4aaa495471a5ae62d8384762205bf782" category="inline-link">Cloud Manager Policies ページ</block>
-  <block id="123f2e62fb6e53ac1b3fd91d12e190e0" category="list-text">から入手できる Cloud Manager IAM ポリシーを使用してポリシーを作成します<block ref="685f869a0580bc1af63188a3b940f7ac" category="inline-link-rx"></block>。</block>
   <block id="acfd530320fb795ab16e7f6023fd56af" category="list-text">後日 Cloud Manager に貼り付けることができるように、 IAM ロールの ARN をコピーします。</block>
   <block id="119e27fea013f52fa0d99cc4eb1a4886" category="inline-xref">これで、クレデンシャルをコネクタに追加できるようになりました</block>
   <block id="0c618f5554982d1866596b56dc00c461" category="paragraph">これで、アカウントに必要な権限が付与されました。 <block ref="513a481d36e6d6a9d162b21b254968af" category="inline-xref-macro-rx"></block>。</block>
   <block id="e7e95c3a4b88e02526b2bf48eb3cff3b" category="section-title">AWS キーを指定して権限を付与します</block>
   <block id="c0851f89d0743555ee49b54a9e68b74c" category="paragraph">Cloud Manager に IAM ユーザの AWS キーを提供する場合は、必要な権限をそのユーザに付与する必要があります。Cloud Manager IAM ポリシーは、 Cloud Manager が使用できる AWS アクションとリソースを定義します。</block>
-  <block id="5341982b7fb5c2eec2ffa5b04b5bbc02" category="list-text">から Cloud Manager IAM ポリシーをダウンロードします<block ref="685f869a0580bc1af63188a3b940f7ac" category="inline-link-rx"></block>。</block>
-  <block id="7f8eb4219de7c8bc3c457f348326f5df" category="list-text">IAM コンソールから、 Cloud Manager IAM ポリシーからテキストをコピーアンドペーストして、独自のポリシーを作成します。</block>
   <block id="47d50d25f4b51617534e107d21701e80" category="inline-link">AWS のドキュメント：「 Creating IAM Policies</block>
   <block id="8466ec46633472a027af5c909c923782" category="paragraph"><block ref="8466ec46633472a027af5c909c923782" category="inline-link-rx"></block></block>
   <block id="923890d009c62cd46ebbcc491c981264" category="list-text">IAM ロールまたは IAM ユーザにポリシーを関連付けます。</block>
@@ -647,8 +634,6 @@
   <block id="f4753a613899e6c5fa411aae13fc0512" category="list-text">Azure ポータルにログインします。</block>
   <block id="282ccfcd6f389e2ad3c5056679ea3afb" category="list-text">[ サブスクリプション ] サービスを開き、 Cloud Volumes ONTAP を展開するサブスクリプションを選択します。</block>
   <block id="5c07604385195b6bcbbeecaa66fb9501" category="list-text">Cloud Manager Operator * ロールを選択します。</block>
-  <block id="d76af3fd99bc3d655a1c7ebb39340b6f" category="inline-link">Cloud Manager ポリシー</block>
-  <block id="201d14274af4e7bd04557d82951359ef" category="admonition">Cloud Manager Operator は、で指定されたデフォルトの名前です<block ref="7fc49a88d4bedbc1252c1f5516a8dc2a" category="inline-link-rx"></block>。ロールに別の名前を選択した場合は、代わりにその名前を選択します。</block>
   <block id="b9a77d024885f40214c971bf6ccbb248" category="list-text">仮想マシン * へのアクセスを割り当てます。</block>
   <block id="a303be0f8e15381d348f17b447f814ac" category="list-text">Connector 仮想マシンが作成されたサブスクリプションを選択します。</block>
   <block id="6391d178a2b7f97a4c5c12d28e3ee3e3" category="list-text">Connector 仮想マシンを選択します。</block>
@@ -675,11 +660,8 @@
   <block id="cd4f03f41a7064df7af17a65df797ab1" category="paragraph">Cloud Manager でロールベースアクセス制御に使用できる Azure Active Directory （ AD ）アプリケーションとサービスプリンシパルを作成します。</block>
   <block id="0f98c4b330efbe50f880663944194f88" category="section-title">アプリケーションをロールに割り当てます</block>
   <block id="5d54a97b7ccccaba5b4e8617f7d160eb" category="paragraph">Azure で Cloud Manager に権限を付与するには、サービスプリンシパルを 1 つ以上の Azure サブスクリプションにバインドし、カスタムの「 OnCommand Cloud Manager Operator 」ロールを割り当てる必要があります。</block>
-  <block id="a3cbca0607a5eb622a196459b3cbbfbc" category="inline-link">Cloud Manager Azure ポリシー</block>
-  <block id="76c32f81d886c55078d148a87e24c0e2" category="list-text">をダウンロードします<block ref="6a4863841954beb647e568baf833d149" category="inline-link-rx"></block>。</block>
   <block id="69d64492530dd5ee6b0c49b4e7b88a54" category="list-text">割り当て可能なスコープに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。</block>
   <block id="256ea00265c09da54fc1bcb24714eae2" category="paragraph">ユーザが Cloud Volumes ONTAP システムを作成する Azure サブスクリプションごとに ID を追加する必要があります。</block>
-  <block id="426b13072a9ef91957a6a40c02d179de" category="paragraph">これで、 _Cloud Manager Operator _ という名前のカスタムロールが作成されます。</block>
   <block id="1cdc9deb4c090c1db0afe5486b8c231e" category="paragraph">Cloud Volumes ONTAP を複数の Azure サブスクリプションから導入する場合は、サービスプリンシパルを各サブスクリプションにバインドする必要があります。Cloud Manager では、 Cloud Volumes ONTAP の導入時に使用するサブスクリプションを選択できます。</block>
   <block id="bd7448fe036ae96be692a410632dfb27" category="section-title">Windows Azure Service Management API 権限を追加しています</block>
   <block id="9f58682ff91305ed0576df0a3587138c" category="section-title">アプリケーション ID とディレクトリ ID を取得しています</block>
@@ -713,14 +695,7 @@
   <block id="8429d024ccbeae43501123bceabf2dec" category="paragraph">Azure サービスクレデンシャルの詳細を変更して、 Cloud Manager で Azure クレデンシャルを編集します。たとえば、サービスプリンシパルアプリケーション用に新しいシークレットが作成された場合は、クライアントシークレットの更新が必要になることがあります。</block>
   <block id="ace843a9a86d3677aa70c0e5dd1d64b5" category="doc">Cloud Manager から Google Cloud でコネクタを作成します</block>
   <block id="49dc29bc56279a820af0d347c1b82bb9" category="paragraph">Cloud Manager のほとんどの機能を使用するには、 Account Admin が _ Connector を導入する必要があります。 <block ref="39840e1bb98f6582f1bf4e505d666ea1" category="inline-link-macro-rx"></block>。Connector を使用すると、 Cloud Manager でパブリッククラウド環境内のリソースとプロセスを管理できます。</block>
-  <block id="5d6324823833716e10f3e57d934ecd8a" category="section-title">権限を設定しています</block>
-  <block id="937e4aacfb1148c32f2cc162ab0584ad" category="inline-link">YAML ファイルを使用してカスタムロールを作成できます</block>
-  <block id="1d51205234c08b687882a95b353982c7" category="paragraph"><block ref="70ef2814a9ccb32291159ef5c5ae86a7" category="inline-link-rx"></block> ユーザーに添付します。gcloud コマンドラインを使用して、ロールを作成する必要があります。</block>
-  <block id="a5e7f9aeb24d1d27868194bf1021f6bc" category="list-text">プロジェクトで Cloud Volumes ONTAP システムを作成および管理するために Cloud Manager に必要な権限を持つサービスアカウントをセットアップします。</block>
-  <block id="b7f5517a2500bccfce6377826f6bed54" category="paragraph">このサービスアカウントは、作成時に Connector VM に関連付けます。</block>
   <block id="65a39e4477ac1c2ee4e6f7ab03f80f8b" category="inline-link">GCP で役割を作成します</block>
-  <block id="b5202e3c2a4fb621516045f4d6bc3d60" category="inline-link">GCP 向け Cloud Manager ポリシー</block>
-  <block id="1ec6f779fe5a9d8e3450d32017a21e22" category="paragraph">この YAML ファイルに含まれる権限は、手順 1 の権限とは異なります。</block>
   <block id="270b7569730a90507cf88195b5a8a7ee" category="inline-link">GCP サービスアカウントを作成し、カスタムロールを適用します を作成しました</block>
   <block id="c30c9ad6a6f620b9a2a07c6f14399a1e" category="list-text"><block ref="63a6eacd526447284dd7555861e56994" category="inline-link-rx"></block>。</block>
   <block id="37a4b78df3288cf5c1bd086a6d1d5f9f" category="inline-link">クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割</block>
@@ -734,8 +709,6 @@
   <block id="261addf78c7b2c961032b3dd08ba0b1f" category="cell">目的</block>
   <block id="90589c47f06eb971d548591f23c285af" category="cell">カスタム</block>
   <block id="6021eec4920c52f3a4df07a5381d9fb0" category="cell">サービスプロジェクト</block>
-  <block id="396139b8280c186c5b4e76556ee3ca75" category="inline-link">この .yaml ファイルで見つかった権限</block>
-  <block id="1fbaa05447f4c2c1df5db0d323f1ef8d" category="list-text"><block ref="1fbaa05447f4c2c1df5db0d323f1ef8d" category="inline-link-rx"></block></block>
   <block id="40f49838c90873745fc1b1382a2c4b68" category="list-text">compute.networkUser</block>
   <block id="d9dae3e5d95c5ba752d5beb73a01f9f0" category="list-text">deploymentmanager. editor</block>
   <block id="06ca5d86ca92fe80348aec87cb3071db" category="cell">サービスプロジェクトへの Cloud Volumes ONTAP とサービスの導入と保守</block>
@@ -762,8 +735,6 @@
   <block id="1101b09020ade12e90a562489e315c8d" category="list-text">Compute Engine API</block>
   <block id="71660685d00034957db3f9a31c160978" category="list-text">ID およびアクセス管理（ IAM ） API</block>
   <block id="4642830f208507b4a2a5ff5bed0d9b97" category="paragraph">Cloud Manager ユーザインターフェイスから直接、または gcloud を使用して、 Google Cloud でコネクタを作成する。</block>
-  <block id="21c199e82e474a9a5607a2b9ccb8e66f" category="inline-link">必要な権限</block>
-  <block id="f4a16580e0572ca5e418a9435dc09de4" category="list-text">。<block ref="a18b1518901620e43c44c260945ff7cb" category="inline-link-rx"></block> Google Cloud アカウントの場合は、このページの最初のセクションで説明します。</block>
   <block id="9d2307f8f5a2d2672e417c7fb2c70c0e" category="list-text">Google Cloud プロジェクト。</block>
   <block id="566f8342f1a7975e05d47735cbd31877" category="list-text">このページの最初のセクションで説明するように、 Cloud Volumes ONTAP の作成と管理に必要な権限を持つサービスアカウント。</block>
   <block id="bea8942e248f7318b017a2750ff8ec51" category="list-text">Google Cloud リージョン内の VPC とサブネット。</block>
@@ -844,10 +815,6 @@
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">ヘルプを表示します</block>
   <block id="d7e90f350e428587b096549117aa6b60" category="summary">Cloud Manager からコネクタを直接作成することを推奨します。 AWS アクセスキーを指定しない場合は、 AWS Marketplace からコネクタを起動できます。Connector の作成とセットアップが完了すると、新しい作業環境を作成するときに、 Cloud Manager によって自動的に Connector が使用されます。</block>
   <block id="e96bc5b1e40abf07ff070b96c65057db" category="doc">AWS Marketplace からコネクタを作成します</block>
-  <block id="5669d6d88226e478d2b4da9cd43b96b5" category="list-text">EC2 インスタンス用の IAM ポリシーとロールを作成します。</block>
-  <block id="2c52ba4c07c496312cf7153c08cf7511" category="list-text">次のサイトから Cloud Manager IAM ポリシーをダウンロードします。</block>
-  <block id="2580ec6c57475a15435c1a0ccc50e6d1" category="inline-link">NetApp Cloud Manager ： AWS 、 Azure 、 GCP ポリシー</block>
-  <block id="244c6f7d9f1edc83d65920768cb6f9cd" category="paragraph"><block ref="244c6f7d9f1edc83d65920768cb6f9cd" category="inline-link-rx"></block></block>
   <block id="2d7f301de264581382e23e0ee22d9345" category="list-text">ロールタイプが Amazon EC2 の IAM ロールを作成し、前の手順で作成したポリシーをロールに付加します。</block>
   <block id="b00b1f51aba44811e0f61d74eec7e04b" category="inline-link">AWS Marketplace の Cloud Manager のページ</block>
   <block id="d69392574f5dab79aa43319b4e54fd67" category="list-text">次に、に進みます<block ref="46abe95496a5b5a2812b7657abaac71b" category="inline-link-rx"></block> AMI から Cloud Manager を導入</block>
@@ -871,9 +838,6 @@
   <block id="3dcd3a438eecbdd8bc716a93dbc7adf7" category="list-text">* 復習 * ：選択内容を確認して、 * 起動 * をクリックします。</block>
   <block id="10a3df02c55e733eca6fef076545645a" category="paragraph">AWS は、指定した設定でソフトウェアを起動します。コネクタインスタンスとソフトウェアは、約 5 分後に実行される必要があります。</block>
   <block id="1574ea6eaa169a957e1542cd590656c0" category="summary">Cloud Manager からクラウドプロバイダの処理を実行するには権限が必要です。これらの権限は、ネットアップが提供するポリシーに含まれています。このような権限を持つ Cloud Manager の機能を理解しておく必要があるかもしれません。</block>
-  <block id="06645c43c34bb238a7352c0ffaf29f49" category="doc">AWS でコネクタに必要な権限</block>
-  <block id="9edd86f763fc6d21418429b5c63134af" category="inline-link">ネットアップが提供するポリシー</block>
-  <block id="cfd01abeea487fb705ae7a8ea38814da" category="paragraph">Cloud Manager からクラウドプロバイダの処理を実行するには権限が必要です。これらの権限はに含まれています<block ref="d2f8d77175d2dd5e5ed1a096c2593510" category="inline-link-rx"></block>。このような権限を持つ Cloud Manager の機能を理解しておく必要があるかもしれません。</block>
   <block id="06df33001c1d7187fdd81ea1f5b277aa" category="cell">アクション</block>
   <block id="e81639b3c138e7deea81d6ea285642c3" category="cell">ターゲットサブネット内の Cloud Volumes ONTAP のネットワークインターフェイスを作成および管理します。</block>
   <block id="63f6e1958614b96c8fd95bf42f5748fd" category="summary">NetApp Cloud Central に登録して、ネットアップのクラウドサービスにアクセスできます。</block>
@@ -1076,13 +1040,10 @@
   <block id="176cadcb8516ed122391204572190282" category="paragraph">コネクタを作成するには特定の権限が必要であり、コネクタインスタンス自体に別の権限セットが必要です。</block>
   <block id="dd5605419268a28968870a791ffa5636" category="section-title">コネクタを作成する権限</block>
   <block id="6c51ef2296d7715cb54f48c8d44f3afd" category="paragraph">Cloud Manager からコネクタを作成するユーザには、任意のクラウドプロバイダにインスタンスを導入するための特定の権限が必要です。Connector を作成するときは、 Cloud Manager に権限の要件が通知されます。</block>
-  <block id="d6ca6f9693d70349338d5cfc2a4ed14d" category="inline-link">各クラウドプロバイダのポリシーを表示します</block>
-  <block id="7a32c945ddaaec186092a26d2e60e8a1" category="paragraph"><block ref="97c1ddd30e350e4bba9005e77be36c2a" category="inline-link-rx"></block>。</block>
   <block id="6a0fd1625625b6ba22f292e6abf6c379" category="section-title">コネクタインスタンスの権限</block>
   <block id="48705bd5c2f175e7ce9e54f37ca55748" category="paragraph">Connector で処理を実行するには、特定のクラウドプロバイダの権限が必要です。たとえば、 Cloud Volumes ONTAP を導入して管理するには、のように指定します。</block>
   <block id="cc70da69df19fa8788685b364569f472" category="paragraph">Cloud Manager から直接コネクタを作成すると、必要な権限を持つコネクタが Cloud Manager によって作成されます。必要なことは何もありません。</block>
   <block id="c5cb1aae8f24e840ca9afb72665913ba" category="paragraph">コネクタを AWS Marketplace 、 Azure Marketplace 、またはソフトウェアを手動でインストールして作成する場合は、適切な権限が設定されていることを確認する必要があります。</block>
-  <block id="97c1ddd30e350e4bba9005e77be36c2a" category="paragraph"><block ref="97c1ddd30e350e4bba9005e77be36c2a" category="inline-link-rx"></block></block>
   <block id="97f74fde6498f04d18068ba31dd3c106" category="section-title">コネクタごとの作業環境数</block>
   <block id="22a7df47bcc01e95741806c9d0945bc4" category="paragraph">1 つのコネクタで複数の作業環境を Cloud Manager で管理できます。1 つのコネクタで管理できる作業環境の最大数は、環境によって異なります。管理対象は、作業環境の種類、ボリュームの数、管理対象の容量、ユーザの数によって異なります。</block>
   <block id="63e8317d7c5806dc1cb56752525c4d52" category="paragraph">大規模な導入の場合は、ネットアップの担当者にご相談のうえ、環境のサイジングを行ってください。途中で問題が発生した場合は、製品内のチャットでお問い合わせください。</block>
@@ -1454,7 +1415,6 @@
   <block id="8160a46a5d4541efd7702f3fa8a2ecad" category="inline-link">オンプレミスの ONTAP クラスタ間でデータをレプリケート</block>
   <block id="1b8412d43fb2448299621a31132c8729" category="list-text"><block ref="1b8412d43fb2448299621a31132c8729" category="inline-link-rx"></block></block>
   <block id="c4d9d6c8e652595e9d46970f56499783" category="inline-link-macro">コネクタをアップグレードする方法について説明します</block>
-  <block id="873c98dded4257d9b65fdcad74460e91" category="paragraph">新しいバージョンの Connector ソフトウェアが利用可能になると、ソフトウェアはネットアップサポートサイトにアップロードされます。 <block ref="c7624839f14a2e41667804d3cbb29094" category="inline-link-macro-rx"></block>。</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="summary">既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください</block>
   <block id="482723983a4f2af954e36ff41e567451" category="doc">既知の制限</block>
   <block id="47f2759fe4750b7d11811d254e4b55c3" category="paragraph">これらの制限事項は、 Cloud Manager のセットアップと管理に固有のもので、コネクタ、 SaaS プラットフォームなどが該当します。</block>
@@ -1478,7 +1438,6 @@
   <block id="23f3047d4e3293aa33674f2e6fec99b0" category="summary">Cloud Manager では、 Cloud Volumes ONTAP の導入時に使用する Azure クレデンシャルを選択できます。すべての Cloud Volumes ONTAP システムは、初期の Azure クレデンシャルを使用して導入することも、クレデンシャルを追加することもできます。</block>
   <block id="1ab5193f89cf79df51fd4138318923ac" category="doc">Azure のクレデンシャルと権限</block>
   <block id="08a6159f6d9d986210470d2ab6dff166" category="section-title">Azure の初期クレデンシャル</block>
-  <block id="86653ff5a858c68c1b4274e6ca323682" category="paragraph">Cloud Manager から Connector を導入する場合は、 Connector 仮想マシンを導入する権限を持つ Azure アカウントまたはサービスプリンシパルを使用する必要があります。必要な権限は、に表示されます<block ref="b213beea5dcffbdb5285c373f56890d9" category="inline-link-rx"></block>。</block>
   <block id="1985b326c07cdcb2a260ae0c0c6fde8d" category="inline-link">システムによって割り当てられた管理 ID</block>
   <block id="1f7df2f579ada06ecfbe6c7dd2202c0d" category="paragraph">Cloud Manager が Azure に Connector 仮想マシンを導入すると、が有効になります<block ref="3b529d5441a4ea26741352247ca08bac" category="inline-link-rx"></block> 仮想マシンで、カスタムロールを作成して仮想マシンに割り当てます。Cloud Manager に、その Azure サブスクリプション内のリソースとプロセスを管理する権限が付与されます。 <block ref="b33ffc79b09539d2f8a3c7bf7cc14d0e" category="inline-link-macro-rx"></block>。</block>
   <block id="451cb4f832557d9ef4df49bdebe02caa" category="inline-image-macro">クラウドセントラルの導入クラウドマネージャを Azure のアカウントとサブスクリプションに導入した場合の概念を示すイメージ。システムによって割り当てられた管理対象 ID が有効になり、カスタムロールが Cloud Manager 仮想マシンに割り当てられます。</block>
@@ -1498,8 +1457,6 @@
   <block id="7ae95d0cd91dd096febcd5adb599771a" category="paragraph">上記のセクションでは、 NetApp Cloud Central のコネクタで推奨される導入方法について説明します。から Azure に Connector を導入することもできます <block ref="42416828ae8ae7a901a48c71094e7a44" category="inline-link-macro-rx"></block>を使用できます <block ref="562eb722c78878c7a1bcbac21fbdef4a" category="inline-link-macro-rx"></block>。</block>
   <block id="65f0e30e3c24202dbbc18402c495e104" category="paragraph">Marketplace を使用する場合も、アクセス許可は同じ方法で提供されます。コネクタの管理 ID を手動で作成してセットアップし、追加のアカウントに権限を付与するだけで済みます。</block>
   <block id="67ae2bc9115f67bfaadac4861db76177" category="paragraph">オンプレミス環境では、 Connector の管理対象 ID を設定することはできませんが、サービスプリンシパルを使用して追加のアカウントの場合と同様に権限を設定できます。</block>
-  <block id="7fe172a8a607498420f7616f4da0455f" category="doc">Azure の Connector に必要な権限</block>
-  <block id="dfc1e99a3d224664f0ac3cdfd535a957" category="paragraph">Cloud Manager Azure ポリシーには、 Cloud Manager が Azure で Cloud Volumes ONTAP を導入および管理するために必要な権限が含まれています。</block>
   <block id="d97ba5e3e0f58b633ff060180e9fbaff" category="cell">「 Microsoft.Compute/locations/operations/read" 」、「 Microsoft.Compute/locations/vmSizes/read" 」、「 Microsoft.Compute/operations/read" 」、「 Microsoft.Compute/virtualMachines/instanceView/read" 」、「 Microsoft.Compute/virtualMachines/powerOff/action" 」、「 Microsoft.Compute/virtualMachines/read" 」、「 Microsoft.Compute/virtualMachines/restart/action" 」、「 Microsoft.Compute/virtualMachines/start/action" 」、「 Microsoft.Compute/virtualMachines/deallocate/action" 」、「 Microsoft.Compute/virtualMachines/vmSizes/read" 」、「 Microsoft.Compute/virtualMachines/write" 」、</block>
   <block id="03e844f92068480c699196ff085bc846" category="cell">Cloud Volumes ONTAP を作成し、システムのステータスを停止、開始、削除、取得します。</block>
   <block id="fd9c6454134af594d0f4aceb332bb30b" category="cell">「 microsoft.compute/images/write 」、「 microsoft.compute/images/read 」、</block>
@@ -1564,8 +1521,6 @@
   <block id="a3e15006a0362130cf46b948ce3a5626" category="inline-link-macro">Amazon S3 バケットを検出します</block>
   <block id="3f48c5e9be05508878e1ceb77d8423a7" category="list-text"><block ref="3f48c5e9be05508878e1ceb77d8423a7" category="inline-link-macro-rx"></block></block>
   <block id="ca82fdd9a480fcc34a6b470f5ec8e908" category="inline-link-macro">プロキシを設定します</block>
-  <block id="91e052fcfd90f5b7f85fae79cd7c6174" category="doc">Google Cloud の Connector に必要な権限です</block>
-  <block id="43db2d5daf3a0d765cb047fb4af50659" category="paragraph">GCP の Cloud Manager ポリシーには、 Cloud Volumes ONTAP の導入と管理に Cloud Manager が必要とする権限が含まれています。</block>
   <block id="8224e3db072d582bb34ae19441c597fe" category="cell">-compute.disks .create -computedisks .createsnapshot - compute.disks.delete -computedisks .get-compute.diskList - compute.disks.setLabels - compute.disks.us</block>
   <block id="f66d598893a55fa43b7676b10c66160f" category="cell">Cloud Volumes ONTAP 用のディスクを作成および管理します。</block>
   <block id="186d5d18725ed27ea017283ab0d492cb" category="cell">-compute-firewalls .create - compute.firewalls.delete -comput領域 .firewalls .get-comput領域 .firewalls リスト</block>
@@ -1646,10 +1601,6 @@
   <block id="94b1721579eea40ee683582aae52b01e" category="paragraph">これでコネクタがインストールされ、セットアップされました。Cloud Volumes ONTAP を Azure に導入するには、 Azure の権限を付与する必要があります。</block>
   <block id="53093f6c5402328654bf860d6c52db0a" category="section-title">Azure 権限を付与しています</block>
   <block id="74aac1234eeac8d40c64bd3b59349316" category="paragraph">Azure にコネクタを導入したら、を有効にしておく必要があります<block ref="3b529d5441a4ea26741352247ca08bac" category="inline-link-rx"></block>。カスタムロールを作成し、そのロールを Connector 仮想マシンに割り当てて、 1 つ以上のサブスクリプションに必要な Azure 権限を付与する必要があります。</block>
-  <block id="e11f7121214115c4ddc44f09771f3e9e" category="list-text">Cloud Manager ポリシーを使用してカスタムロールを作成します。</block>
-  <block id="c7b2945e2b0a5a7da818b9068fec84ff" category="paragraph">「譲渡対象」：「 / 契約 / D333AF45-0D07-4154-943D-C25FBZZZZ 」、「 / 契約 / 契約 /54B91999-B3E6-4599-908E-416E0ZZZZ 」、「 / 契約 /E471C-3B42-4AE7-9B59-CE5BBZZZZ 」</block>
-  <block id="6f9f22d6485de6a589f8f20d2b582c9e" category="paragraph">次の例は、 Azure CLI 2.0 を使用してカスタムロールを作成する方法を示しています。</block>
-  <block id="fab06a69bdd687fda623071c212e3c11" category="paragraph">「 AZ role definition create -- role-definition C ： \Policy_for _cloud_Manager_azure_3.9.8.json</block>
   <block id="5baa38c3e3ec02608b08189c2df5b21b" category="paragraph">これで、 Connector 仮想マシンに割り当てることができる Cloud Manager Operator というカスタムロールが作成されます。</block>
   <block id="62f4ce6a86cc06fad623085534bfe52a" category="list-text">1 つ以上のサブスクリプションのロールを Connector 仮想マシンに割り当てます。</block>
   <block id="de9b3cb95daa3e2112ea5bcd079ad1aa" category="list-text">[ サブスクリプション ] サービスを開き、 Cloud Volumes ONTAP システムを展開するサブスクリプションを選択します。</block>
@@ -1742,7 +1693,6 @@
   <block id="a28c11d82be2375d6506ed209153e0c1" category="paragraph">_ipaddress _ には、ホストの設定に応じて、 localhost 、プライベート IP アドレス、またはパブリック IP アドレスを指定できます。たとえば、パブリック IP アドレスのないパブリッククラウドにコネクタがある場合は、コネクタホストに接続されているホストからプライベート IP アドレスを入力する必要があります。</block>
   <block id="b0e633e4702fbdbe73bffa8e5b9663fc" category="list-text">NetApp Cloud Central に登録するか、ログインします。</block>
   <block id="156630a57ac224c7313133a17e096859" category="list-text">Connector を Google Cloud にインストールした場合は、 Cloud Manager がプロジェクトで Cloud Volumes ONTAP システムを作成および管理するために必要な権限を持つサービスアカウントをセットアップします。</block>
-  <block id="dad21ad29aa843d9f08c7fc6d2c256c5" category="list-text"><block ref="b3e2dfdb02c4ef9473e0b3fb573ce75f" category="inline-link-rx"></block> で定義した権限を含むポリシーを作成します<block ref="e91a62d6158aa053a2e619736c05b1a6" category="inline-link-rx"></block>。</block>
   <block id="78a0d16b70372e27005759683969aed9" category="inline-link">このサービスアカウントを Connector VM に関連付けます</block>
   <block id="065c40fb33b56030d4bbcc42fcbf0d16" category="list-text"><block ref="1a9447e1a13f89edfdde92dee038b283" category="inline-link-rx"></block>。</block>
   <block id="7417256b782529e98b63441ae2ff45ea" category="list-text">ログインしたら、 Cloud Manager をセットアップします。</block>
@@ -1757,17 +1707,13 @@
   <block id="a376d701bcf6f33dfc99e261c767ae1e" category="list-text">Google Cloud ：上記の手順 7 を参照してください</block>
   <block id="40d888ab986f8a54cf9072a0737f622d" category="doc">Cloud Manager から AWS にコネクタを作成します</block>
   <block id="24a6e24dbd4eec4ffe9ac5f4338dec68" category="paragraph">このページでは、 Cloud Manager から AWS でコネクタを直接作成する方法について説明します。 <block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block>。</block>
-  <block id="a5e94222d72ddc1fb2fdfd796ec40c93" category="list-text">AWS IAM コンソールで、コネクタ IAM ポリシーからコピーしたテキストを貼り付けて独自のポリシーを作成します。</block>
-  <block id="2d730f3a28c08580541e1585e4c3f134" category="list-text">前の手順で作成したポリシーを、 Cloud Manager からコネクタを作成する IAM ユーザに関連付けます。</block>
   <block id="3faf40ec673a27da72957bee9f22e597" category="paragraph">AWS ユーザに、 Cloud Manager からコネクタを作成するために必要な権限が付与されました。Cloud Manager からプロンプトが表示されたら、このユーザの AWS アクセスキーを指定する必要があります。</block>
   <block id="555955942c711a4d2bbe3fdd1980539b" category="paragraph">Cloud Manager では、ユーザインターフェイスから AWS に直接コネクタを作成できます。</block>
   <block id="696168c9b9e3d6be0b4ff452721f4186" category="list-text">選択した AWS リージョン内の VPC 、サブネット、キーペア。</block>
-  <block id="31394c3a86d99c92bf2cb604d7b8bd52" category="list-text">Cloud Manager でコネクタ用の IAM ロールが自動的に作成されないようにするには、専用のを作成する必要があります<block ref="a089a902a75ad2c7ce37bae7ba8de60b" category="inline-link-rx"></block>。</block>
   <block id="7cddf1ab764729128f3c7130203d73a0" category="list-text">クラウドプロバイダとして「 * Amazon Web Services * 」を選択し、「 * Continue * 」をクリックします。</block>
   <block id="694c0d1ad033ac65143fd7073852f718" category="list-text">* 詳細 * ：コネクタの詳細を入力します。</block>
   <block id="bb535485e7b97661af60ecc59e655498" category="list-text">インスタンスの名前を入力します。</block>
   <block id="edda80be79ac3f7cac925a65c6a3e5b5" category="list-text">カスタムタグ（メタデータ）をインスタンスに追加します。</block>
-  <block id="76248c9f08925cdddbdcf5f973612b9f" category="list-text">必要な権限を含む新しいロールを Cloud Manager で作成するか、またはを使用して設定した既存のロールを選択するかを選択します<block ref="2fe36c4005f7d4d6030a3d009fe3d90e" category="inline-link-rx"></block>。</block>
   <block id="bc08dffbc581e8fd57ce1bac9b369e13" category="list-text">コネクタの EBS ディスクを暗号化するかどうかを選択します。デフォルトの暗号化キーを使用することも、カスタムキーを使用することもできます。</block>
   <block id="9a5f9a8791099f371ab5a4d09e6974a7" category="list-text">* ネットワーク * ：インスタンスに VPC 、サブネット、キーペアを指定し、パブリック IP アドレスを有効にするかどうかを選択し、必要に応じてプロキシ設定を指定します。</block>
   <block id="9a803f44b0636f099b88c5cad1f6544a" category="summary">ネットアップの クラウド サービス を使用してハイブリッドマルチクラウド全体のデータを管理できるように、 Cloud Manager を今すぐご利用ください。セットアップが完了したら、ネットアップアカウント、コネクタ、クラウドプロバイダアカウントなどを管理できます。</block>
@@ -1853,7 +1799,6 @@
   <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">クラウドに関する Web セミナー</block>
   <block id="f350efde95c992c9fb3c75c0e8aefcf0" category="list-text">[* 役割（ * Role ） ] タブで、 * Azure SetupAsService * 役割を選択し、 * 次へ * をクリックします。</block>
   <block id="448746f589ceea8f1b3191a05fe6c57c" category="paragraph">他の AWS アカウントで Cloud Volumes ONTAP を導入して管理できるように、 AWS クレデンシャルをコネクタに追加します。別のアカウントの IAM ロールの ARN を指定するか、 AWS アクセスキーを指定できます。</block>
-  <block id="a7670b1f58884f1ec2ecfbedc687193d" category="list-text">から Connector 展開ポリシーを表示します<block ref="685f869a0580bc1af63188a3b940f7ac" category="inline-link-rx"></block></block>
   <block id="ba26e4556a0f160834687982b0479336" category="section-title">2022 年 2 月 27 日</block>
   <block id="3ac47455b10c6fb4061a70a91fdbfde2" category="section-title">2022 年 1 月 30 日</block>
   <block id="586301717819197e24001cac47efdaaa" category="section-title">2022 年 1 月 2 日</block>
@@ -1869,22 +1814,13 @@
   <block id="d42fa6c698bffd937b50724aa035c2cb" category="section-title">2021 年 2 月 9 日</block>
   <block id="56871f8b2603f3216127f57d5542b3ae" category="section-title">AWS 認証をセットアップする</block>
   <block id="d86822a8a437c0121eb90d96b8941d16" category="paragraph">Cloud Manager で VPC にコネクタインスタンスを導入するには、 AWS で認証する必要があります。次のいずれかの認証方式を選択できます。</block>
-  <block id="c09f2e8bf26d5b89650345ce64a72729" category="list-text">Cloud Manager に IAM ロールを割り当てます</block>
-  <block id="9090a5b56ee3987b74cdf74ad414661f" category="list-text">IAM ユーザの AWS アクセスキーとシークレットキーを指定します</block>
-  <block id="236a8e62b3972cd5f32e0bdf357731a7" category="paragraph">使用する認証方式に、 Connector インスタンスを AWS に導入するための必要な権限がある必要があります。</block>
   <block id="30db7b9fd99be0ab8460cabb34938d21" category="section-title">IAM ロールを設定する</block>
   <block id="50ddbbe6b962ea257339e20cddd80182" category="paragraph">Cloud Manager で Connector を AWS に導入するために想定できる IAM ロールを設定します。</block>
-  <block id="6def7e4cb7f5db1eb46c3ef625472320" category="list-text">からコネクタ IAM ポリシーをダウンロードします<block ref="685f869a0580bc1af63188a3b940f7ac" category="inline-link-rx"></block>。</block>
-  <block id="030666f5f4873ade91adc709ec10ea4d" category="paragraph">このポリシーには、 AWS でコネクタを作成するために必要な権限が含まれています。Cloud Manager は、作成時にコネクタインスタンスに新しい権限セットを適用します。</block>
   <block id="0e78dc7220ea8b6abafe6ef7aaad9998" category="list-text">ターゲットアカウントの AWS IAM コンソールに移動します。</block>
   <block id="eec3f9d91aeef5beb63d80162a34ba3b" category="list-text">別の AWS アカウント * を選択し、 Cloud Manager SaaS アカウントの ID として「 952013314444 」を入力してください</block>
-  <block id="cb7eb4c83c01cf01decd10b272ecd3de" category="list-text">以前にダウンロードしたコネクタ IAM ポリシーに表示されている権限を含むポリシーを作成します。</block>
-  <block id="171bb61bae05c7779ab40b861597ba33" category="list-text">IAM ロールのロール ARN をコピーして、コネクタの作成時に Cloud Manager に貼り付けることができるようにします。</block>
   <block id="d47c23803528fa45fad33a3f83dfcf54" category="paragraph">IAM ロールに必要な権限が割り当てられます。</block>
   <block id="c3f217f9a4bf83b62b55576a453f4e95" category="section-title">IAM ユーザの権限を設定します</block>
   <block id="90f42b795a98a48d78b53e8d6d353987" category="paragraph">コネクタを作成するときに、 Connector インスタンスの導入に必要な権限を持つ IAM ユーザに AWS アクセスキーとシークレットキーを指定できます。</block>
-  <block id="feeae7fc16d497b9cfb3dac7745882d8" category="list-text">から Connector 展開ポリシーをダウンロードします<block ref="685f869a0580bc1af63188a3b940f7ac" category="inline-link-rx"></block>。</block>
-  <block id="2fee7712f844ac3827af8e70987e1692" category="paragraph">この IAM ポリシーには、 AWS でコネクタを作成するために必要な権限が含まれています。Cloud Manager は、作成時にコネクタインスタンスに新しい権限セットを適用します。</block>
   <block id="2148f456d9af28f7a3c6836b09b86d79" category="list-text">IAM ユーザのアクセスキーとシークレットキーにアクセスできることを確認します。</block>
   <block id="94ee7072c2750da1997438a715efb7d4" category="section-title">コネクタを作成します</block>
   <block id="4f17567a3649c9a7e40e769fe63ec8b1" category="list-text">AWS 認証方式： Cloud Manager が権限を持つ IAM ロールの ARN 、または IAM ユーザの AWS アクセスキーとシークレットキーのいずれかです。</block>
@@ -1907,7 +1843,6 @@
   <block id="d1640a3b53ec580119ad1efa519fa5a4" category="list-text"><block ref="d1640a3b53ec580119ad1efa519fa5a4" category="inline-link-rx"></block></block>
   <block id="571331341f9a044145a7015b8d5b9b03" category="list-text"><block ref="571331341f9a044145a7015b8d5b9b03" category="inline-link-rx"></block></block>
   <block id="a37da40b1cf1ce86308b603dbc497d9d" category="paragraph"><block ref="443587ef67dfdb72c89535a3fb85e4c4" category="inline-link-macro-rx"></block>。</block>
-  <block id="2ccfed3e301f0a6be8255ec614634e40" category="paragraph">Cloud Manager からコネクタを導入する場合は、 IAM ロールの ARN または IAM ユーザのアクセスキーを指定する必要があります。使用する認証方式に、 Connector インスタンスを AWS に導入するための必要な権限がある必要があります。必要な権限は、に表示されます<block ref="9be18605563c3a58e34718e4132dfa94" category="inline-link-rx"></block>。</block>
   <block id="8ecde67149129962cfc66840199e548a" category="paragraph">Cloud Manager が AWS でコネクタインスタンスを起動すると、インスタンス用の IAM ロールとインスタンスプロファイルが作成されます。また、ポリシーを適用して、指定した AWS アカウント内のリソースやプロセスを管理する権限を Connector に提供します。 <block ref="b8a131e0e4ba17426040261bffd33680" category="inline-link-macro-rx"></block>。</block>
   <block id="de60a486c1b92dffa7eb55af0b1c8bb0" category="paragraph">AWS クレデンシャルを追加する方法は 2 種類あります。</block>
   <block id="9a512cb6f8c6b3e4e3ee11942b6c1ca9" category="paragraph">Cloud Manager に新しい AWS クレデンシャルを追加すると、 ONTAP 作業環境の FSX の作成と管理、またはコネクタの作成に必要な権限が Cloud Manager に付与されます。</block>
@@ -1989,8 +1924,6 @@
   <block id="5e9d36e4528c82da2b7294c252e52427" category="list-text">ConnectorでCloud Volumes ONTAP を導入するには、新しいAWS権限が必要です。</block>
   <block id="bfd761a70b5f9cd277ef7c878344df38" category="paragraph">単一のAvailability Zone（AZ；アベイラビリティゾーン）にHAペアを導入する際にAWS分散配置グループを作成するためには、次の権限が必要です。</block>
   <block id="0080f4096e51a12d4256890c125c5c46" category="paragraph">これらの権限は、Cloud Managerによる配置グループの作成方法を最適化するために必要になります。</block>
-  <block id="eaf263597aafb24c99ce4e16af420ae8" category="inline-link">Cloud Manager のポリシーのページです</block>
-  <block id="26dd25d183752a9f37249174f3d3ff89" category="paragraph">Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます<block ref="0e92ab1ca454f31f07a6e5fba6519a3a" category="inline-link-rx"></block>。</block>
   <block id="5e16db4c47abe8cb1c5bd746df2fd94a" category="section-title">2022 年 4 月 3 日</block>
   <block id="5dc3495f29e6f1332d6d809ba30cbf83" category="section-title">コネクタ3.9.17</block>
   <block id="dc45cdfe41bbcfa7f2d8bf1ed54a89ed" category="list-text">Cloud Manager に、環境で設定した IAM ロールを割り当てることでコネクタを作成できるようになりました。この認証方式は、 AWS のアクセスキーとシークレットキーを共有する場合よりも安全です。</block>
@@ -2030,18 +1963,11 @@
   <block id="27fe4eb3edbaff8f250e2d51f7462681" category="section-title">パッケージ</block>
   <block id="407c4e9fac86b98147da49acd4fa0d01" category="section-title">ポート</block>
   <block id="3c29f8c71add9d192508a1409906b5cf" category="paragraph">このページでは、Cloud ManagerからGoogle Cloudで直接コネクタを作成する方法について説明します。 <block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block>。</block>
-  <block id="265157c47da67d7829e580d4e498814c" category="paragraph">Connectorを導入する前に、Google Cloudアカウントに正しい権限があること、およびConnector VMのサービスアカウントが設定されていることを確認する必要があります。</block>
-  <block id="e32a11bfee0ac384bf304116edad5b72" category="inline-link">Google CloudのConnector展開ポリシー</block>
-  <block id="e31760fac1a7adfa41132adaff0abf52" category="list-text">Connectorを展開するGoogle Cloudユーザーがに権限を持っていることを確認します<block ref="e51fdc439ac794ccecf0832f25d2c22b" category="inline-link-rx"></block>。</block>
-  <block id="b42f82c4ad27a30bff1121f55882a07c" category="inline-link">Google Cloud用のCloud Managerポリシー</block>
-  <block id="c0dbffc55b00e76faab42aaa6e7e035b" category="list-text"><block ref="b3e2dfdb02c4ef9473e0b3fb573ce75f" category="inline-link-rx"></block> で定義した権限を含むポリシーを作成します<block ref="b2da2d8566bd2cf4941d85fc39037563" category="inline-link-rx"></block>。ここでも gcloud コマンドラインを使用する必要があります。</block>
   <block id="bffde7130bcbd48dc4d26900909a6ec0" category="inline-link">Google Cloudサービスアカウントを作成し、作成したカスタムロールを適用します</block>
   <block id="8ffe57ff2d6f0334349512874d9ed89d" category="list-text"><block ref="e91ca9f63029ef70f3223d4f72fac132" category="inline-link-rx"></block>。</block>
-  <block id="4d146cf655f47126afe85429c3491d43" category="paragraph">Google Cloudユーザに、Connector VMのサービスアカウントの作成に必要な権限が付与されるようになりました。</block>
   <block id="c9c5c65fb4af9cf90eb99b3b84424189" category="cell">ID</block>
   <block id="229ac9492e379cef84bf38f29f6941cd" category="cell">Connectorの展開に使用されるGoogleアカウント</block>
   <block id="a546c9049428d60032b181f2f82657b4" category="cell">サービスプロジェクト</block>
-  <block id="7687e23e0eab2e92a5ee0cfc67ebab98" category="list-text"><block ref="7687e23e0eab2e92a5ee0cfc67ebab98" category="inline-link-rx"></block></block>
   <block id="0739a8d84cae34de0d2732632c0d3e8e" category="cell">サービスプロジェクトへのコネクタの配置</block>
   <block id="483a6486004960ab28236293d3cf2bce" category="cell">Connectorサービスアカウント</block>
   <block id="9165bdf7bcd983e5b9eeeea3649fe93d" category="cell">導入に代わってGoogle Cloud APIと対話します。Cloud Manager で共有ネットワークを使用できるようにします。</block>
@@ -2166,7 +2092,6 @@
   <block id="6060e8f925263dfdc63a751c294072e0" category="list-text">Google Cloud Storageの検出</block>
   <block id="cb7056b970dafeecb7fd7cc3be301248" category="paragraph">Workspace 管理者が Cloud Volumes ONTAP 作業環境を作成し、上記のサービスのいずれかを使用するには、アカウント管理者がコネクタを作成する必要があります。管理者は、さまざまな方法でコネクタを作成できます。</block>
   <block id="29a0d45ad000865bf5504b2da4dc6816" category="paragraph">以降のセクションでは、各ネットアップクラウドサービスに対する権限の使用方法について説明します。この情報は、企業のポリシーによって、必要な場合にのみアクセス許可が指定されるように指定されている場合に役立ちます。</block>
-  <block id="c6705240238244043d7e0d39f6ce1db1" category="section-title">AppTemplateタグ</block>
   <block id="0cae22bc84eb90b52cc86e22b140eb0c" category="paragraph">AppTemplate Taggingサービスを使用する場合、Connectorは次のAPI要求を実行してAWSリソースのタグを管理します。</block>
   <block id="693adfb773a054f1c9287da186e8ce5d" category="list-text">ec2：CreateTags</block>
   <block id="3a2cbdfb7b022d729d851d5052148241" category="list-text">EC2:タグを削除します</block>
@@ -2329,4 +2254,142 @@
   <block id="87d47630996394fbe848adac841d4925" category="paragraph">通知には、Cloud Managerで開始した処理の進捗状況が追跡されるため、処理が成功したかどうかを確認できます。現在のログインセッションで開始した多くのCloud Manager処理のステータスを表示できます。現時点では、すべてのサービスが通知センターに情報を報告するわけではありません。</block>
   <block id="e8bcd4ad549fa51ff8495440daac2515" category="paragraph">*注意：* Connectorがインターネットにアクセスできないサイトにインストールされている場合は、電子メール通知の送信はサポートされていません。</block>
   <block id="5d85fadabc5fc8c195c36c4e3f0560e1" category="list-text">Cloud Managerのメニューバーで、* Settings &gt; Timeline *をクリックします。</block>
+  <block id="4dc69c94d3a012316bf202425be2931b" category="paragraph">Cloud Manager から Connector を導入する場合は、 Connector 仮想マシンを導入する権限を持つ Azure アカウントまたはサービスプリンシパルを使用する必要があります。必要な権限は、に表示されます <block ref="21b574a2506cebaac25d928c2c71e30c" category="inline-link-macro-rx"></block>。</block>
+  <block id="68eee87acea7aba9406b2232110c9ef1" category="paragraph">Cloud Manager からコネクタを導入する場合は、 IAM ロールの ARN または IAM ユーザのアクセスキーを指定する必要があります。使用する認証方式に、 Connector インスタンスを AWS に導入するための必要な権限がある必要があります。必要な権限は、に表示されます <block ref="44a7d63a6eb2c2f6422e9cdaac125624" category="inline-link-macro-rx"></block>。</block>
+  <block id="2042d03d6dd2d593f6fabfa8c7c0b91c" category="admonition">Cloud Manager Operatorは、コネクタポリシーで指定されるデフォルトの名前です。ロールに別の名前を選択した場合は、代わりにその名前を選択します。</block>
+  <block id="6534ae3540891eec0e4feef8e844bf94" category="list-text">カスタムロールを作成します。</block>
+  <block id="94e19270110a66c15c7d6d1718fb017f" category="inline-link-macro">Connectorのカスタムロールの権限</block>
+  <block id="3e75f6bb25578c951967e7bdcb93a618" category="list-text">の内容をコピーします <block ref="e41800fb708ad5eec4d221bf716e5746" category="inline-link-macro-rx"></block> JSONファイルに保存します。</block>
+  <block id="c4781b51f102d0986224cfc0ac63e265" category="admonition">Cloud Manager Operatorは、Cloud Managerポリシーで指定されるデフォルトの名前です。ロールに別の名前を選択した場合は、代わりにその名前を選択します。</block>
+  <block id="68d143cf782abb32ef2c0a2af3d73ed4" category="inline-link-macro">コネクタの最新のIAMポリシーを確認します</block>
+  <block id="09bd71829ddb9c7aa4915fa8ccecf682" category="paragraph">Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。 <block ref="43fc0841595bdc0f90ae6430b0122798" category="inline-link-macro-rx"></block>。</block>
+  <block id="c6327a576f1d9b438597322e6545500c" category="section-title">Azureリージョンに関するメモ</block>
+  <block id="fdf818accfe04434a4c9fd9ccfe6d56c" category="list-text">Azureの新しいカスタムロールに必要な権限をコピーし、JSONファイルに保存します。</block>
+  <block id="ec0850dcc2018013f143e0c201414761" category="admonition">このポリシーには、Cloud ManagerからAzureでConnector VMを起動するために必要な権限のみが含まれています。このポリシーは、他の状況では使用しないでください。Cloud Managerは、コネクタの作成時にConnector VMに新しい権限セットを適用します。これにより、コネクタはパブリッククラウド環境内のリソースを管理できます。</block>
+  <block id="6beeae0bdc78c57583db2029e3f5c09d" category="list-text">JSONを変更して、割り当て可能な範囲にAzureサブスクリプションIDを追加します。</block>
+  <block id="4cca684df8c889c784e30e6f0215cff5" category="admonition">Azure SetupAsServiceは、Azureのコネクタ導入ポリシーで指定されているデフォルトの名前です。ロールに別の名前を選択した場合は、代わりにその名前を選択します。</block>
+  <block id="bc3d26f932a03033b70d3ed650139a18" category="inline-link-macro">このページのポリシーを使用する</block>
+  <block id="abf8184d7235dd233e5934b1942aa0da" category="list-text">Cloud Manager で Connector 用の Azure ロールが自動的に作成されないようにするには、独自のを作成する必要があります <block ref="7706b04266d0a3d170ef3034140acd41" category="inline-link-macro-rx"></block>。</block>
+  <block id="2d9f6e18a46b9b5f0ff70453e504f154" category="list-text">* 詳細 * ：インスタンスの名前を入力し、タグを指定し、必要な権限を持つ新しいロールを Cloud Manager で作成するか、で設定した既存のロールを選択するかを選択します <block ref="b569336f779a413e2d7fa8c0ccb0306d" category="inline-link-macro-rx"></block>。</block>
+  <block id="ee287ea34a3a3f825af36a568d19db87" category="list-text">AWSで権限を設定します。</block>
+  <block id="5233bb914244fc027aadf39f8fa71c54" category="inline-link-macro">コネクタのIAMポリシー</block>
+  <block id="b64243bcb22e21e7e1467b54df4202dc" category="list-text">IAMコンソールで、の内容をコピーして貼り付け、独自のポリシーを作成します <block ref="9b22ee86ed2d831066d00816566458ca" category="inline-link-macro-rx"></block>。</block>
+  <block id="9037a544b6235ea8187a8635a58472a8" category="summary">Cloud Managerの機能やサービスを使用するには、Cloud Managerがクラウド環境で処理を実行できるように、権限を付与する必要があります。このページのリンクを使用して、Cloud Managerで必要な権限に簡単にアクセスできます。</block>
+  <block id="b3a198480d00554547dd9e631862d78a" category="doc">Cloud Managerの権限の概要</block>
+  <block id="67059685a450a23eec531851d108d003" category="paragraph">Cloud Managerの機能やサービスを使用するには、Cloud Managerがクラウド環境で処理を実行できるように、権限を付与する必要があります。このページのリンクを使用して、目的に応じて必要な権限にすばやくアクセスできます。</block>
+  <block id="d2c0c7feb18d0e89bab9d23b6ec4c042" category="section-title">AWS権限</block>
+  <block id="97e7c9a7d06eac006a28bf05467fcc8b" category="cell">リンク</block>
+  <block id="f56912566696fa3cc8524bcac5febbeb" category="cell">コネクタの展開</block>
+  <block id="8b9626d32b3b481da1af74e564a51d83" category="cell">Cloud Managerからコネクタを作成するユーザには、AWSにインスタンスを導入するための特定の権限が必要です。</block>
+  <block id="d99414f8f5e20547ce6080dc0574cc4f" category="cell"><block ref="d99414f8f5e20547ce6080dc0574cc4f" category="inline-link-macro-rx"></block></block>
+  <block id="9d79131734042a17283af57f76b63c58" category="cell">コネクタの動作</block>
+  <block id="ad4c36428be81ec26bd2a1f8babc06cd" category="inline-link-macro">マーケットプレイスからコネクターを起動します</block>
+  <block id="00232842735eab80a07d1168667e8d7f" category="inline-link-macro">AWSクレデンシャルをコネクタに追加します</block>
+  <block id="24c395bc269fa5d88d7e4d108ba0da35" category="cell">Cloud Managerでコネクタを起動すると、AWSアカウントのリソースとプロセスの管理に必要な権限を提供するポリシーがインスタンスに適用されます。その場合は、自分でポリシーを設定する必要があります <block ref="787401877fd7ca3a591bfd314e63203c" category="inline-link-macro-rx"></block> またはあなたの場合 <block ref="aec3821661a331ee5026b7ddbb2bcb98" category="inline-link-macro-rx"></block>。また、新しい権限が以降のリリースで追加されるときに、ポリシーが最新の状態であることを確認する必要があります。</block>
+  <block id="f8a3b3003a624ccf880a2b952a5d299a" category="cell"><block ref="f8a3b3003a624ccf880a2b952a5d299a" category="inline-link-macro-rx"></block></block>
+  <block id="0b7fc44a4fc16ca2deedd18213df11d0" category="cell">Cloud Volumes ONTAP 処理</block>
+  <block id="c956cc0566a3c85793fe60a934f62e93" category="cell">AWSの各Cloud Volumes ONTAP ノードにIAMロールを関連付ける必要があります。HAメディエーターについても同様です。デフォルトでは、Cloud ManagerでIAMロールを作成することもできますが、独自のIAMロールを使用することもできます。</block>
+  <block id="421a1f316880c0380ff3114c3bf34f83" category="inline-link">IAMロールを自分で設定する方法について説明します</block>
+  <block id="ffbe386f72014cdbd78c6829e58132e4" category="cell"><block ref="ffbe386f72014cdbd78c6829e58132e4" category="inline-link-rx"></block></block>
+  <block id="bf689424a4d3a62d9c0d40a07107c3d2" category="section-title">Azure権限</block>
+  <block id="1f7f6c43fb083783f63bb348e6c78b02" category="cell">Cloud ManagerからConnectorを導入する場合は、Connector VMをAzureに導入する権限を持つAzureアカウントまたはサービスプリンシパルを使用する必要があります。</block>
+  <block id="833aa0eb30b79ccbf3b3b90cf590431c" category="cell"><block ref="833aa0eb30b79ccbf3b3b90cf590431c" category="inline-link-macro-rx"></block></block>
+  <block id="35e329ec26cbb29ccb69575550b85dbe" category="paragraph">Cloud ManagerがConnector VMをAzureに導入すると、そのAzureサブスクリプション内でリソースとプロセスを管理するために必要な権限を提供するカスタムロールが作成されます。</block>
+  <block id="652a30691608448a6f2f15a1d2bb02f5" category="inline-link-macro">Azureクレデンシャルをコネクタに追加します</block>
+  <block id="4761b97d877b53fcd0d29188f8b2e501" category="paragraph">カスタムロールは自分で設定する必要があります <block ref="308129c76f0376a995c0002ce47a9448" category="inline-link-macro-rx"></block> またはあなたの場合 <block ref="3a714b4b67994f94abb2f77ce85a395b" category="inline-link-macro-rx"></block>。</block>
+  <block id="bcfaa2da0752134728f286af2b223842" category="paragraph">また、新しい権限が以降のリリースで追加されるときに、ポリシーが最新の状態であることを確認する必要があります。</block>
+  <block id="24cce65a483e1205b8ca7bc0bf14c6c9" category="paragraph"><block ref="24cce65a483e1205b8ca7bc0bf14c6c9" category="inline-link-macro-rx"></block></block>
+  <block id="d3846482b7a5f3467b05518965422219" category="section-title">Google Cloud権限</block>
+  <block id="63e458106cb32794874bcfc59dfde10d" category="cell">Cloud ManagerからConnectorを導入するGoogle Cloudユーザには、Google CloudにConnectorを導入するための特定の権限が必要です。</block>
+  <block id="8bbd308345d88bc23fd26357cd36b8d9" category="inline-link-macro">Connectorを展開する権限を設定します</block>
+  <block id="7cc5ce266f83ca6bb61fcf1d69abc989" category="cell"><block ref="7cc5ce266f83ca6bb61fcf1d69abc989" category="inline-link-macro-rx"></block></block>
+  <block id="4615a4ef4e9a2046020762579b463f37" category="cell">Connector VMインスタンスのサービスアカウントには、日常処理に対する特定の権限が必要です。サービスアカウントは、Cloud Managerから導入するときにコネクタに関連付ける必要があります。また、新しい権限が以降のリリースで追加されるときに、ポリシーが最新の状態であることを確認する必要があります。</block>
+  <block id="6f49fc8cf495de2c87fc577f2c62e947" category="inline-link-macro">コネクタのサービスアカウントを設定します</block>
+  <block id="484d2bdec1174d6a3be1f07dd5f249b3" category="cell"><block ref="484d2bdec1174d6a3be1f07dd5f249b3" category="inline-link-macro-rx"></block></block>
+  <block id="124a0238887f0e11fed151d258ffa9a1" category="summary">Cloud ManagerがAzureでConnector VMを起動すると、そのVMにAzureサブスクリプション内のリソースとプロセスを管理するための権限を付与するカスタムロールが割り当てられます。Connectorは、権限を使用して複数のAzureサービスに対してAPI呼び出しを実行します。</block>
+  <block id="9fbcb95374723e2f8d5b7c17a2ece586" category="section-title">カスタムロールの権限</block>
+  <block id="35065a906fcb04c8b9fad94c74ed75b6" category="paragraph">以下のカスタムロールには、Azureネットワーク内のリソースとプロセスを管理するためにConnectorで必要となる権限が含まれています。</block>
+  <block id="78c0255afda922e171f580cd42b43dc8" category="paragraph">Cloud Managerからコネクタを直接作成すると、Cloud Managerはこのカスタムロールをコネクタに自動的に適用します。</block>
+  <block id="83b9ca4036ac15d5479b1b6947eb5d6b" category="paragraph">Azure MarketplaceからConnectorを導入する場合、またはLinuxホストにConnectorを手動でインストールする場合は、カスタムロールを自分で設定する必要があります。</block>
+  <block id="c5078b96055d6b776ee265ca4c7650c2" category="paragraph">また、新しい権限が以降のリリースで追加されるときに、ロールが最新の状態であることを確認する必要があります。</block>
+  <block id="92ec95b8916ebc493b6546010073c81f" category="section-title">Azure権限の使用方法</block>
+  <block id="ab75cfa6ae53348a737404e49985eb65" category="paragraph">新しいバージョンの Connector ソフトウェアが利用可能になると、ソフトウェアはネットアップサポートサイトにアップロードされます。 <block ref="f17f7484922764d58b748b63a8956073" category="inline-link-macro-rx"></block>。</block>
+  <block id="940367e9614507c6040f5fd96db79244" category="summary">Cloud ManagerでAWSでコネクタインスタンスを起動するときに、そのAWSアカウント内のリソースとプロセスを管理するための権限を提供するポリシーがインスタンスに関連付けられます。Connectorでは、権限を使用してAPI呼び出しを実行することで、EC2、S3、CloudFormation、IAM、 キー管理サービスなど。</block>
+  <block id="3c73284cb0936bc8d2c30644f2659e9e" category="paragraph">Cloud ManagerでAWSでコネクタインスタンスを起動するときに、そのAWSアカウント内のリソースとプロセスを管理するための権限を提供するポリシーがインスタンスに関連付けられます。Connectorでは、権限を使用してAPI呼び出しを実行することで、EC2、S3、CloudFormation、IAM、 Key Management Service（KMS；キー管理サービス）など。</block>
+  <block id="4e1f839391e849a6065024e60ace4c38" category="section-title">IAMポリシー</block>
+  <block id="d4d0602f330087eb24859ead29d741c3" category="paragraph">以下のIAMポリシーは、ConnectorがAWSリージョンに基づいてパブリッククラウド環境内のリソースとプロセスを管理するために必要な権限を提供します。</block>
+  <block id="94cdfbdecc16eb6caf53279c011b5b92" category="paragraph">Cloud Managerからコネクタを直接作成すると、Cloud Managerはこのポリシーをコネクタに自動的に適用します。</block>
+  <block id="4862cb85107f653706d201ef95242294" category="paragraph">AWS MarketplaceからConnectorを導入する場合や、LinuxホストにConnectorを手動でインストールする場合は、手動でポリシーを設定する必要があります。</block>
+  <block id="222ddb2f355a49f64fb3858123f2b97b" category="open-title">標準領域</block>
+  <block id="1411debdb32e6b128ca27ec92a708cbd" category="open-title">GovCloud（US）リージョン</block>
+  <block id="a8416eae2db8c97eb943559351fab358" category="open-title">C2S環境</block>
+  <block id="7aeec8e03839d4257ba5f4202385f180" category="paragraph">= AWS権限の使用方法</block>
+  <block id="47a02297a8a7a625b8d56a1bf4ed5dcd" category="paragraph">=== AppTemplateタグ</block>
+  <block id="30ed8b0e985eaba7a7073c132f8cb03b" category="paragraph">==クラウドバックアップ</block>
+  <block id="67d4a69ca3cbae45477957d43a887a02" category="paragraph">===クラウドデータの意味</block>
+  <block id="a30f1c854df5756a9cc0eacb77ef62ce" category="paragraph">==クラウド階層化</block>
+  <block id="d0acc8326b3b20bd03e68cce411bbe59" category="paragraph">== Cloud Volumes ONTAP</block>
+  <block id="ae6217be8cef3f2bfa9e18fc14e3f6e5" category="paragraph">==グローバルファイルキャッシュ</block>
+  <block id="ef78c533302dd923d5ae17d103f26aae" category="paragraph">=== Kubernetes</block>
+  <block id="6686aeeff6eb0de250e6d134bb4b8cd5" category="list-text">の内容をコピーして貼り付け、ポリシーを作成します <block ref="9b22ee86ed2d831066d00816566458ca" category="inline-link-macro-rx"></block>。</block>
+  <block id="f3a061f1a8165759dd31c8b1fe6bda72" category="list-text">IAMコンソールで、の内容をコピーして貼り付け、ポリシーを作成します <block ref="9b22ee86ed2d831066d00816566458ca" category="inline-link-macro-rx"></block>。</block>
+  <block id="3d35bba2e5ea6e739fb94736dc402017" category="inline-link">ONTAP の FSX に必要な権限を表示します</block>
+  <block id="df00618b6e4c6f7fcb9a7fbb4c65b54e" category="list-text"><block ref="df00618b6e4c6f7fcb9a7fbb4c65b54e" category="inline-link-rx"></block></block>
+  <block id="d2ec6bce44b6da11cd78a79db47dd385" category="inline-link-macro">Connector展開ポリシーを表示します</block>
+  <block id="7722e2baf33400aae940b1e2a4e00eea" category="list-text"><block ref="7722e2baf33400aae940b1e2a4e00eea" category="inline-link-macro-rx"></block></block>
+  <block id="af09c9d6553dfbe0021a0452bc11211e" category="list-text">必要な権限を持つIAMロールをCloud Managerで想定します</block>
+  <block id="4964e9eef6df2fe316a2618afd8cd963" category="list-text">必要な権限を持つIAMユーザにAWSアクセスキーとシークレットキーを指定します</block>
+  <block id="176c8e3e6fabfa396e8a23e04654324a" category="paragraph">どちらの方法でも、最初に、必要な権限を含むIAMポリシーを作成する必要があります。</block>
+  <block id="0fdc81bb400ca1e69ba8ff758bfa0311" category="section-title">IAMポリシーを作成します</block>
+  <block id="fc798a3e1f027a96227a1a78228762a2" category="paragraph">このポリシーには、Cloud ManagerからAWSでコネクタインスタンスを起動するために必要な権限のみが含まれています。このポリシーは、他の状況では使用しないでください。</block>
+  <block id="cdbc96d9f51b4a4cc0abf4a8a2d70333" category="paragraph">Cloud Managerがコネクタを作成すると、新しい権限セットがコネクタインスタンスに適用され、コネクタがパブリッククラウド環境内のリソースを管理できるようになります。</block>
+  <block id="1e71ce7defc90d8f5a2c46c08ba968df" category="list-text">AWS IAMコンソールに移動します。</block>
+  <block id="cda6184a38ec01634b0cabf02341cb56" category="list-text">[*Policies]&gt;[Create policy*]をクリックします。</block>
+  <block id="b52a6ab6cdcb340c9e1189b56821ffd8" category="list-text">[*JSON]をクリックします。</block>
+  <block id="26d4a7a50dfbae842d907e3b8000633e" category="list-text">次のポリシーをコピーして貼り付けます。</block>
+  <block id="e46847d94dd6255ac0cabcdc93eed31f" category="list-text">必要に応じて、[次へ]をクリックしてタグを追加します。</block>
+  <block id="83f97720ed2c284e94fe989612d7ae1a" category="list-text">「*次へ*」をクリックし、名前と概要 を入力します。</block>
+  <block id="ab899735d36938b4c6cb8edd18a222e5" category="list-text">［*ポリシーの作成*］をクリックします。</block>
+  <block id="888f9124d143a04d4aba749163e89d0b" category="paragraph">Cloud Managerが権限を持つIAMロールにポリシーを関連付けるか、IAMユーザにポリシーを割り当てます。</block>
+  <block id="dbab690717fb052924566c13e8768748" category="list-text">前のセクションで作成したポリシーを選択します。</block>
+  <block id="4a105ee5824457bca6e51655f62430e8" category="list-text">ロールを作成したら、コネクタの作成時にCloud Managerに貼り付けることができるように、ロールのARNをコピーします。</block>
+  <block id="380aef99fa69053a3675c5cd0a2aaee2" category="list-text">AWS IAMコンソールで、* Users *をクリックしてユーザ名を選択します。</block>
+  <block id="91ae93d60d63596e2482a109b23c1290" category="list-text">[権限の追加]&gt;[既存のポリシーを直接適用する*]をクリックします。</block>
+  <block id="8bcbf62e98416780ffe2095559aba87a" category="list-text">作成したポリシーを選択します。</block>
+  <block id="7480dbf3472d377494469f75467b8989" category="list-text">[*次へ*]をクリックし、[*権限の追加*]をクリックします。</block>
+  <block id="e0704797fef70128c24dd4546bea3df2" category="list-text">Cloud Manager でコネクタ用の IAM ロールが自動的に作成されないようにするには、専用のを作成する必要があります <block ref="33c2e52293a8423cf2f0baa8f297e502" category="inline-link-macro-rx"></block>。</block>
+  <block id="f7f5e7e3e9ba567310782ed8cfddf80c" category="list-text">必要な権限を含む新しいロールを Cloud Manager で作成するか、またはを使用して設定した既存のロールを選択するかを選択します <block ref="8b098a06817becf62c06297dd76999b5" category="inline-link-macro-rx"></block>。</block>
+  <block id="dd35c8de0229dd896078da10fa6ca77d" category="inline-link-macro">GCPのコネクターポリシー</block>
+  <block id="073869152f1998576e0d772f1465dce4" category="list-text"><block ref="b3e2dfdb02c4ef9473e0b3fb573ce75f" category="inline-link-rx"></block> で定義した権限を含むポリシーを作成します <block ref="0557e57dd138b7d2b4d9ced6dcd6f706" category="inline-link-macro-rx"></block>。</block>
+  <block id="7d40e5b2df9f6a487aff23fae4508f3a" category="paragraph">Connectorを展開する前に、Google Cloudアカウントに正しい権限があることを確認する必要があります。</block>
+  <block id="ba705115117b5dcb31d65899295aecf9" category="inline-link">カスタムロールを作成します</block>
+  <block id="0aa183718a32c03ac7cbbaec481079e7" category="list-text"><block ref="096cb47a3a431ca48d961fc1d7d5bf4d" category="inline-link-rx"></block> 次の権限が含まれます。</block>
+  <block id="2753360f5951ababc3a6aa09aa10aae3" category="list-text">Cloud Managerからコネクタを導入するユーザにカスタムロールを割り当てます。</block>
+  <block id="5da55b582cbca296c8d85616607ef88b" category="paragraph">Google Cloudユーザに、Connectorの作成に必要な権限が付与されるようになりました。</block>
+  <block id="e92c53a75d4fe3a5a6d14cc447878464" category="paragraph">Google Cloudでリソースを管理するために必要な権限をConnectorに提供するには、サービスアカウントが必要です。このサービスアカウントは、作成時に Connector VM に関連付けます。</block>
+  <block id="a42abd0896ac3b5a1898196b7b272e89" category="paragraph">サービスアカウントの権限は、前のセクションで設定した権限とは異なります。</block>
+  <block id="a4b90b417735642fce23ce0ce7441ca3" category="paragraph">Connector VMのサービスアカウントが設定されます。</block>
+  <block id="aecabcaa0f622aafe82a445d66cf8ca7" category="inline-link-macro">上記のセクションに記載されている権限</block>
+  <block id="3c011542a6f32f96698424943f4c21db" category="list-text"><block ref="3c011542a6f32f96698424943f4c21db" category="inline-link-macro-rx"></block></block>
+  <block id="e99cec7b008996e3bd5b81e8019e24ba" category="list-text"><block ref="e99cec7b008996e3bd5b81e8019e24ba" category="inline-link-macro-rx"></block></block>
+  <block id="ffeb29f758cf37b9f2c9b599fb609031" category="list-text">このページの最初のセクションで説明した、Google Cloudアカウントに必要な権限。</block>
+  <block id="f56eaa1aab7c91f2f987469fb824ff7a" category="inline-link-macro">必要なAWS権限を確認します</block>
+  <block id="c3eae6aa2c5fdc205f8fa520ed336419" category="list-text"><block ref="c3eae6aa2c5fdc205f8fa520ed336419" category="inline-link-macro-rx"></block></block>
+  <block id="bcccd030f9d90bb330cfffec45ec9788" category="inline-link-macro">必要なAzure権限を確認します</block>
+  <block id="f2917154cd33debbf5c614f3ed8d8432" category="list-text"><block ref="f2917154cd33debbf5c614f3ed8d8432" category="inline-link-macro-rx"></block></block>
+  <block id="e659e5bd7844b3de198ad057241f000c" category="inline-link-macro">必要なGoogle Cloud権限を表示します</block>
+  <block id="0d91890f70b2d05c1f747290c14ff72b" category="list-text"><block ref="0d91890f70b2d05c1f747290c14ff72b" category="inline-link-macro-rx"></block></block>
+  <block id="338a6f193e9988b8f40b3128d5e4ffb7" category="inline-link-macro">ConnectorでのAWS権限の使用方法について説明します</block>
+  <block id="0e4f7db7cba89c0c2240f4376d660bcd" category="list-text"><block ref="0e4f7db7cba89c0c2240f4376d660bcd" category="inline-link-macro-rx"></block></block>
+  <block id="a039d4d02d5241a9510700b22c46787e" category="inline-link-macro">ConnectorでのAzure権限の使用方法について説明します</block>
+  <block id="ed77eaa958b504a128d7cae7dddcc2e8" category="list-text"><block ref="ed77eaa958b504a128d7cae7dddcc2e8" category="inline-link-macro-rx"></block></block>
+  <block id="c642d46c647eb91ef90ede639948cb4e" category="inline-link-macro">ConnectorでのGoogle Cloud権限の使用方法について説明します</block>
+  <block id="e3ab4c013397e346e8f211ff03ac44b2" category="list-text"><block ref="e3ab4c013397e346e8f211ff03ac44b2" category="inline-link-macro-rx"></block></block>
+  <block id="a5ff3790bcaa1d04dae7de637857bb65" category="paragraph">Cloud ManagerでGoogle Cloudの処理を実行するには権限が必要です。これらの権限は、ネットアップが提供するカスタムロールに含まれています。このような権限を持つ Cloud Manager の機能を理解しておく必要があるかもしれません。</block>
+  <block id="6b45b097205607d8631a7d487a76da98" category="section-title">サービスアカウントの権限</block>
+  <block id="7ed95920f3d958d414a782a8af607000" category="paragraph">次のカスタムロールは、ConnectorがGoogle Cloudネットワーク内のリソースとプロセスを管理するために必要な権限を提供します。</block>
+  <block id="60b59d59647a26f17a4decb8cfe7b702" category="inline-link-macro">ステップバイステップの手順を確認します</block>
+  <block id="ae81c7a36dd08cf53ecb511b4f9f0335" category="paragraph">このカスタムロールは、Connector VMに関連付けられているサービスアカウントに適用する必要があります。 <block ref="1d7f634038d3d5655a7471210f5f8839" category="inline-link-macro-rx"></block>。</block>
+  <block id="823b2e7894c2b52c1e9adc9ea10b9be5" category="section-title">Google Cloud権限の使用方法</block>
+  <block id="a4f605cd0aab29ee5fb50f28627cef5d" category="sidebar">権限の概要</block>
 </blocks>

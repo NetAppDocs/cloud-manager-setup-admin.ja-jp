@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: reference-permissions.html 
+keywords: permissions, actions 
+summary: Cloud Managerの機能やサービスを使用するには、Cloud Managerがクラウド環境で処理を実行できるように、権限を付与する必要があります。このページのリンクを使用して、Cloud Managerで必要な権限に簡単にアクセスできます。 
+---
+= Cloud Managerの権限の概要
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Managerの機能やサービスを使用するには、Cloud Managerがクラウド環境で処理を実行できるように、権限を付与する必要があります。このページのリンクを使用して、目的に応じて必要な権限にすばやくアクセスできます。
+
+
+
+== AWS権限
+
+[cols="25,60,40"]
+|===
+| 目的 | 説明 | リンク 
+
+
+| コネクタの展開 | Cloud Managerからコネクタを作成するユーザには、AWSにインスタンスを導入するための特定の権限が必要です。 | link:task-creating-connectors-aws.html["Cloud Manager から AWS にコネクタを作成します"] 
+
+
+| コネクタの動作 | Cloud Managerでコネクタを起動すると、AWSアカウントのリソースとプロセスの管理に必要な権限を提供するポリシーがインスタンスに適用されます。その場合は、自分でポリシーを設定する必要があります link:task-launching-aws-mktp.html["マーケットプレイスからコネクターを起動します"] またはあなたの場合 link:task-adding-aws-accounts.html#add-credentials-to-a-connector["AWSクレデンシャルをコネクタに追加します"]。また、新しい権限が以降のリリースで追加されるときに、ポリシーが最新の状態であることを確認する必要があります。 | link:reference-permissions-aws.html["Connector の AWS 権限"] 
+
+
+| Cloud Volumes ONTAP 処理 | AWSの各Cloud Volumes ONTAP ノードにIAMロールを関連付ける必要があります。HAメディエーターについても同様です。デフォルトでは、Cloud ManagerでIAMロールを作成することもできますが、独自のIAMロールを使用することもできます。 | https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html["IAMロールを自分で設定する方法について説明します"^] 
+|===
+
+
+== Azure権限
+
+[cols="25,60,40"]
+|===
+| 目的 | 説明 | リンク 
+
+
+| コネクタの展開 | Cloud ManagerからConnectorを導入する場合は、Connector VMをAzureに導入する権限を持つAzureアカウントまたはサービスプリンシパルを使用する必要があります。 | link:task-creating-connectors-azure.html["Cloud Manager から Azure にコネクタを作成します"] 
+
+
+| コネクタの動作  a| 
+Cloud ManagerがConnector VMをAzureに導入すると、そのAzureサブスクリプション内でリソースとプロセスを管理するために必要な権限を提供するカスタムロールが作成されます。
+
+カスタムロールは自分で設定する必要があります link:task-launching-azure-mktp.html["マーケットプレイスからコネクターを起動します"] またはあなたの場合 link:task-adding-azure-accounts.html#adding-additional-azure-credentials-to-cloud-manager["Azureクレデンシャルをコネクタに追加します"]。
+
+また、新しい権限が以降のリリースで追加されるときに、ポリシーが最新の状態であることを確認する必要があります。
+ a| 
+link:reference-permissions-azure.html["Connector の Azure 権限"]
+
+|===
+
+
+== Google Cloud権限
+
+[cols="25,60,40"]
+|===
+| 目的 | 説明 | リンク 
+
+
+| コネクタの展開 | Cloud ManagerからConnectorを導入するGoogle Cloudユーザには、Google CloudにConnectorを導入するための特定の権限が必要です。 | link:task-creating-connectors-gcp.html#set-up-permissions-to-deploy-the-connector["Connectorを展開する権限を設定します"] 
+
+
+| コネクタの動作 | Connector VMインスタンスのサービスアカウントには、日常処理に対する特定の権限が必要です。サービスアカウントは、Cloud Managerから導入するときにコネクタに関連付ける必要があります。また、新しい権限が以降のリリースで追加されるときに、ポリシーが最新の状態であることを確認する必要があります。 | link:task-creating-connectors-gcp.html#set-up-a-service-account-for-the-connector["コネクタのサービスアカウントを設定します"] 
+|===

@@ -81,9 +81,9 @@ image:screenshot_set_up_cloud_manager.gif["Cloud Manager のセットアップ�
 Azure にコネクタを導入したら、を有効にしておく必要があります https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["システムによって割り当てられた管理 ID"^]。カスタムロールを作成し、そのロールを Connector 仮想マシンに割り当てて、 1 つ以上のサブスクリプションに必要な Azure 権限を付与する必要があります。
 
 .手順
-. Cloud Manager ポリシーを使用してカスタムロールを作成します。
+. カスタムロールを作成します。
 +
-.. をダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Azure ポリシー"^]。
+.. の内容をコピーします link:reference-permissions-azure.html["Connectorのカスタムロールの権限"] JSONファイルに保存します。
 .. 割り当て可能なスコープに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。
 +
 ユーザが Cloud Volumes ONTAP システムを作成する Azure サブスクリプションごとに ID を追加する必要があります。
@@ -92,17 +92,33 @@ Azure にコネクタを導入したら、を有効にしておく必要があ�
 * 例 *
 
 +
-「譲渡対象」：「 / 契約 / D333AF45-0D07-4154-943D-C25FBZZZZ 」、「 / 契約 / 契約 /54B91999-B3E6-4599-908E-416E0ZZZZ 」、「 / 契約 /E471C-3B42-4AE7-9B59-CE5BBZZZZ 」
-
+[source, json]
+----
+"AssignableScopes": [
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"
+----
 .. JSON ファイルを使用して、 Azure でカスタムロールを作成します。
 +
-次の例は、 Azure CLI 2.0 を使用してカスタムロールを作成する方法を示しています。
+次の手順は、 Azure Cloud Shell で Bash を使用してロールを作成する方法を示しています。
 
 +
-「 AZ role definition create -- role-definition C ： \Policy_for _cloud_Manager_azure_3.9.8.json
+*** 開始 https://docs.microsoft.com/en-us/azure/cloud-shell/overview["Azure Cloud Shell の略"^] Bash 環境を選択します。
+*** JSON ファイルをアップロードします。
++
+image:screenshot_azure_shell_upload.png["ファイルをアップロードするオプションを選択できる Azure Cloud Shell のスクリーンショット。"]
 
+*** Azure CLI で次のコマンドを入力します。
++
+[source, azurecli]
+----
+az role definition create --role-definition Policy_for_Setup_As_Service_Azure.json
+----
 +
 これで、 Connector 仮想マシンに割り当てることができる Cloud Manager Operator というカスタムロールが作成されます。
+
+
 
 
 
@@ -113,7 +129,7 @@ Azure にコネクタを導入したら、を有効にしておく必要があ�
 .. [* 役割 ] タブで、 * Cloud Manager Operator * 役割を選択し、 * Next * をクリックします。
 +
 
-NOTE: Cloud Manager Operator は、で指定されたデフォルトの名前です https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"]。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
+NOTE: Cloud Manager Operatorは、Cloud Managerポリシーで指定されるデフォルトの名前です。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
 
 .. [* Members* （メンバー * ） ] タブで、次の手順を実行します。
 +

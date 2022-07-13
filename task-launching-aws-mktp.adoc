@@ -17,13 +17,9 @@ summary: Cloud Manager からコネクタを直接作成することを推奨し
 Cloud Manager からコネクタを直接作成することを推奨します。 AWS アクセスキーを指定しない場合は、 AWS Marketplace からコネクタを起動できます。Connector の作成とセットアップが完了すると、新しい作業環境を作成するときに、 Cloud Manager によって自動的に Connector が使用されます。
 
 .手順
-. EC2 インスタンス用の IAM ポリシーとロールを作成します。
+. AWSで権限を設定します。
 +
-.. 次のサイトから Cloud Manager IAM ポリシーをダウンロードします。
-+
-https://mysupport.netapp.com/site/info/cloud-manager-policies["NetApp Cloud Manager ： AWS 、 Azure 、 GCP ポリシー"^]
-
-.. IAM コンソールから、 Cloud Manager IAM ポリシーからテキストをコピーアンドペーストして、独自のポリシーを作成します。
+.. IAMコンソールで、の内容をコピーして貼り付け、独自のポリシーを作成します link:reference-permissions-aws.html["コネクタのIAMポリシー"]。
 .. ロールタイプが Amazon EC2 の IAM ロールを作成し、前の手順で作成したポリシーをロールに付加します。
 
 

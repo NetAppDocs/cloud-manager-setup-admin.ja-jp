@@ -102,6 +102,8 @@ sidebar:
       url: "/task-adding-nss-accounts.html"
   - title: 参照
     entries:
+    - title: 権限の概要
+      url: "/reference-permissions.html"
     - title: Connector の AWS 権限
       url: "/reference-permissions-aws.html"
     - title: Connector の Azure 権限

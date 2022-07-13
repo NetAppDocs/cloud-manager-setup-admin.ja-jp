@@ -115,4 +115,4 @@ image:screenshot-onprem-darksite-details.png["System Details ページのスク�
 * https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-dark-site.html["クラウドデータセンスを使用してオンプレミスのONTAP ボリュームデータをスキャン"^]
 
 
-新しいバージョンの Connector ソフトウェアが利用可能になると、ソフトウェアはネットアップサポートサイトにアップロードされます。 link:task-managing-connectors.html["コネクタをアップグレードする方法について説明します"]。
+新しいバージョンの Connector ソフトウェアが利用可能になると、ソフトウェアはネットアップサポートサイトにアップロードされます。 link:task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["コネクタをアップグレードする方法について説明します"]。

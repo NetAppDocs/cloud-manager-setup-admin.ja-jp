@@ -40,7 +40,7 @@ Cloud Manager では、 Cloud Volumes ONTAP を導入する Azure クレデン�
 *** Cloud Manager Operator * ロールを選択します。
 +
 
-NOTE: Cloud Manager Operator は、で指定されたデフォルトの名前です https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"]。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
+NOTE: Cloud Manager Operatorは、コネクタポリシーで指定されるデフォルトの名前です。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
 
 *** 仮想マシン * へのアクセスを割り当てます。
 *** Connector 仮想マシンが作成されたサブスクリプションを選択します。
@@ -120,12 +120,10 @@ AD アプリケーションとサービスプリンシパルを作成してお�
 Azure で Cloud Manager に権限を付与するには、サービスプリンシパルを 1 つ以上の Azure サブスクリプションにバインドし、カスタムの「 OnCommand Cloud Manager Operator 」ロールを割り当てる必要があります。
 
 .手順
-. をダウンロードします https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Azure ポリシー"^]。
+. カスタムロールを作成します。
 +
-
-TIP: リンクを右クリックし、 [ 名前を付けてリンクを保存 ...] をクリックしてファイルをダウンロードする。
-
-. 割り当て可能なスコープに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。
+.. の内容をコピーします link:reference-permissions-azure.html["Connectorのカスタムロールの権限"] JSONファイルに保存します。
+.. 割り当て可能なスコープに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。
 +
 ユーザが Cloud Volumes ONTAP システムを作成する Azure サブスクリプションごとに ID を追加する必要があります。
 
@@ -140,26 +138,28 @@ TIP: リンクを右クリックし、 [ 名前を付けてリンクを保存 ..
 "/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",
 "/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"
 ----
-. JSON ファイルを使用して、 Azure でカスタムロールを作成します。
+.. JSON ファイルを使用して、 Azure でカスタムロールを作成します。
 +
 次の手順は、 Azure Cloud Shell で Bash を使用してロールを作成する方法を示しています。
 
 +
-.. 開始 https://docs.microsoft.com/en-us/azure/cloud-shell/overview["Azure Cloud Shell の略"^] Bash 環境を選択します。
-.. JSON ファイルをアップロードします。
+*** 開始 https://docs.microsoft.com/en-us/azure/cloud-shell/overview["Azure Cloud Shell の略"^] Bash 環境を選択します。
+*** JSON ファイルをアップロードします。
 +
 image:screenshot_azure_shell_upload.png["ファイルをアップロードするオプションを選択できる Azure Cloud Shell のスクリーンショット。"]
 
-.. Azure CLI で次のコマンドを入力します。
+*** Azure CLI で次のコマンドを入力します。
 +
 [source, azurecli]
 ----
-az role definition create --role-definition Policy_for_cloud_Manager_Azure_3.9.8.json
+az role definition create --role-definition Policy_for_Setup_As_Service_Azure.json
 ----
-
-
 +
-これで、 _Cloud Manager Operator _ という名前のカスタムロールが作成されます。
+これで、 Connector 仮想マシンに割り当てることができる Cloud Manager Operator というカスタムロールが作成されます。
+
+
+
+
 
 . ロールにアプリケーションを割り当てます。
 +

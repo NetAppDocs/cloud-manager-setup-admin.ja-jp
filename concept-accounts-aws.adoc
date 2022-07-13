@@ -20,7 +20,7 @@ Cloud Manager では、 Cloud Volumes ONTAP の導入時に使用する AWS ク�
 
 == AWS の初期クレデンシャル
 
-Cloud Manager からコネクタを導入する場合は、 IAM ロールの ARN または IAM ユーザのアクセスキーを指定する必要があります。使用する認証方式に、 Connector インスタンスを AWS に導入するための必要な権限がある必要があります。必要な権限は、に表示されます https://mysupport.netapp.com/site/info/cloud-manager-policies["AWS 用のコネクタ導入ポリシー"^]。
+Cloud Manager からコネクタを導入する場合は、 IAM ロールの ARN または IAM ユーザのアクセスキーを指定する必要があります。使用する認証方式に、 Connector インスタンスを AWS に導入するための必要な権限がある必要があります。必要な権限は、に表示されます link:task-creating-connectors-aws.html["AWS 用のコネクタ導入ポリシー"]。
 
 Cloud Manager が AWS でコネクタインスタンスを起動すると、インスタンス用の IAM ロールとインスタンスプロファイルが作成されます。また、ポリシーを適用して、指定した AWS アカウント内のリソースやプロセスを管理する権限を Connector に提供します。 link:reference-permissions-aws.html["Cloud Manager での権限の使用方法を確認します。"]。
 
