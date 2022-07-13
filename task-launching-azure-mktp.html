@@ -699,6 +699,8 @@
 
 
 
+
+
         </li>
       </ul>
     
@@ -877,7 +879,9 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参照</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions.html">
+        権限の概要
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
         Connector の AWS 権限
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-azure.html">
         Connector の Azure 権限
@@ -961,7 +965,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 00:00:14 +0000">05/03/2022</time>
+    <time datetime="2022-07-13 19:40:54 +0000">07/13/2022</time>
     
   
 
@@ -1079,11 +1083,11 @@
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>Cloud Manager ポリシーを使用してカスタムロールを作成します。</p>
+<p>カスタムロールを作成します。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>をダウンロードします <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager Azure ポリシー"</a>。</p>
+<p>の内容をコピーします <a href="reference-permissions-azure.html">"Connectorのカスタムロールの権限"</a> JSONファイルに保存します。</p>
 </li>
 <li>
 <p>割り当て可能なスコープに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。</p>
@@ -1097,23 +1101,46 @@
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>「譲渡対象」：「 / 契約 / D333AF45-0D07-4154-943D-C25FBZZZZ 」、「 / 契約 / 契約 /54B91999-B3E6-4599-908E-416E0ZZZZ 」、「 / 契約 /E471C-3B42-4AE7-9B59-CE5BBZZZZ 」</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"AssignableScopes": [
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"</code></pre>
+</div>
 </div>
 </li>
 <li>
 <p>JSON ファイルを使用して、 Azure でカスタムロールを作成します。</p>
 <div class="paragraph">
-<p>次の例は、 Azure CLI 2.0 を使用してカスタムロールを作成する方法を示しています。</p>
+<p>次の手順は、 Azure Cloud Shell で Bash を使用してロールを作成する方法を示しています。</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>開始 <a href="https://docs.microsoft.com/en-us/azure/cloud-shell/overview" target="_blank" rel="noopener">"Azure Cloud Shell の略"</a> Bash 環境を選択します。</p>
+</li>
+<li>
+<p>JSON ファイルをアップロードします。</p>
 <div class="paragraph">
-<p>「 AZ role definition create&#8201;&#8212;&#8201;role-definition C ： \Policy_for _cloud_Manager_azure_3.9.8.json</p>
+<p><span class="image"><img src="./media/screenshot_azure_shell_upload.png" alt="ファイルをアップロードするオプションを選択できる Azure Cloud Shell のスクリーンショット。"></span></p>
 </div>
 </li>
-</ol>
+<li>
+<p>Azure CLI で次のコマンドを入力します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-azurecli" data-lang="azurecli">az role definition create --role-definition Policy_for_Setup_As_Service_Azure.json</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>これで、 Connector 仮想マシンに割り当てることができる Cloud Manager Operator というカスタムロールが作成されます。</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
 </div>
 </li>
 <li>
@@ -1135,7 +1162,7 @@
 <img src="/us-en/cloud-manager-setup-admin/images/note.svg" alt="注記">
 </td>
 <td class="content">
-Cloud Manager Operator は、で指定されたデフォルトの名前です <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies">"Cloud Manager ポリシー"</a>。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
+Cloud Manager Operatorは、Cloud Managerポリシーで指定されるデフォルトの名前です。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
 </td>
 </tr>
 </table>

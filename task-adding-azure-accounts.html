@@ -699,6 +699,8 @@
 
 
 
+
+
         </li>
       </ul>
     
@@ -877,7 +879,9 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参照</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions.html">
+        権限の概要
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
         Connector の AWS 権限
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-azure.html">
         Connector の Azure 権限
@@ -961,7 +965,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:25:30 +0000">04/14/2022</time>
+    <time datetime="2022-07-13 19:40:54 +0000">07/13/2022</time>
     
   
 
@@ -1023,7 +1027,7 @@
 <img src="/us-en/cloud-manager-setup-admin/images/note.svg" alt="注記">
 </td>
 <td class="content">
-Cloud Manager Operator は、で指定されたデフォルトの名前です <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies">"Cloud Manager ポリシー"</a>。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
+Cloud Manager Operatorは、コネクタポリシーで指定されるデフォルトの名前です。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
 </td>
 </tr>
 </table>
@@ -1169,19 +1173,11 @@ Cloud Manager Operator は、で指定されたデフォルトの名前です <a
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>をダウンロードします <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager Azure ポリシー"</a>。</p>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-setup-admin/images/tip.svg" alt="ヒント">
-</td>
-<td class="content">
-リンクを右クリックし、 [ 名前を付けてリンクを保存 &#8230;&#8203;] をクリックしてファイルをダウンロードする。
-</td>
-</tr>
-</table>
-</div>
+<p>カスタムロールを作成します。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>の内容をコピーします <a href="reference-permissions-azure.html">"Connectorのカスタムロールの権限"</a> JSONファイルに保存します。</p>
 </li>
 <li>
 <p>割り当て可能なスコープに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。</p>
@@ -1209,8 +1205,8 @@ Cloud Manager Operator は、で指定されたデフォルトの名前です <a
 <div class="paragraph">
 <p>次の手順は、 Azure Cloud Shell で Bash を使用してロールを作成する方法を示しています。</p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<div class="ulist">
+<ul>
 <li>
 <p>開始 <a href="https://docs.microsoft.com/en-us/azure/cloud-shell/overview" target="_blank" rel="noopener">"Azure Cloud Shell の略"</a> Bash 環境を選択します。</p>
 </li>
@@ -1224,14 +1220,17 @@ Cloud Manager Operator は、で指定されたデフォルトの名前です <a
 <p>Azure CLI で次のコマンドを入力します。</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-azurecli" data-lang="azurecli">az role definition create --role-definition Policy_for_cloud_Manager_Azure_3.9.8.json</code></pre>
+<pre class="highlight"><code class="language-azurecli" data-lang="azurecli">az role definition create --role-definition Policy_for_Setup_As_Service_Azure.json</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>これで、 Connector 仮想マシンに割り当てることができる Cloud Manager Operator というカスタムロールが作成されます。</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>これで、 _Cloud Manager Operator _ という名前のカスタムロールが作成されます。</p>
 </div>
 </li>
 <li>

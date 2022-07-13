@@ -699,6 +699,8 @@
 
 
 
+
+
         </li>
       </ul>
     
@@ -877,7 +879,9 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参照</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions.html">
+        権限の概要
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
         Connector の AWS 権限
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-azure.html">
         Connector の Azure 権限
@@ -961,7 +965,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:25:30 +0000">04/14/2022</time>
+    <time datetime="2022-07-13 19:40:54 +0000">07/13/2022</time>
     
   
 
@@ -975,17 +979,11 @@
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>EC2 インスタンス用の IAM ポリシーとロールを作成します。</p>
+<p>AWSで権限を設定します。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>次のサイトから Cloud Manager IAM ポリシーをダウンロードします。</p>
-<div class="paragraph">
-<p><a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"NetApp Cloud Manager ： AWS 、 Azure 、 GCP ポリシー"</a></p>
-</div>
-</li>
-<li>
-<p>IAM コンソールから、 Cloud Manager IAM ポリシーからテキストをコピーアンドペーストして、独自のポリシーを作成します。</p>
+<p>IAMコンソールで、の内容をコピーして貼り付け、独自のポリシーを作成します <a href="reference-permissions-aws.html">"コネクタのIAMポリシー"</a>。</p>
 </li>
 <li>
 <p>ロールタイプが Amazon EC2 の IAM ロールを作成し、前の手順で作成したポリシーをロールに付加します。</p>

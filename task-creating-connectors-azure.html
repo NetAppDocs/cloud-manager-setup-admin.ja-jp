@@ -699,6 +699,8 @@
 
 
 
+
+
         </li>
       </ul>
     
@@ -877,7 +879,9 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参照</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions.html">
+        権限の概要
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
         Connector の AWS 権限
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-azure.html">
         Connector の Azure 権限
@@ -961,7 +965,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:25:30 +0000">04/14/2022</time>
+    <time datetime="2022-07-13 19:40:54 +0000">07/13/2022</time>
     
   
 
@@ -978,18 +982,6 @@
 </div>
 <div class="paragraph">
 <p>これらの手順は、 Account Admin ロールを持つユーザが実行する必要があります。ワークスペース管理者はコネクタを作成できません。</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-setup-admin/images/tip.svg" alt="ヒント">
-</td>
-<td class="content">
-最初の Cloud Volumes ONTAP 作業環境を作成する際、まだコネクタがない場合は、 Cloud Manager からコネクタの作成を求められます。
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -1021,7 +1013,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="azure-のリージョンに関する注意">Azure のリージョンに関する注意</h2>
+<h2 id="azureリージョンに関するメモ">Azureリージョンに関するメモ</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります <a href="https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies" target="_blank" rel="noopener">"Azure リージョンペア"</a> Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html" target="_blank" rel="noopener">"Cloud Volumes ONTAP での Azure プライベートリンクの使用方法をご確認ください"</a>。</p>
@@ -1043,22 +1035,92 @@
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>をダウンロードします <a href="https://s3.amazonaws.com/occm-sample-policies/Policy_for_Setup_As_Service_Azure.json" target="_blank" rel="noopener">"コネクタの Azure ポリシー"</a>。</p>
-<div class="admonitionblock tip">
+<p>Azureの新しいカスタムロールに必要な権限をコピーし、JSONファイルに保存します。</p>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<img src="/us-en/cloud-manager-setup-admin/images/tip.svg" alt="ヒント">
+<img src="/us-en/cloud-manager-setup-admin/images/note.svg" alt="注記">
 </td>
 <td class="content">
-リンクを右クリックし、 [ 名前を付けてリンクを保存 &#8230;&#8203;] をクリックしてファイルをダウンロードする。
+このポリシーには、Cloud ManagerからAzureでConnector VMを起動するために必要な権限のみが含まれています。このポリシーは、他の状況では使用しないでください。Cloud Managerは、コネクタの作成時にConnector VMに新しい権限セットを適用します。これにより、コネクタはパブリッククラウド環境内のリソースを管理できます。
 </td>
 </tr>
 </table>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Name": "Azure SetupAsService",
+    "Actions": [
+        "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/write",
+        "Microsoft.Compute/locations/operations/read",
+        "Microsoft.Compute/operations/read",
+        "Microsoft.Compute/virtualMachines/instanceView/read",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/virtualMachines/write",
+        "Microsoft.Compute/virtualMachines/delete",
+        "Microsoft.Compute/virtualMachines/extensions/write",
+        "Microsoft.Compute/virtualMachines/extensions/read",
+        "Microsoft.Compute/availabilitySets/read",
+        "Microsoft.Network/locations/operationResults/read",
+        "Microsoft.Network/locations/operations/read",
+        "Microsoft.Network/networkInterfaces/join/action",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/write",
+        "Microsoft.Network/networkInterfaces/delete",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/networkSecurityGroups/read",
+        "Microsoft.Network/networkSecurityGroups/write",
+        "Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/virtualMachines/read",
+        "Microsoft.Network/virtualNetworks/virtualMachines/read",
+        "Microsoft.Network/publicIPAddresses/write",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/publicIPAddresses/delete",
+        "Microsoft.Network/networkSecurityGroups/securityRules/read",
+        "Microsoft.Network/networkSecurityGroups/securityRules/write",
+        "Microsoft.Network/networkSecurityGroups/securityRules/delete",
+        "Microsoft.Network/publicIPAddresses/join/action",
+        "Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read",
+        "Microsoft.Network/networkInterfaces/ipConfigurations/read",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/resources/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/delete",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/resources/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Authorization/roleDefinitions/write",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read",
+        "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write",
+        "Microsoft.Network/networkSecurityGroups/delete",
+        "Microsoft.Storage/storageAccounts/delete",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/operationStatuses/read",
+        "Microsoft.Authorization/roleAssignments/read"
+    ],
+    "NotActions": [],
+    "AssignableScopes": [],
+    "Description": "Azure SetupAsService",
+    "IsCustom": "true"
+}</code></pre>
+</div>
+</div>
 </li>
 <li>
-<p>JSON ファイルを変更して、割り当て可能な範囲に Azure サブスクリプション ID を追加します。</p>
+<p>JSONを変更して、割り当て可能な範囲にAzureサブスクリプションIDを追加します。</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1127,7 +1189,7 @@
 <img src="/us-en/cloud-manager-setup-admin/images/note.svg" alt="注記">
 </td>
 <td class="content">
-Azure SetupAsService は、で指定されているデフォルトの名前です <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Azure の Connector 導入ポリシー"</a>。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
+Azure SetupAsServiceは、Azureのコネクタ導入ポリシーで指定されているデフォルトの名前です。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
 </td>
 </tr>
 </table>
@@ -1172,7 +1234,7 @@ Azure SetupAsService は、で指定されているデフォルトの名前で�
 <p>選択した Azure リージョン内の VNet およびサブネット</p>
 </li>
 <li>
-<p>Cloud Manager で Connector 用の Azure ロールが自動的に作成されないようにするには、独自のを作成する必要があります <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.9.12.json" target="_blank" rel="noopener">"使用するポリシー"</a>。</p>
+<p>Cloud Manager で Connector 用の Azure ロールが自動的に作成されないようにするには、独自のを作成する必要があります <a href="reference-permissions-azure.html">"このページのポリシーを使用する"</a>。</p>
 <div class="paragraph">
 <p>これらの権限はコネクタインスタンス自体に適用されます。これは、以前にコネクタを展開するように設定したアクセス権とは異なります。</p>
 </div>
@@ -1230,7 +1292,7 @@ Azure SetupAsService は、で指定されているデフォルトの名前で�
 <p>* VM 認証 * ： Azure サブスクリプション、場所、新しいリソースグループ、または既存のリソースグループを選択し、認証方法を選択します。</p>
 </li>
 <li>
-<p>* 詳細 * ：インスタンスの名前を入力し、タグを指定し、必要な権限を持つ新しいロールを Cloud Manager で作成するか、で設定した既存のロールを選択するかを選択します <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.9.12.json" target="_blank" rel="noopener">"必要な権限"</a>。</p>
+<p>* 詳細 * ：インスタンスの名前を入力し、タグを指定し、必要な権限を持つ新しいロールを Cloud Manager で作成するか、で設定した既存のロールを選択するかを選択します <a href="reference-permissions-azure.html">"必要な権限"</a>。</p>
 <div class="paragraph">
 <p>このロールに関連付けられているサブスクリプションを選択できます。選択した各サブスクリプションには、 Cloud Volumes ONTAP をこれらのサブスクリプションに導入するための権限が Connector に付与されます。</p>
 </div>
@@ -1361,18 +1423,88 @@ Azure SetupAsService は、で指定されているデフォルトの名前で�
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>をダウンロードします <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Azure の Connector 導入ポリシー"</a>。</p>
-<div class="admonitionblock tip">
+<p>Azureの新しいカスタムロールに必要な権限をコピーし、JSONファイルに保存します。</p>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<img src="/us-en/cloud-manager-setup-admin/images/tip.svg" alt="ヒント">
+<img src="/us-en/cloud-manager-setup-admin/images/note.svg" alt="注記">
 </td>
 <td class="content">
-リンクを右クリックし、 [ 名前を付けてリンクを保存 &#8230;&#8203;] をクリックしてファイルをダウンロードする。
+このポリシーには、Cloud ManagerからAzureでConnector VMを起動するために必要な権限のみが含まれています。このポリシーは、他の状況では使用しないでください。Cloud Managerは、コネクタの作成時にConnector VMに新しい権限セットを適用します。これにより、コネクタはパブリッククラウド環境内のリソースを管理できます。
 </td>
 </tr>
 </table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Name": "Azure SetupAsService",
+    "Actions": [
+        "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/write",
+        "Microsoft.Compute/locations/operations/read",
+        "Microsoft.Compute/operations/read",
+        "Microsoft.Compute/virtualMachines/instanceView/read",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/virtualMachines/write",
+        "Microsoft.Compute/virtualMachines/delete",
+        "Microsoft.Compute/virtualMachines/extensions/write",
+        "Microsoft.Compute/virtualMachines/extensions/read",
+        "Microsoft.Compute/availabilitySets/read",
+        "Microsoft.Network/locations/operationResults/read",
+        "Microsoft.Network/locations/operations/read",
+        "Microsoft.Network/networkInterfaces/join/action",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/write",
+        "Microsoft.Network/networkInterfaces/delete",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/networkSecurityGroups/read",
+        "Microsoft.Network/networkSecurityGroups/write",
+        "Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/virtualMachines/read",
+        "Microsoft.Network/virtualNetworks/virtualMachines/read",
+        "Microsoft.Network/publicIPAddresses/write",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/publicIPAddresses/delete",
+        "Microsoft.Network/networkSecurityGroups/securityRules/read",
+        "Microsoft.Network/networkSecurityGroups/securityRules/write",
+        "Microsoft.Network/networkSecurityGroups/securityRules/delete",
+        "Microsoft.Network/publicIPAddresses/join/action",
+        "Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read",
+        "Microsoft.Network/networkInterfaces/ipConfigurations/read",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/resources/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/delete",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/resources/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Authorization/roleDefinitions/write",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read",
+        "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write",
+        "Microsoft.Network/networkSecurityGroups/delete",
+        "Microsoft.Storage/storageAccounts/delete",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/operationStatuses/read",
+        "Microsoft.Authorization/roleAssignments/read"
+    ],
+    "NotActions": [],
+    "AssignableScopes": [],
+    "Description": "Azure SetupAsService",
+    "IsCustom": "true"
+}</code></pre>
+</div>
 </div>
 </li>
 <li>
@@ -1588,7 +1720,7 @@ Azure SetupAsService は、で指定されているデフォルトの名前で�
 <p>選択した Azure リージョン内の VNet およびサブネット</p>
 </li>
 <li>
-<p>Cloud Manager で Connector 用の Azure ロールが自動的に作成されないようにするには、独自のを作成する必要があります <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.9.12.json" target="_blank" rel="noopener">"使用するポリシー"</a>。</p>
+<p>Cloud Manager で Connector 用の Azure ロールが自動的に作成されないようにするには、独自のを作成する必要があります <a href="reference-permissions-azure.html">"このページのポリシーを使用する"</a>。</p>
 <div class="paragraph">
 <p>これらの権限はコネクタインスタンス自体に適用されます。これは、以前にコネクタを展開するように設定したアクセス権とは異なります。</p>
 </div>
@@ -1619,7 +1751,8 @@ Azure SetupAsService は、で指定されているデフォルトの名前で�
 <ul>
 <li>
 <p>* Get Ready * ： * Azure AD サービスプリンシパル * をクリックし、必要な権限を付与する Azure Active Directory サービスプリンシパルに関する情報を入力します。</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>アプリケーション（クライアント） ID ：を参照してください <a href="#Get the application ID and directory ID">[Get the application ID and directory ID]</a>。</p>
 </li>
@@ -1629,11 +1762,14 @@ Azure SetupAsService は、で指定されているデフォルトの名前で�
 <li>
 <p>クライアントシークレット：を参照してください <a href="#Create a client secret">[Create a client secret]</a>。</p>
 </li>
+</ul>
+</div>
+</li>
 <li>
 <p>* VM 認証 * ： Azure サブスクリプション、場所、新しいリソースグループ、または既存のリソースグループを選択し、認証方法を選択します。</p>
 </li>
 <li>
-<p>* 詳細 * ：インスタンスの名前を入力し、タグを指定し、必要な権限を持つ新しいロールを Cloud Manager で作成するか、で設定した既存のロールを選択するかを選択します <a href="https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.9.12.json" target="_blank" rel="noopener">"必要な権限"</a>。</p>
+<p>* 詳細 * ：インスタンスの名前を入力し、タグを指定し、必要な権限を持つ新しいロールを Cloud Manager で作成するか、で設定した既存のロールを選択するかを選択します <a href="reference-permissions-azure.html">"必要な権限"</a>。</p>
 <div class="paragraph">
 <p>このロールに関連付けられているサブスクリプションを選択できます。選択した各サブスクリプションには、 Cloud Volumes ONTAP をこれらのサブスクリプションに導入するための権限が Connector に付与されます。</p>
 </div>

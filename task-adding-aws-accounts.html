@@ -699,6 +699,8 @@
 
 
 
+
+
         </li>
       </ul>
     
@@ -877,7 +879,9 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参照</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions.html">
+        権限の概要
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-aws.html">
         Connector の AWS 権限
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-permissions-azure.html">
         Connector の Azure 権限
@@ -961,7 +965,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-07-03 15:52:18 +0000">07/03/2022</time>
+    <time datetime="2022-07-13 19:40:54 +0000">07/13/2022</time>
     
   
 
@@ -1080,7 +1084,7 @@ Cloud Manager からコネクタを導入すると、 Cloud Manager はコネク
 <p>別の AWS アカウント * を選択し、コネクタインスタンスが存在するアカウントの ID を入力します。</p>
 </li>
 <li>
-<p>から入手できる Cloud Manager IAM ポリシーを使用してポリシーを作成します <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager Policies ページ"</a>。</p>
+<p>の内容をコピーして貼り付け、ポリシーを作成します <a href="reference-permissions-aws.html">"コネクタのIAMポリシー"</a>。</p>
 </li>
 </ul>
 </div>
@@ -1103,10 +1107,7 @@ Cloud Manager からコネクタを導入すると、 Cloud Manager はコネク
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>から Cloud Manager IAM ポリシーをダウンロードします <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager Policies ページ"</a>。</p>
-</li>
-<li>
-<p>IAM コンソールから、 Cloud Manager IAM ポリシーからテキストをコピーアンドペーストして、独自のポリシーを作成します。</p>
+<p>IAMコンソールで、の内容をコピーして貼り付け、ポリシーを作成します <a href="reference-permissions-aws.html">"コネクタのIAMポリシー"</a>。</p>
 <div class="paragraph">
 <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html" target="_blank" rel="noopener">"AWS のドキュメント：「 Creating IAM Policies"</a></p>
 </div>
@@ -1216,8 +1217,15 @@ Cloud Manager からコネクタを導入すると、 Cloud Manager はコネク
 </li>
 <li>
 <p>コネクタの作成に必要な権限を含むポリシーを作成します。</p>
-<div class="paragraph">
-<p>から Connector 展開ポリシーを表示します <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager Policies ページ"</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/requirements/task-setting-up-permissions-fsx.html" target="_blank" rel="noopener">"ONTAP の FSX に必要な権限を表示します"</a></p>
+</li>
+<li>
+<p><a href="task-creating-connectors-aws.html#create-an-iam-policy">"Connector展開ポリシーを表示します"</a></p>
+</li>
+</ul>
 </div>
 </li>
 </ul>
