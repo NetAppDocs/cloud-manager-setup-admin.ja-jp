@@ -626,9 +626,14 @@ AWS MarketplaceからConnectorを導入する場合や、LinuxホストにConnec
 }
 ----
 --
-= AWS権限の使用方法
+====
+
+
+== AWS権限の使用方法
 
 以降のセクションでは、各ネットアップクラウドサービスに対する権限の使用方法について説明します。この情報は、企業のポリシーによって、必要な場合にのみアクセス許可が指定されるように指定されている場合に役立ちます。
+
+
 
 === AppTemplateタグ
 
@@ -644,7 +649,9 @@ AppTemplate Taggingサービスを使用する場合、Connectorは次のAPI要�
 * タグ: UntagResources
 
 
-==クラウドバックアップ
+
+
+=== クラウドバックアップ
 
 コネクタは、Cloud Backupのリストアインスタンスを導入するために次のAPI要求を実行します。
 
@@ -711,7 +718,9 @@ Connectorは、Amazon S3でバックアップを管理するために次のAPI�
 * グルー: BatchDeletePartition
 
 
-===クラウドデータの意味
+
+
+=== クラウドデータの意味
 
 Connectorは、Cloud Data Senseインスタンスを導入するために次のAPI要求を実行します。
 
@@ -761,7 +770,9 @@ Cloud Data Senseを使用している場合、コネクタはS3バケットの�
 * STS: AssumeRole
 
 
-==クラウド階層化
+
+
+=== クラウド階層化
 
 Cloud Tieringを使用すると、ConnectorはAmazon S3へのデータの階層化を求める次のAPI要求を実行します。
 
@@ -781,7 +792,9 @@ Cloud Tieringを使用すると、ConnectorはAmazon S3へのデータの階層�
 
 | EC2: DescribeRegions (説明領域 | はい。 | はい。 
 |===
-== Cloud Volumes ONTAP
+
+
+=== Cloud Volumes ONTAP
 
 Connectorは、AWSでのCloud Volumes ONTAP の導入と管理に対して次のAPI要求を実行します。
 
@@ -1050,13 +1063,17 @@ Connectorは、AWSでのCloud Volumes ONTAP の導入と管理に対して次の
 
 | EC2：ModifyVolume | いいえ | はい。 | いいえ 
 |===
-==グローバルファイルキャッシュ
+
+
+=== グローバルファイルキャッシュ
 
 このコネクタは、導入時にグローバルファイルキャッシュインスタンスを導入するために次のAPI要求を行います。
 
 * CloudFormation：DescribeStack
 * CloudWatch：GetMetricStatistics
 * CloudFormation：リストスタック
+
+
 
 
 === Kubernetes
@@ -1068,5 +1085,3 @@ Connectorは、AWSでのCloud Volumes ONTAP の導入と管理に対して次の
 * EKS：DescribeCluster
 * IAM：GetInstanceProfile
 
-
-====
