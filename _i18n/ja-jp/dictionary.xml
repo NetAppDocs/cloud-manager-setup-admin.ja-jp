@@ -1670,7 +1670,6 @@
   <block id="7fe2b3cad6e0fd3e01f58b23a9a48525" category="paragraph"><block ref="7fe2b3cad6e0fd3e01f58b23a9a48525" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3fc84828d29031ccb044fc851a791dd5" category="inline-link-macro">ネットアップアカウントをセットアップする</block>
   <block id="72c3eeaa29779a60f2efe95a1c173302" category="paragraph">手順については、を参照してください <block ref="2e63be6a139b9c6424fb3c44b74add23" category="inline-link-macro-rx"></block>。</block>
-  <block id="6b9aff54334b24c64be5688e6f9c12cc" category="section-title">MAX Cloud Volumes ONTAP システム</block>
   <block id="ff73074ccafb0bcfc1c49a09ceb6532f" category="section-title">Account Settings （アカウント設定）</block>
   <block id="6f42c9f4b429467eb11ea5ae99b87c9d" category="paragraph">Cloud Manager のアカウント管理ウィジェットでは、アカウント管理者がネットアップアカウントを管理できます。アカウントを作成したばかりの場合は、最初から作成します。アカウントをすでに設定している場合は、アカウントに関連付けられているユーザ、ワークスペース、コネクタ、およびサブスクリプションが _all_ と表示されます。</block>
   <block id="e8d4079a6995ce39f10add4f26ab239b" category="paragraph">概要ページには、アカウント名とアカウント ID が表示されます。一部のサービスを登録するときに、アカウント ID の入力が必要になる場合があります。このページには、 Cloud Manager の設定オプションもいくつか表示されます。</block>
@@ -2114,7 +2113,6 @@
   <block id="5c61dbbb22810fcf5149eb1192885607" category="cell">アカウントユーザーおよび他のユーザーに通知を電子メールで送信する機能を提供します</block>
   <block id="e92861fef775acb8c5a64f8d282a8b80" category="cell">Eメール機能はありません</block>
   <block id="d6706ddca18dfba027152ceaeffb550e" category="section-title">通知センターを使用したアクティビティの監視</block>
-  <block id="18aff76a65beb281247b3066c1a37525" category="paragraph">通知には、Cloud Managerで開始した処理の進捗状況が追跡されるため、処理が成功したかどうかを確認できます。現在のログインセッションで開始した多くのCloud Manager処理のステータスを表示できます。</block>
   <block id="5cf9ecbcae765efe1cb17d1c802e39cb" category="paragraph">通知を表示するには、通知ベル（<block ref="df7c8a71ca3da4359e40e121f18f87b9" category="inline-image-macro-rx" type="image"></block>）をクリックします。ベルの小さなバブルの色は、アクティブな最上位レベルの重大度通知を示します。赤いバブルが表示されている場合は、重要な通知があることを意味します。</block>
   <block id="6c836fac6db418cb1aa7dbc3dbd8ff62" category="inline-xref">Eメール通知を設定しています</block>
   <block id="411759a1626269084faceb1751fdaca6" category="paragraph">また、Cloud ManagerからEメールで通知を送信するように設定することで、システムにログインしていないときでも重要なシステムアクティビティを通知することができます。Eメールは、NetApp Cloud Accountの一部であるCloud Centralユーザ、または特定のタイプのシステムアクティビティを認識する必要のあるその他の受信者に送信できます。を参照してください <block ref="2fb0285882e9333d924eb054161cd903" category="inline-xref-macro-rx"></block> 下。</block>
@@ -2151,7 +2149,6 @@
   <block id="acd827f1422fd31386324c56e2be6d81" category="inline-image-macro">アラートと通知用に新しいEメール受信者を追加する方法を示すスクリーンショット。</block>
   <block id="5e56842d0cfbf695522e945a01570eba" category="paragraph"><block ref="5e56842d0cfbf695522e945a01570eba" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b434da4c5ce39b5e4a95ec5159a66676" category="list-text">名前、電子メールアドレスを入力し、受信者が受け取る通知の種類を選択して、*新しい受信者の追加*をクリックします。</block>
-  <block id="34cb1ceabae36f23fad53ac3e3680af5" category="list-text">左側のナビゲーションメニューから、*タイムライン*を選択します。</block>
   <block id="19d38e2a40bebb64998474cbec167167" category="list-text">既存のコネクタにAWSクレデンシャルを追加する</block>
   <block id="2d85cb7a34de23c6b7db0459f207a310" category="paragraph">既存のコネクタに新しい AWS クレデンシャルを追加すると、同じコネクタを使用して別の AWS アカウントに Cloud Volumes ONTAP を導入できるようになります。 <block ref="c25c39db29c727f1578fc8385e3c589b" category="inline-xref-macro-rx"></block>。</block>
   <block id="b43214d44180a6ca97389c1482285fbf" category="list-text">Cloud ManagerにAWSクレデンシャルを追加してコネクタを作成します</block>
@@ -2326,9 +2323,10 @@
   <block id="b272876bb8d27e636bb70f2dce15cb34" category="list-text">EKS：リストクラスタ</block>
   <block id="457a1b6178515d282232753f808e8cf5" category="list-text">EKS：DescribeCluster</block>
   <block id="53ac904630fdbb4d62f208e001934c7c" category="list-text">IAM：GetInstanceProfile</block>
-  <block id="7acc5c4a78b2f3e43bbeb07b9c5f8108" category="inline-link">この制限の詳細については、こちらをご覧ください</block>
-  <block id="b6eb1b17db480470497e94d3911d9e12" category="paragraph">ネットアップアカウント1つにつきCloud Volumes ONTAP システムの最大数に制限されます。<block ref="ed7500cfb54e6cf775da8a8506d96f75" category="inline-link-rx"></block></block>
   <block id="1da5b30af8a0c5d1ce771dde6d9be98e" category="paragraph"><block ref="1da5b30af8a0c5d1ce771dde6d9be98e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0ce7c9606b5f3d67c288c6ffe90a846e" category="paragraph"><block ref="0ce7c9606b5f3d67c288c6ffe90a846e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="991b7c6e5c5e3b71cf64a28ea679cff0" category="paragraph"><block ref="8b6b603d70c42ac6b5c1db56412efc72" category="inline-link-rx"></block>。</block>
+  <block id="87d47630996394fbe848adac841d4925" category="paragraph">通知には、Cloud Managerで開始した処理の進捗状況が追跡されるため、処理が成功したかどうかを確認できます。現在のログインセッションで開始した多くのCloud Manager処理のステータスを表示できます。現時点では、すべてのサービスが通知センターに情報を報告するわけではありません。</block>
+  <block id="e8bcd4ad549fa51ff8495440daac2515" category="paragraph">*注意：* Connectorがインターネットにアクセスできないサイトにインストールされている場合は、電子メール通知の送信はサポートされていません。</block>
+  <block id="5d85fadabc5fc8c195c36c4e3f0560e1" category="list-text">Cloud Managerのメニューバーで、* Settings &gt; Timeline *をクリックします。</block>
 </blocks>
