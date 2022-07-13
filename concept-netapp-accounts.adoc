@@ -123,9 +123,3 @@ image:diagram_cloud_central_accounts_one.png["2 つのワークスペースを�
 アカウント 2 には 2 つのコネクタがあります。これは、システムが別々の地域にある場合や、別々のクラウドプロバイダにある場合に発生することがあります。
 
 image:diagram_cloud_central_accounts_two.png["2 つのネットアップアカウントをそれぞれ複数のワークスペースと、それに関連付けられた Workspace Admin を含む図。"]
-
-
-
-== MAX Cloud Volumes ONTAP システム
-
-ネットアップアカウント1つにつきCloud Volumes ONTAP システムの最大数に制限されます。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#max-number-of-systems["この制限の詳細については、こちらをご覧ください"^]
