@@ -9,14 +9,14 @@
   <meta property="og:title" content="Amazon S3 バケットの表示 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-setup-admin/task-viewing-amazon-s3.html" />
-	<meta property="og:description" content="Connector を AWS にインストールすると、 Cloud Manager は、その Connector がインストールされている AWS アカウントにある Amazon S3 バケットに関する情報を自動的に検出できます。" />
+	<meta property="og:description" content="AWSにコネクタをインストールすると、Cloud Managerは、コネクタがインストールされているAWSアカウントにあるAmazon S3バケットに関する情報を自動的に検出できます。Amazon S3作業環境がCanvasに追加され、この情報を表示できるようになります。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-setup-admin/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Connector を AWS にインストールすると、 Cloud Manager は、その Connector がインストールされている AWS アカウントにある Amazon S3 バケットに関する情報を自動的に検出できます。">
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="AWSにコネクタをインストールすると、Cloud Managerは、コネクタがインストールされているAWSアカウントにあるAmazon S3バケットに関する情報を自動的に検出できます。Amazon S3作業環境がCanvasに追加され、この情報を表示できるようになります。">
   <meta name="keywords" content=" s3 buckets, s3 storage, s3 working environment, amazon s3 buckets, amazon s3 working environment"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-setup-admin/images/favicon.ico" type="image/x-icon">
 
@@ -594,6 +594,37 @@
           
           <a target="_blank" 
             
+              href="/ja-jp/cloud-manager-setup-admin/pdfs/sidebar/クラウドストレージを検出.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            クラウドストレージを検出
+          </a>
+          
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
               href="/ja-jp/cloud-manager-setup-admin/pdfs/sidebar/AWS_クレデンシャル.pdf" 
             
           >
@@ -852,6 +883,15 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/reference-connector-default-config.html">
         デフォルト設定
       </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> クラウドストレージを検出</div>
+      </a>
+      <ul><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/task-viewing-amazon-s3.html">
+        Amazon S3バケットを表示します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/task-viewing-azure-blob.html">
+        Azure Blobアカウントを表示
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/task-viewing-gcp-storage.html">
+        Google Cloud Storageバケットを表示します
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> AWS クレデンシャル</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-setup-admin/concept-accounts-aws.html">
@@ -963,7 +1003,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:25:30 +0000">04/14/2022</time>
+    <time datetime="2022-07-15 16:58:56 +0000">07/15/2022</time>
     
   
 
@@ -971,10 +1011,10 @@
 </p>
 
 <div class="paragraph lead">
-<p>Connector を AWS にインストールすると、 Cloud Manager は、その Connector がインストールされている AWS アカウントにある Amazon S3 バケットに関する情報を自動的に検出できます。</p>
+<p>AWSにコネクタをインストールすると、Cloud Managerは、コネクタがインストールされているAWSアカウントにあるAmazon S3バケットに関する情報を自動的に検出できます。Amazon S3作業環境がCanvasに追加され、この情報を表示できるようになります。</p>
 </div>
 <div class="paragraph">
-<p>リージョン、アクセスレベル、ストレージクラス、バケットが Cloud Volumes ONTAP でバックアップに使用されているかデータの階層化に使用されているかなど、 S3 バケットの詳細を確認できます。また、 Cloud Data Sense を使って S3 バケットをスキャンすることもできます。</p>
+<p>リージョン、アクセスポリシー、アカウント、合計容量と使用済み容量など、S3バケットに関する詳細を確認できます。これらのバケットは、クラウドバックアップ、クラウド階層化、Cloud Sync の各処理のデスティネーションとして使用できます。また、Cloud Data Senseを使用してこれらのバケットをスキャンすることもできます。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
@@ -991,19 +1031,19 @@
 <li>
 <p>作業環境をクリックし、右ペインからアクションを選択します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_s3_actions.gif" alt="Amazon S3 作業環境を選択したあとの操作ペインを示すスクリーンショット。このペインには、 S3 に関する情報（バケットとリージョンの数）が表示されます。このペインには、順守の有効化とバケットの表示の 2 つのアクションもあります。"></span></p>
+<p><span class="image"><img src="./media/screenshot_s3_actions.gif" alt="Amazon S3 作業環境を選択したあとの操作ペインを示すスクリーンショット。このペインには、S3に関する情報（バケット数と使用可能なサービス数）が表示されます。"></span></p>
 </div>
 </li>
 <li>
-<p>S3 バケットをスキャンして個人データおよび機密データを検索するには、 * コンプライアンスを有効にする * をクリックします。</p>
+<p>Cloud Data Senseで個人データや機密データのS3バケットをスキャンする場合は、「* Enable」をクリックします。</p>
 <div class="paragraph">
 <p>詳細については、を参照してください <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-s3.html" target="_blank" rel="noopener">"Amazon S3 向けのクラウドデータセンスの導入"</a>。</p>
 </div>
 </li>
 <li>
-<p>AWS アカウントの S3 バケットの詳細を表示するには、 * バケットの表示 * をクリックします。</p>
+<p>Enter Working Environment *をクリックして、AWSアカウントでS3バケットの詳細を表示します。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_amazon_s3.gif" alt="Amazon S3 作業環境の詳細を示すスクリーンショット。バケットの総数とリージョンの総数、アクティブなサービスを使用するバケットの数、各 S3 バケットの詳細を示す表を示しています。"></span></p>
+<p><span class="image"><img src="./media/screenshot_amazon_s3.gif" alt="Amazon S3作業環境の詳細を示すスクリーンショット。バケットの総数とリージョンの総数、および各S3バケットの詳細を示す表を示しています。"></span></p>
 </div>
 </li>
 </ol>
