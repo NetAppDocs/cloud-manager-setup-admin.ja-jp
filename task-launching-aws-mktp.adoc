@@ -74,3 +74,5 @@ image:screenshot_set_up_cloud_manager.gif["ネットアップアカウントを�
 
 
 これで、 Connector のインストールとセットアップが完了しました。Cloud Manager は、新しい作業環境の作成時にこのコネクタを自動的に使用します。ただし、コネクタが複数ある場合は、が必要です link:task-managing-connectors.html["スイッチを切り替えます"]。
+
+Connectorを作成したのと同じAWSアカウントにAmazon S3バケットがある場合、Amazon S3の作業環境がCanvasに自動的に表示されます。 link:task-viewing-amazon-s3.html["この作業環境でできることの詳細については、こちらをご覧ください"]。

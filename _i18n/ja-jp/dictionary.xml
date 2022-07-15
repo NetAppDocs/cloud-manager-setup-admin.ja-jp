@@ -1093,23 +1093,15 @@
   <block id="f3e5ee27dee8d530004192ac1d6e4a06" category="paragraph">プロキシサーバを設定している場合は、プロキシを経由せずに Cloud Manager に API 呼び出しを直接送信できます。このオプションは、 AWS 、 Azure 、または Google Cloud で実行されているコネクタでサポートされます。</block>
   <block id="a10c3460c01965af15b02ac3cd407880" category="list-text">[*General] で、 [* Support Direct API traffic* ] をクリックします。</block>
   <block id="46a12b9bf87a6fc814d2fc24ac4a41f4" category="list-text">チェックボックスをクリックしてオプションを有効にし、 * 保存 * をクリックします。</block>
-  <block id="4a5457d95cfeedc6a25a0d77c5a33696" category="summary">Connector を AWS にインストールすると、 Cloud Manager は、その Connector がインストールされている AWS アカウントにある Amazon S3 バケットに関する情報を自動的に検出できます。</block>
   <block id="f7099ec977551c0bfc4264472c0bf927" category="doc">Amazon S3 バケットの表示</block>
-  <block id="1681864df7fd2896ef0585a93a2f2f5e" category="paragraph">リージョン、アクセスレベル、ストレージクラス、バケットが Cloud Volumes ONTAP でバックアップに使用されているかデータの階層化に使用されているかなど、 S3 バケットの詳細を確認できます。また、 Cloud Data Sense を使って S3 バケットをスキャンすることもできます。</block>
   <block id="9c626900b015a97ee8e428d66dd7d5d1" category="inline-link-macro">コネクタを取り付ける</block>
   <block id="0d6fec8d76a7754ac76ae4d48310ed99" category="list-text"><block ref="d950cee94b130c47fc349a9ce27609ba" category="inline-link-macro-rx"></block> Amazon S3 バケットを表示する AWS アカウントで実行します。</block>
   <block id="52b8ffdf03daa97daa3970bb3a4247ff" category="paragraph">しばらくすると、 Amazon S3 の作業環境が自動的に表示されます。</block>
   <block id="620734ddcf438083fa8f2f7a7550fbbf" category="inline-image-macro">Amazon S3 作業環境のスクリーンショット。</block>
   <block id="7458becc274c80c36e850edbc1f6337e" category="paragraph"><block ref="7458becc274c80c36e850edbc1f6337e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f0e4d0f6a6a8bae74ed62ce4759c8e3a" category="list-text">作業環境をクリックし、右ペインからアクションを選択します。</block>
-  <block id="6dc3b343e995023f6dad880bf75eec35" category="inline-image-macro">Amazon S3 作業環境を選択したあとの操作ペインを示すスクリーンショット。このペインには、 S3 に関する情報（バケットとリージョンの数）が表示されます。このペインには、順守の有効化とバケットの表示の 2 つのアクションもあります。</block>
-  <block id="a04bfcc8d64fecfeb9a3f74cae6300ca" category="paragraph"><block ref="a04bfcc8d64fecfeb9a3f74cae6300ca" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9631c638ce043ad75ae530bdade1c4ef" category="list-text">S3 バケットをスキャンして個人データおよび機密データを検索するには、 * コンプライアンスを有効にする * をクリックします。</block>
   <block id="c1c42f8ba1dae80cacf28e68dae0ee46" category="inline-link">Amazon S3 向けのクラウドデータセンスの導入</block>
   <block id="dea958812841439df90399efabd7d9ca" category="paragraph">詳細については、を参照してください<block ref="8bc61ddf61abb52b2869fa75574cd87f" category="inline-link-rx"></block>。</block>
-  <block id="bdd9314b00f12caa4d6c99216d658744" category="list-text">AWS アカウントの S3 バケットの詳細を表示するには、 * バケットの表示 * をクリックします。</block>
-  <block id="d910bed716eb11ebd935ddc64285c374" category="inline-image-macro">Amazon S3 作業環境の詳細を示すスクリーンショット。バケットの総数とリージョンの総数、アクティブなサービスを使用するバケットの数、各 S3 バケットの詳細を示す表を示しています。</block>
-  <block id="1292b069d5e08ae0cd0a89167d61d257" category="paragraph"><block ref="1292b069d5e08ae0cd0a89167d61d257" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3cda0aef0362b3ed4d0f6440b667964d" category="summary">このチェックリストを使用して、 Connector からアウトバウンドのインターネットアクセスが設定されている一般的な環境で Cloud Manager を使用するために必要な作業を把握してください。</block>
   <block id="5b13c2584f8e7be6ddae81fa76b103bc" category="doc">はじめにチェックリスト</block>
   <block id="1e094e6477be231098329b0096c7221f" category="list-text">NetApp Cloud Central へのログイン</block>
@@ -2386,4 +2378,49 @@
   <block id="a4f605cd0aab29ee5fb50f28627cef5d" category="sidebar">権限の概要</block>
   <block id="abc9b009fdeb5b04ca7bcd60cdae2434" category="section-title">AWS権限の使用方法</block>
   <block id="c6705240238244043d7e0d39f6ce1db1" category="section-title">AppTemplateタグ</block>
+  <block id="8d0d51d4047979af669daac866df81ec" category="inline-link-macro">この作業環境でできることの詳細については、こちらをご覧ください</block>
+  <block id="3a87e6ba2e9a6adf84612ff7e5ce977c" category="paragraph">Connectorを作成したのと同じAzureアカウントにAzure BLOBストレージがある場合は、Azure Blob作業環境がCanvasに自動的に表示されます。 <block ref="1554e33833508aa8ae7d5d6aebee0d7e" category="inline-link-macro-rx"></block>。</block>
+  <block id="5d1144c70f9657fe3fbc8d4918974ddb" category="paragraph">Connectorを作成したのと同じAWSアカウントにAmazon S3バケットがある場合、Amazon S3の作業環境がCanvasに自動的に表示されます。 <block ref="24e8a034d6d6fc16941efffc954c2b3b" category="inline-link-macro-rx"></block>。</block>
+  <block id="22d92cadc433b5c23595d09edefafba6" category="summary">AWSにコネクタをインストールすると、Cloud Managerは、コネクタがインストールされているAWSアカウントにあるAmazon S3バケットに関する情報を自動的に検出できます。Amazon S3作業環境がCanvasに追加され、この情報を表示できるようになります。</block>
+  <block id="bf9799ea7692475c7cf9755a148ec201" category="paragraph">リージョン、アクセスポリシー、アカウント、合計容量と使用済み容量など、S3バケットに関する詳細を確認できます。これらのバケットは、クラウドバックアップ、クラウド階層化、Cloud Sync の各処理のデスティネーションとして使用できます。また、Cloud Data Senseを使用してこれらのバケットをスキャンすることもできます。</block>
+  <block id="3664079914496ab0ee90209b4ace936f" category="inline-image-macro">Amazon S3 作業環境を選択したあとの操作ペインを示すスクリーンショット。このペインには、S3に関する情報（バケット数と使用可能なサービス数）が表示されます。</block>
+  <block id="b9b2b40a667ab16249d63fc7e435d7f8" category="paragraph"><block ref="b9b2b40a667ab16249d63fc7e435d7f8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a4fefa0676fbe2ed6dbd32159183f6d1" category="list-text">Cloud Data Senseで個人データや機密データのS3バケットをスキャンする場合は、「* Enable」をクリックします。</block>
+  <block id="51ae836da5531e750c5dcf0f62f2dd18" category="list-text">Enter Working Environment *をクリックして、AWSアカウントでS3バケットの詳細を表示します。</block>
+  <block id="9e2485669a43b6702c2aedabfee812a6" category="inline-image-macro">Amazon S3作業環境の詳細を示すスクリーンショット。バケットの総数とリージョンの総数、および各S3バケットの詳細を示す表を示しています。</block>
+  <block id="d6e5e99b5ad8371c45f8879b9381a020" category="paragraph"><block ref="d6e5e99b5ad8371c45f8879b9381a020" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f4605fd480796df9352f08f92e13f676" category="summary">Azureにコネクタをインストールすると、Cloud Managerは、コネクタがインストールされているAzureサブスクリプションにあるAzureストレージアカウントに関する情報を自動的に検出できます。Azure Blob作業環境がCanvasに追加され、この情報を表示できるようになりました。</block>
+  <block id="60c5f52d2a1d91eb3d9cc28c497c50d5" category="doc">Azure Blobアカウントの表示</block>
+  <block id="8038b7f4543340933f0702ca9be2c9c5" category="paragraph">Azureストレージアカウントに関する詳細を確認できます。これには、場所、リソースグループ、合計容量と使用済み容量などの情報が含まれます。これらのアカウントは、クラウドバックアップ、クラウド階層化、Cloud Sync の各処理のデスティネーションとして使用できます。</block>
+  <block id="d62a82d07f9a8474b6e149206712157a" category="list-text"><block ref="8a881211fef5d9da1cb01ccc356312a3" category="inline-link-macro-rx"></block> Azureストレージアカウントを表示するAzureアカウント。</block>
+  <block id="4fa9fc9591ffa247eeef55070b3327a0" category="paragraph">Azure Blob作業環境は、しばらくすると自動的に確認できます。</block>
+  <block id="2ed919302195764ff313fc8d75b59525" category="inline-image-macro">Azure Blob作業環境のスクリーンショット</block>
+  <block id="33b5e081bfc2a4ff553d44178d68dda0" category="paragraph"><block ref="33b5e081bfc2a4ff553d44178d68dda0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ddf1211c4efc09073771de2cfb4c8add" category="inline-image-macro">Azure Blob Working環境を選択したあとの操作ペインのスクリーンショットこのペインには、ストレージアカウントの総数と、Syncサービスを使用するためのアクションが表示されます。</block>
+  <block id="ff6037c85b586250d2e3426572b132dc" category="paragraph"><block ref="ff6037c85b586250d2e3426572b132dc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c6c6c014623477715f07d2a4088e7ee8" category="list-text">*データの同期*をクリックして、Azure BLOBストレージとの間でデータを同期します。</block>
+  <block id="2eb089b7bd4ffecd4fb1075d13738904" category="inline-link">Cloud Sync サービスの概要</block>
+  <block id="7f4de8563758c51b51d61369c0182739" category="paragraph">詳細については、を参照してください<block ref="9a75baacec67d9c9539ea0017722641e" category="inline-link-rx"></block>。</block>
+  <block id="1b42730f30d8c35e95778616c948b114" category="list-text">Enter Working Environment *をクリックして、Azure Blob内のAzureストレージアカウントに関する詳細を表示します。</block>
+  <block id="60c144c7df7b8788c579926f83c506f9" category="inline-image-macro">Azure Blob作業環境の詳細を示すスクリーンショット：ストレージアカウントの総数、場所の総数、リソースグループ、合計容量と使用済み容量など。</block>
+  <block id="b8fb2daac759c86243cf205eec39b222" category="paragraph"><block ref="b8fb2daac759c86243cf205eec39b222" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b200f359ce48cc34f1991dac06f22a6c" category="summary">ConnectorをGoogle Cloudにインストールすると、Cloud Managerは、ConnectorがインストールされているGoogleアカウントにあるGoogle Cloudバケットに関する情報を自動的に検出します。Google Cloud Storage作業環境がCanvasに追加され、この情報を表示できます。</block>
+  <block id="fc45939bb3edc691f0de1907290992f5" category="doc">Google Cloud Storageバケットの表示</block>
+  <block id="45901b51867d890e996fbb616cbb554c" category="paragraph">ConnectorをGoogle Cloudにインストールすると、Cloud Managerは、ConnectorがインストールされているGoogleアカウントにあるGoogle Cloud Storageバケットに関する情報を自動的に検出します。Google Cloud Storage作業環境がCanvasに追加され、この情報を表示できます。</block>
+  <block id="d7d3898c944de3ebf19acbb6fcf8c7c4" category="paragraph">Google Cloud Storageバケットの場所、アクセスステータス、ストレージクラス、合計容量と使用済み容量などの詳細を確認できます。これらのバケットは、クラウドバックアップ、クラウド階層化、Cloud Sync の各処理のデスティネーションとして使用できます。</block>
+  <block id="932c64a83e92b37d6857838614026033" category="list-text"><block ref="e1397902eee37121b8d7d2d75abb5593" category="inline-link-macro-rx"></block> Google Cloud Storageバケットを表示するGoogleアカウント。</block>
+  <block id="18fe44f15840f7116c5288c8e5b736da" category="paragraph">しばらくすると、Google Cloud Storageの作業環境が自動的に表示されます。</block>
+  <block id="21b1bc909131728ad1b5d3d05c538f6b" category="inline-image-macro">Google Cloud Storage作業環境のスクリーンショット。</block>
+  <block id="94bd1056e53b5ba66af1269a83d9d853" category="paragraph"><block ref="94bd1056e53b5ba66af1269a83d9d853" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dda5d91ac092d5a2808c7b76b6686167" category="inline-image-macro">Google Cloud Storage作業環境を選択した後の操作ペインを示すスクリーンショット。このペインには、同期サービスを使用するためのバケットの総数とアクションが表示されます。</block>
+  <block id="15d37262e72beba7163abfd70b5bfa25" category="paragraph"><block ref="15d37262e72beba7163abfd70b5bfa25" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1bdd9d91c53e302b7d28e2f05fe9cc24" category="list-text">[*データの同期*（Sync data）]をクリックして、Google Cloud Storageバケットとの間でデータを同期します。</block>
+  <block id="6a74a0042c1976d39e3ccd69613d340c" category="list-text">*作業環境の入力*をクリックすると、Googleアカウントのバケットの詳細が表示されます。</block>
+  <block id="b008bc9f769ee3b6c8813b19052b43a6" category="inline-image-macro">Google Cloud Storage作業環境の詳細を示すスクリーンショット。バケット、容量、場所の総数、および各バケットの詳細を示す表を示しています。</block>
+  <block id="14738180b3115b94f504ce48bf25a31a" category="paragraph"><block ref="14738180b3115b94f504ce48bf25a31a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a7901982205b7bb3f9e615cc8b6e29af" category="paragraph">Connectorを作成したGoogle CloudアカウントにGoogle Cloud Storageバケットがある場合は、Google Cloud Storage作業環境がCanvasに自動的に表示されます。 <block ref="3be67402f92aecc3ed5f8761be46eca8" category="inline-link-macro-rx"></block>。</block>
+  <block id="fbfa85280a8f29e21ca92f023121f1b2" category="sidebar">クラウドストレージを検出</block>
+  <block id="e11597621f115e17031710501eefedbc" category="sidebar">Amazon S3バケットを表示します</block>
+  <block id="bce447551b8153911559a7a705721ffe" category="sidebar">Azure Blobアカウントを表示</block>
+  <block id="82f74539a8232efa9fe9d44fbb820377" category="sidebar">Google Cloud Storageバケットを表示します</block>
 </blocks>

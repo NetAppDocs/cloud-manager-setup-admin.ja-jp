@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: task-viewing-gcp-storage.html 
+keywords: google cloud storage buckets, google cloud storage, google cloud storage working environment 
+summary: ConnectorをGoogle Cloudにインストールすると、Cloud Managerは、ConnectorがインストールされているGoogleアカウントにあるGoogle Cloudバケットに関する情報を自動的に検出します。Google Cloud Storage作業環境がCanvasに追加され、この情報を表示できます。 
+---
+= Google Cloud Storageバケットの表示
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ConnectorをGoogle Cloudにインストールすると、Cloud Managerは、ConnectorがインストールされているGoogleアカウントにあるGoogle Cloud Storageバケットに関する情報を自動的に検出します。Google Cloud Storage作業環境がCanvasに追加され、この情報を表示できます。
+
+Google Cloud Storageバケットの場所、アクセスステータス、ストレージクラス、合計容量と使用済み容量などの詳細を確認できます。これらのバケットは、クラウドバックアップ、クラウド階層化、Cloud Sync の各処理のデスティネーションとして使用できます。
+
+.手順
+. link:task-creating-connectors-gcp.html["コネクタを取り付ける"] Google Cloud Storageバケットを表示するGoogleアカウント。
++
+しばらくすると、Google Cloud Storageの作業環境が自動的に表示されます。
+
++
+image:screenshot-gcp-cloud-storage-we.png["Google Cloud Storage作業環境のスクリーンショット。"]
+
+. 作業環境をクリックし、右ペインからアクションを選択します。
++
+image:screenshot-gcp-cloud-storage-actions.png["Google Cloud Storage作業環境を選択した後の操作ペインを示すスクリーンショット。このペインには、同期サービスを使用するためのバケットの総数とアクションが表示されます。"]
+
+. [*データの同期*（Sync data）]をクリックして、Google Cloud Storageバケットとの間でデータを同期します。
++
+詳細については、を参照してください https://docs.netapp.com/us-en/cloud-manager-sync/concept-cloud-sync.html["Cloud Sync サービスの概要"^]。
+
+. *作業環境の入力*をクリックすると、Googleアカウントのバケットの詳細が表示されます。
++
+image:screenshot-gcp-cloud-storage-details.png["Google Cloud Storage作業環境の詳細を示すスクリーンショット。バケット、容量、場所の総数、および各バケットの詳細を示す表を示しています。"]
+
+

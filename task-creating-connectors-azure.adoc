@@ -247,6 +247,8 @@ NOTE: コネクタへの着信トラフィックは、開始しない限りあ�
 
 ワークスペース管理者がコネクタを使用して Cloud Volumes ONTAP システムを作成できるように、コネクタをワークスペースに関連付ける必要があります。アカウント管理者のみがいる場合は、コネクタをワークスペースに関連付ける必要はありません。アカウント管理者は、デフォルトで Cloud Manager のすべてのワークスペースにアクセスできます。 link:task-setting-up-netapp-accounts.html#associating-connectors-with-workspaces["詳細はこちら。"]。
 
+Connectorを作成したのと同じAzureアカウントにAzure BLOBストレージがある場合は、Azure Blob作業環境がCanvasに自動的に表示されます。 link:task-viewing-azure-blob.html["この作業環境でできることの詳細については、こちらをご覧ください"]。
+
 
 
 == サービスプリンシパルを使用してコネクタを作成します
@@ -549,3 +551,5 @@ NOTE: コネクタへの着信トラフィックは、開始しない限りあ�
 
 
 ワークスペース管理者がコネクタを使用して Cloud Volumes ONTAP システムを作成できるように、コネクタをワークスペースに関連付ける必要があります。アカウント管理者のみがいる場合は、コネクタをワークスペースに関連付ける必要はありません。アカウント管理者は、デフォルトで Cloud Manager のすべてのワークスペースにアクセスできます。 link:task-setting-up-netapp-accounts.html#associating-connectors-with-workspaces["詳細はこちら。"]。
+
+Connectorを作成したのと同じAzureアカウントにAzure BLOBストレージがある場合は、Azure Blob作業環境がCanvasに自動的に表示されます。 link:task-viewing-azure-blob.html["この作業環境でできることの詳細については、こちらをご覧ください"]。

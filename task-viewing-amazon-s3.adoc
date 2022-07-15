@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-viewing-amazon-s3.html 
 keywords: s3 buckets, s3 storage, s3 working environment, amazon s3 buckets, amazon s3 working environment 
-summary: Connector を AWS にインストールすると、 Cloud Manager は、その Connector がインストールされている AWS アカウントにある Amazon S3 バケットに関する情報を自動的に検出できます。 
+summary: AWSにコネクタをインストールすると、Cloud Managerは、コネクタがインストールされているAWSアカウントにあるAmazon S3バケットに関する情報を自動的に検出できます。Amazon S3作業環境がCanvasに追加され、この情報を表示できるようになります。 
 ---
 = Amazon S3 バケットの表示
 :hardbreaks:
@@ -14,9 +14,9 @@ summary: Connector を AWS にインストールすると、 Cloud Manager は�
 
 
 [role="lead"]
-Connector を AWS にインストールすると、 Cloud Manager は、その Connector がインストールされている AWS アカウントにある Amazon S3 バケットに関する情報を自動的に検出できます。
+AWSにコネクタをインストールすると、Cloud Managerは、コネクタがインストールされているAWSアカウントにあるAmazon S3バケットに関する情報を自動的に検出できます。Amazon S3作業環境がCanvasに追加され、この情報を表示できるようになります。
 
-リージョン、アクセスレベル、ストレージクラス、バケットが Cloud Volumes ONTAP でバックアップに使用されているかデータの階層化に使用されているかなど、 S3 バケットの詳細を確認できます。また、 Cloud Data Sense を使って S3 バケットをスキャンすることもできます。
+リージョン、アクセスポリシー、アカウント、合計容量と使用済み容量など、S3バケットに関する詳細を確認できます。これらのバケットは、クラウドバックアップ、クラウド階層化、Cloud Sync の各処理のデスティネーションとして使用できます。また、Cloud Data Senseを使用してこれらのバケットをスキャンすることもできます。
 
 .手順
 . link:task-creating-connectors-aws.html["コネクタを取り付ける"] Amazon S3 バケットを表示する AWS アカウントで実行します。
@@ -28,14 +28,14 @@ image:screenshot_s3_we.gif["Amazon S3 作業環境のスクリーンショット
 
 . 作業環境をクリックし、右ペインからアクションを選択します。
 +
-image:screenshot_s3_actions.gif["Amazon S3 作業環境を選択したあとの操作ペインを示すスクリーンショット。このペインには、 S3 に関する情報（バケットとリージョンの数）が表示されます。このペインには、順守の有効化とバケットの表示の 2 つのアクションもあります。"]
+image:screenshot_s3_actions.gif["Amazon S3 作業環境を選択したあとの操作ペインを示すスクリーンショット。このペインには、S3に関する情報（バケット数と使用可能なサービス数）が表示されます。"]
 
-. S3 バケットをスキャンして個人データおよび機密データを検索するには、 * コンプライアンスを有効にする * をクリックします。
+. Cloud Data Senseで個人データや機密データのS3バケットをスキャンする場合は、「* Enable」をクリックします。
 +
 詳細については、を参照してください https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-s3.html["Amazon S3 向けのクラウドデータセンスの導入"^]。
 
-. AWS アカウントの S3 バケットの詳細を表示するには、 * バケットの表示 * をクリックします。
+. Enter Working Environment *をクリックして、AWSアカウントでS3バケットの詳細を表示します。
 +
-image:screenshot_amazon_s3.gif["Amazon S3 作業環境の詳細を示すスクリーンショット。バケットの総数とリージョンの総数、アクティブなサービスを使用するバケットの数、各 S3 バケットの詳細を示す表を示しています。"]
+image:screenshot_amazon_s3.gif["Amazon S3作業環境の詳細を示すスクリーンショット。バケットの総数とリージョンの総数、および各S3バケットの詳細を示す表を示しています。"]
 
 
