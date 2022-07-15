@@ -2241,7 +2241,6 @@
   <block id="457a1b6178515d282232753f808e8cf5" category="list-text">EKS：DescribeCluster</block>
   <block id="53ac904630fdbb4d62f208e001934c7c" category="list-text">IAM：GetInstanceProfile</block>
   <block id="1da5b30af8a0c5d1ce771dde6d9be98e" category="paragraph"><block ref="1da5b30af8a0c5d1ce771dde6d9be98e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0ce7c9606b5f3d67c288c6ffe90a846e" category="paragraph"><block ref="0ce7c9606b5f3d67c288c6ffe90a846e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="991b7c6e5c5e3b71cf64a28ea679cff0" category="paragraph"><block ref="8b6b603d70c42ac6b5c1db56412efc72" category="inline-link-rx"></block>。</block>
   <block id="87d47630996394fbe848adac841d4925" category="paragraph">通知には、Cloud Managerで開始した処理の進捗状況が追跡されるため、処理が成功したかどうかを確認できます。現在のログインセッションで開始した多くのCloud Manager処理のステータスを表示できます。現時点では、すべてのサービスが通知センターに情報を報告するわけではありません。</block>
   <block id="e8bcd4ad549fa51ff8495440daac2515" category="paragraph">*注意：* Connectorがインターネットにアクセスできないサイトにインストールされている場合は、電子メール通知の送信はサポートされていません。</block>
@@ -2430,4 +2429,5 @@
   <block id="449d304f6ee19f4cd91497b67641d687" category="paragraph"><block ref="2381483aa809d20dc8ed09c651a1b090" category="inline-link-macro-rx"></block>。</block>
   <block id="49056d93dd3cd3fc9129ebadcf6877e0" category="inline-link-macro">Cloud Managerの権限の概要を確認します</block>
   <block id="289c267aad7151f388f9cb33c2dd25ca" category="paragraph">また、各ポリシーへのリンクを提供するページも作成しました。 <block ref="95fc2556330780df6dd239853ed18808" category="inline-link-macro-rx"></block>。</block>
+  <block id="75c4b088a92b16dc79074e212617e6c6" category="paragraph"><block ref="75c4b088a92b16dc79074e212617e6c6" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
