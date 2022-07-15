@@ -18,6 +18,20 @@ Cloud Manager の管理機能の新機能であるネットアップのアカウ
 
 
 
+== 2022年7月15日
+
+
+
+=== ポリシーの変更
+
+ドキュメントを更新するには、Cloud Managerのポリシーをドキュメント内に直接追加します。これにより、コネクタとCloud Volumes ONTAP に必要な権限を、設定方法を説明する手順とともに表示できるようになりました。これらのポリシーには、ネットアップサポートサイトのページからアクセスできます。
+
+link:task-creating-connectors-aws.html#create-an-iam-policy["次の例は、コネクタの作成に使用するAWS IAMロールの権限を示しています"]。
+
+また、各ポリシーへのリンクを提供するページも作成しました。 link:reference-permissions.html["Cloud Managerの権限の概要を確認します"]。
+
+
+
 == 2022年7月3日
 
 

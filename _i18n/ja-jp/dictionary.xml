@@ -2423,4 +2423,11 @@
   <block id="e11597621f115e17031710501eefedbc" category="sidebar">Amazon S3バケットを表示します</block>
   <block id="bce447551b8153911559a7a705721ffe" category="sidebar">Azure Blobアカウントを表示</block>
   <block id="82f74539a8232efa9fe9d44fbb820377" category="sidebar">Google Cloud Storageバケットを表示します</block>
+  <block id="a334cff76a53c8f9b93a01e24c56c9e5" category="section-title">2022年7月15日</block>
+  <block id="fd07056b3157389b873051e9d2dd6d40" category="section-title">ポリシーの変更</block>
+  <block id="4c2e66937d2d8ba8680502b29c20f843" category="paragraph">ドキュメントを更新するには、Cloud Managerのポリシーをドキュメント内に直接追加します。これにより、コネクタとCloud Volumes ONTAP に必要な権限を、設定方法を説明する手順とともに表示できるようになりました。これらのポリシーには、ネットアップサポートサイトのページからアクセスできます。</block>
+  <block id="28f37fc0eb4fe20ff92020d4d8d46b8d" category="inline-link-macro">次の例は、コネクタの作成に使用するAWS IAMロールの権限を示しています</block>
+  <block id="449d304f6ee19f4cd91497b67641d687" category="paragraph"><block ref="2381483aa809d20dc8ed09c651a1b090" category="inline-link-macro-rx"></block>。</block>
+  <block id="49056d93dd3cd3fc9129ebadcf6877e0" category="inline-link-macro">Cloud Managerの権限の概要を確認します</block>
+  <block id="289c267aad7151f388f9cb33c2dd25ca" category="paragraph">また、各ポリシーへのリンクを提供するページも作成しました。 <block ref="95fc2556330780df6dd239853ed18808" category="inline-link-macro-rx"></block>。</block>
 </blocks>
