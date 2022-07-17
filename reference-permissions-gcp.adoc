@@ -122,6 +122,8 @@ includedPermissions:
 - iam.serviceAccounts.list
 - storage.objects.get
 - storage.objects.list
+- monitoring.timeSeries.list
+- storage.buckets.getIamPolicy
 ----
 
 
@@ -217,4 +219,7 @@ includedPermissions:
 
 
 | - compute.instanceGroups.get - compute .address.get | HAペアでStorage VMを作成および管理する。 
+
+
+| -monitoring timeseries.list -storage.buckets-getIamPolicyを選択します | をクリックして、Google Cloud Storageバケットに関する情報を確認してください。 
 |===

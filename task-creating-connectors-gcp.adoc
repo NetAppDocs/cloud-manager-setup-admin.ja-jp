@@ -207,6 +207,8 @@ includedPermissions:
 - iam.serviceAccounts.list
 - storage.objects.get
 - storage.objects.list
+- monitoring.timeSeries.list
+- storage.buckets.getIamPolicy
 ----
 . https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["Google Cloudサービスアカウントを作成し、作成したカスタムロールを適用します"^]。
 . Cloud Volumes ONTAP を他のプロジェクトに導入する場合は、 https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割"^]。プロジェクトごとにこの手順を繰り返す必要があります。
