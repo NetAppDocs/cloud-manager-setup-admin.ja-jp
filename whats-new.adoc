@@ -26,9 +26,9 @@ Cloud Manager の管理機能の新機能であるネットアップのアカウ
 
 ドキュメントを更新するには、Cloud Managerのポリシーをドキュメント内に直接追加します。これにより、コネクタとCloud Volumes ONTAP に必要な権限を、設定方法を説明する手順とともに表示できるようになりました。これらのポリシーには、ネットアップサポートサイトのページからアクセスできます。
 
-link:task-creating-connectors-aws.html#create-an-iam-policy["次の例は、コネクタの作成に使用するAWS IAMロールの権限を示しています"]。
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html#create-an-iam-policy["次の例は、コネクタの作成に使用するAWS IAMロールの権限を示しています"]。
 
-また、各ポリシーへのリンクを提供するページも作成しました。 link:reference-permissions.html["Cloud Managerの権限の概要を確認します"]。
+また、各ポリシーへのリンクを提供するページも作成しました。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["Cloud Managerの権限の概要を確認します"]。
 
 
 
